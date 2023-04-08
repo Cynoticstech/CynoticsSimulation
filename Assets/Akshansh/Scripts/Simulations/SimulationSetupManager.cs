@@ -9,7 +9,7 @@ namespace Simulations
     public class SimulationSetupManager : MobileInputs
     {
         #region Public Fields
-        public enum SimulationTypes { MitosisMeiosis }
+        public enum SimulationTypes { MitosisMeiosis,AmoebaHydra }
         #endregion
 
         #region Serialized Fields
