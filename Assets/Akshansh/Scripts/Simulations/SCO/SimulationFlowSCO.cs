@@ -16,5 +16,6 @@ namespace Simulations
         }
         public AnswerSpriteDataHolder[] AnswerSprites;
         public GameObject AnswerPrefab;
+        public GameObject[] LabledAnswers;
     }
 }

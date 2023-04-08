@@ -29532,7 +29532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -31809,18 +31809,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44850cb90915a14459f834a055c90608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSCO: {fileID: 11400000, guid: 69c161c81164fcc48a558dd81b2e812b, type: 2}
+  targetSCO: {fileID: 0}
   startRang: 0
   endRange: 4
-  scale: {x: 0.7, y: 0.7, z: 0.7}
+  scale: {x: 1, y: 1, z: 1}
   eulerAngles: {x: 0, y: 0, z: 0}
-  spritesToAdd:
-  - {fileID: -1510091611, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
-  - {fileID: -561466343, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
-  - {fileID: 1390982247, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
-  - {fileID: -1855519340, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
-  - {fileID: 1338529506, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
-  spriteNameIdentifier: 'Meiosis Doubble:'
+  spritesToAdd: []
+  spriteNameIdentifier: Hydra
   curtAction: 1
 --- !u!1 &1741263852
 GameObject:
@@ -33568,6 +33563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AvailableSimulations:
   - {fileID: 11400000, guid: 69c161c81164fcc48a558dd81b2e812b, type: 2}
+  - {fileID: 11400000, guid: 10175ffaa4d3a064784374dfc253b6a6, type: 2}
   simulationsAvailable:
   - SimulationObj: {fileID: 534223684}
     SimulationStepObjects:
@@ -33599,6 +33595,41 @@ MonoBehaviour:
     - {fileID: 2081349237}
     - {fileID: 1865932225}
     SimulationType: 0
+  - SimulationObj: {fileID: 2073926668}
+    SimulationStepObjects:
+    - {fileID: 2004031074}
+    - {fileID: 1662916432}
+    - {fileID: 467099032}
+    - {fileID: 55683434}
+    - {fileID: 79265150}
+    - {fileID: 424871139}
+    InputFields:
+    - {fileID: 2072306392}
+    - {fileID: 1391211385}
+    - {fileID: 1182767874}
+    - {fileID: 2120360555}
+    - {fileID: 280080459}
+    - {fileID: 1375252735}
+    - {fileID: 1603151314}
+    - {fileID: 1322164820}
+    - {fileID: 1193943120}
+    - {fileID: 834606365}
+    - {fileID: 757899554}
+    - {fileID: 2089877912}
+    - {fileID: 1194307275}
+    - {fileID: 1933124795}
+    - {fileID: 1343621622}
+    - {fileID: 1502267925}
+    - {fileID: 772043560}
+    - {fileID: 61682660}
+    - {fileID: 333828502}
+    - {fileID: 578248947}
+    - {fileID: 287536583}
+    - {fileID: 533887952}
+    - {fileID: 84564409}
+    - {fileID: 359991026}
+    - {fileID: 615442908}
+    SimulationType: 1
 --- !u!114 &1829721001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34480,7 +34511,7 @@ GameObject:
   - component: {fileID: 1930706764}
   - component: {fileID: 1930706763}
   m_Layer: 5
-  m_Name: FillupsHolder
+  m_Name: AmoebaFillupsHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35152,6 +35183,14 @@ MonoBehaviour:
     - {fileID: 1922367979}
     PercentageTxt: {fileID: 276264435}
     SimulationType: 0
+  - ResultObj: {fileID: 1827077889}
+    ListContentHolder:
+    - {fileID: 1662525423}
+    - {fileID: 1930706761}
+    - {fileID: 1928991948}
+    - {fileID: 336943156}
+    PercentageTxt: {fileID: 1012723275}
+    SimulationType: 1
   listAnswerPref: {fileID: 4549247168739560833, guid: 06f7e983086a4c145930d874e4cbc79a, type: 3}
   fillAnswerPref: {fileID: 7227800131749532019, guid: 23df876f87f60254590b869a517f09aa, type: 3}
 --- !u!1 &1971189588
@@ -37043,7 +37082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2073926669
 RectTransform:
   m_ObjectHideFlags: 0

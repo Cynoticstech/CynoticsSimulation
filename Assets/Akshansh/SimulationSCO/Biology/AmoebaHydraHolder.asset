@@ -12,9 +12,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26feb22ef7b5eb24f9c7661c947e0966, type: 3}
   m_Name: AmoebaHydraHolder
   m_EditorClassIdentifier: 
-  ProjectName: 0
-  PopupSequences: []
-  ValidAnswers: []
-  FillupsQuestions: []
+  ProjectName: 1
+  PopupSequences:
+  - Welcome to the Second experiment. We are going to study binary fission in Amoeba
+    and budding in Hydra.
+  - "First let\u2019s do a small activity. Can you name all the phases involved in
+    fission of Amoeba?"
+  - "Amazing! We have successfully labelled all the phases involved in fission of
+    Amoeba. Now here\u2019s a challenge for you, can you complete these fill in the
+    blanks?"
+  - Excellent. Now let's jump to Hydra and try to label it.
+  - "Amazing! We have successfully labelled Hydra. Now here\u2019s a challenge for
+    you, can you complete these fill in the blanks?"
+  - "Amazing! We have successfully labelled Hydra. Now here\u2019s a challenge for
+    you, can you complete these fill in the blanks?"
+  ValidAnswers:
+  - Mother Amoeba
+  - Pseudopodia are pulled in
+  - Nucleus divides
+  - Cytoplasm divides
+  - Daughter Amoeba
+  - parent
+  - oval
+  - site
+  - daughter
+  - mouth
+  - Hypostome
+  - Tentacle
+  - Nematocyst
+  - Testis
+  - Gastrovascular cavity
+  - Ovary
+  - Epidermis
+  - Gastrodermis
+  - Mesogleva
+  - Bud
+  - body
+  - multicellular
+  - bud
+  - mouth
+  - Asexual
+  FillupsQuestions:
+  - 'At the beginning, the '
+  - ' gets elongated.'
+  - 'Nucleus gets '
+  - '  shaped.'
+  - '  shaped.'
+  - 'A notch is developed at the '
+  - of division.
+  - 'Two small '
+  - ' cells of Amoeba are formed.'
+  - A small outgrowth is seen on the
+  - ' of Hydra.'
+  - 'It becomes '
+  - ' due to enough growth.'
+  - 'This outgrowth detaches in the form of bud having '
+  - ' and '
+  - 'Amoeba and Hydra reproduce by  '
+  - ' method.'
   AnswerSprites: []
-  AnswerPrefab: {fileID: 0}
+  AnswerPrefab: {fileID: 851274346076348074, guid: 0f7cd3bcacd38684c8eda866010d80b3, type: 3}

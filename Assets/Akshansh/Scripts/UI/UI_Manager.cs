@@ -21,6 +21,7 @@ namespace Simulations.UI
         [SerializeField] GameObject listAnswerPref, fillAnswerPref;
 
         SimulationSetupManager setupMang;
+        int correctAnswers = 0;
         private void Start()
         {
             setupMang = FindAnyObjectByType<SimulationSetupManager>();
@@ -34,6 +35,9 @@ namespace Simulations.UI
                 case SimulationSetupManager.SimulationTypes.MitosisMeiosis:
                     GenerateMytosisResult(_type, _flow);
                     break;
+                case SimulationSetupManager.SimulationTypes.AmoebaHydra:
+                    GenerateAmoebaResult(_type, _flow);
+                    break;
                 default:
                     break;
             }
@@ -45,7 +49,7 @@ namespace Simulations.UI
             var _active = GetActiveResult(_type);
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
-            int _correctAnswers = 0, _totalAnswers = _tempResults.Length;
+            int _totalAnswers = _tempResults.Length;
             for (int i = 0; i < _tempResults.Length; i++)
             {
                 _tempResults[i] = _flow.ValidAnswers[i];
@@ -54,100 +58,231 @@ namespace Simulations.UI
                 _tempInputs[i] = _tempInputs[i].ToLower();
                 _tempInputs[i] = _tempInputs[i].Replace(" ", "");
             }
-            switch (_type)
+            int _currentStage = 1;
+            for (int i = 0; i < 7; i++, _currentStage++)
             {
-                case SimulationSetupManager.SimulationTypes.MitosisMeiosis:
-                    //first stage result
-                    int _currentStage = 1;
-                    for (int i = 0; i < 7; i++, _currentStage++)
-                    {
-                        foreach (var _img in _flow.AnswerSprites[i].AnswerSprite)
-                        {
-                            var _tempSprite = Instantiate(_flow.AnswerPrefab, _active.ListContentHolder[0].transform).transform;
-                            _tempSprite.GetComponentInChildren<Image>().sprite = _img;
-                            _tempSprite.transform.GetChild(0).localScale = _flow.AnswerSprites[i].SpriteScale;
-                            _tempSprite.transform.GetChild(0).localEulerAngles = _flow.AnswerSprites[i].SpriteEulerAngles;
-                        }
+                foreach (var _img in _flow.AnswerSprites[i].AnswerSprite)
+                {
+                    var _tempSprite = Instantiate(_flow.AnswerPrefab, _active.ListContentHolder[0].transform).transform;
+                    _tempSprite.GetComponentInChildren<Image>().sprite = _img;
+                    _tempSprite.transform.GetChild(0).localScale = _flow.AnswerSprites[i].SpriteScale;
+                    _tempSprite.transform.GetChild(0).localEulerAngles = _flow.AnswerSprites[i].SpriteEulerAngles;
+                }
 
-                        //generate sprite before (if needs to be shown)
-                        var _tempTxt = Instantiate(listAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
-                        if (_tempResults[i] == _tempInputs[i])//if correct answer
-                        {
-                            print(_tempTxt);
-                            _tempTxt.text = "Stage " + _currentStage + ": <color=green>" + _tempInputs[i] + "</color>";
-                            _correctAnswers++;
-                        }
-                        else
-                        {
-                            //if incorrect
-                            _tempTxt.text = "Stage " + _currentStage + ": <color=red>" + _tempInputs[i] + ", is incorrect" + "</color>";
-                            //add correct answer below it
-                            Instantiate(listAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>().
-                                text = "Stage " + _currentStage + ": <color=green>" + _tempResults[i] + "</color>";
-                        }
-                    }
-                    _currentStage = 1;
-                    for (int i = 7; i < 17; i++, _currentStage++)
-                    {
-                        foreach (var _img in _flow.AnswerSprites[i].AnswerSprite)
-                        {
-                            var _tempSprite = Instantiate(_flow.AnswerPrefab, _active.ListContentHolder[1].transform).transform;
-                            _tempSprite.GetComponentInChildren<Image>().sprite = _img;
-                            _tempSprite.transform.GetChild(0).localScale = _flow.AnswerSprites[i].SpriteScale;
-                            _tempSprite.transform.GetChild(0).localEulerAngles = _flow.AnswerSprites[i].SpriteEulerAngles;
-                        }
-
-                        //sprite gen end
-                        var _tempTxt = Instantiate(listAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
-                        if (_tempResults[i] == _tempInputs[i])//if correct answer
-                        {
-                            print(_tempTxt);
-                            _tempTxt.text = "Stage " + _currentStage + ": <color=green>" + _tempInputs[i] + "</color>";
-                            _correctAnswers++;
-
-                        }
-                        else
-                        {
-                            //if incorrect
-                            _tempTxt.text = "Stage " + _currentStage + ": <color=red>" + _tempInputs[i] + ", is incorrect " + "</color>";
-                            //add correct answer below it
-                            Instantiate(listAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>().
-                                text = "Stage " + _currentStage + ": <color=green>" + _tempResults[i] + "</color>";
-                        }
-                    }
-                    for (int i = 17; i < 21; i += 2)//skipping to gaps at a time
-                    {
-                        bool _incorrect = false;//to check which value is incorrect
-                        var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[2].transform).GetComponent<TMP_Text>();
-                        _tempTxt.text = "";
-                        for (int j = 0; j < 2; j++)//2 blanks in one question
-                        {
-                            if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
-                            {
-                                _tempTxt.text += _flow.FillupsQuestions[j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + ((j == 1) ? " cells." : "");
-                                _correctAnswers++;
-                            }
-                            else
-                            {
-                                //if incorrect
-                                _tempTxt.text += _flow.FillupsQuestions[j] + " <color=red>" + _tempInputs[i + j] + ", is incorrect" + "</color>" + ((j == 1) ? " cells." : "");
-                                _incorrect = true;
-                            }
-                        }//first loop end
-                        if (_incorrect)
-                        {
-                            var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[2].transform).GetComponent<TMP_Text>();
-                            _tempTxt2.text = "";
-                            for (int j = 0; j < 2; j++)//2 blanks in one question
-                            {
-                                _tempTxt2.text += _flow.FillupsQuestions[j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + ((j == 1) ? " cells." : "");
-                            }
-                        }
-                    }
-                    break;
+                //generate sprite before (if needs to be shown)
+                var _tempTxt = Instantiate(listAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
+                if (_tempResults[i] == _tempInputs[i])//if correct answer
+                {
+                    print(_tempTxt);
+                    _tempTxt.text = "Stage " + _currentStage + ": <color=green>" + _tempInputs[i] + "</color>";
+                    correctAnswers++;
+                }
+                else
+                {
+                    //if incorrect
+                    _tempTxt.text = "Stage " + _currentStage + ": <color=red>" + _tempInputs[i] + ", is incorrect" + "</color>";
+                    //add correct answer below it
+                    Instantiate(listAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>().
+                        text = "Stage " + _currentStage + ": <color=green>" + _tempResults[i] + "</color>";
+                }
             }
-            _active.PercentageTxt.text = "You answered " + (_correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
-            print(_totalAnswers + " " + _correctAnswers);
+            _currentStage = 1;
+            for (int i = 7; i < 17; i++, _currentStage++)
+            {
+                foreach (var _img in _flow.AnswerSprites[i].AnswerSprite)
+                {
+                    var _tempSprite = Instantiate(_flow.AnswerPrefab, _active.ListContentHolder[1].transform).transform;
+                    _tempSprite.GetComponentInChildren<Image>().sprite = _img;
+                    _tempSprite.transform.GetChild(0).localScale = _flow.AnswerSprites[i].SpriteScale;
+                    _tempSprite.transform.GetChild(0).localEulerAngles = _flow.AnswerSprites[i].SpriteEulerAngles;
+                }
+
+                //sprite gen end
+                var _tempTxt = Instantiate(listAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
+                if (_tempResults[i] == _tempInputs[i])//if correct answer
+                {
+                    print(_tempTxt);
+                    _tempTxt.text = "Stage " + _currentStage + ": <color=green>" + _tempInputs[i] + "</color>";
+                    correctAnswers++;
+
+                }
+                else
+                {
+                    //if incorrect
+                    _tempTxt.text = "Stage " + _currentStage + ": <color=red>" + _tempInputs[i] + ", is incorrect " + "</color>";
+                    //add correct answer below it
+                    Instantiate(listAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>().
+                        text = "Stage " + _currentStage + ": <color=green>" + _tempResults[i] + "</color>";
+                }
+            }
+            //z is used as fillup index
+            for (int i = 17,z=0; i < 21; i += 2,z+=2)//skipping to gaps at a time
+            {
+                bool _incorrect = false;//to check which value is incorrect
+                var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[2].transform).GetComponent<TMP_Text>();
+                _tempTxt.text = "";
+                for (int j = 0; j < 2; j++)//2 blanks in one question
+                {
+                    if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
+                    {
+                        _tempTxt.text += _flow.FillupsQuestions[z+j] + " <color=green>" + _flow.ValidAnswers[i+j] + "</color> " + ((j == 1) ? " cells." : "");
+                        correctAnswers++;
+                    }
+                    else
+                    {
+                        //if incorrect
+                        _tempTxt.text += _flow.FillupsQuestions[z+j] + " <color=red>" + _tempInputs[i+j] + ", is incorrect" + "</color>" + ((j == 1) ? " cells." : "");
+                        _incorrect = true;
+                    }
+                }//first loop end
+                if (_incorrect)
+                {
+                    var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[2].transform).GetComponent<TMP_Text>();
+                    _tempTxt2.text = "";
+                    for (int j = 0; j < 2; j++)//2 blanks in one question
+                    {
+                        _tempTxt2.text += _flow.FillupsQuestions[z+j] + " <color=green>" + _flow.ValidAnswers[i+j] + "</color> " + ((j == 1) ? " cells." : "");
+                    }
+                }
+            }
+            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            print(_totalAnswers + " " + correctAnswers);
+            _active.ResultObj.SetActive(true);
+            StartCoroutine(RefreshUI(_active));
+        }
+
+        private void GenerateAmoebaResult(SimulationSetupManager.SimulationTypes _type, SimulationFlowSCO _flow)
+        {
+            var _active = GetActiveResult(_type);
+            var _tempResults = new string[_flow.ValidAnswers.Length];
+            var _tempInputs = setupMang.GetAnswers();
+            int _totalAnswers = _tempResults.Length;
+            //get all inputs from user
+            for (int i = 0; i < _tempResults.Length; i++)
+            {
+                _tempResults[i] = _flow.ValidAnswers[i];
+                _tempResults[i] = _tempResults[i].Replace(" ", "");
+                _tempResults[i] = _tempResults[i].ToLower();//convert to lower case for comparison
+                _tempInputs[i] = _tempInputs[i].ToLower();
+                _tempInputs[i] = _tempInputs[i].Replace(" ", "");
+            }
+            //genrates output
+            int _currentStage = 1;//stage (differs for each step ie reset on step change)shown to user ie <stage 1: a> etc
+            for (int i = 0; i < 5; i++, _currentStage++)
+            {
+                foreach (var _img in _flow.AnswerSprites[i].AnswerSprite)
+                {
+                    var _tempSprite = Instantiate(_flow.AnswerPrefab, _active.ListContentHolder[0].transform).transform;
+                    _tempSprite.GetComponentInChildren<Image>().sprite = _img;
+                    _tempSprite.transform.GetChild(0).localScale = _flow.AnswerSprites[i].SpriteScale;
+                    _tempSprite.transform.GetChild(0).localEulerAngles = _flow.AnswerSprites[i].SpriteEulerAngles;
+                }
+
+                //generate sprite before (if needs to be shown)
+                var _tempTxt = Instantiate(listAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
+                if (_tempResults[i] == _tempInputs[i])//if correct answer
+                {
+                    print(_tempTxt);
+                    _tempTxt.text = "Stage " + _currentStage + ": <color=green>" + _tempInputs[i] + "</color>";
+                    correctAnswers++;
+                }
+                else
+                {
+                    //if incorrect
+                    _tempTxt.text = "Stage " + _currentStage + ": <color=red>" + _tempInputs[i] + ", is incorrect" + "</color>";
+                    //add correct answer below it
+                    Instantiate(listAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>().
+                        text = "Stage " + _currentStage + ": <color=green>" + _tempResults[i] + "</color>";
+                }
+            }
+            //Amoeba Fillups
+            //z is fillup index
+            for (int i = 5,z=0; i < 9; i += 1,z+=2)//skipping one gap at a time
+            {
+                bool _incorrect = false;//to check which value is incorrect
+                var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
+                _tempTxt.text = "";
+                for (int j = 0; j < 1; j++)//1 blanks in one question
+                {
+                    if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
+                    {
+                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z+j+1];
+                        correctAnswers++;
+                    }
+                    else
+                    {
+                        //if incorrect
+                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=red>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + j + 1];
+                        _incorrect = true;
+                    }
+                }//Second loop end
+                if (_incorrect)
+                {
+                    var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[2].transform).GetComponent<TMP_Text>();
+                    _tempTxt2.text = "";
+                    for (int j = 0; j < 1; j++)//1 blanks in one question
+                    {
+                        _tempTxt2.text += _flow.FillupsQuestions[z] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + j + 1];
+                    }
+                }
+            }
+            //fillups end
+
+            //generate hydra
+            var _tempLable = Instantiate(_flow.LabledAnswers[0], _active.ListContentHolder[3].transform).GetComponent<LabledInputHolder>();
+            bool _wrong = false;
+            for(int i = 9,z=0; i < 21; i++,z++)
+            {
+                if (_tempResults[i] == _tempInputs[i])//if correct answer
+                {
+                    _tempLable.Lables[z].text = "<color=green>"+_tempInputs[i]+"</color>";
+                }
+                else
+                {
+                    _tempLable.Lables[z].text = "<color=red>" + _tempInputs[i] + "</color>";
+                    _wrong = true;
+                }
+            }
+            if(_wrong)
+            {
+                _tempLable = Instantiate(_flow.LabledAnswers[0], _active.ListContentHolder[3].transform).GetComponent<LabledInputHolder>();
+                for (int i = 9, z = 0; i < 21; i++, z++)
+                {
+                    _tempLable.Lables[z].text = "<color=green>"+_flow.ValidAnswers[i]+ "</color>";
+                }
+            }
+           
+            for (int i = 21,z=0; i < 25; i ++,z+=2)//skipping 1 gaps at a time
+            {
+                bool _incorrect = false;//to check which value is incorrect
+                var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[4].transform).GetComponent<TMP_Text>();
+                _tempTxt.text = "";
+                for (int j = 0; j < 1; j++)//1 blanks in one question
+                {
+                    if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
+                    {
+                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z+1];
+                        correctAnswers++;
+                    }
+                    else
+                    {
+                        //if incorrect
+                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=red>" + _flow.FillupsQuestions[z+1];
+                        _incorrect = true;
+                    }
+                }//Second loop end
+                if (_incorrect)
+                {
+                    var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[4].transform).GetComponent<TMP_Text>();
+                    _tempTxt2.text = "";
+                    for (int j = 0; j < 2; j++)//2 blanks in one question
+                    {
+                        _tempTxt2.text += _flow.FillupsQuestions[z] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z+1];
+                    }
+                }
+            }
+            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));
         }

@@ -78,6 +78,7 @@ namespace Simulations
             switch (activeSimulation.SimulationType)
             {
                 case SimulationTypes.MitosisMeiosis:
+                case SimulationTypes.AmoebaHydra:
                     switch (curtStepIndex)//steps in which tap needs to be detected
                     {
                         case 1:
@@ -165,6 +166,73 @@ namespace Simulations
             curtStepIndex++;
         }
 
+        void AmoebaManager()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[0], true);
+                    break;
+                case 1:
+                    DisableSteps();
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[0].SetActive(true);
+                    break;
+                case 2:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[1], true);
+                    break;
+                case 3:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[1].SetActive(true);
+                    break;
+                case 4:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
+                    //collect all data of stage
+                    for (int i = 0; i < 5; i++)//5 steps in stage
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                case 5:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[2].SetActive(true);
+                    break;
+                case 6:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[3], true);
+                    //get data for 2nd stage (hydra)
+                    for (int i = 5; i < 17; i++)//12 steps in stage
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                case 7:
+                    //fillups
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[3].SetActive(true);
+                    break;
+                case 8:
+                    //show submit options
+                    DisableSteps();
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
+                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    //get fillup data
+                    for (int i = 17; i < 21; i++)//4 steps in stage
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                default:
+                    print("Reached end of simulation");
+                    break;
+            }
+            curtStepIndex++;
+        }
+
         /// <summary>
         /// Disables all the steps (if visible) of active simulation
         /// </summary>
@@ -179,6 +247,9 @@ namespace Simulations
         #endregion
 
         #region Public Methods
+        /// <summary>
+        /// Generates result based on input. Called on buttons.
+        /// </summary>
         public void GetResults()
         {
             activePopup.SetActive(false);
@@ -201,6 +272,9 @@ namespace Simulations
             {
                 case SimulationTypes.MitosisMeiosis:
                     MitosisManager();
+                    break;
+                case SimulationTypes.AmoebaHydra:
+                    AmoebaManager();
                     break;
             }
         }
