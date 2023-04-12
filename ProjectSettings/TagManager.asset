@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Alpha_Sub_Sel_Menu
+  - Login_Box_tag
+  - login_canva_tag
   layers:
   - Default
   - TransparentFX
