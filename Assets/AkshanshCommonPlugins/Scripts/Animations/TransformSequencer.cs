@@ -36,6 +36,11 @@ namespace AkshanshKanojia.Animations
             isActive = playOnAwake;
             Initialize();
         }
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+        }
+
         //checks if object controller is present and resets animation stack
         private void Initialize()
         {

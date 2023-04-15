@@ -46,6 +46,7 @@ MonoBehaviour:
   - Epidermis
   - Gastrodermis
   - Mesogleva
+  - Basal Disc
   - Bud
   - body
   - multicellular
@@ -56,7 +57,6 @@ MonoBehaviour:
   - 'At the beginning, the '
   - ' gets elongated.'
   - 'Nucleus gets '
-  - '  shaped.'
   - '  shaped.'
   - 'A notch is developed at the '
   - of division.
@@ -70,5 +70,32 @@ MonoBehaviour:
   - ' and '
   - 'Amoeba and Hydra reproduce by  '
   - ' method.'
-  AnswerSprites: []
+  AnswerSprites:
+  - AnswerName: 'Amoeba:  Amoeba_0'
+    AnswerSprite:
+    - {fileID: -1814534046, guid: d2737179716ad9c44bd011afc5b68f99, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Amoeba:  Amoeba_1'
+    AnswerSprite:
+    - {fileID: 212915216, guid: d2737179716ad9c44bd011afc5b68f99, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Amoeba:  Amoeba_2'
+    AnswerSprite:
+    - {fileID: 865621363, guid: d2737179716ad9c44bd011afc5b68f99, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Amoeba:  Amoeba_3'
+    AnswerSprite:
+    - {fileID: -248371455, guid: d2737179716ad9c44bd011afc5b68f99, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Amoeba:  Amoeba_4'
+    AnswerSprite:
+    - {fileID: 1926929336, guid: d2737179716ad9c44bd011afc5b68f99, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
   AnswerPrefab: {fileID: 851274346076348074, guid: 0f7cd3bcacd38684c8eda866010d80b3, type: 3}
+  LabledAnswers:
+  - {fileID: 6549466767803998627, guid: 308ef87a8b205ab4996577072492ce79, type: 3}

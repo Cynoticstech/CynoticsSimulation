@@ -116,7 +116,7 @@ namespace Simulations.UI
                 }
             }
             //z is used as fillup index
-            for (int i = 17,z=0; i < 21; i += 2,z+=2)//skipping to gaps at a time
+            for (int i = 17, z = 0; i < 21; i += 2, z += 2)//skipping to gaps at a time
             {
                 bool _incorrect = false;//to check which value is incorrect
                 var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[2].transform).GetComponent<TMP_Text>();
@@ -125,13 +125,13 @@ namespace Simulations.UI
                 {
                     if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
                     {
-                        _tempTxt.text += _flow.FillupsQuestions[z+j] + " <color=green>" + _flow.ValidAnswers[i+j] + "</color> " + ((j == 1) ? " cells." : "");
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + ((j == 1) ? " cells." : "");
                         correctAnswers++;
                     }
                     else
                     {
                         //if incorrect
-                        _tempTxt.text += _flow.FillupsQuestions[z+j] + " <color=red>" + _tempInputs[i+j] + ", is incorrect" + "</color>" + ((j == 1) ? " cells." : "");
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + _tempInputs[i + j] + ", is incorrect" + "</color>" + ((j == 1) ? " cells." : "");
                         _incorrect = true;
                     }
                 }//first loop end
@@ -141,7 +141,7 @@ namespace Simulations.UI
                     _tempTxt2.text = "";
                     for (int j = 0; j < 2; j++)//2 blanks in one question
                     {
-                        _tempTxt2.text += _flow.FillupsQuestions[z+j] + " <color=green>" + _flow.ValidAnswers[i+j] + "</color> " + ((j == 1) ? " cells." : "");
+                        _tempTxt2.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + ((j == 1) ? " cells." : "");
                     }
                 }
             }
@@ -197,7 +197,7 @@ namespace Simulations.UI
             }
             //Amoeba Fillups
             //z is fillup index
-            for (int i = 5,z=0; i < 9; i += 1,z+=2)//skipping one gap at a time
+            for (int i = 5, z = 0; i < 9; i += 1, z += 2)//skipping one gap at a time
             {
                 bool _incorrect = false;//to check which value is incorrect
                 var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
@@ -206,19 +206,19 @@ namespace Simulations.UI
                 {
                     if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
                     {
-                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z+j+1];
+                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + j + 1];
                         correctAnswers++;
                     }
                     else
                     {
                         //if incorrect
-                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=red>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + j + 1];
+                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=red>" + _tempInputs[i + j] + ",is incorrect" + "</color> " + _flow.FillupsQuestions[z + j + 1];
                         _incorrect = true;
                     }
                 }//Second loop end
                 if (_incorrect)
                 {
-                    var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[2].transform).GetComponent<TMP_Text>();
+                    var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                     _tempTxt2.text = "";
                     for (int j = 0; j < 1; j++)//1 blanks in one question
                     {
@@ -231,11 +231,11 @@ namespace Simulations.UI
             //generate hydra
             var _tempLable = Instantiate(_flow.LabledAnswers[0], _active.ListContentHolder[3].transform).GetComponent<LabledInputHolder>();
             bool _wrong = false;
-            for(int i = 9,z=0; i < 21; i++,z++)
+            for (int i = 9, z = 0; i < 21; i++, z++)
             {
                 if (_tempResults[i] == _tempInputs[i])//if correct answer
                 {
-                    _tempLable.Lables[z].text = "<color=green>"+_tempInputs[i]+"</color>";
+                    _tempLable.Lables[z].text = "<color=green>" + _tempInputs[i] + "</color>";
                 }
                 else
                 {
@@ -243,44 +243,111 @@ namespace Simulations.UI
                     _wrong = true;
                 }
             }
-            if(_wrong)
+            if (_wrong)
             {
                 _tempLable = Instantiate(_flow.LabledAnswers[0], _active.ListContentHolder[3].transform).GetComponent<LabledInputHolder>();
                 for (int i = 9, z = 0; i < 21; i++, z++)
                 {
-                    _tempLable.Lables[z].text = "<color=green>"+_flow.ValidAnswers[i]+ "</color>";
+                    _tempLable.Lables[z].text = "<color=green>" + _flow.ValidAnswers[i] + "</color>";
                 }
             }
-           
-            for (int i = 21,z=0; i < 25; i ++,z+=2)//skipping 1 gaps at a time
+
+            for (int i = 21, z = 8; i < 23; i++)//skipping 1 gaps at a time
             {
                 bool _incorrect = false;//to check which value is incorrect
-                var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[4].transform).GetComponent<TMP_Text>();
+                var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[3].transform).GetComponent<TMP_Text>();
                 _tempTxt.text = "";
-                for (int j = 0; j < 1; j++)//1 blanks in one question
+                for (int j = 0; j < 1; j++)//1 blanks in one question except 24th 
                 {
                     if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
                     {
-                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z+1];
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + 1 + j];
                         correctAnswers++;
                     }
                     else
                     {
                         //if incorrect
-                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=red>" + _flow.FillupsQuestions[z+1];
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + _tempInputs[i] + ", is incorrect" + "</color>" + _flow.FillupsQuestions[z + 1 + j];
                         _incorrect = true;
                     }
                 }//Second loop end
                 if (_incorrect)
                 {
-                    var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[4].transform).GetComponent<TMP_Text>();
+                    var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[3].transform).GetComponent<TMP_Text>();
                     _tempTxt2.text = "";
-                    for (int j = 0; j < 2; j++)//2 blanks in one question
+                    for (int j = 0; j < 1; j++)//2 blanks in one question
                     {
-                        _tempTxt2.text += _flow.FillupsQuestions[z] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z+1];
+                        _tempTxt2.text += _flow.FillupsQuestions[z+j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + 1+j];
                     }
                 }
+                z += 2;
             }
+            //last 2 
+            {
+                for (int i = 23, z = 12; i < 25; i+=2)//skipping 2 gaps at a time
+                {
+                    bool _incorrect = false;//to check which value is incorrect
+                    var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[3].transform).GetComponent<TMP_Text>();
+                    _tempTxt.text = "";
+                    for (int j = 0; j < 2; j++)//1 blanks in one question except 24th 
+                    {
+                        if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
+                        {
+                            _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> ";
+                            correctAnswers++;
+                        }
+                        else
+                        {
+                            //if incorrect
+                            _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + _tempInputs[i] + ", is incorrect" + "</color>";
+                            _incorrect = true;
+                        }
+                    }//Second loop end
+                    if (_incorrect)
+                    {
+                        var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[3].transform).GetComponent<TMP_Text>();
+                        _tempTxt2.text = "";
+                        for (int j = 0; j < 2; j++)//2 blanks in one question
+                        {
+                            _tempTxt2.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> ";
+                        }
+                    }
+                    z += 2;
+                }
+            }
+            //last result
+            for (int i = 25, z = 14; i < 26; i++)//skipping 1 gaps at a time
+            {
+                bool _incorrect = false;//to check which value is incorrect
+                var _tempTxt = Instantiate(fillAnswerPref, _active.ListContentHolder[3].transform).GetComponent<TMP_Text>();
+                _tempTxt.text = "";
+                for (int j = 0; j < 1; j++)//1 blanks in one question except 24th 
+                {
+                    if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
+                    {
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + 1 + j];
+                        correctAnswers++;
+                    }
+                    else
+                    {
+                        //if incorrect
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + _tempInputs[i] + ", is incorrect" + "</color>" + _flow.FillupsQuestions[z + 1 + j];
+                        _incorrect = true;
+                    }
+                }//Second loop end
+                if (_incorrect)
+                {
+                    var _tempTxt2 = Instantiate(fillAnswerPref, _active.ListContentHolder[3].transform).GetComponent<TMP_Text>();
+                    _tempTxt2.text = "";
+                    for (int j = 0; j < 1; j++)//2 blanks in one question
+                    {
+                        _tempTxt2.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + 1 + j];
+                    }
+                }
+                z += 2;
+            }
+
+            //result calculations
             _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);

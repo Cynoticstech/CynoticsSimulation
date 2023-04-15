@@ -86,6 +86,7 @@ namespace Simulations
                         case 3:
                         case 5:
                         case 7:
+                        case 9:
                             CheckSimulationStatus();
                             break;
                         default:
@@ -204,31 +205,51 @@ namespace Simulations
                 case 6:
                     DisableSteps();
                     activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[3], true);
-                    //get data for 2nd stage (hydra)
-                    for (int i = 5; i < 17; i++)//12 steps in stage
+                    //get data for 2nd stage amoeba fillups
+                    for (int i = 5; i < 9; i++)//4 steps in fillup
                     {
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
                 case 7:
-                    //fillups
+                    //hydra
                     activePopup.SetActive(false);
                     activeSimulation.SimulationStepObjects[3].SetActive(true);
                     break;
                 case 8:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[4], true);
+                   
+                    for (int i = 9; i < 21; i++)//12 steps in stage
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                case 9:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[4].SetActive(true);
+                    break;
+                case 10:
                     //show submit options
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
                     //get fillup data
-                    for (int i = 17; i < 21; i++)//4 steps in stage
+                    for (int i = 21; i < 26; i++)//4 steps in stage
                     {
-                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                        try
+                        {
+                            answerHolder.Add(activeSimulation.InputFields[i].text);
+                        }
+                        catch
+                        {
+                            print(i);
+                        }
                     }
                     break;
                 default:
                     print("Reached end of simulation");
-                    break;
+                    return;
             }
             curtStepIndex++;
         }
