@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26feb22ef7b5eb24f9c7661c947e0966, type: 3}
+  m_Name: BioFertilizer
+  m_EditorClassIdentifier: 
+  ProjectName: 6
+  PopupSequences:
+  - Welcome to the first experiment. We are going to study bio-fertilizers.
+  - Select the microbe from the drop down menu and fill its information in the table.
+  ValidAnswers:
+  - Plantae
+  - Pteridophyta
+  - Azolla
+  - Bacteria
+  - Cyanobacteria
+  - Anabaena
+  - Bacteria
+  - Proteobacteria
+  - Azotobacter
+  - Bacteria
+  - Cyanobacteria
+  - Nostoc
+  FillupsQuestions: []
+  AnswerSprites: []
+  AnswerPrefab: {fileID: 0}
+  LabledAnswers:
+  - {fileID: 0}

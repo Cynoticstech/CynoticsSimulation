@@ -9,7 +9,8 @@ namespace Simulations
     public class SimulationSetupManager : MobileInputs
     {
         #region Public Fields
-        public enum SimulationTypes { MitosisMeiosis,AmoebaHydra }
+        public enum SimulationTypes { MitosisMeiosis,AmoebaHydra,Hibiscus,ReproductiveSystem,CockroachEarthworm,FishPigeon,
+            Microbes,BioFertilizer}
         #endregion
 
         #region Serialized Fields
@@ -47,7 +48,7 @@ namespace Simulations
             answerHolder = new List<string>();
             uiMang = FindObjectOfType<UI_Manager>();
             popupMang = FindObjectOfType<PopupManager>();
-            SetLevel(SimulationTypes.MitosisMeiosis);
+            SetLevel(SimulationTypes.Hibiscus);
         }
         #endregion
 
@@ -253,6 +254,92 @@ namespace Simulations
             }
             curtStepIndex++;
         }
+        void HibiscusMang()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[0], true);
+                    break;
+                case 1:
+                    DisableSteps();
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[0].SetActive(true);
+                    break;
+                case 2:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[1], true);
+                    break;
+                case 3:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[1].SetActive(true);
+                    break;
+                case 4:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
+                    //collect all data of stage
+                    for (int i = 0; i < 5; i++)//5 steps in stage
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                case 5:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[2].SetActive(true);
+                    break;
+                case 6:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[3], true);
+                    //get data for 2nd stage amoeba fillups
+                    for (int i = 5; i < 9; i++)//4 steps in fillup
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                case 7:
+                    //hydra
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[3].SetActive(true);
+                    break;
+                case 8:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[4], true);
+
+                    for (int i = 9; i < 21; i++)//12 steps in stage
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                case 9:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[4].SetActive(true);
+                    break;
+                case 10:
+                    //show submit options
+                    DisableSteps();
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
+                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    //get fillup data
+                    for (int i = 21; i < 26; i++)//4 steps in stage
+                    {
+                        try
+                        {
+                            answerHolder.Add(activeSimulation.InputFields[i].text);
+                        }
+                        catch
+                        {
+                            print(i);
+                        }
+                    }
+                    break;
+                default:
+                    print("Reached end of simulation");
+                    return;
+            }
+            curtStepIndex++;
+        }
 
         /// <summary>
         /// Disables all the steps (if visible) of active simulation
@@ -296,6 +383,9 @@ namespace Simulations
                     break;
                 case SimulationTypes.AmoebaHydra:
                     AmoebaManager();
+                    break;
+                case SimulationTypes.Hibiscus:
+                    HibiscusMang();
                     break;
             }
         }
