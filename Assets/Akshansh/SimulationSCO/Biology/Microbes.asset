@@ -17,8 +17,6 @@ MonoBehaviour:
   - Welcome to the first experiment. We are going to study industrial application
     of microbes.
   - This experiment can only be checked by the teacher.
-  - "Amazing! We have successfully labelled all the body parts of fish. Now here\u2019s
-    a challenge for you, can you fill these tables and fill in the blanks?"
   - Select the microbe from the drop down menu and fill its information in the table.
   ValidAnswers: []
   FillupsQuestions: []

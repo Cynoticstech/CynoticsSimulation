@@ -29,6 +29,7 @@ MonoBehaviour:
   - Style
   - Ovray
   - Ovule
+  - Pistil
   - Peduncle
   - Receptacle
   - Sepal
@@ -51,4 +52,5 @@ MonoBehaviour:
   AnswerSprites: []
   AnswerPrefab: {fileID: 0}
   LabledAnswers:
-  - {fileID: 0}
+  - {fileID: 8713615654566143619, guid: 560c7a130a477d1499fd4f191031825f, type: 3}
+  - {fileID: 252658279210903853, guid: 0f85ca5b217a7bc49af71f22232bbb03, type: 3}

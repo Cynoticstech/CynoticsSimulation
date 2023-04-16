@@ -80,6 +80,8 @@ namespace Simulations
             {
                 case SimulationTypes.MitosisMeiosis:
                 case SimulationTypes.AmoebaHydra:
+                case SimulationTypes.CockroachEarthworm:
+                case SimulationTypes.FishPigeon:
                     switch (curtStepIndex)//steps in which tap needs to be detected
                     {
                         case 1:
@@ -94,6 +96,48 @@ namespace Simulations
                             break;
                     }
                     break;//mitosis end
+
+                case SimulationTypes.Hibiscus:
+                case SimulationTypes.ReproductiveSystem:
+                    switch (curtStepIndex)//steps in which tap needs to be detected
+                    {
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 5:
+                            CheckSimulationStatus();
+                            break;
+                        default:
+                            break;
+                    }
+                    break;//Repro
+                case SimulationTypes.Microbes:
+                    switch (curtStepIndex)//steps in which tap needs to be detected
+                    {
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                            CheckSimulationStatus();
+                            break;
+                        default:
+                            break;
+                    }
+                    break;//Microbes
+                case SimulationTypes.BioFertilizer:
+                    switch (curtStepIndex)//steps in which tap needs to be detected
+                    {
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 5:
+                            CheckSimulationStatus();
+                            break;
+                        default:
+                            break;
+                    }
+                    break;//bio fert
+
                 default:
                     break;
             }
@@ -280,7 +324,7 @@ namespace Simulations
                     DisableSteps();
                     activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
                     //collect all data of stage
-                    for (int i = 0; i < 5; i++)//5 steps in stage
+                    for (int i = 0; i < 12; i++)//12 steps in stage
                     {
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
@@ -291,47 +335,273 @@ namespace Simulations
                     break;
                 case 6:
                     DisableSteps();
-                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[3], true);
-                    //get data for 2nd stage amoeba fillups
-                    for (int i = 5; i < 9; i++)//4 steps in fillup
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[3].SetActive(true);
+                    break;
+                case 7:
+                    DisableSteps();
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
+                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+
+                    for (int i = 12; i < 21; i++)//7+2 steps in stage
                     {
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
+                default:
+                    print("Reached end of simulation");
+                    return;
+            }
+            curtStepIndex++;
+        }
+        void ReproductiveSystem()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[0], true);
+                    break;
+                case 1:
+                    DisableSteps();
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[0].SetActive(true);
+                    break;
+                case 2:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[1], true);
+                    break;
+                case 3:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[1].SetActive(true);
+                    break;
+                case 4:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
+                    break;
+                case 5:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[2].SetActive(true);
+                    break;
+                case 6:
+                    DisableSteps();
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[3].SetActive(true);
+                    break;
                 case 7:
-                    //hydra
+                    DisableSteps();
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
+                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+
+                    for (int i = 0; i < 32; i++)//Get All Data
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                default:
+                    print("Reached end of simulation");
+                    return;
+            }
+            curtStepIndex++;
+        }
+        void CockroachMang()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[0], true);
+                    break;
+                case 1:
+                    DisableSteps();
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[0].SetActive(true);
+                    break;
+                case 2:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[1], true);
+                    break;
+                case 3:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[1].SetActive(true);
+                    break;
+                case 4:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
+                    break;
+                case 5:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[2].SetActive(true);
+                    break;
+                case 6:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[3], true);
+                    break;
+                case 7:
                     activePopup.SetActive(false);
                     activeSimulation.SimulationStepObjects[3].SetActive(true);
                     break;
                 case 8:
                     DisableSteps();
                     activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[4], true);
-
-                    for (int i = 9; i < 21; i++)//12 steps in stage
-                    {
-                        answerHolder.Add(activeSimulation.InputFields[i].text);
-                    }
                     break;
                 case 9:
                     activePopup.SetActive(false);
                     activeSimulation.SimulationStepObjects[4].SetActive(true);
                     break;
                 case 10:
-                    //show submit options
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
-                    //get fillup data
-                    for (int i = 21; i < 26; i++)//4 steps in stage
+
+                    for (int i = 0; i < 24; i++)
                     {
-                        try
-                        {
-                            answerHolder.Add(activeSimulation.InputFields[i].text);
-                        }
-                        catch
-                        {
-                            print(i);
-                        }
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                default:
+                    print("Reached end of simulation");
+                    return;
+            }
+            curtStepIndex++;
+        }
+        void FishMang()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[0], true);
+                    break;
+                case 1:
+                    DisableSteps();
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[0].SetActive(true);
+                    break;
+                case 2:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[1], true);
+                    break;
+                case 3:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[1].SetActive(true);
+                    break;
+                case 4:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
+                    break;
+                case 5:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[2].SetActive(true);
+                    break;
+                case 6:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[3], true);
+                    break;
+                case 7:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[3].SetActive(true);
+                    break;
+                case 8:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[4], true);
+                    break;
+                case 9:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[4].SetActive(true);
+                    break;
+                case 10:
+                    DisableSteps();
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
+                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    for (int i = 0; i < 30; i++)
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                default:
+                    print("Reached end of simulation");
+                    return;
+            }
+            curtStepIndex++;
+        }
+        void MicrobeMang()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[0], true);
+                    break;
+                case 1:
+                    DisableSteps();
+                    activePopup.SetActive(false);
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[1], true);
+                    break;
+                case 2:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[0].SetActive(true);
+                    break;
+                case 3:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
+                    break;
+                case 4:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[1].SetActive(true);
+                    break;
+                case 5:
+                    DisableSteps();
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
+                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    for (int i = 0; i < 15; i++)//send it to database
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                default:
+                    print("Reached end of simulation");
+                    return;
+            }
+            curtStepIndex++;
+        }
+        void BioFertilizerMang()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[0], true);
+                    break;
+                case 1:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[0].SetActive(true);
+                    break;
+                case 2:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[1], true);
+                    break;
+                case 3:
+                    activePopup.SetActive(false);
+                    activeSimulation.SimulationStepObjects[1].SetActive(true);
+                    break;
+                case 4:
+                    DisableSteps();
+                    activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
+                    break;
+                case 5:
+                    activePopup.SetActive(false);
+                    DisableSteps();
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
+                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    for (int i = 0; i < 12; i++)
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
                 default:
@@ -386,6 +656,21 @@ namespace Simulations
                     break;
                 case SimulationTypes.Hibiscus:
                     HibiscusMang();
+                    break;
+                case SimulationTypes.ReproductiveSystem:
+                    ReproductiveSystem();
+                    break;
+                case SimulationTypes.CockroachEarthworm:
+                    CockroachMang();
+                    break;
+                case SimulationTypes.FishPigeon:
+                    FishMang();
+                    break;
+                case SimulationTypes.Microbes:
+                    MicrobeMang();
+                    break;
+                case SimulationTypes.BioFertilizer:
+                    BioFertilizerMang();
                     break;
             }
         }
