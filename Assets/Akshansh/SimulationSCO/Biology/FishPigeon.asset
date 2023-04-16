@@ -66,4 +66,7 @@ MonoBehaviour:
   AnswerSprites: []
   AnswerPrefab: {fileID: 0}
   LabledAnswers:
-  - {fileID: 0}
+  - {fileID: 2609929664253312521, guid: cc0a4f94e48d87249a7347e818a4d73d, type: 3}
+  - {fileID: 6752486586225214570, guid: 93a76965d48ad3a4886ae4121c104864, type: 3}
+  - {fileID: 3206063956934154915, guid: 983cc7804af53614eab10ab4babd2376, type: 3}
+  - {fileID: 9014283676918892353, guid: 2d0f391cdf786414481e53885a9b21f5, type: 3}

@@ -34,4 +34,4 @@ MonoBehaviour:
   AnswerSprites: []
   AnswerPrefab: {fileID: 0}
   LabledAnswers:
-  - {fileID: 0}
+  - {fileID: 4292214643723795449, guid: ba9a6f1b0b6dd5642ba3a9d8071609b3, type: 3}

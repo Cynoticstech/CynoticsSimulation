@@ -50,6 +50,9 @@ namespace Simulations.UI
                 case SimulationSetupManager.SimulationTypes.FishPigeon:
                     GenerateFishResult(_type, _flow);
                     break;
+                case SimulationSetupManager.SimulationTypes.BioFertilizer:
+                    GenerateBioFertResult(_type, _flow);
+                    break;
                 default:
                     break;
             }
@@ -702,9 +705,9 @@ namespace Simulations.UI
                 int _answerIndex = i switch
                 {
                     0 => 0,
-                    1=> 13,
-                    2=> 17,
-                    3=> 21,
+                    1 => 13,
+                    2 => 17,
+                    3 => 21,
                     _ => 0,
                 };
                 bool _incorrect = false;
@@ -829,24 +832,26 @@ namespace Simulations.UI
                 _tempFillup.text = "";
                 if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
                 {
-                    _tempFillup.text += _flow.FillupsQuestions[0] + "<color=green>" + _tempInputs[_answerIndex] + "</color>"+ _flow.FillupsQuestions[1];
+                    _tempFillup.text += _flow.FillupsQuestions[0] + "<color=green>" + _tempInputs[_answerIndex] + "</color>" + _flow.FillupsQuestions[1];
                     correctAnswers++;
                 }
                 else
                 {
                     _incorrect = true;
-                    _tempFillup.text += _flow.FillupsQuestions[0] + "<color=red>" + _tempInputs[_answerIndex] + "</color>"+ _flow.FillupsQuestions[1];
+                    _tempFillup.text += _flow.FillupsQuestions[0] + "<color=red>" + _tempInputs[_answerIndex] + "</color>" + _flow.FillupsQuestions[1];
                 }
                 if (_incorrect)
                 {
                     _answerIndex = 13;
-                    _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
+                    _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
                     _tempFillup.text = "";
-                    _tempFillup.text = _flow.FillupsQuestions[0] + " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>"+ _flow.FillupsQuestions[1];
+                    _tempFillup.text = _flow.FillupsQuestions[0] + " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>" + _flow.FillupsQuestions[1];
                 }
                 //one fillup end
 
                 //one fillup start
+                _answerIndex = 14;
+                _incorrect = false;
                 _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
                 _tempFillup.text = "";
                 if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
@@ -857,29 +862,27 @@ namespace Simulations.UI
                 else
                 {
                     _incorrect = true;
-                    _tempFillup.text += _flow.FillupsQuestions[2] + "<color=red>" + _tempInputs[_answerIndex] + "</color>" ;
+                    _tempFillup.text += _flow.FillupsQuestions[2] + "<color=red>" + _tempInputs[_answerIndex] + "</color>";
                 }
                 if (_incorrect)
                 {
-                    _answerIndex = 13;
-                    _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
+                    _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
                     _tempFillup.text = "";
-                    _tempFillup.text = _flow.FillupsQuestions[2] + " <color=green>";
+                    _tempFillup.text = _flow.FillupsQuestions[2] + " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
                 }
                 //one fillup end
-
-                for (int i = 0; i < 2; i++)
+                for (int i = 2; i < 4; i++)
                 {
                     var _tempPart = Instantiate(_flow.LabledAnswers[i], _active.ListContentHolder[0].transform);
                     _answerIndex = i switch
                     {
-                        0 => 15,
-                        1 => 22,
+                        2 => 15,
+                        3 => 22,
                         _ => 0,
                     };
-                    _incorrect = false;
                     foreach (var v in _tempPart.GetComponent<LabledInputHolder>().Lables)
                     {
+                        _incorrect = false;
                         v.interactable = false;
                         v.image.enabled = false;
                         if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
@@ -900,8 +903,8 @@ namespace Simulations.UI
                     {
                         _answerIndex = i switch
                         {
-                            0 => 15,
-                            1 => 22,
+                            2 => 15,
+                            3 => 22,
                             _ => 0,
                         };// refill values from starting phase;
                         _tempPart = Instantiate(_flow.LabledAnswers[i], _active.ListContentHolder[0].transform);
@@ -914,7 +917,146 @@ namespace Simulations.UI
                         }
                     }
                 }//lablled part end
+
+                //fillups
+                {
+
+                    //one fillup start
+                    _answerIndex = 26;
+                    _incorrect = false;
+                    _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
+                    _tempFillup.text = "";
+                    if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
+                    {
+                        _tempFillup.text += _flow.FillupsQuestions[3] + "<color=green>" + _tempInputs[_answerIndex] + "</color>";
+                        correctAnswers++;
+                    }
+                    else
+                    {
+                        _incorrect = true;
+                        _tempFillup.text += _flow.FillupsQuestions[3] + "<color=red>" + _tempInputs[_answerIndex] + "</color>";
+                    }
+
+                    _answerIndex++;
+                    if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
+                    {
+                        _tempFillup.text += _flow.FillupsQuestions[4] + "<color=green>" + _tempInputs[_answerIndex] + "</color> ";
+                        correctAnswers++;
+                    }
+                    else
+                    {
+                        _incorrect = true;
+                        _tempFillup.text += _flow.FillupsQuestions[4] + "<color=red>" + _tempInputs[_answerIndex] + "</color> ";
+                    }
+
+                    _answerIndex++;
+                    if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
+                    {
+                        _tempFillup.text += _flow.FillupsQuestions[5] + "<color=green>" + _tempInputs[_answerIndex] + "</color>" + _flow.FillupsQuestions[6];
+                        correctAnswers++;
+                    }
+                    else
+                    {
+                        _incorrect = true;
+                        _tempFillup.text += _flow.FillupsQuestions[5] + "<color=red>" + _tempInputs[_answerIndex] + "</color>" + _flow.FillupsQuestions[6];
+                    }
+
+                    if (_incorrect)
+                    {
+                        _answerIndex = 26;
+                        _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
+                        _tempFillup.text = "";
+                        _tempFillup.text = _flow.FillupsQuestions[3] + "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>"
+                            + _flow.FillupsQuestions[4] + "<color=green>" + _flow.ValidAnswers[_answerIndex + 1] + "</color>" +
+                            _flow.FillupsQuestions[5] + "<color=green>" + _flow.ValidAnswers[_answerIndex + 2] + "</color>" + _flow.FillupsQuestions[6];
+                    }
+                    //one fillup end
+
+                    //one fillup start
+                    _incorrect = false;
+                    _answerIndex = 29;
+                    _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
+                    _tempFillup.text = "";
+                    if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
+                    {
+                        _tempFillup.text += _flow.FillupsQuestions[7] + "<color=green>" + _tempInputs[_answerIndex] + "</color>" + _flow.FillupsQuestions[8];
+                        correctAnswers++;
+                    }
+                    else
+                    {
+                        _incorrect = true;
+                        _tempFillup.text += _flow.FillupsQuestions[7] + "<color=red>" + _tempInputs[_answerIndex] + "</color>" + _flow.FillupsQuestions[8];
+                    }
+                    if (_incorrect)
+                    {
+                        _answerIndex = 29;
+                        _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
+                        _tempFillup.text = "";
+                        _tempFillup.text = _flow.FillupsQuestions[7] + " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>" + _flow.FillupsQuestions[8];
+                    }
+                    //one fillup end
+                }
+
             }
+
+            //result calculations
+            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            print(_totalAnswers + " " + correctAnswers);
+            _active.ResultObj.SetActive(true);
+            StartCoroutine(RefreshUI(_active));
+        }
+        private void GenerateBioFertResult(SimulationSetupManager.SimulationTypes _type, SimulationFlowSCO _flow)
+        {
+            var _active = GetActiveResult(_type);
+            var _tempResults = new string[_flow.ValidAnswers.Length];
+            var _tempInputs = setupMang.GetAnswers();
+            int _totalAnswers = _tempResults.Length;
+            //get all inputs from user
+            for (int i = 0; i < _tempResults.Length; i++)
+            {
+                _tempResults[i] = _flow.ValidAnswers[i];
+                _tempResults[i] = _tempResults[i].Replace(" ", "");
+                _tempResults[i] = _tempResults[i].ToLower();//convert to lower case for comparison
+                _tempInputs[i] = _tempInputs[i].ToLower();
+                _tempInputs[i] = _tempInputs[i].Replace(" ", "");
+            }
+            //genrates output
+            {
+                var _tempPart = Instantiate(_flow.LabledAnswers[0], _active.ListContentHolder[0].transform);
+                int _answerIndex = 0;
+                bool _incorrect = false;
+                foreach (var v in _tempPart.GetComponent<LabledInputHolder>().Lables)
+                {
+                    _incorrect = false;
+                    v.interactable = false;
+                    v.image.enabled = false;
+                    if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
+                    {
+                        //correct answer
+                        v.text = "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
+                        correctAnswers++;
+                    }
+                    else
+                    {
+                        //incorrect
+                        _incorrect = true;
+                        v.text = "<color=red>" + _tempInputs[_answerIndex] + "</color>";
+                    }
+                    _answerIndex++;
+                }
+                if (_incorrect)
+                {
+                    _answerIndex = 0;// refill values from starting phase;
+                    _tempPart = Instantiate(_flow.LabledAnswers[0], _active.ListContentHolder[0].transform);
+                    foreach (var v in _tempPart.GetComponent<LabledInputHolder>().Lables)
+                    {
+                        v.interactable = false;
+                        v.image.enabled = false;
+                        v.text = "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
+                        _answerIndex++;
+                    }
+                }
+            }//lablled part end
 
             //result calculations
             _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
