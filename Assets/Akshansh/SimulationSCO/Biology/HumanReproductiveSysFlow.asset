@@ -56,13 +56,12 @@ MonoBehaviour:
   - Sperm
   - egg cell
   FillupsQuestions:
-  - ' from flower is male whorl, while '
-  - ' is female whorl.'
-  - 'from pollen grain and '
-  - ' from ovule, these two haploid cells unite to form a diploid zygote. Thus the
-    process of seed and fruit formation begins.'
-  - ' is the reproductive organ of plants.'
+  - 'Male reproductive system produces haploid gametes called '
+  - 'Female reproductive system produces haploid(n) gametes called '
+  - 'And '
+  - ' unite to form a diploid (2n) zygote and afterwards it develops into human embryo. '
   AnswerSprites: []
   AnswerPrefab: {fileID: 0}
   LabledAnswers:
-  - {fileID: 0}
+  - {fileID: 5346544718167416244, guid: b360fa1422175134fb92f22a456ca033, type: 3}
+  - {fileID: 1719634946147484519, guid: 7ab290e1d8e794443afb59436a791b8a, type: 3}

@@ -51,4 +51,7 @@ MonoBehaviour:
   AnswerSprites: []
   AnswerPrefab: {fileID: 0}
   LabledAnswers:
-  - {fileID: 0}
+  - {fileID: 5889393187849287871, guid: 9920047f87644d6439e2a7b81fbaec54, type: 3}
+  - {fileID: 2363562907380160611, guid: d4d5492fafddd8d4db87ce52a06917d4, type: 3}
+  - {fileID: 6380671468417608284, guid: 5f8bd0c6e3d928f418149235928b178b, type: 3}
+  - {fileID: 1271704650394755375, guid: a0f540c39aec4dc4daf34836b55a21c8, type: 3}
