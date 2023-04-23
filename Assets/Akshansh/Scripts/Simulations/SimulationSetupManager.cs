@@ -48,7 +48,7 @@ namespace Simulations
             answerHolder = new List<string>();
             uiMang = FindObjectOfType<UI_Manager>();
             popupMang = FindObjectOfType<PopupManager>();
-            SetLevel(SimulationTypes.BioFertilizer);
+            SetLevel(SimulationTypes.Hibiscus);
         }
         #endregion
 
