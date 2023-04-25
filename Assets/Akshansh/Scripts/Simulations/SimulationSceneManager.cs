@@ -8,6 +8,7 @@ namespace Simulations
     {
         public void ReloadScene()
         {
+            Screen.orientation = ScreenOrientation.Portrait;
             SceneManager.LoadScene("Main Alpha Functionality Pages");
         }
     }

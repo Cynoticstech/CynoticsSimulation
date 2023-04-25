@@ -10,20 +10,10 @@ public class SceneChangeScript : MonoBehaviour
 {
     public static SceneChangeScript optionselect;
     public SimulationSetupManager.SimulationTypes selectsim;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void Awake()
     {
+        print(gameObject.name);
         if(optionselect)
         {
             Destroy(gameObject); 

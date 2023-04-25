@@ -42,6 +42,10 @@ namespace Simulations
         #endregion
 
         #region Builtin Methods
+        private void Awake()
+        {
+            Screen.orientation = ScreenOrientation.LandscapeLeft;
+        }
         public override void Start()
         {
             base.Start();
@@ -49,7 +53,8 @@ namespace Simulations
             answerHolder = new List<string>();
             uiMang = FindObjectOfType<UI_Manager>();
             popupMang = FindObjectOfType<PopupManager>();
-            SetLevel(SceneChangeScript.optionselect.selectsim);
+            // SetLevel(SceneChangeScript.optionselect.selectsim);
+            SetLevel(SimulationTypes.MitosisMeiosis);
         }
         #endregion
 
@@ -623,6 +628,42 @@ namespace Simulations
             }
         }
         #endregion//simulation steps end
+
+        bool IsValidInput()
+        {
+            switch (activeSimulation.SimulationType)
+            {
+                case SimulationTypes.MitosisMeiosis:
+                    switch(curtStepIndex)
+                    {
+                        case 4:
+                            for (int i = 0; i < 7; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text =="")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
+                    break;
+                case SimulationTypes.AmoebaHydra:
+                    break;
+                case SimulationTypes.Hibiscus:
+                    break;
+                case SimulationTypes.ReproductiveSystem:
+                    break;
+                case SimulationTypes.CockroachEarthworm:
+                    break;
+                case SimulationTypes.FishPigeon:
+                    break;
+                case SimulationTypes.Microbes:
+                    break;
+                case SimulationTypes.BioFertilizer:
+                    break;
+            }
+            return true;
+        }
         #endregion
 
         #region Public Methods
@@ -645,6 +686,14 @@ namespace Simulations
         }
         public void CheckSimulationStatus()
         {
+            if(!IsValidInput())
+            {
+                print("WORNG INPUT");
+                popupMang.SetActivePopup(PopupManager.PopupTypes.IncorrectPopup);
+                popupMang.ShowPopup("All blanks must be filled to proceed further!", true);
+                //show popup
+                return;
+            }
             if (!isSimulating)
                 return;
             switch (activeSimulation.SimulationType)

@@ -9,7 +9,7 @@ namespace Simulations.UI
     {
         #region Public Fields
         //expand popup variations here
-        public enum PopupTypes { CenterFill,SubmitPopup}
+        public enum PopupTypes { CenterFill,SubmitPopup,IncorrectPopup}
         #endregion
 
 

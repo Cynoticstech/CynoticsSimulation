@@ -13,6 +13,10 @@ public class PopupTransformHolder : MonoBehaviour
         scale = transform.localScale;
     }
 
+    private void OnEnable()
+    {
+        transform.localPosition = Vector3.zero;
+    }
     private void OnDisable()
     {
         transform.position = pos;
