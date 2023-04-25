@@ -1371,7 +1371,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: -9.999939, y: -140}
+=======
+  m_AnchoredPosition: {x: -10.0000305, y: -140}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 120, y: -137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &61607834
@@ -6381,7 +6385,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: -9.999939, y: -140}
+=======
+  m_AnchoredPosition: {x: -10.0000305, y: -140}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 120, y: -137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &412788898
@@ -7239,7 +7247,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: -9.999939, y: -140}
+=======
+  m_AnchoredPosition: {x: -10.0000305, y: -140}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 120, y: -137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456735291
@@ -12458,7 +12470,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: -9.999939, y: -140}
+=======
+  m_AnchoredPosition: {x: -10.0000305, y: -140}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 120, y: -137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &821480581
@@ -31476,7 +31492,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: -9.999939, y: -140}
+=======
+  m_AnchoredPosition: {x: -10.0000305, y: -140}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 120, y: -137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086249780
@@ -32312,7 +32332,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2637812600526643011, guid: e146144dc18771848942a9592bf8fb5b, type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< Updated upstream
       value: -9.999939
+=======
+      value: -10.0000305
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 2637812600526643011, guid: e146144dc18771848942a9592bf8fb5b, type: 3}
       propertyPath: m_AnchoredPosition.y
