@@ -54,7 +54,7 @@ namespace Simulations
             uiMang = FindObjectOfType<UI_Manager>();
             popupMang = FindObjectOfType<PopupManager>();
             SetLevel(SceneChangeScript.optionselect.selectsim);
-            //SetLevel(SimulationTypes.MitosisMeiosis);
+            //SetLevel(SimulationTypes.BioFertilizer);
         }
         #endregion
 
@@ -637,9 +637,27 @@ namespace Simulations
                     switch(curtStepIndex)
                     {
                         case 4:
-                            for (int i = 0; i < 7; i++)//7 steps in first stage
+                            for (int i = 0; i <= 7; i++)//7 steps in first stage
                             {
                                 if (activeSimulation.InputFields[i].text =="")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 6:
+                            for (int i = 7; i <= 16; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 8:
+                            for (int i = 17; i <= 20; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
                                 {
                                     return false;
                                 }
@@ -648,18 +666,237 @@ namespace Simulations
                     }
                     break;
                 case SimulationTypes.AmoebaHydra:
+                    switch (curtStepIndex)
+                    {
+                        case 4:
+                            for (int i = 0; i <= 4; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 6:
+                            for (int i = 5; i <= 8; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 8:
+                            for (int i = 9; i <= 20; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 10:
+                            for (int i = 21; i <= 25; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
                     break;
                 case SimulationTypes.Hibiscus:
+                    switch (curtStepIndex)
+                    {
+                        case 4:
+                            for (int i = 0; i <= 11; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 6:
+                            for (int i = 12; i <= 18; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 7:
+                            for (int i = 19; i <= 20; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
                     break;
                 case SimulationTypes.ReproductiveSystem:
+                    switch (curtStepIndex)
+                    {
+                        case 4:
+                            for (int i = 0; i <= 14; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 6:
+                            for (int i = 14; i <= 27; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 7:
+                            for (int i = 28; i <= 31; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 10:
+                            for (int i = 21; i <= 25; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
                     break;
                 case SimulationTypes.CockroachEarthworm:
+                    switch (curtStepIndex)
+                    {
+                        case 4:
+                            for (int i = 0; i <= 12; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 6:
+                            for (int i = 13; i <= 16; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 8:
+                            for (int i = 17; i <= 20; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 10:
+                            for (int i = 21; i <= 23; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
                     break;
                 case SimulationTypes.FishPigeon:
+                    switch (curtStepIndex)
+                    {
+                        case 4:
+                            for (int i = 0; i <= 8; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 6:
+                            for (int i = 9; i <= 14; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 8:
+                            for (int i = 15; i <= 21; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 10:
+                            for (int i = 21; i <= 25; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                        case 12:
+                            for (int i = 25; i <= 29; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
                     break;
                 case SimulationTypes.Microbes:
+                    switch (curtStepIndex)
+                    {
+                        case 5:
+                            for (int i = 0; i <= 14; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
                     break;
                 case SimulationTypes.BioFertilizer:
+                    switch (curtStepIndex)
+                    {
+                        case 4:
+                            for (int i = 0; i <= 11; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
                     break;
             }
             return true;
@@ -691,6 +928,7 @@ namespace Simulations
                 print("WORNG INPUT");
                 popupMang.SetActivePopup(PopupManager.PopupTypes.IncorrectPopup);
                 popupMang.ShowPopup("All blanks must be filled to proceed further!", true);
+                popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
                 //show popup
                 return;
             }
