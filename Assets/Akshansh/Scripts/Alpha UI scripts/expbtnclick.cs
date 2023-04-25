@@ -10,7 +10,8 @@ public class expbtnclick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>{
+        GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>
+        {
             SceneChangeScript.optionselect.selectsim = buttType;
             UnityEngine.SceneManagement.SceneManager.LoadScene("BiologySimulations"); 
             
