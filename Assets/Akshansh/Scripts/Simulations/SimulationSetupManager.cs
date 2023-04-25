@@ -45,10 +45,11 @@ namespace Simulations
         public override void Start()
         {
             base.Start();
+            
             answerHolder = new List<string>();
             uiMang = FindObjectOfType<UI_Manager>();
             popupMang = FindObjectOfType<PopupManager>();
-            SetLevel(SimulationTypes.Hibiscus);
+            SetLevel(SceneChangeScript.optionselect.selectsim);
         }
         #endregion
 
@@ -712,5 +713,7 @@ namespace Simulations
         }
         #endregion
         #endregion//public methods end
+
+       
     }
 }

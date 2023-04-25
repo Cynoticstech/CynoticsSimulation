@@ -8,7 +8,7 @@ namespace Simulations
     {
         public void ReloadScene()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("Main Alpha Functionality Pages");
         }
     }
 }
