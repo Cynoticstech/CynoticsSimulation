@@ -637,7 +637,7 @@ namespace Simulations
                     switch(curtStepIndex)
                     {
                         case 4:
-                            for (int i = 0; i <= 7; i++)//7 steps in first stage
+                            for (int i = 0; i <= 6; i++)//7 steps in first stage
                             {
                                 if (activeSimulation.InputFields[i].text =="")
                                 {
