@@ -5,9 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class navbtnclk : MonoBehaviour
 {
-    public enum Btnlist {logout, loginsubmit, signsubmit, studentselect, inredirect, upredirect }
+    public enum Btnlist {logout, loginsubmit, signsubmit, studentselect, inredirect, upredirect}
     public Btnlist btl;
     public Button logout_btn, logsub_btn, sisub_btn, stdntlog_btn, inredirect_btn, upredirect_btn;
+    public GameObject parentobj, childobj;
     Scene scene;
     // Start is called before the first frame update
     void Start()
@@ -21,23 +22,28 @@ public class navbtnclk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(scene.name)
-        {
-            case "Main Functionality Pages":
-                if (Hmbrgr_Panel.activeInHeirarchy)
-                {
-                    Debug.Log("Hamburger panel is out. ");
-                }
-        };
+       
     }
    
-    void splashload()
+    public void splashload()
     {
         SceneManager.LoadScene("Splash Screen");
     }
-    void studentloginload()
+    public void alphainactive()
+    {
+        //SceneManager.Set//
+    }
+    public void studentloginload()
     {
         SceneManager.LoadScene("Student Login");
+    }
+    public void studentSignUpload()
+    {
+        SceneManager.LoadScene("Student Sign up 1");
+    }
+    public void alphaload()
+    {
+        SceneManager.LoadScene("Main Alpha Functionality Pages");
     }
 
 }

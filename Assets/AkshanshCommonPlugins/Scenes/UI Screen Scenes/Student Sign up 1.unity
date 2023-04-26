@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.4440221, g: 0.49316514, b: 0.5722316, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -496,8 +496,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Already have an account?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 75d94aaf3e718a045a5008005839963b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1124,8 +1124,9 @@ GameObject:
   - component: {fileID: 158218328}
   - component: {fileID: 158218327}
   - component: {fileID: 158218326}
+  - component: {fileID: 158218329}
   m_Layer: 5
-  m_Name: SignIn_btn
+  m_Name: SignUp_btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,7 +1196,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 158218327}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 685609812}
+        m_TargetAssemblyTypeName: navbtnclk, Assembly-CSharp
+        m_MethodName: alphaload
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &158218327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1234,6 +1247,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158218324}
   m_CullTransparentMesh: 1
+--- !u!114 &158218329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158218324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fbaad1900e51e40a7bde69b23da438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btl: 2
+  logout_btn: {fileID: 0}
+  logsub_btn: {fileID: 0}
+  sisub_btn: {fileID: 158218326}
+  stdntlog_btn: {fileID: 0}
+  inredirect_btn: {fileID: 0}
+  upredirect_btn: {fileID: 0}
+  parentobj: {fileID: 0}
+  childobj: {fileID: 0}
 --- !u!1 &207857349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,15 +2143,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sign In!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 75d94aaf3e718a045a5008005839963b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284156736
-  m_fontColor: {r: 0.2509804, g: 0.043137256, b: 0.35686275, a: 1}
+    rgba: 4284944209
+  m_fontColor: {r: 0.31764707, g: 0.058823533, b: 0.4039216, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3698,6 +3732,7 @@ GameObject:
   - component: {fileID: 629155052}
   - component: {fileID: 629155051}
   - component: {fileID: 629155050}
+  - component: {fileID: 629155053}
   m_Layer: 5
   m_Name: Rediect Button
   m_TagString: Untagged
@@ -3771,7 +3806,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 629155051}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 685609812}
+        m_TargetAssemblyTypeName: navbtnclk, Assembly-CSharp
+        m_MethodName: studentloginload
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &629155051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3810,6 +3857,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629155048}
   m_CullTransparentMesh: 1
+--- !u!114 &629155053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629155048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fbaad1900e51e40a7bde69b23da438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btl: 4
+  logout_btn: {fileID: 0}
+  logsub_btn: {fileID: 0}
+  sisub_btn: {fileID: 0}
+  stdntlog_btn: {fileID: 0}
+  inredirect_btn: {fileID: 629155050}
+  upredirect_btn: {fileID: 0}
+  parentobj: {fileID: 0}
+  childobj: {fileID: 0}
 --- !u!1 &635173743
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,6 +4263,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667342924}
   m_CullTransparentMesh: 1
+--- !u!1 &685609811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685609813}
+  - component: {fileID: 685609812}
+  m_Layer: 0
+  m_Name: scenechecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &685609812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685609811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fbaad1900e51e40a7bde69b23da438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btl: 0
+  logout_btn: {fileID: 0}
+  logsub_btn: {fileID: 0}
+  sisub_btn: {fileID: 0}
+  stdntlog_btn: {fileID: 0}
+  inredirect_btn: {fileID: 0}
+  upredirect_btn: {fileID: 0}
+  parentobj: {fileID: 0}
+  childobj: {fileID: 0}
+--- !u!4 &685609813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685609811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.391774, y: -6.2489457, z: 214.7331}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &720127720
 GameObject:
   m_ObjectHideFlags: 0
@@ -7520,7 +7641,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322318670}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -7793,15 +7914,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: SIGN UP
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4286584680
+  m_fontColor: {r: 0.40784317, g: 0.09019608, b: 0.5019608, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7818,13 +7939,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -8380,7 +8501,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528129693}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 

@@ -53,8 +53,8 @@ namespace Simulations
             answerHolder = new List<string>();
             uiMang = FindObjectOfType<UI_Manager>();
             popupMang = FindObjectOfType<PopupManager>();
-            // SetLevel(SceneChangeScript.optionselect.selectsim);
-            SetLevel(SimulationTypes.MitosisMeiosis);
+            SetLevel(SceneChangeScript.optionselect.selectsim);
+            //SetLevel(SimulationTypes.MitosisMeiosis);
         }
         #endregion
 
