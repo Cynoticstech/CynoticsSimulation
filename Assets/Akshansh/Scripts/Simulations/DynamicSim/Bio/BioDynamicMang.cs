@@ -1,5 +1,6 @@
 using AkshanshKanojia.Controllers.ObjectManager;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,15 +8,18 @@ public class BioDynamicMang : MonoBehaviour
 {
     public UnityEvent OnSimFinished;
     public int CurtAnimIndex = 0;
+
+    [SerializeField] TMP_Text InterfaceTxt;
     [SerializeField] Vector3[] solubilityAnimPos;
     [SerializeField] Animation[] solAnims;
     [SerializeField] string[] solAnimationName;
     [SerializeField] float[] solAnimDelays;
-    [SerializeField] GameObject solBottle, NaObj,litmusObj;
+    [SerializeField] GameObject solBottle, NaObj, litmusObj;
     [SerializeField] ObjectController objCont;
     [SerializeField] Transform litmusTarget2;
     [SerializeField] float MoveSpeeed = 13f;
 
+    [SerializeField] string[] InterfaceBodies;
     int litmusIndex = 0;
     GameObject curtTarget;
     private void Start()
@@ -36,6 +40,7 @@ public class BioDynamicMang : MonoBehaviour
                 solAnims[1].Play(solAnimationName[2]);
                 yield return new WaitForSeconds(solAnimDelays[3]);
                 OnSimFinished?.Invoke();
+                InterfaceTxt.text = InterfaceBodies[0];
                 break;
             case 1:
                 solAnims[2].Play(solAnimationName[3]);
@@ -43,6 +48,7 @@ public class BioDynamicMang : MonoBehaviour
                 solAnims[3].Play(solAnimationName[4]);
                 yield return new WaitForSeconds(solAnimDelays[5]);
                 OnSimFinished?.Invoke();
+                InterfaceTxt.text = InterfaceBodies[1];
                 break;
             case 2:
                 solAnims[4].Play(solAnimationName[6]);
@@ -50,13 +56,18 @@ public class BioDynamicMang : MonoBehaviour
                 solAnims[5].Play(solAnimationName[7]);
                 yield return new WaitForSeconds(solAnimDelays[8]);
                 OnSimFinished?.Invoke();
+                InterfaceTxt.text = InterfaceBodies[2];
                 break;
             default:
                 yield return null;
                 break;
         }
     }
+    public void Pungent()
+    {
+        InterfaceTxt.text = InterfaceBodies[3];
 
+    }
     public void PlaySolutionAnim()
     {
         curtTarget = solBottle;
@@ -92,16 +103,15 @@ public class BioDynamicMang : MonoBehaviour
     {
         if (obj == curtTarget)
         {
-            if (CurtAnimIndex == 2 && litmusIndex != 0)
-            {
-                StartCoroutine(PlayAnimations(CurtAnimIndex));
-            }
-            else
+            if (CurtAnimIndex == 2 && litmusIndex == 0)
+
             {
                 StartCoroutine(LitmusDelay());
                 curtTarget.GetComponent<DragManager>().targetLocation = litmusTarget2;
                 litmusIndex++;
+                return;
             }
+            StartCoroutine(PlayAnimations(CurtAnimIndex));
         }
     }
 }

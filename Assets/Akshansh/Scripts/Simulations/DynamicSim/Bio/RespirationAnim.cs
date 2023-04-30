@@ -16,28 +16,31 @@ public class RespirationAnim : MonoBehaviour
 
     float _Temp = 5, _itemNum = 10;
     bool isPlaying = false;
-    private void Start()
-    {
-        AddItems();
-    }
+
     public void AddItems()
     {
-        if(curtItems.Count>0)
-        {
-            foreach(var v in curtItems)
-            {
-                Destroy(v);
-            }
-        }
-        var _obj = !isAnimal? seed : grassHopper;
-        for(int i =0;i<itemNum;i++)
+        DestroyObj();
+        var _obj = !isAnimal ? seed : grassHopper;
+        for (int i = 0; i < itemNum; i++)
         {
             var _pos = minPos;
             _pos.x = Random.Range(minPos.x, maxPos.x);
             _pos.y = Random.Range(minPos.y, maxPos.y);
-            curtItems.Add(Instantiate(_obj,_pos,Quaternion.identity));
+            curtItems.Add(Instantiate(_obj, _pos, Quaternion.identity));
         }
     }
+
+    public void DestroyObj()
+    {
+        if (curtItems.Count > 0)
+        {
+            foreach (var v in curtItems)
+            {
+                Destroy(v);
+            }
+        }
+    }
+
     private void Update()
     {
         if(isPlaying)
