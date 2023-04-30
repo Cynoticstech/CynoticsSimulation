@@ -9,7 +9,7 @@ public class DragManager : MobileInputs
     public UnityEvent OnIncorrectPlace;
 
     [SerializeField] bool canInteract = true, useTapOffset = true, resetOnWrong = true;
-    [SerializeField] Transform targetLocation;
+    public Transform targetLocation;
     [SerializeField] float validDist = 2f, zDepth = 10f,resetMoveSpeed =2f;
     [SerializeField] ObjectController objCont;
     [SerializeField] LayerMask raycastLayer;
