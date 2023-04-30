@@ -1,21 +1,25 @@
 using AkshanshKanojia.Inputs.Mobile;
 using Simulations.UI;
-using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 namespace Simulations
 {
     public class SimulationSetupManager : MobileInputs
     {
         #region Public Fields
-        public enum SimulationTypes { MitosisMeiosis,AmoebaHydra,Hibiscus,ReproductiveSystem,CockroachEarthworm,FishPigeon,
-            Microbes,BioFertilizer}
+        public enum SimulationTypes
+        {
+            MitosisMeiosis, AmoebaHydra, Hibiscus, ReproductiveSystem, CockroachEarthworm, FishPigeon,
+            Microbes, BioFertilizer, AceticAcid, Respiration
+        }
         #endregion
 
         #region Serialized Fields
         [SerializeField] SimulationFlowSCO[] AvailableSimulations;
-
+        [SerializeField] SimulationTypes CurtType;
+        [SerializeField] bool useDebugSim = false;
         //stores data about simulations present in scene
         [System.Serializable]
         struct SimulationDataHolder
@@ -49,12 +53,11 @@ namespace Simulations
         public override void Start()
         {
             base.Start();
-            
+
             answerHolder = new List<string>();
             uiMang = FindObjectOfType<UI_Manager>();
             popupMang = FindObjectOfType<PopupManager>();
-            SetLevel(SceneChangeScript.optionselect.selectsim);
-            //SetLevel(SimulationTypes.BioFertilizer);
+            SetLevel(useDebugSim ? CurtType : SceneChangeScript.optionselect.selectsim);
         }
         #endregion
 
@@ -143,6 +146,26 @@ namespace Simulations
                             break;
                     }
                     break;//bio fert
+                case SimulationTypes.AceticAcid:
+                    switch (curtStepIndex)//steps in which tap needs to be detected
+                    {
+                        case 1:
+                            CheckSimulationStatus();
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case SimulationTypes.Respiration:
+                    switch (curtStepIndex)//steps in which tap needs to be detected
+                    {
+                        case 1:
+                            CheckSimulationStatus();
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
 
                 default:
                     break;
@@ -177,9 +200,9 @@ namespace Simulations
                     DisableSteps();
                     activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
                     //collect all data of first stage
-                    for(int i=0;i<7;i++)//7 steps in first stage
+                    for (int i = 0; i < 7; i++)//7 steps in first stage
                     {
-                       answerHolder.Add(activeSimulation.InputFields[i].text);
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
                 case 5:
@@ -270,7 +293,7 @@ namespace Simulations
                 case 8:
                     DisableSteps();
                     activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[4], true);
-                   
+
                     for (int i = 9; i < 21; i++)//12 steps in stage
                     {
                         answerHolder.Add(activeSimulation.InputFields[i].text);
@@ -616,6 +639,70 @@ namespace Simulations
             }
             curtStepIndex++;
         }
+        void AsceticAcidMang()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    break;
+                case 1:
+                    DisableSteps();
+                    activeSimulation.SimulationStepObjects[1].SetActive(true);
+                    activeSimulation.SimulationStepObjects[2].SetActive(true);
+                    break;
+                case 2:
+                    DisableSteps();
+                    activeSimulation.SimulationStepObjects[3].SetActive(true);
+                    break;
+                case 3:
+                    DisableSteps();
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
+                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    for (int i = 0; i < 4; i++)
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                default:
+                    print("Reached end of simulation");
+                    return;
+            }
+            curtStepIndex++;
+        }
+        void RespirationMang()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    break;
+                case 1:
+                    DisableSteps();
+                    activeSimulation.SimulationStepObjects[1].SetActive(true);
+                    activeSimulation.SimulationStepObjects[2].SetActive(true);
+                    break;
+                case 2:
+                    DisableSteps();
+                    activeSimulation.SimulationStepObjects[3].SetActive(true);
+                    break;
+                case 3:
+                    DisableSteps();
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
+                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        answerHolder.Add(activeSimulation.InputFields[i].text);
+                    }
+                    break;
+                default:
+                    print("Reached end of simulation");
+                    return;
+            }
+            curtStepIndex++;
+        }
 
         /// <summary>
         /// Disables all the steps (if visible) of active simulation
@@ -634,12 +721,12 @@ namespace Simulations
             switch (activeSimulation.SimulationType)
             {
                 case SimulationTypes.MitosisMeiosis:
-                    switch(curtStepIndex)
+                    switch (curtStepIndex)
                     {
                         case 4:
                             for (int i = 0; i <= 6; i++)//7 steps in first stage
                             {
-                                if (activeSimulation.InputFields[i].text =="")
+                                if (activeSimulation.InputFields[i].text == "")
                                 {
                                     return false;
                                 }
@@ -898,6 +985,34 @@ namespace Simulations
                             break;
                     }
                     break;
+                case SimulationTypes.AceticAcid:
+                    switch (curtStepIndex)
+                    {
+                        case 3:
+                            for (int i = 0; i <= 3; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
+                    break;
+                case SimulationTypes.Respiration:
+                    switch (curtStepIndex)
+                    {
+                        case 3:
+                            for (int i = 0; i <= 1; i++)//7 steps in first stage
+                            {
+                                if (activeSimulation.InputFields[i].text == "")
+                                {
+                                    return false;
+                                }
+                            }
+                            break;
+                    }
+                    break;
             }
             return true;
         }
@@ -923,7 +1038,7 @@ namespace Simulations
         }
         public void CheckSimulationStatus()
         {
-            if(!IsValidInput())
+            if (!IsValidInput())
             {
                 print("WORNG INPUT");
                 popupMang.SetActivePopup(PopupManager.PopupTypes.IncorrectPopup);
@@ -959,6 +1074,12 @@ namespace Simulations
                     break;
                 case SimulationTypes.BioFertilizer:
                     BioFertilizerMang();
+                    break;
+                case SimulationTypes.AceticAcid:
+                    AsceticAcidMang();
+                    break;
+                case SimulationTypes.Respiration:
+                    RespirationMang();
                     break;
             }
         }
@@ -1001,6 +1122,6 @@ namespace Simulations
         #endregion
         #endregion//public methods end
 
-       
+
     }
 }
