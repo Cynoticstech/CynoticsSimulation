@@ -16,12 +16,12 @@ MonoBehaviour:
   PopupSequences:
   - Welcome to the sixth experiment. We are going to study about cockroach and Earthworm.
   - "First let\u2019s do a small activity. Can you label all the body parts of cockroach?"
-  - "Amazing! We have successfully labelled all the body parts of cockroach. Now
-    here\u2019s a challenge for you, can you fill these tables?"
+  - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
+    fill these tables?"
   - "Wonderful! Now here\u2019s another challenge for you. Can you name all the body
     parts of Earthworm?"
-  - "Amazing! We have successfully labelled all the body parts of Earthworm. Now
-    here\u2019s a challenge for you, can you fill these tables?"
+  - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
+    fill these tables?"
   ValidAnswers:
   - Metathorax
   - Midleg

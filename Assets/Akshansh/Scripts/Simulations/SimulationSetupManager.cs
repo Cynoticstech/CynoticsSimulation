@@ -1038,15 +1038,15 @@ namespace Simulations
         }
         public void CheckSimulationStatus()
         {
-            if (!IsValidInput())
-            {
-                print("WORNG INPUT");
-                popupMang.SetActivePopup(PopupManager.PopupTypes.IncorrectPopup);
-                popupMang.ShowPopup("All blanks must be filled to proceed further!", true);
-                popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
-                //show popup
-                return;
-            }
+            //if (!IsValidInput())
+            //{
+            //    print("WORNG INPUT");
+            //    popupMang.SetActivePopup(PopupManager.PopupTypes.IncorrectPopup);
+            //    popupMang.ShowPopup("All blanks must be filled to proceed further!", true);
+            //    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+            //    //show popup
+            //    return;
+            //}
             if (!isSimulating)
                 return;
             switch (activeSimulation.SimulationType)

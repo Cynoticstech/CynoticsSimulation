@@ -18,14 +18,12 @@ MonoBehaviour:
     and budding in Hydra.
   - "First let\u2019s do a small activity. Can you name all the phases involved in
     fission of Amoeba?"
-  - "Amazing! We have successfully labelled all the phases involved in fission of
-    Amoeba. Now here\u2019s a challenge for you, can you complete these fill in the
-    blanks?"
+  - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
+    complete these fill in the blanks?"
   - Excellent. Now let's jump to Hydra and try to label it.
-  - "Amazing! We have successfully labelled Hydra. Now here\u2019s a challenge for
-    you, can you complete these fill in the blanks?"
-  - "Amazing! We have successfully labelled Hydra. Now here\u2019s a challenge for
-    you, can you complete these fill in the blanks?"
+  - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
+    complete these fill in the blanks?"
+  - 'Wonderful! All your answers have been successfully submitted. '
   ValidAnswers:
   - Mother Amoeba
   - Pseudopodia are pulled in

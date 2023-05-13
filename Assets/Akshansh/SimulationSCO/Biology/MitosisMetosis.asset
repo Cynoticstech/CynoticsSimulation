@@ -17,9 +17,10 @@ MonoBehaviour:
   - Welcome to the Experiment. We are going to study mitosis and meiosis.
   - "First let\u2019s do a small activity. Can you name all the phases involved in
     mitosis?"
-  - Excellent. Now let's jump to meiosis and try to name all the phases.
-  - "Amazing! We have successfully labelled all the phases of mitosis and meiosis.
-    Now here\u2019s a challenge for you, can you complete these fill in the blanks?"
+  - Excellent, experiment submitted . Now let's jump to meiosis and try to name all
+    the phases.
+  - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
+    complete these fill in the blanks?"
   ValidAnswers:
   - Interphase
   - Prophase
@@ -139,3 +140,4 @@ MonoBehaviour:
     SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
     SpriteEulerAngles: {x: 0, y: 0, z: 0}
   AnswerPrefab: {fileID: 851274346076348074, guid: 0f7cd3bcacd38684c8eda866010d80b3, type: 3}
+  LabledAnswers: []

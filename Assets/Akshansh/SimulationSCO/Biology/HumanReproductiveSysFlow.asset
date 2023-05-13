@@ -18,9 +18,8 @@ MonoBehaviour:
     system.
   - "First let\u2019s do a small activity. Can you label all the parts of the human
     reproductive system?"
-  - "Amazing! We have successfully labelled all the parts of the Human reproductive
-    system. Now here\u2019s a challenge for you, can you fill these tables and answer
-    fill in the blanks?"
+  - "Amazing!Experiment submitted. Now here\u2019s a challenge for you, can you fill
+    these tables and answer fill in the blanks?"
   ValidAnswers:
   - Prostate
   - Seminal Vesicle

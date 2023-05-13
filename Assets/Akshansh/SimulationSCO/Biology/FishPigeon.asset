@@ -16,12 +16,12 @@ MonoBehaviour:
   PopupSequences:
   - Welcome to the fourth experiment. We are going to study about fish and pigeon.
   - "First let\u2019s do a small activity. Can you label all the body parts of fish?"
-  - "Amazing! We have successfully labelled all the body parts of fish. Now here\u2019s
-    a challenge for you, can you fill these tables and fill in the blanks?"
+  - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
+    fill these tables and fill in the blanks?"
   - "Wonderful! Now here\u2019s another challenge for you. Can you name all the body
     parts of Pigeon?"
-  - "Amazing! We have successfully labelled all the body parts of Pigeon. Now here\u2019s
-    a challenge for you, can you fill these tables and fill in the blanks?"
+  - "Amazing!Experiment submitted. Now here\u2019s a challenge for you, can you fill
+    these tables and fill in the blanks?"
   ValidAnswers:
   - Spiny drosal fin
   - Soft drosal fin
