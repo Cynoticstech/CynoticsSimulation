@@ -12,7 +12,7 @@ namespace Simulations
         public enum SimulationTypes
         {
             MitosisMeiosis, AmoebaHydra, Hibiscus, ReproductiveSystem, CockroachEarthworm, FishPigeon,
-            Microbes, BioFertilizer, AceticAcid, Respiration
+            Microbes, BioFertilizer, AceticAcid, Respiration, MeltingIce
         }
         #endregion
 
@@ -703,6 +703,22 @@ namespace Simulations
             }
             curtStepIndex++;
         }
+        void IceMang()
+        {
+            switch (curtStepIndex)
+            {
+                case 0:
+                    popupMang.SetActivePopup(PopupManager.PopupTypes.CenterFill);
+                    activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
+                    DisableSteps();
+                    activeSimulation.SimulationStepObjects[0].SetActive(true);
+                    break;
+                default:
+                    print("Reached end of simulation");
+                    return;
+            }
+            curtStepIndex++;
+        }
 
         /// <summary>
         /// Disables all the steps (if visible) of active simulation
@@ -1080,6 +1096,9 @@ namespace Simulations
                     break;
                 case SimulationTypes.Respiration:
                     RespirationMang();
+                    break;
+                case SimulationTypes.MeltingIce:
+                    IceMang();
                     break;
             }
         }

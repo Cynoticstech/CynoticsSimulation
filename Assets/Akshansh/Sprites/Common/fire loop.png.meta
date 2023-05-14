@@ -1,0 +1,939 @@
+fileFormatVersion: 2
+guid: 8abb32066178e1a4eadd12e990ba3ede
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fire loop_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 461.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad4f84cfd07bf24f92c931abec63be4
+      internalID: 1013333660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 461.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a043d9c6959d8b14ca26f24ca88bc861
+      internalID: -1699085667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_2
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 461.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2e2e11f807c6d479b8582b4c30cfd6
+      internalID: 876663889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_3
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 461.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420ead5dfa7c1364ea871e0780368eb8
+      internalID: 1445411669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_4
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 461.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51945ad45e899694fbff8f694b35afa7
+      internalID: -1218361429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_5
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 461.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9274ddf62d4231f40b33d534e8a37ff6
+      internalID: -944865631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 369.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14025296ca91fc45b029aae630d1d41
+      internalID: 1857309318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_7
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 369.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7364b8f11edbbd042a43973042d206f6
+      internalID: -1884223452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_8
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 369.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0269925ccf0788f4c876d173955a8ba2
+      internalID: -1853015303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_9
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 369.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bdcec7f74948604ab1dfe0fd9975936
+      internalID: -1360751218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_10
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 369.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22294336abad9749a8bebb99ba15dbc
+      internalID: -1956259332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_11
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 369.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56efed01f1c45144da7c0a6a0d75c0b6
+      internalID: 1693870047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 277.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f279e651f018526469f5afe967e7f2ca
+      internalID: -352316908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_13
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 277.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9bd1c8dc0128b34cb2ec5cec6c4a8e6
+      internalID: -95389341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_14
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 277.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cdf649b18715b143b3d5fa163cb0e04
+      internalID: 1392621144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_15
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 277.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7f0470331bff343b3d5766747f4adb
+      internalID: -2002493893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_16
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 277.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95fb19dc53bd423488c25524479de251
+      internalID: -274260500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_17
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 277.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69080c289f51df48a647ac69f4bec42
+      internalID: 2062028936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 185.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae9a9a480a6d2846af570e492e20718
+      internalID: -502086970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_19
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 185.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9157bf3747a1f9e4caef691b29be49b3
+      internalID: 126660239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_20
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 185.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08a17cd4543b6f41bd11acbe65b24f0
+      internalID: 791281451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_21
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 185.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89abf8197218bde45a00dc0c339e4ba3
+      internalID: -1902254963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_22
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 185.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f2debb4ca53fb47a442ccc05f43f8f
+      internalID: 1713571620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_23
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 185.66666
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3613c6c32d8d4d543b74fb145636c8e6
+      internalID: 1031724703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 93.666664
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35beb6ca111e0464b9933c08a145ba22
+      internalID: -198122005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_25
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 93.666664
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e330effafc488914b9fc67456b0d3e95
+      internalID: 1434862272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_26
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 93.666664
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b529102b29d924ba924801ec57cd94
+      internalID: 1640420645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_27
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 93.666664
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28afba026874cb74fafc46d8f8b34bad
+      internalID: 549584360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_28
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 93.666664
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 383f4769a2fe9be44bcda4a2c0847dd8
+      internalID: 789637237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_29
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 93.666664
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e26be1d81ce49a4fa0af7ef507b3095
+      internalID: 2095459977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.6666641
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344c662d904f6ab48b885929021d66a4
+      internalID: 508455158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_31
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1.6666641
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 633cfcbe007336a458ca5e5bc9ce97fe
+      internalID: 847270363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_32
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 1.6666641
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc49971d39f2e654cbed279e19ef5735
+      internalID: -1061341375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_33
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 1.6666641
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7b7a132ae3128b4b8c6945529dc45c7
+      internalID: 1373791941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_34
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1.6666641
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bdf336bde414e849bb7aa17e18f7c35
+      internalID: 1145478287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire loop_35
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1.6666641
+        width: 92.333336
+        height: 92.333336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd3a721985ba6c49b60f27525625947
+      internalID: 1144159806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ede37b4498ccf344e9e343fa617d82d8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      fire loop_34: 1145478287
+      fire loop_24: -198122005
+      fire loop_8: -1853015303
+      fire loop_0: 1013333660
+      fire loop_19: 126660239
+      fire loop_1: -1699085667
+      fire loop_10: -1956259332
+      fire loop_2: 876663889
+      fire loop_29: 2095459977
+      fire loop_9: -1360751218
+      fire loop_14: 1392621144
+      fire loop_23: 1031724703
+      fire loop_21: -1902254963
+      fire loop_35: 1144159806
+      fire loop_18: -502086970
+      fire loop_28: 789637237
+      fire loop_12: -352316908
+      fire loop_3: 1445411669
+      fire loop_15: -2002493893
+      fire loop_31: 847270363
+      fire loop_6: 1857309318
+      fire loop_4: -1218361429
+      fire loop_26: 1640420645
+      fire loop_5: -944865631
+      fire loop_7: -1884223452
+      fire loop_20: 791281451
+      fire loop_30: 508455158
+      fire loop_13: -95389341
+      fire loop_16: -274260500
+      fire loop_25: 1434862272
+      fire loop_33: 1373791941
+      fire loop_11: 1693870047
+      fire loop_27: 549584360
+      fire loop_22: 1713571620
+      fire loop_17: 2062028936
+      fire loop_32: -1061341375
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
