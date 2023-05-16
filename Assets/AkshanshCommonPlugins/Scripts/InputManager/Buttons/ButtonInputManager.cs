@@ -1,5 +1,6 @@
 using AkshanshKanojia.Inputs.Mobile;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace AkshanshKanojia.Inputs.Button
@@ -18,8 +19,16 @@ namespace AkshanshKanojia.Inputs.Button
         public event OnButtonHeld OnHeld;
         public event OnButtonTapEnd OnLeft;
 
-        bool isTapped = false,isHeld = false;
+        public UnityEvent OnTapBegin,OnTapHeld,OnTapLeft;
 
+        bool isTapped = false,isHeld = false;
+        public override void Start()
+        {
+            base.Start();
+            OnTap += (obj)=> { OnTapBegin?.Invoke(); };
+            OnLeft += (obj)=> { OnTapLeft?.Invoke(); };
+            OnHeld += (obj)=> { OnTapHeld?.Invoke(); };
+        }
         private void OnDisable()
         {
             isTapped = false;

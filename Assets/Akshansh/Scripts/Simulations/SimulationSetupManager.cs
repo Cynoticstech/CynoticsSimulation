@@ -12,7 +12,7 @@ namespace Simulations
         public enum SimulationTypes
         {
             MitosisMeiosis, AmoebaHydra, Hibiscus, ReproductiveSystem, CockroachEarthworm, FishPigeon,
-            Microbes, BioFertilizer, AceticAcid, Respiration, MeltingIce
+            Microbes, BioFertilizer, AceticAcid, Respiration, MeltingIce,CoolingWater
         }
         #endregion
 
