@@ -5,16 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class navbtnclk : MonoBehaviour
 {
-    public enum Btnlist {logout, loginsubmit, signsubmit, studentselect, inredirect, upredirect}
-    public Btnlist btl;
-    public Button logout_btn, logsub_btn, sisub_btn, stdntlog_btn, inredirect_btn, upredirect_btn;
-    public GameObject parentobj, childobj;
+    //public enum Btnlist {logout, loginsubmit, signsubmit, studentselect, inredirect, upredirect}
+    //public Btnlist btl;
+    //public Button logout_btn, logsub_btn, sisub_btn, stdntlog_btn, inredirect_btn, upredirect_btn;
+    //public GameObject parentobj, childobj;
     Scene scene;
     // Start is called before the first frame update
     void Start()
     {
-        scene = SceneManager.GetActiveScene();
-        Debug.Log("Currently Active Scene is "+scene.name);
+       
         
        
     }
@@ -22,7 +21,8 @@ public class navbtnclk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        scene = SceneManager.GetActiveScene();
+        Debug.Log("Currently Active Scene is " + scene.name);
     }
    
     public void splashload()
