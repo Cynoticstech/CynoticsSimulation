@@ -12,7 +12,9 @@ namespace Simulations
         public enum SimulationTypes
         {
             MitosisMeiosis, AmoebaHydra, Hibiscus, ReproductiveSystem, CockroachEarthworm, FishPigeon,
-            Microbes, BioFertilizer, AceticAcid, Respiration, MeltingIce,CoolingWater
+            Microbes, BioFertilizer, AceticAcid, Respiration, MeltingIce,CoolingWater,ReactivityOfMetals,
+            IdentifyCl,TypeOfReaction,ClassifyReaction,MagneticField,HopeApparatus,
+            LawOfRefrection,PathOfRay,FocalLength,OxidationAddition
         }
         #endregion
 
@@ -712,6 +714,7 @@ namespace Simulations
                     activeSimulation.SimulationObj.SetActive(true);//activates the simulation holder object
                     DisableSteps();
                     activeSimulation.SimulationStepObjects[0].SetActive(true);
+                    print("called Ice");
                     break;
                 default:
                     print("Reached end of simulation");
@@ -1097,7 +1100,8 @@ namespace Simulations
                 case SimulationTypes.Respiration:
                     RespirationMang();
                     break;
-                case SimulationTypes.MeltingIce:
+                    //for dynamic sims
+                default:
                     IceMang();
                     break;
             }
