@@ -19,6 +19,7 @@ public class DragManager : MobileInputs
     Vector3 tempOffset, tempStartPos;
 
     bool isValid = false;
+    Collider2D tempDropPos;
 
     public override void Start()
     {
@@ -75,6 +76,7 @@ public class DragManager : MobileInputs
                 {
                     if (v.bounds.Contains(transform.position))
                     {
+                        tempDropPos = v;
                         OnCorrectPlaced?.Invoke();
                     }
                     else
@@ -117,6 +119,8 @@ public class DragManager : MobileInputs
             }
         }
     }
+
+    public Collider2D GetTargetCol() => tempDropPos;
 
     public override void OnTapStay(MobileInputManager.TouchData _data)
     {
