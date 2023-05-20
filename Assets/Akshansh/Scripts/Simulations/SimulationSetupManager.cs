@@ -12,7 +12,9 @@ namespace Simulations
         public enum SimulationTypes
         {
             MitosisMeiosis, AmoebaHydra, Hibiscus, ReproductiveSystem, CockroachEarthworm, FishPigeon,
-            Microbes, BioFertilizer, AceticAcid, Respiration, MeltingIce,CoolingWater
+            Microbes, BioFertilizer, AceticAcid, Respiration, MeltingIce,CoolingWater,CL_BR,TypeOfReaction,
+            ClassifyReaction,OxidationAddition,MagneticField,HopesApparatus,Refraction,
+            LightRay,FocalLength,RactivityOfMetal
         }
         #endregion
 
@@ -1097,7 +1099,7 @@ namespace Simulations
                 case SimulationTypes.Respiration:
                     RespirationMang();
                     break;
-                case SimulationTypes.MeltingIce:
+                default:
                     IceMang();
                     break;
             }

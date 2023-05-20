@@ -10,6 +10,8 @@ public class DragManager : MobileInputs
 
     [SerializeField] bool canInteract = true, useTapOffset = true, resetOnWrong = true;
     public Transform targetLocation;
+    public Collider2D[] targetCols;
+    [SerializeField] bool useTargetCol;
     [SerializeField] float validDist = 2f, zDepth = 10f,resetMoveSpeed =2f;
     [SerializeField] ObjectController objCont;
     [SerializeField] LayerMask raycastLayer;
@@ -56,13 +58,30 @@ public class DragManager : MobileInputs
         if (isValid)
         {
             isValid = false;
-            if (Vector3.Distance(transform.position, targetLocation.position) < validDist)
+            if (!useTargetCol)
             {
-                OnCorrectPlaced?.Invoke();
+                if (Vector3.Distance(transform.position, targetLocation.position) < validDist)
+                {
+                    OnCorrectPlaced?.Invoke();
+                }
+                else
+                {
+                    OnIncorrectPlace?.Invoke();
+                }
             }
             else
             {
-                OnIncorrectPlace?.Invoke();
+                foreach(var v in targetCols)
+                {
+                    if (v.bounds.Contains(transform.position))
+                    {
+                        OnCorrectPlaced?.Invoke();
+                    }
+                    else
+                    {
+                        OnIncorrectPlace?.Invoke();
+                    }
+                }
             }
         }
     }
