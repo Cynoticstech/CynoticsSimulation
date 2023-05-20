@@ -1,12 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
-public class PhysicsData : MonoBehaviour
+public class DynamicDataHolder : MonoBehaviour
 {
     [SerializeField] string SimSceneName;
-    public static PhysicsData Instance;
+    public static DynamicDataHolder Instance;
     public List<float> LoggedTime, LoggedTemp;
+
+    //chemistry data
+    [System.Serializable]
+    public class ReactivityDataHolder
+    {
+        public int DropDownIndex;
+        public int AnswerIndex;
+    }
+    public List<ReactivityDataHolder> ReactivityData;
     private void Awake()
     {
         if (!Instance)
@@ -21,6 +31,7 @@ public class PhysicsData : MonoBehaviour
     }
     private void Start()
     {
+        ReactivityData = new List<ReactivityDataHolder>();
         SceneManager.sceneLoaded += (scene, mode) =>
         {
             if (scene.name != SimSceneName)

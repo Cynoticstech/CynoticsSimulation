@@ -74,8 +74,8 @@ public class IceManager : MonoBehaviour
             return;
         var _tim = timeValues[curtLogIndex];
         var _tem = tempValues[curtLogIndex];
-        PhysicsData.Instance.LoggedTime.Add(_tim);
-        PhysicsData.Instance.LoggedTemp.Add(_tem);
+        DynamicDataHolder.Instance.LoggedTime.Add(_tim);
+        DynamicDataHolder.Instance.LoggedTemp.Add(_tem);
         canLog = false;
     }
 
@@ -84,8 +84,8 @@ public class IceManager : MonoBehaviour
         if (!canAnimate||isAnimating)
             return;
         isAnimating = true;
-        PhysicsData.Instance.LoggedTemp = new List<float>();
-        PhysicsData.Instance.LoggedTime = new List<float>();
+        DynamicDataHolder.Instance.LoggedTemp = new List<float>();
+        DynamicDataHolder.Instance.LoggedTime = new List<float>();
         tempLine.DOScaleX(meterScale, meterScaleTime);
         waterLevel.DOScaleX(waterScale, waterRiseTime);
         maskObj.transform.DOScaleX(0, maskTime);
@@ -105,7 +105,7 @@ public class IceManager : MonoBehaviour
             }
             Destroy(AnswerContent.transform.GetChild(i).gameObject);
         }
-        var _temp = PhysicsData.Instance;
+        var _temp = DynamicDataHolder.Instance;
         for (int i = 0; i < _temp.LoggedTemp.Count; i++)
         {
             var _obj = Instantiate(AnswerPrefab, AnswerContent.transform);

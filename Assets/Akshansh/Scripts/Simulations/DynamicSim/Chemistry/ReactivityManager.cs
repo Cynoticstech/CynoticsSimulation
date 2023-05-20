@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class ReactivityManager : MonoBehaviour
 {
+    [SerializeField] TMP_Dropdown[] ObservationInputs;
+    [SerializeField] GameObject ObservationObj;
     [SerializeField] TMP_Dropdown MetalType;
     [SerializeField] DragManager dropper;
     [SerializeField] Vector3 saltDropperOffset, saltOffset;
@@ -46,11 +48,62 @@ public class ReactivityManager : MonoBehaviour
     private void Start()
     {
         UpdateInterfaces();
-        MetalType.onValueChanged.AddListener((_)=>UpdateInterfaces());
+        MetalType.onValueChanged.AddListener((_) => UpdateInterfaces());
         OnAnimationCompleted.AddListener((_index) => { BeakersInScene[_index].BeakerInterFace.SetActive(true); });
         dropper.OnCorrectPlaced.AddListener(CorrectPlacement);
         dropperCol = dropper.GetComponent<Collider2D>();
         origDropperPos = dropper.transform.position;
+
+        foreach (var v in ObservationInputs)
+        {
+            v.onValueChanged.AddListener((val) => { AssignObservationListners(val, v); });
+        }
+    }
+    public void ShowObservation()
+    {
+        foreach (var v in DynamicDataHolder.Instance.ReactivityData)
+        {
+            for (int i = 0; i < ObservationInputs.Length; i++)
+            {
+                if (i == v.DropDownIndex)
+                {
+                    //contains it in list
+                    ObservationInputs[i].value = v.AnswerIndex;
+                }
+            }
+        }
+
+        ObservationObj.SetActive(true);
+    }
+    private void AssignObservationListners(int _val, TMP_Dropdown _drop)
+    {
+        var _dropDownIndex = 0;
+        for (int i = 0; i < ObservationInputs.Length; i++)
+        {
+            if (_drop != ObservationInputs[i])
+                continue;
+            _dropDownIndex = i;
+            break;
+        }
+        for (int i = 0; i < ObservationInputs.Length; i++)
+        {
+            for (int j = 0; j < DynamicDataHolder.Instance.ReactivityData.Count; j++)
+            {
+                if (DynamicDataHolder.Instance.ReactivityData[j].DropDownIndex == _dropDownIndex)
+                {
+                    print("Found Data");
+                    DynamicDataHolder.Instance.ReactivityData[j].AnswerIndex = _val;
+                    return;
+                }
+            }
+        }
+    DynamicDataHolder.Instance.ReactivityData.Add(
+    new DynamicDataHolder.ReactivityDataHolder
+    {
+        AnswerIndex = _val,
+        DropDownIndex = _dropDownIndex,
+    });
+
     }
 
     private void UpdateInterfaces()

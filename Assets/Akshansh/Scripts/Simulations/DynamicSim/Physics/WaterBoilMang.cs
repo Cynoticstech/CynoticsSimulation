@@ -46,8 +46,8 @@ public class WaterBoilMang : MonoBehaviour
                         var _tem = tempValues[curtLogIndex];
                         timeTxt.text = "Time: " + _tim;
                         tempTxt.text = "Temprature: " + _tem;
-                        PhysicsData.Instance.LoggedTime.Add(_tim);
-                        PhysicsData.Instance.LoggedTemp.Add(_tem);
+                        DynamicDataHolder.Instance.LoggedTime.Add(_tim);
+                        DynamicDataHolder.Instance.LoggedTemp.Add(_tem);
                         curtLogIndex++;
                     }
                 }
@@ -69,8 +69,8 @@ public class WaterBoilMang : MonoBehaviour
         if (!canAnimate)
             return;
         isAnimating = true;
-        PhysicsData.Instance.LoggedTemp = new List<float>();
-        PhysicsData.Instance.LoggedTime = new List<float>();
+        DynamicDataHolder.Instance.LoggedTemp = new List<float>();
+        DynamicDataHolder.Instance.LoggedTime = new List<float>();
         tempLine.DOScaleX(MeterUpScale, CooldownDelay);
         waterLevel.DOScaleX(waterScale, waterRiseTime);
         flameObj.SetActive(true);
@@ -89,7 +89,7 @@ public class WaterBoilMang : MonoBehaviour
             }
             Destroy(AnswerContent.transform.GetChild(i).gameObject);
         }
-        var _temp = PhysicsData.Instance;
+        var _temp = DynamicDataHolder.Instance;
         for (int i = 0; i < _temp.LoggedTemp.Count; i++)
         {
             var _obj = Instantiate(AnswerPrefab, AnswerContent.transform);
@@ -105,8 +105,8 @@ public class WaterBoilMang : MonoBehaviour
             return;
         var _tim = timeValues[curtLogIndex];
         var _tem = tempValues[curtLogIndex];
-        PhysicsData.Instance.LoggedTime.Add(_tim);
-        PhysicsData.Instance.LoggedTemp.Add(_tem);
+        DynamicDataHolder.Instance.LoggedTime.Add(_tim);
+        DynamicDataHolder.Instance.LoggedTemp.Add(_tem);
         canLog = false;
     }
 }
