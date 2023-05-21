@@ -78,12 +78,11 @@ public class DragManager : MobileInputs
                     {
                         tempDropPos = v;
                         OnCorrectPlaced?.Invoke();
-                    }
-                    else
-                    {
-                        OnIncorrectPlace?.Invoke();
+                        return;
                     }
                 }
+                //if no valid colliders
+                OnIncorrectPlace?.Invoke();
             }
         }
     }
