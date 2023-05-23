@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26feb22ef7b5eb24f9c7661c947e0966, type: 3}
+  m_Name: MitosisMetosis
+  m_EditorClassIdentifier: 
+  ProjectName: 0
+  PopupSequences:
+  - Welcome to the Experiment. We are going to study mitosis and meiosis.
+  - "First let\u2019s do a small activity. Can you name all the phases involved in
+    mitosis?"
+  - Excellent, experiment submitted . Now let's jump to meiosis and try to name all
+    the phases.
+  - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
+    complete these fill in the blanks?"
+  ValidAnswers:
+  - Interphase
+  - Prophase
+  - Late Prophase
+  - Metaphase
+  - Anaphase
+  - Telophase
+  - Cytokinesis
+  - Interphase
+  - Prophase1
+  - Metaphase1
+  - Anaphase1
+  - Telophase1
+  - Telophase2
+  - Anaphase2
+  - Metaphase2
+  - Prophase2
+  - Interkinesis
+  - ' remains the same'
+  - parent
+  - reduces by half
+  - diploid
+  FillupsQuestions:
+  - Due to mitosis, the number of chromosomes in the cell
+  - therefore, this division occurs in
+  - Due to meiosis, the number of chromosomes in the cell
+  - so this division occurs in
+  AnswerSprites:
+  - AnswerName: Mitosis Mitosis-1_0
+    AnswerSprite:
+    - {fileID: -468600379, guid: b430ece090d011048a4f2460e38c686b, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: Mitosis Mitosis-1_1
+    AnswerSprite:
+    - {fileID: 1080193522, guid: b430ece090d011048a4f2460e38c686b, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: Mitosis Mitosis-1_2
+    AnswerSprite:
+    - {fileID: 648162325, guid: b430ece090d011048a4f2460e38c686b, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: Mitosis Mitosis-1_3
+    AnswerSprite:
+    - {fileID: 1235676963, guid: b430ece090d011048a4f2460e38c686b, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: Mitosis Mitosis-1_4
+    AnswerSprite:
+    - {fileID: 1197280536, guid: b430ece090d011048a4f2460e38c686b, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: Mitosis Mitosis-1_5
+    AnswerSprite:
+    - {fileID: -1397485918, guid: b430ece090d011048a4f2460e38c686b, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: Mitosis Mitosis-1_6
+    AnswerSprite:
+    - {fileID: -1656325135, guid: b430ece090d011048a4f2460e38c686b, type: 3}
+    SpriteScale: {x: 1, y: 1, z: 1}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Single: Meiosis22_0'
+    AnswerSprite:
+    - {fileID: 696188524, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Single: Meiosis22_1'
+    AnswerSprite:
+    - {fileID: 220862016, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Single: Meiosis22_2'
+    AnswerSprite:
+    - {fileID: 971605713, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Single: Meiosis22_3'
+    AnswerSprite:
+    - {fileID: -636948081, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Single: Meiosis22_4'
+    AnswerSprite:
+    - {fileID: -2024003994, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Doubble: Meiosis22_9'
+    AnswerSprite:
+    - {fileID: 1338529506, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    - {fileID: 469963228, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Doubble: Meiosis22_8'
+    AnswerSprite:
+    - {fileID: -1855519340, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    - {fileID: 1964713035, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Doubble: Meiosis22_7'
+    AnswerSprite:
+    - {fileID: 1390982247, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    - {fileID: -740553125, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Doubble: Meiosis22_6'
+    AnswerSprite:
+    - {fileID: -561466343, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    - {fileID: -1176672814, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  - AnswerName: 'Meiosis Doubble: Meiosis22_5'
+    AnswerSprite:
+    - {fileID: -1510091611, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    - {fileID: 15278702, guid: 92a4e49532b2f3244abcc9c1f9fcf74a, type: 3}
+    SpriteScale: {x: 0.7, y: 0.7, z: 0.7}
+    SpriteEulerAngles: {x: 0, y: 0, z: 0}
+  AnswerPrefab: {fileID: 851274346076348074, guid: 0f7cd3bcacd38684c8eda866010d80b3, type: 3}
+  LabledAnswers: []

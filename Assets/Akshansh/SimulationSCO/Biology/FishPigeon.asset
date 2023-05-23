@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26feb22ef7b5eb24f9c7661c947e0966, type: 3}
+  m_Name: FishPigeon
+  m_EditorClassIdentifier: 
+  ProjectName: 5
+  PopupSequences:
+  - Welcome to the fourth experiment. We are going to study about fish and pigeon.
+  - "First let\u2019s do a small activity. Can you label all the body parts of fish?"
+  - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
+    fill these tables and fill in the blanks?"
+  - "Wonderful! Now here\u2019s another challenge for you. Can you name all the body
+    parts of Pigeon?"
+  - "Amazing!Experiment submitted. Now here\u2019s a challenge for you, can you fill
+    these tables and fill in the blanks?"
+  ValidAnswers:
+  - Spiny drosal fin
+  - Soft drosal fin
+  - Caudal fin
+  - Anal fin
+  - Pectoral fin
+  - Pelvic fin
+  - Gills
+  - Mouth
+  - Eye
+  - Animalia
+  - Chordata
+  - Vertebrata
+  - Pisces
+  - cold blooded
+  - gills
+  - Beak
+  - Eye
+  - Neck
+  - Contour Feather
+  - Wing Feathers
+  - Claws
+  - Digits
+  - Animalia
+  - Chordata
+  - Vertebrata
+  - Aves
+  - feathers
+  - wings
+  - four
+  - hollow
+  FillupsQuestions:
+  - 'Fish is a '
+  - ' animal with a spindle shaped body to minimize water-resistance.'
+  - 'Fish breathes with '
+  - 'Pigeons body is covered with '
+  - ' Forelimbs are modified into  '
+  - ' Heart has '
+  - ' compartments.'
+  - 'Pigeons have '
+  - '  bones and air bags inside the body. This is an aerial adaptation.'
+  AnswerSprites: []
+  AnswerPrefab: {fileID: 0}
+  LabledAnswers:
+  - {fileID: 2609929664253312521, guid: cc0a4f94e48d87249a7347e818a4d73d, type: 3}
+  - {fileID: 6752486586225214570, guid: 93a76965d48ad3a4886ae4121c104864, type: 3}
+  - {fileID: 3206063956934154915, guid: 983cc7804af53614eab10ab4babd2376, type: 3}
+  - {fileID: 9014283676918892353, guid: 2d0f391cdf786414481e53885a9b21f5, type: 3}

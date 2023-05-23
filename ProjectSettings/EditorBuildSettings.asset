@@ -4,5 +4,24 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Splash Screen.unity
+    guid: 921095295ef370c4eb9e9f20b1ff99be
+  - enabled: 1
+    path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Student Login.unity
+    guid: 4f9f88266cb48d241b7b977504b75ca6
+  - enabled: 1
+    path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Student Sign up 1.unity
+    guid: 7b52bbfb2ab1c6d42960a2ddca7112d9
+  - enabled: 1
+    path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Main Alpha Functionality
+      Pages.unity
+    guid: 0a65a97e8cf624745a89d2f12293449c
+  - enabled: 1
+    path: Assets/Akshansh/Scenes/Simulations.unity
+    guid: e0aa6c6771591f542a636ae9b3837f86
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 2296f390840b70b48bbf96580937d0ef, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 249b4e7e852a25b4dbcac4ed9831a810, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1f73b947d046ca144a99ece156f42bb9, type: 2}
