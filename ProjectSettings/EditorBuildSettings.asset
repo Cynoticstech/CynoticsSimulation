@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Student Sign up 1.unity
     guid: 7b52bbfb2ab1c6d42960a2ddca7112d9
   - enabled: 1
+    path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Offline_Alpha_Pages.unity
+    guid: c70159df020c6004795e9b26bd43e41e
+  - enabled: 0
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Main Alpha Functionality
       Pages.unity
     guid: 0a65a97e8cf624745a89d2f12293449c
