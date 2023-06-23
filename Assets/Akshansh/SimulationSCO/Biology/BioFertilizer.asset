@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 7
   PopupSequences:
-  - Welcome to the first experiment. We are going to study bio-fertilizers.
+  - Welcome to the Experiment. We are going to study bio-fertilizers.
   - Select the microbe from the drop down menu and fill its information in the table.
   - Amazing! You have successfully filled the table.
   ValidAnswers:

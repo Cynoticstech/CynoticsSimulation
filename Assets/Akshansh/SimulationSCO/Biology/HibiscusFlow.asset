@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 2
   PopupSequences:
-  - Welcome to the third experiment. We are going to study reproductive system in
-    Hibiscus flower
+  - Welcome to the Experiment. We are going to study reproductive system in Hibiscus
+    flower
   - "First let\u2019s do a small activity. Can you label all the parts of hibiscus?"
   - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
     fill this table and answer fill in the blanks?"

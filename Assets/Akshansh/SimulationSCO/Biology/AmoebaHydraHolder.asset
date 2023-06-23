@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 1
   PopupSequences:
-  - Welcome to the Second experiment. We are going to study binary fission in Amoeba
-    and budding in Hydra.
+  - Welcome to the Experiment. We are going to study binary fission in Amoeba and
+    budding in Hydra.
   - "First let\u2019s do a small activity. Can you name all the phases involved in
     fission of Amoeba?"
   - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
