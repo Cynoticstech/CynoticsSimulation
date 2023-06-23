@@ -166,12 +166,11 @@ namespace Simulations.UI
                     }
                 }
             }
-            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));
         }
-
         private void GenerateAmoebaResult(SimulationSetupManager.SimulationTypes _type, SimulationFlowSCO _flow)
         {
             var _active = GetActiveResult(_type);
@@ -369,7 +368,7 @@ namespace Simulations.UI
             }
 
             //result calculations
-            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));
@@ -503,7 +502,7 @@ namespace Simulations.UI
                 }
             }
             //result calculations
-            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));
@@ -684,7 +683,7 @@ namespace Simulations.UI
                 //one fillup end
             }
             //result calculations
-            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));
@@ -760,7 +759,7 @@ namespace Simulations.UI
 
 
             //result calculations
-            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));
@@ -1006,7 +1005,7 @@ namespace Simulations.UI
             }
 
             //result calculations
-            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));
@@ -1065,7 +1064,7 @@ namespace Simulations.UI
             }//lablled part end
 
             //result calculations
-            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));
@@ -1194,7 +1193,7 @@ namespace Simulations.UI
             //one fillup end
 
             //result calculations
-            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));
@@ -1270,7 +1269,7 @@ namespace Simulations.UI
             //one fillup end
 
             //result calculations
-            _active.PercentageTxt.text = "You answered " + (correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
+            _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
             print(_totalAnswers + " " + correctAnswers);
             _active.ResultObj.SetActive(true);
             StartCoroutine(RefreshUI(_active));

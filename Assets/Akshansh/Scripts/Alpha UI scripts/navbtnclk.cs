@@ -22,7 +22,6 @@ public class navbtnclk : MonoBehaviour
     void Update()
     {
         scene = SceneManager.GetActiveScene();
-        Debug.Log("Currently Active Scene is " + scene.name);
     }
    
     public void splashload()
