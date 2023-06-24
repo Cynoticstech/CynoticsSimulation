@@ -37,6 +37,7 @@ public class OxidationManager : MonoBehaviour
         burnerButt.OnTap += (obj) =>
         {
             BurnerTapped();
+            print("Burning");
         };
         kmno4.OnCorrectPlaced.AddListener(ChemicalDrop);
     }
@@ -86,9 +87,11 @@ public class OxidationManager : MonoBehaviour
                 curtShakeItteration++;
                 if (curtShakeItteration >= tubeShakeItteration)
                 {
+                    curtShakeItteration = 0;
                     //reset tube pos
+                    _tubeTrans.DORotate(Vector3.zero, tubeShakeTime).SetEase(Ease.Linear);
                     //check Chemical Index
-                    if(curtLiquidIndex <experimentEndIndex)
+                    if (curtLiquidIndex <experimentEndIndex)
                     {
                         tubeLiquid.DOColor(tubeNormal, tubeShakeIdle);
                     }
