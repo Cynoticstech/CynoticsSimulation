@@ -19,7 +19,7 @@ public class MagneticField : MonoBehaviour
     void SetSliderValue(int _value)
     {
         curtSliderIndex = _value;
-        ohmsText.text = currentText + (_value+1);
+        ohmsText.text = currentText + (12f/(_value+1));
     }
     public void ToggleSwitch()
     {
