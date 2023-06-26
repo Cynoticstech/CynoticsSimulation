@@ -26,6 +26,23 @@ public class HopesApparatus : MonoBehaviour
             saltPlate.DisableInteract();
             PlateAnim(saltPlate.transform, false);
         });
+        waterBeaker.OnCorrectPlaced.AddListener(() =>
+        {
+            waterBeaker.DisableInteract();
+            var _tempTrans = waterBeaker.transform;
+            _tempTrans.DOMove(beakerDropPos, beakerDropSpeed).onComplete+=()=>
+            {
+                _tempTrans.DORotate(beakerDropRot,beakerRotSpeed).onComplete+=()=>
+                {
+                    _tempTrans.DORotate(Vector3.zero,beakerRotSpeed).SetDelay(beakerIdleTime).onComplete+=()=>
+                    {
+                        _tempTrans.DOMove(waterBeaker.OriginPos, plateResetSpeed).onComplete += () =>
+                        CheckStep();
+                    };
+                    waterLevel.DOScaleY(waterRiseScale, waterRiseTime);
+                };
+            };
+        });
     }
 
     private void PlateAnim(Transform _temp, bool _isIce)
@@ -39,9 +56,19 @@ public class HopesApparatus : MonoBehaviour
                     var _obj = _isIce ? IceObj : SaltObj;
                     _obj.SetActive(true);
                     _temp.DOMove(_isIce ? icePlate.OriginPos : saltPlate.OriginPos, plateResetSpeed).onComplete +=
-                    () => curtStep++;
+                    () => CheckStep();
                 };
             };
         };
+    }
+
+    void CheckStep()
+    {
+        curtStep++;
+        if(curtStep>=2)
+        {
+            //start anim
+            print("Starting Exp");
+        }
     }
 }
