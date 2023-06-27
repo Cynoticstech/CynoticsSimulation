@@ -23,7 +23,7 @@ public class IceManager : MonoBehaviour
     [SerializeField] GameObject flameObj, SubmitButton;
     [SerializeField] GameObject AnswerContent, AnswerPrefab, AnswerHolder;
     public UnityEvent OnAnimComplete;
-
+ 
     bool isAnimating = false, canAnimate = true,canLog = true;
 
     private void Update()
@@ -84,6 +84,7 @@ public class IceManager : MonoBehaviour
         if (!canAnimate||isAnimating)
             return;
         isAnimating = true;
+        
         DynamicDataHolder.Instance.LoggedTemp = new List<float>();
         DynamicDataHolder.Instance.LoggedTime = new List<float>();
         tempLine.DOScaleX(meterScale, meterScaleTime);

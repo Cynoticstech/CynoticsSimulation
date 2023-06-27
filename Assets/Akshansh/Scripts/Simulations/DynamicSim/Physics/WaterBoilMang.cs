@@ -44,8 +44,8 @@ public class WaterBoilMang : MonoBehaviour
                     {
                         var _tim = timeValues[curtLogIndex];
                         var _tem = tempValues[curtLogIndex];
-                        timeTxt.text = "Time: " + _tim;
-                        tempTxt.text = "Temprature: " + _tem;
+                        timeTxt.text = "Time: " + _tim +"min";
+                        tempTxt.text = "Temprature: " + _tem +"<sup>0</sup>";
                         DynamicDataHolder.Instance.LoggedTime.Add(_tim);
                         DynamicDataHolder.Instance.LoggedTemp.Add(_tem);
                         curtLogIndex++;
