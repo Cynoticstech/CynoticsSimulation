@@ -7,8 +7,6 @@ using UnityEngine.Networking;
 
 public class API_Call_Test : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [System.Obsolete]
     void Start()
     {
         //StartCoroutine(SendRequest());
@@ -26,7 +24,7 @@ public class API_Call_Test : MonoBehaviour
 
     void SignUp()
     {
-        StartCoroutine(SendRequest());
+        //StartCoroutine(SendRequest());
     }
 
 
@@ -37,10 +35,10 @@ public class API_Call_Test : MonoBehaviour
             print("Called");
             data myData = new data()
             {
-                fullName = "Roy",
+                username = "Roy",
                 dob = "11-8-96",
                 email = "Roy@gmail.com",
-                InstituteId = "roy_ID",
+                instituteId = "roy_ID",
                 phone = "1234567890"
 
             };

@@ -21,7 +21,7 @@ public class LoginAPITestScript : MonoBehaviour
 
     public void Login()
     {
-        StartCoroutine(Upload());
+        //StartCoroutine(Upload());
     }
 
     IEnumerator Upload()
@@ -34,11 +34,12 @@ public class LoginAPITestScript : MonoBehaviour
 
         //Debug.Log(data);
         data myData = new data();
-        myData.fullName = "MyName";
-        myData.dob = "1025";
         myData.email = "MyMail.c";
+        myData.password = "password";
         myData.phone = "10254785";
-        myData.InstituteId = "EmplyID";
+        myData.instituteId = "EmplyID";
+        myData.username = "MyName";
+        myData.dob = "1025";
 
         string dataToSend = JsonUtility.ToJson(myData);
         
@@ -66,7 +67,7 @@ public class LoginAPITestScript : MonoBehaviour
 }
 class data
 {
-    public string fullName, dob, email, phone, InstituteId;
+    public string email, password, phone, instituteId, username, dob;
 }
 class CredentialData
 {
