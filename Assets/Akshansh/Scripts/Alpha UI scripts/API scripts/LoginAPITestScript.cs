@@ -46,7 +46,7 @@ public class LoginAPITestScript : MonoBehaviour
         //object jsonObj = JsonUtility.FromJson<object>(data);
 
         using (UnityWebRequest www = UnityWebRequest.Post
-            ("https://cynotics-backend-web-service.onrender.com/api/user/signup", dataToSend))
+            ("https://echo-admin-backend.vercel.app/api/student/signup", dataToSend))
 
         {
             byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(dataToSend);

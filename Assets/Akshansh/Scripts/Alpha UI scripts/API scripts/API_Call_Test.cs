@@ -11,7 +11,7 @@ public class API_Call_Test : MonoBehaviour
     [System.Obsolete]
     void Start()
     {
-        StartCoroutine(SendRequest());
+        //StartCoroutine(SendRequest());
     }
     /*private string GetAuthenticationKey()
     {
@@ -23,6 +23,13 @@ public class API_Call_Test : MonoBehaviour
     {
         
     }
+
+    void SignUp()
+    {
+        StartCoroutine(SendRequest());
+    }
+
+
     [System.Obsolete]
     IEnumerator SendRequest()
     {
@@ -31,7 +38,7 @@ public class API_Call_Test : MonoBehaviour
             data myData = new data()
             {
                 fullName = "Roy",
-                dob = "11/8/96",
+                dob = "11-8-96",
                 email = "Roy@gmail.com",
                 InstituteId = "roy_ID",
                 phone = "1234567890"
