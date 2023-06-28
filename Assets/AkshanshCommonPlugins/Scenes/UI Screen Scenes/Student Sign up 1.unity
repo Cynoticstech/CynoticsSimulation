@@ -393,7 +393,7 @@ RectTransform:
   - {fileID: 1764266055}
   - {fileID: 460060621}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -620,8 +620,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 2
   m_RegexValue: 
-  m_GlobalPointSize: 14
+  m_GlobalPointSize: 55
   m_CharacterLimit: 1
   m_OnEndEdit:
     m_PersistentCalls:
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 
+  m_Text: 0
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 2
   m_RegexValue: 
-  m_GlobalPointSize: 14
+  m_GlobalPointSize: 55
   m_CharacterLimit: 1
   m_OnEndEdit:
     m_PersistentCalls:
@@ -1722,7 +1722,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &111941107
 GameObject:
@@ -2834,15 +2834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fbaad1900e51e40a7bde69b23da438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btl: 2
-  logout_btn: {fileID: 0}
-  logsub_btn: {fileID: 0}
-  sisub_btn: {fileID: 158218326}
-  stdntlog_btn: {fileID: 0}
-  inredirect_btn: {fileID: 0}
-  upredirect_btn: {fileID: 0}
-  parentobj: {fileID: 0}
-  childobj: {fileID: 0}
 --- !u!1 &174380920
 GameObject:
   m_ObjectHideFlags: 0
@@ -4050,7 +4041,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 2
   m_RegexValue: 
-  m_GlobalPointSize: 14
+  m_GlobalPointSize: 55
   m_CharacterLimit: 1
   m_OnEndEdit:
     m_PersistentCalls:
@@ -4782,7 +4773,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410041970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -4822,8 +4813,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5047,15 +5038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fbaad1900e51e40a7bde69b23da438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btl: 2
-  logout_btn: {fileID: 0}
-  logsub_btn: {fileID: 0}
-  sisub_btn: {fileID: 417242455}
-  stdntlog_btn: {fileID: 0}
-  inredirect_btn: {fileID: 0}
-  upredirect_btn: {fileID: 0}
-  parentobj: {fileID: 0}
-  childobj: {fileID: 0}
 --- !u!114 &417242455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5100,22 +5082,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 130297283}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1368597391}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1145643273}
+        m_TargetAssemblyTypeName: SignUp_API, Assembly-CSharp
+        m_MethodName: AttemptSignUP
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7628,15 +7598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fbaad1900e51e40a7bde69b23da438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btl: 4
-  logout_btn: {fileID: 0}
-  logsub_btn: {fileID: 0}
-  sisub_btn: {fileID: 0}
-  stdntlog_btn: {fileID: 0}
-  inredirect_btn: {fileID: 629155050}
-  upredirect_btn: {fileID: 0}
-  parentobj: {fileID: 0}
-  childobj: {fileID: 0}
 --- !u!1 &629342567
 GameObject:
   m_ObjectHideFlags: 0
@@ -8291,7 +8252,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 2
   m_RegexValue: 
-  m_GlobalPointSize: 14
+  m_GlobalPointSize: 55
   m_CharacterLimit: 1
   m_OnEndEdit:
     m_PersistentCalls:
@@ -8522,7 +8483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &675315433
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8771,7 +8732,7 @@ GameObject:
   - component: {fileID: 685609813}
   - component: {fileID: 685609812}
   m_Layer: 0
-  m_Name: scenechecker
+  m_Name: SceneChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8789,15 +8750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fbaad1900e51e40a7bde69b23da438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btl: 0
-  logout_btn: {fileID: 0}
-  logsub_btn: {fileID: 0}
-  sisub_btn: {fileID: 0}
-  stdntlog_btn: {fileID: 0}
-  inredirect_btn: {fileID: 0}
-  upredirect_btn: {fileID: 0}
-  parentobj: {fileID: 0}
-  childobj: {fileID: 0}
 --- !u!4 &685609813
 Transform:
   m_ObjectHideFlags: 0
@@ -8811,7 +8763,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &686573608
 GameObject:
@@ -11007,7 +10959,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &901421801
 GameObject:
@@ -12343,7 +12295,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1036756555
 GameObject:
@@ -13661,6 +13613,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134542763}
   m_CullTransparentMesh: 1
+--- !u!1 &1145643272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1145643274}
+  - component: {fileID: 1145643273}
+  m_Layer: 0
+  m_Name: SignUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1145643273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145643272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9d03bc558694b49a2d6dfaad5ddf38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  email: {fileID: 228055924}
+  password: {fileID: 1180938278}
+  phone: {fileID: 1690047481}
+  instituteId: {fileID: 1400830059}
+  username: {fileID: 1228382109}
+  dob: {fileID: 1192294338}
+  confirmPassword: {fileID: 1992347368}
+  signUpPannel: {fileID: 1368597391}
+  phoneOtp: {fileID: 442699830}
+  emailOtp: {fileID: 130297283}
+--- !u!4 &1145643274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145643272}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6071428, y: 0.060069595, z: 44.32761}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163740471
 GameObject:
   m_ObjectHideFlags: 0
@@ -14785,8 +14791,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17949,7 +17955,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 2
   m_RegexValue: 
-  m_GlobalPointSize: 14
+  m_GlobalPointSize: 55
   m_CharacterLimit: 1
   m_OnEndEdit:
     m_PersistentCalls:
@@ -18912,8 +18918,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -20761,7 +20767,7 @@ RectTransform:
   - {fileID: 530675385}
   - {fileID: 675315433}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21567,8 +21573,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -21806,15 +21812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fbaad1900e51e40a7bde69b23da438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btl: 4
-  logout_btn: {fileID: 0}
-  logsub_btn: {fileID: 0}
-  sisub_btn: {fileID: 0}
-  stdntlog_btn: {fileID: 0}
-  inredirect_btn: {fileID: 1755381721}
-  upredirect_btn: {fileID: 0}
-  parentobj: {fileID: 0}
-  childobj: {fileID: 0}
 --- !u!114 &1755381721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23454,7 +23451,7 @@ RectTransform:
   - {fileID: 1673732879}
   - {fileID: 906328479}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -23830,7 +23827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u200B"
+  m_text: "0\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4af5906b8ad5fe340889f533ce120bab, type: 2}
   m_sharedMaterial: {fileID: -5756706342267481872, guid: 4af5906b8ad5fe340889f533ce120bab, type: 2}
@@ -23857,8 +23854,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -24004,7 +24001,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 2
   m_RegexValue: 
-  m_GlobalPointSize: 14
+  m_GlobalPointSize: 55
   m_CharacterLimit: 1
   m_OnEndEdit:
     m_PersistentCalls:
@@ -24526,7 +24523,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 2
   m_RegexValue: 
-  m_GlobalPointSize: 14
+  m_GlobalPointSize: 55
   m_CharacterLimit: 1
   m_OnEndEdit:
     m_PersistentCalls:
@@ -25117,7 +25114,7 @@ RectTransform:
   - {fileID: 1090987630}
   - {fileID: 1810038427}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -26034,7 +26031,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 2
   m_RegexValue: 
-  m_GlobalPointSize: 14
+  m_GlobalPointSize: 55
   m_CharacterLimit: 1
   m_OnEndEdit:
     m_PersistentCalls:

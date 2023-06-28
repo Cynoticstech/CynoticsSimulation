@@ -35,12 +35,11 @@ public class navbtnclk : MonoBehaviour
     public void studentloginload()
     {
         //SceneManager.LoadScene("Student Login");
-        SceneManager.LoadScene("Offline_Alpha_Pages");
+        SceneManager.LoadScene("Student Login");
     }
     public void studentSignUpload()
     {
-        //SceneManager.LoadScene("Student Sign up 1");
-        SceneManager.LoadScene("Offline_Alpha_Pages");
+        SceneManager.LoadScene("Student Sign up 1");
     }
     public void alphaload()
     {

@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Splash Screen.unity
     guid: 921095295ef370c4eb9e9f20b1ff99be
-  - enabled: 0
+  - enabled: 1
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Student Login.unity
     guid: 4f9f88266cb48d241b7b977504b75ca6
-  - enabled: 0
+  - enabled: 1
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Student Sign up 1.unity
     guid: 7b52bbfb2ab1c6d42960a2ddca7112d9
   - enabled: 1
