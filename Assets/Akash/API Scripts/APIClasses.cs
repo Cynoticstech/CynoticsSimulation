@@ -16,6 +16,12 @@ public class APIClasses : MonoBehaviour
     {
         public string email, password;
     }
+
+    [Serializable]
+    public class StudentDataHolder
+    {
+        
+    }
 }
 
 

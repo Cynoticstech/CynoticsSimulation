@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class SignUp_API : MonoBehaviour
 {
@@ -12,7 +13,11 @@ public class SignUp_API : MonoBehaviour
     [SerializeField] private TMP_InputField email, password, phone, instituteId, username, dob, confirmPassword;
 
     //Pannels
-    [SerializeField] private GameObject signUpPannel, phoneOtp, emailOtp;
+    [SerializeField] private GameObject signUpPannel, phoneOtp, emailOtp, popup;
+
+    //Popup
+    [SerializeField] private TextMeshProUGUI title;
+    [SerializeField] private TextMeshProUGUI message;
 
     IEnumerator Signup()
     {
@@ -48,7 +53,7 @@ public class SignUp_API : MonoBehaviour
         }
         else
         {
-            Debug.Log("error"); //Popup for errorw
+            Debug.Log("error"); //Popup for error
             Debug.Log(request.error);
         }
     }
@@ -59,6 +64,9 @@ public class SignUp_API : MonoBehaviour
         {
             Debug.Log("Fill all fields to continue"); //ShowPopup for fill all fields
             signUpPannel.SetActive(true);
+            title.text = "Error";
+            message.text = "Input all fields";
+            popup.SetActive(true);
             return; 
         }
 
@@ -66,6 +74,9 @@ public class SignUp_API : MonoBehaviour
         {
             Debug.Log("Passsword Mismatched"); //Popup for password mismatch
             signUpPannel.SetActive(true);
+            title.text = "Error";
+            message.text = "Confirm match does not match.";
+            popup.SetActive(true);
             return;
         }
 
