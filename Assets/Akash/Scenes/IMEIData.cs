@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +8,7 @@ public static class IMEIData
     {
         string imei = string.Empty;
 
-        using (AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        using (AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.BetinalPrivateLimited.Cynotics"))
         {
             using (AndroidJavaObject currentActivity = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity"))
             {

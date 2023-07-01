@@ -6,6 +6,9 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using System.Runtime.Serialization;
+using System;
+using UnityEngine.Android;
 
 public class SignUp_API : MonoBehaviour
 {
@@ -14,10 +17,11 @@ public class SignUp_API : MonoBehaviour
 
     //Pannels
     [SerializeField] private GameObject signUpPannel, phoneOtp, emailOtp, popup;
-
+     
     //Popup
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI message;
+
 
     IEnumerator Signup()
     {
@@ -31,7 +35,8 @@ public class SignUp_API : MonoBehaviour
             phone = phone.text,
             instituteId = instituteId.text,
             username = username.text,
-            dob = dob.text
+            dob = dob.text,
+            deviceKey = "111005"
         };
 
         string jsonBody = JsonUtility.ToJson(signUpData);
@@ -50,6 +55,44 @@ public class SignUp_API : MonoBehaviour
         {
             Debug.Log("Success");
             Debug.Log(request.downloadHandler.data);
+            StartCoroutine(SendingOTPToEmail());
+            signUpPannel.SetActive(false);
+            emailOtp.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("error"); //Popup for error
+            Debug.Log(request.error);
+        }
+    }
+
+    IEnumerator SendingOTPToEmail()
+    {
+        Debug.Log("OTP Sending Started");
+        string _url = "https://echo-admin-backend.vercel.app/api/student/send-otp";
+
+        APIClasses.SignUpDataHolder otpSend = new APIClasses.SignUpDataHolder()
+        {
+            email = email.text
+        };
+
+        string jsonBody = JsonUtility.ToJson(otpSend);
+        byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
+
+        Debug.Log(jsonBody);
+
+        UnityWebRequest request = UnityWebRequest.Post( _url, "application/json");
+
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.uploadHandler = new UploadHandlerRaw(rawBody);
+        request.downloadHandler = new DownloadHandlerBuffer();
+
+        yield return request.SendWebRequest();
+
+        if(request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Success");
+            Debug.Log(request.downloadHandler.data);
         }
         else
         {
@@ -60,27 +103,64 @@ public class SignUp_API : MonoBehaviour
 
     public void AttemptSignUP()
     {
-        if(email.text == string.Empty || password.text == string.Empty || phone.text == string.Empty || instituteId.text == string.Empty || username.text == string.Empty || dob.text == string.Empty)
+        if (email.text == string.Empty || password.text == string.Empty || phone.text == string.Empty || instituteId.text == string.Empty || username.text == string.Empty || dob.text == string.Empty)
         {
             Debug.Log("Fill all fields to continue"); //ShowPopup for fill all fields
             signUpPannel.SetActive(true);
-            title.text = "Error";
+            title.text = "";
             message.text = "Input all fields";
-            popup.SetActive(true);
-            return; 
-        }
-
-        if(password.text != confirmPassword.text)
-        {
-            Debug.Log("Passsword Mismatched"); //Popup for password mismatch
-            signUpPannel.SetActive(true);
-            title.text = "Error";
-            message.text = "Confirm match does not match.";
             popup.SetActive(true);
             return;
         }
 
+        if (!email.text.Contains("@") || !email.text.Contains("."))
+        {
+            Debug.Log("Invalid email format"); //Popup for invalid email
+            signUpPannel.SetActive(true);
+            title.text = "Invalid Email Format";
+            message.text = "Enter a valid email format";
+            popup.SetActive(true);
+            return;
+        }
+
+        if (!IsValidDateFormat(dob.text))
+        {
+            Debug.Log("Invalid date of birth format"); //Popup for invalid date of birth
+            signUpPannel.SetActive(true);
+            title.text = "Invalid date format";
+            message.text = "Enter the date in the format:- DD/MM/YYYY";
+            popup.SetActive(true);
+            return;
+        }
+
+        if (phone.text.Length != 10 || !System.Text.RegularExpressions.Regex.IsMatch(phone.text, @"^\d+$"))
+        {
+            Debug.Log("Invalid phone number format"); //Popup for invalid phone number
+            signUpPannel.SetActive(true);
+            title.text = "Incorrect phone number";
+            message.text = "Enter a correct 10-digit phone number";
+            popup.SetActive(true);
+            return;
+        }
+
+        if (password.text != confirmPassword.text)
+        {
+            Debug.Log("Password Mismatched"); //Popup for password mismatch
+            signUpPannel.SetActive(true);
+            title.text = "Password mismatch";
+            message.text = "Enter the same password in both password fields";
+            popup.SetActive(true);
+            return;
+        }
+        
         StartCoroutine(Signup());
-        emailOtp.SetActive(true);
     }
+
+    private bool IsValidDateFormat(string date)
+    {
+        System.DateTime parsedDate;
+        return System.DateTime.TryParseExact(date, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out parsedDate);
+    }
+
+    
 }

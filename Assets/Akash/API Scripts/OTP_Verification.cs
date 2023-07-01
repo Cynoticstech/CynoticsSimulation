@@ -5,24 +5,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-using static System.Net.WebRequestMethods;
 
-public class Login_API : MonoBehaviour
+public class OTP_Verification : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField email, password;
+    [SerializeField] private TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit;
 
-    IEnumerator Login()
+    IEnumerator SendUserEnteredOtp()
     {
-        string _url = "https://echo-admin-backend.vercel.app/api/student/login";
+        string _url = "https://echo-admin-backend.vercel.app/api/student/verify-otp";
 
-        APIClasses.LoginDataHolder loginData = new APIClasses.LoginDataHolder()
+        APIClasses.OtpSend otpHolder = new APIClasses.OtpSend()
         {
-            email = email.text,
-            password = password.text,
-            deviceKey = "111005"
+            OTP = $"{firstDigit}{secondDigit}{thirdDigit}{fourthDigit}",
         };
 
-        string jsonBody = JsonUtility.ToJson(loginData);
+        string jsonBody = JsonUtility.ToJson(otpHolder);
         byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
 
         Debug.Log(jsonBody);
@@ -37,36 +34,36 @@ public class Login_API : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Data Sent");
-            StartCoroutine(GetLoginCreds());
+            Debug.Log("Success In Sending The OTP");
+            StartCoroutine(VerifyOTP());
         }
         else
         {
-            Debug.Log("Error to send data");
+            Debug.Log("Error to send OTP");
             Debug.Log(request.error);
         }
     }
 
-    IEnumerator GetLoginCreds()
+    IEnumerator VerifyOTP()
     {
-        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/");
+        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/verify-otp");
         yield return newRequest.SendWebRequest();
 
         if (newRequest.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Data Retrived");
-            SceneManager.LoadScene("Main Alpha Functionality Pages");
+            Debug.Log("Verified");
+            SceneManager.LoadScene("Student Login");
             Debug.Log(newRequest.downloadHandler.text);
         }
         else
         {
-            Debug.Log("Error to retrive data");
+            Debug.Log("Wrong OTP Entered");
             Debug.Log(newRequest.error);
         }
     }
 
-    public void AttemptLogin()
+    public void AttemptVerification()
     {
-        StartCoroutine(Login());
+        StartCoroutine(SendUserEnteredOtp());
     }
 }
