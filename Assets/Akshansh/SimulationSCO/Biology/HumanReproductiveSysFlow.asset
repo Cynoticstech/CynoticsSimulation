@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 3
   PopupSequences:
-  - Welcome to the fourth experiment. We are going to study the human reproductive
-    system.
+  - Welcome to the Experiment. We are going to study the human reproductive system.
   - "First let\u2019s do a small activity. Can you label all the parts of the human
     reproductive system?"
   - "Amazing!Experiment submitted. Now here\u2019s a challenge for you, can you fill

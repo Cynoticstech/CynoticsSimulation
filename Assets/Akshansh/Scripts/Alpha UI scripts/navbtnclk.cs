@@ -22,7 +22,6 @@ public class navbtnclk : MonoBehaviour
     void Update()
     {
         scene = SceneManager.GetActiveScene();
-        Debug.Log("Currently Active Scene is " + scene.name);
     }
    
     public void splashload()
@@ -35,6 +34,7 @@ public class navbtnclk : MonoBehaviour
     }
     public void studentloginload()
     {
+        //SceneManager.LoadScene("Student Login");
         SceneManager.LoadScene("Student Login");
     }
     public void studentSignUpload()
@@ -43,7 +43,7 @@ public class navbtnclk : MonoBehaviour
     }
     public void alphaload()
     {
-        SceneManager.LoadScene("Main Alpha Functionality Pages");
+        SceneManager.LoadScene("Offline_Alpha_Pages");
     }
 
 }

@@ -7,6 +7,7 @@ public class DragManager : MobileInputs
 {
     public UnityEvent OnCorrectPlaced;
     public UnityEvent OnIncorrectPlace;
+    [HideInInspector] public Vector3 OriginPos{ get => originalPos; }
 
     [SerializeField] bool canInteract = true, useTapOffset = true, resetOnWrong = true;
     public Transform targetLocation;
@@ -16,7 +17,7 @@ public class DragManager : MobileInputs
     [SerializeField] ObjectController objCont;
     [SerializeField] LayerMask raycastLayer;
 
-    Vector3 tempOffset, tempStartPos;
+    Vector3 tempOffset, tempStartPos,originalPos;
 
     bool isValid = false;
     Collider2D tempDropPos;
@@ -25,6 +26,7 @@ public class DragManager : MobileInputs
     {
         base.Start();
         objCont.OnMovementEnd += (obj) => { if (obj == gameObject) { EnableInteract(); } };
+        originalPos = transform.position;
         OnIncorrectPlace.AddListener(() =>
         {
             if (resetOnWrong)

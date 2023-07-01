@@ -13,11 +13,8 @@ public class expbtnclick : MonoBehaviour
         GetComponent<UnityEngine.UI.Button>().onClick.AddListener(()=>
         {
             SceneChangeScript.optionselect.selectsim = buttType;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("BiologySimulations"); 
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Simulations"); 
             
         });
-    }
-
-    // Update is called once per frame
-    
+    }    
 }
