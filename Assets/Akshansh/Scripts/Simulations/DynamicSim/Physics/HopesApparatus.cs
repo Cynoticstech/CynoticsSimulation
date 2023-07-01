@@ -5,11 +5,11 @@ public class HopesApparatus : MonoBehaviour
 {
     [SerializeField] DragManager icePlate, saltPlate, waterBeaker;
     [SerializeField] GameObject IceObj, SaltObj;
-    [SerializeField] Transform waterLevel, droppingWaterLevel, graphMask;
+    [SerializeField] Transform waterLevel, droppingWaterLevel, graphMask,t1,t2;
     [SerializeField]
     float plateDropSpeed = 1f, plateDropIdle = 1f, plateRotSpeed = 1f, plateResetSpeed = 3f,
-        beakerDropSpeed = 1f, beakerRotSpeed = 1f, beakerIdleTime = 1f, maskTime = 10f, waterDropTime = 3f, waterRiseTime = 3f,
-        waterRiseScale = 1f, waterDropScale = 1f;
+        beakerDropSpeed = 1f, beakerRotSpeed = 1f, beakerIdleTime = 1f, maskTime = 10f, waterRiseTime = 3f,
+        waterRiseScale = 1f, waterDropScale = 1f,expTime =10f;
     [SerializeField] Vector3 plateDropPos, plateRotPos, beakerDropPos, beakerDropRot;
 
     int curtStep = 0;
@@ -69,6 +69,7 @@ public class HopesApparatus : MonoBehaviour
         {
             //start anim
             print("Starting Exp");
+            droppingWaterLevel.DOScaleY(waterDropScale,expTime);
         }
     }
 }
