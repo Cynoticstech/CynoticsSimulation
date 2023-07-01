@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 public class ForgotPassword : MonoBehaviour
 {
 
-    [SerializeField] private GameObject _forgotPassScreen, _otpVerificationScreen;
+    [SerializeField] private GameObject _forgotPassScreen, _otpVerificationScreen, _mainSignUpScreen, _resetPassScreen;
     [SerializeField] private TMP_InputField _email, _password;
 
     [SerializeField] private TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit;
@@ -95,6 +95,8 @@ public class ForgotPassword : MonoBehaviour
         {
             Debug.Log("Verified");
             Debug.Log(newRequest.downloadHandler.text);
+            _mainSignUpScreen.SetActive(true);
+            _resetPassScreen.SetActive(false);
         }
         else
         {
