@@ -5,25 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Splash Screen.unity
     guid: 921095295ef370c4eb9e9f20b1ff99be
-  - enabled: 1
+  - enabled: 0
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Student Login.unity
     guid: 4f9f88266cb48d241b7b977504b75ca6
-  - enabled: 1
+  - enabled: 0
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Student Sign up 1.unity
     guid: 7b52bbfb2ab1c6d42960a2ddca7112d9
-  - enabled: 1
+  - enabled: 0
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Offline_Alpha_Pages.unity
     guid: c70159df020c6004795e9b26bd43e41e
   - enabled: 0
     path: Assets/AkshanshCommonPlugins/Scenes/UI Screen Scenes/Main Alpha Functionality
       Pages.unity
     guid: 0a65a97e8cf624745a89d2f12293449c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Akshansh/Scenes/Simulations.unity
     guid: e0aa6c6771591f542a636ae9b3837f86
+  - enabled: 1
+    path: Assets/Akash/Scenes/IEMITest.unity
+    guid: fb429b48e5b2cb34ea439898792e9f28
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 2296f390840b70b48bbf96580937d0ef, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: b3191c3126ad989419e03df5c9b6dd6d, type: 2}
