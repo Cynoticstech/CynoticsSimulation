@@ -3061,7 +3061,7 @@ GameObject:
   - component: {fileID: 658218055}
   - component: {fileID: 658218054}
   m_Layer: 5
-  m_Name: Student_Login_Change_Pswrd
+  m_Name: Student_Reset_Pswrd
   m_TagString: Login_Box_tag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3362,8 +3362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _forgotPassScreen: {fileID: 1634035586}
   _otpVerificationScreen: {fileID: 5381132909559884631}
-  _mainSignUpScreen: {fileID: 0}
-  _resetPassScreen: {fileID: 0}
+  _mainSignInScreen: {fileID: 1565525760}
+  _resetPassScreen: {fileID: 658218052}
   _email: {fileID: 122741728}
   _password: {fileID: 1944255529}
   firstDigit: {fileID: 5381132908343481386}
@@ -5774,7 +5774,7 @@ GameObject:
   - component: {fileID: 1634035589}
   - component: {fileID: 1634035588}
   m_Layer: 5
-  m_Name: Student_Login_Forgot_Password
+  m_Name: Student_Forgot_Password
   m_TagString: Login_Box_tag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
