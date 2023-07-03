@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class OTP_Verification : MonoBehaviour
 {
     [SerializeField] private TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit;
+    SignUp_API signUpAPI;
 
     IEnumerator SendUserEnteredOtp()
     {
@@ -54,6 +55,7 @@ public class OTP_Verification : MonoBehaviour
             Debug.Log("Verified");
             SceneManager.LoadScene("Student Login");
             Debug.Log(newRequest.downloadHandler.text);
+            StartCoroutine(signUpAPI.Signup());
         }
         else
         {

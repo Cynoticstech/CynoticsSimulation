@@ -23,7 +23,7 @@ public class SignUp_API : MonoBehaviour
     [SerializeField] private TextMeshProUGUI message;
 
 
-    IEnumerator Signup()
+    public IEnumerator Signup()
     {
         Debug.Log("Signup Started");
         string _url = "https://echo-admin-backend.vercel.app/api/student/signup";
@@ -37,6 +37,7 @@ public class SignUp_API : MonoBehaviour
             username = username.text,
             dob = dob.text,
             deviceKey = "111008"
+            //deviceKey = Andriod_ID.id
         };
 
         string jsonBody = JsonUtility.ToJson(signUpData);
@@ -55,9 +56,6 @@ public class SignUp_API : MonoBehaviour
         {
             Debug.Log("Success");
             Debug.Log(request.downloadHandler.data);
-            StartCoroutine(SendingOTPToEmail());
-            signUpPannel.SetActive(false);
-            emailOtp.SetActive(true);
         }
         else
         {
@@ -93,6 +91,8 @@ public class SignUp_API : MonoBehaviour
         {
             Debug.Log("Success");
             Debug.Log(request.downloadHandler.data);
+            signUpPannel.SetActive(false);
+            emailOtp.SetActive(true);
         }
         else
         {
@@ -101,7 +101,7 @@ public class SignUp_API : MonoBehaviour
         }
     }
 
-    public void AttemptSignUP()
+    public void SignupFieldsCheck()
     {
         if (email.text == string.Empty || password.text == string.Empty || phone.text == string.Empty || instituteId.text == string.Empty || username.text == string.Empty || dob.text == string.Empty)
         {
@@ -153,7 +153,7 @@ public class SignUp_API : MonoBehaviour
             return;
         }
 
-        StartCoroutine(Signup());
+        StartCoroutine(SendingOTPToEmail());
     }
 
     private bool IsValidDateFormat(string date)
