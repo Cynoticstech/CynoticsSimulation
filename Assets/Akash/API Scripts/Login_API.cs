@@ -20,7 +20,7 @@ public class Login_API : MonoBehaviour
             email = email.text,
             password = password.text,
             deviceKey = "111008"
-            //deviceKey = Andriod_ID.id
+            //deviceKey = Andriod_ID.deviceId
         };
 
         string jsonBody = JsonUtility.ToJson(loginData);

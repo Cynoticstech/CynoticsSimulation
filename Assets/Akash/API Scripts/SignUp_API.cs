@@ -37,7 +37,7 @@ public class SignUp_API : MonoBehaviour
             username = username.text,
             dob = dob.text,
             deviceKey = "111008"
-            //deviceKey = Andriod_ID.id
+            //deviceKey = Andriod_ID.deviceId
         };
 
         string jsonBody = JsonUtility.ToJson(signUpData);
