@@ -71,13 +71,13 @@ public class Lens_Script : MonoBehaviour
             row.transform.SetSiblingIndex(tableL.GetSiblingIndex() + 1);
             row.transform.GetChild(0).GetComponent<TMP_Text>().text = (z ).ToString();
             row.transform.GetChild(1).GetComponent<TMP_Text>().text = "Tree";
-            row.transform.GetChild(2).GetComponent<TMP_Text>().text = DynamicDataHolder.Instance.focalLengthL[i].ToString();
+            row.transform.GetChild(2).GetComponent<TMP_Text>().text = DynamicDataHolder.Instance.focalLengthL[i].ToString()+ " cm";
             spawnedAns.Add(row);
             row = Instantiate(tablePrefab, contentorder);
             row.transform.SetSiblingIndex(tableR.GetSiblingIndex() + 1);
             row.transform.GetChild(0).GetComponent<TMP_Text>().text = (z ).ToString();
             row.transform.GetChild(1).GetComponent<TMP_Text>().text = "Tree";
-            row.transform.GetChild(2).GetComponent<TMP_Text>().text = DynamicDataHolder.Instance.focalLengthR[i].ToString();
+            row.transform.GetChild(2).GetComponent<TMP_Text>().text = DynamicDataHolder.Instance.focalLengthR[i].ToString()+ " cm";
             spawnedAns.Add(row);
 
 

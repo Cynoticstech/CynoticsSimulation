@@ -5,12 +5,15 @@ public class HopesApparatus : MonoBehaviour
 {
     [SerializeField] DragManager icePlate, saltPlate, waterBeaker;
     [SerializeField] GameObject IceObj, SaltObj;
-    [SerializeField] Transform waterLevel, droppingWaterLevel, graphMask,t1,t2;
+    [SerializeField] Transform waterLevel, droppingWaterLevel, graphMask,t1,t2,beakerWater;
     [SerializeField]
     float plateDropSpeed = 1f, plateDropIdle = 1f, plateRotSpeed = 1f, plateResetSpeed = 3f,
         beakerDropSpeed = 1f, beakerRotSpeed = 1f, beakerIdleTime = 1f, maskTime = 10f, waterRiseTime = 3f,
-        waterRiseScale = 1f, waterDropScale = 1f,expTime =10f;
+        waterRiseScale = 1f, waterDropScale = 1f, expTime = 10f, t1Time = 4f, t2Time = 3f, t1Scale = 0.3f,t2Scale =0.2f,
+        beakerWaterScale = 1.5f, graphScale = 0f;
     [SerializeField] Vector3 plateDropPos, plateRotPos, beakerDropPos, beakerDropRot;
+    [SerializeField] SpriteRenderer[] SAltWaterSprites;
+
 
     int curtStep = 0;
 
@@ -65,11 +68,22 @@ public class HopesApparatus : MonoBehaviour
     void CheckStep()
     {
         curtStep++;
-        if(curtStep>=2)
+        if(curtStep>2)
         {
             //start anim
             print("Starting Exp");
-            droppingWaterLevel.DOScaleY(waterDropScale,expTime);
+            droppingWaterLevel.DOScaleX(waterDropScale,expTime);
+            t1.DOScaleX(t1Scale, t1Time);
+            t2.DOScaleX(t2Scale, t2Time);
+            Color _col = Color.white;
+            _col.a = 0;
+            foreach(var v in SAltWaterSprites)
+            {
+                v.DOColor(_col, expTime);
+                v.transform.DOScaleY(0.1f,expTime);
+            }
+            beakerWater.DOScaleX(beakerWaterScale, expTime);
+            graphMask.DOScaleX(graphScale, expTime);
         }
     }
 }
