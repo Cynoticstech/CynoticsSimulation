@@ -19,7 +19,6 @@ public class HopesApparatus : MonoBehaviour
 
     private void Start()
     {
-        TimerScript.GetComponent<TimerController1>();
         icePlate.OnCorrectPlaced.AddListener(() =>
         {
             icePlate.DisableInteract();
