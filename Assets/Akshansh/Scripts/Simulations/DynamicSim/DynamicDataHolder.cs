@@ -7,6 +7,7 @@ public class DynamicDataHolder : MonoBehaviour
     [SerializeField] string SimSceneName;
     public static DynamicDataHolder Instance;
     public List<float> LoggedTime, LoggedTemp;
+    public List<float> focalLengthL, focalLengthR;
 
     //chemistry data
     [System.Serializable]
