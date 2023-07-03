@@ -5,7 +5,7 @@ using System.Diagnostics.Contracts;
 
 public class TimerController1 : MonoBehaviour
 {
-    public float gameTimeScale = 12f; 
+    public float gameTimeScale = 60f; 
     private float timer = 0f; 
     public TMP_Text timerText;
     //public static bool startTimer = false;

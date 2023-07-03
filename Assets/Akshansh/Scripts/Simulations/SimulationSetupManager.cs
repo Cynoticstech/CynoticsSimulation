@@ -148,7 +148,7 @@ namespace Simulations
                             break;
                     }
                     break;//bio fert
-                case SimulationTypes.AceticAcid:
+                /*case SimulationTypes.AceticAcid:
                     switch (curtStepIndex)//steps in which tap needs to be detected
                     {
                         case 1:
@@ -157,8 +157,8 @@ namespace Simulations
                         default:
                             break;
                     }
-                    break;
-                case SimulationTypes.Respiration:
+                    break;*/
+                /*case SimulationTypes.Respiration:
                     switch (curtStepIndex)//steps in which tap needs to be detected
                     {
                         case 1:
@@ -167,7 +167,7 @@ namespace Simulations
                         default:
                             break;
                     }
-                    break;
+                    break;*/
 
                 default:
                     break;

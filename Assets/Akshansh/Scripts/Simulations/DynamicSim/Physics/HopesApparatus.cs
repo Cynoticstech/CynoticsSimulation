@@ -13,12 +13,13 @@ public class HopesApparatus : MonoBehaviour
         beakerWaterScale = 1.5f, graphScale = 0f;
     [SerializeField] Vector3 plateDropPos, plateRotPos, beakerDropPos, beakerDropRot;
     [SerializeField] SpriteRenderer[] SAltWaterSprites;
-
+    [SerializeField] GameObject TimerScript;
 
     int curtStep = 0;
 
     private void Start()
     {
+        TimerScript.GetComponent<TimerController1>();
         icePlate.OnCorrectPlaced.AddListener(() =>
         {
             icePlate.DisableInteract();
@@ -84,6 +85,7 @@ public class HopesApparatus : MonoBehaviour
             }
             beakerWater.DOScaleX(beakerWaterScale, expTime);
             graphMask.DOScaleX(graphScale, expTime);
+            TimerScript.SetActive(true);
         }
     }
 }
