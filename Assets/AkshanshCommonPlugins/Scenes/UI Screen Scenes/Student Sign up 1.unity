@@ -6369,6 +6369,7 @@ MonoBehaviour:
   popup: {fileID: 1695706236}
   title: {fileID: 1378408471}
   message: {fileID: 1828235728}
+  emailShown: {fileID: 1186722302}
 --- !u!4 &1145643274
 Transform:
   m_ObjectHideFlags: 0

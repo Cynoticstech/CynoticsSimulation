@@ -6,9 +6,15 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class OTP_Verification : MonoBehaviour
+public class Forgot_OTP : MonoBehaviour
 {
+    [SerializeField] GameObject emailScreen;
+    [SerializeField] GameObject newpassScreen;
+
     [SerializeField] private TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit, email;
+
+    [SerializeField] private TextMeshProUGUI title, message;
+    [SerializeField] private GameObject popup;
 
     IEnumerator SendUserEnteredOtp()
     {
@@ -18,13 +24,13 @@ public class OTP_Verification : MonoBehaviour
         {
             email = email.text,
             emailOTP = ("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text)
-    };
+        };
 
         string jsonBody = JsonUtility.ToJson(otpHolder);
         byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
 
         Debug.Log(jsonBody);
-        
+
         UnityWebRequest request = UnityWebRequest.Post(_url, "application/json");
 
         request.SetRequestHeader("Content-Type", "application/json");
@@ -42,8 +48,10 @@ public class OTP_Verification : MonoBehaviour
         {
             Debug.Log("Error to send OTP");
             Debug.Log(request.error);
+            popup.SetActive(true);
+            message.text = "Error occured please enter otp again";
         }
-        
+
     }
 
     IEnumerator VerifyOTP()
@@ -54,13 +62,17 @@ public class OTP_Verification : MonoBehaviour
         if (newRequest.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Verified");
-            SceneManager.LoadScene("Student Login");
             Debug.Log(newRequest.result);
+            emailScreen.SetActive(false);
+            newpassScreen.SetActive(true);
         }
         else
         {
             Debug.Log("Wrong OTP Entered");
             Debug.Log(newRequest.error);
+            popup.SetActive(true);
+            title.text = "Wrong OTP";
+            message.text = "Please enter correct OTP again";
         }
     }
 

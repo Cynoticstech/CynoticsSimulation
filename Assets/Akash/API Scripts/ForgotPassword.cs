@@ -10,9 +10,13 @@ public class ForgotPassword : MonoBehaviour
 {
 
     [SerializeField] private GameObject _forgotPassScreen, _otpVerificationScreen, _mainSignInScreen, _resetPassScreen;
-    [SerializeField] private TMP_InputField _email, _password;
+    [SerializeField] private TMP_InputField _email, _password, confirmPass;
 
     [SerializeField] private TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit;
+
+    [SerializeField] private TextMeshProUGUI title, message, emailShown;
+    [SerializeField] private GameObject popup;
+
 
     IEnumerator SendEmail()
     {
@@ -42,11 +46,15 @@ public class ForgotPassword : MonoBehaviour
             Debug.Log(request.downloadHandler.data);
             _forgotPassScreen.SetActive(false);
             _otpVerificationScreen.SetActive(true);
+            emailShown.text = _email.text;
         }
         else
         {
             Debug.Log("error"); //Popup for error
             Debug.Log(request.error);
+            popup.SetActive(true);
+            title.text = "";
+            message.text = "User do not exist";
         }
     }
 
@@ -112,6 +120,14 @@ public class ForgotPassword : MonoBehaviour
 
     public void OTPVerification()
     {
+        if(_password.text != confirmPass.text)
+        {
+            popup.SetActive(true);
+            title.text = "Password mismatch";
+            message.text = "Enter the same password in both password fields";
+            return;
+        }
+
         StartCoroutine(SendUserEnteredOtp());
     }
 }

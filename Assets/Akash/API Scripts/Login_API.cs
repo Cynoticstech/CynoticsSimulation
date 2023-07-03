@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -10,6 +12,8 @@ using static System.Net.WebRequestMethods;
 public class Login_API : MonoBehaviour
 {
     [SerializeField] private TMP_InputField email, password;
+    [SerializeField] private TextMeshProUGUI title, message;
+    [SerializeField] private GameObject popup;
 
     IEnumerator Login()
     {
@@ -45,6 +49,9 @@ public class Login_API : MonoBehaviour
         {
             Debug.Log("Error to send data");
             Debug.Log(request.error);
+            popup.SetActive(true);
+            title.text = "Error";
+            message.text = "Try again please";
         }
     }
 

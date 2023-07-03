@@ -21,7 +21,7 @@ public class SignUp_API : MonoBehaviour
 
     //Popup
     [SerializeField] private TextMeshProUGUI title;
-    [SerializeField] private TextMeshProUGUI message;
+    [SerializeField] private TextMeshProUGUI message, emailShown;
 
 
     public IEnumerator Signup()
@@ -156,6 +156,7 @@ public class SignUp_API : MonoBehaviour
         }
 
         StartCoroutine(Signup());
+        emailShown.text = email.text;
     }
 
     private bool IsValidDateFormat(string date)
