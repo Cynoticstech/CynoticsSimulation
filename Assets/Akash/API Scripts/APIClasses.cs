@@ -14,14 +14,15 @@ public class APIClasses : MonoBehaviour
     [Serializable]
     public class LoginDataHolder
     {
-        public string email, password, deviceKey
-;
+        public string email, password, deviceKey;
+
     }
 
     [Serializable]
     public class OtpSend
     {
-        public string OTP;
+        public string email;
+        public string emailOTP;
     }
 
     [Serializable]

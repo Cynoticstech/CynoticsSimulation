@@ -8,23 +8,25 @@ using UnityEngine.SceneManagement;
 
 public class OTP_Verification : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit;
-    SignUp_API signUpAPI;
+    [SerializeField] private TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit, email;
 
+    [SerializeField] GameObject emailScreen;
+    [SerializeField] GameObject newpassScreen;
     IEnumerator SendUserEnteredOtp()
     {
         string _url = "https://echo-admin-backend.vercel.app/api/student/verify-otp";
 
         APIClasses.OtpSend otpHolder = new APIClasses.OtpSend()
         {
-            OTP = $"{firstDigit}{secondDigit}{thirdDigit}{fourthDigit}",
-        };
+            email = email.text,
+            emailOTP = ("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text)
+    };
 
         string jsonBody = JsonUtility.ToJson(otpHolder);
         byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
 
         Debug.Log(jsonBody);
-
+        
         UnityWebRequest request = UnityWebRequest.Post(_url, "application/json");
 
         request.SetRequestHeader("Content-Type", "application/json");
@@ -37,12 +39,14 @@ public class OTP_Verification : MonoBehaviour
         {
             Debug.Log("Success In Sending The OTP");
             StartCoroutine(VerifyOTP());
+            
         }
         else
         {
             Debug.Log("Error to send OTP");
             Debug.Log(request.error);
         }
+        
     }
 
     IEnumerator VerifyOTP()
@@ -54,8 +58,7 @@ public class OTP_Verification : MonoBehaviour
         {
             Debug.Log("Verified");
             SceneManager.LoadScene("Student Login");
-            Debug.Log(newRequest.downloadHandler.text);
-            StartCoroutine(signUpAPI.Signup());
+            Debug.Log(newRequest.result);
         }
         else
         {
@@ -67,5 +70,6 @@ public class OTP_Verification : MonoBehaviour
     public void AttemptVerification()
     {
         StartCoroutine(SendUserEnteredOtp());
+        Debug.Log("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text);
     }
 }

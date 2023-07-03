@@ -13,7 +13,8 @@ using UnityEngine.Android;
 public class SignUp_API : MonoBehaviour
 {
     //SignUp Fields
-    [SerializeField] private TMP_InputField email, password, phone, instituteId, username, dob, confirmPassword;
+    [SerializeField] public TMP_InputField email; 
+    [SerializeField] private TMP_InputField password, phone, instituteId, username, dob, confirmPassword;
 
     //Pannels
     [SerializeField] private GameObject signUpPannel, phoneOtp, emailOtp, popup;
@@ -36,8 +37,8 @@ public class SignUp_API : MonoBehaviour
             instituteId = instituteId.text,
             username = username.text,
             dob = dob.text,
-            deviceKey = "111008"
-            //deviceKey = Andriod_ID.deviceId
+            //deviceKey = "111008"
+            deviceKey = Permanent_AndroidId.UsableID
         };
 
         string jsonBody = JsonUtility.ToJson(signUpData);
@@ -56,6 +57,9 @@ public class SignUp_API : MonoBehaviour
         {
             Debug.Log("Success");
             Debug.Log(request.downloadHandler.data);
+            signUpPannel.SetActive(false);
+            emailOtp.SetActive(true);
+            StartCoroutine(SendingOTPToEmail());
         }
         else
         {
@@ -89,19 +93,17 @@ public class SignUp_API : MonoBehaviour
 
         if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Success");
+            Debug.Log("Success Sending OTP");
             Debug.Log(request.downloadHandler.data);
-            signUpPannel.SetActive(false);
-            emailOtp.SetActive(true);
         }
         else
         {
-            Debug.Log("error"); //Popup for error
+            Debug.Log("error for otp"); //Popup for error
             Debug.Log(request.error);
         }
     }
 
-    public void SignupFieldsCheck()
+    public void AttemptSignUp()
     {
         if (email.text == string.Empty || password.text == string.Empty || phone.text == string.Empty || instituteId.text == string.Empty || username.text == string.Empty || dob.text == string.Empty)
         {
@@ -153,7 +155,7 @@ public class SignUp_API : MonoBehaviour
             return;
         }
 
-        StartCoroutine(SendingOTPToEmail());
+        StartCoroutine(Signup());
     }
 
     private bool IsValidDateFormat(string date)
@@ -161,6 +163,4 @@ public class SignUp_API : MonoBehaviour
         System.DateTime parsedDate;
         return System.DateTime.TryParseExact(date, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out parsedDate);
     }
-
-
 }
