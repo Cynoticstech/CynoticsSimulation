@@ -60,12 +60,12 @@ public class ForgotPassword : MonoBehaviour
 
     IEnumerator SendUserEnteredOtp()
     {
-        string _url = "https://echo-admin-backend.vercel.app/api/student/verify-otp";
+        string _url = "https://echo-admin-backend.vercel.app/api/student/reset-password";
 
         APIClasses.ResetPassword otpHolder = new APIClasses.ResetPassword()
         {
             email = _email.text,
-            emailOtp = $"{firstDigit}{secondDigit}{thirdDigit}{fourthDigit}",
+            emailOTP = $"{firstDigit}{secondDigit}{thirdDigit}{fourthDigit}",
             password = _password.text,
         };
 

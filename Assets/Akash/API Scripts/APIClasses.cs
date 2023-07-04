@@ -34,7 +34,7 @@ public class APIClasses : MonoBehaviour
     [Serializable]
     public class ResetPassword
     {
-        public string email, emailOtp, password;
+        public string email, emailOTP, password;
     }
 }
 
