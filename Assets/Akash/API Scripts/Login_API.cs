@@ -12,9 +12,9 @@ public class Login_API : MonoBehaviour
     [SerializeField] private TextMeshProUGUI title, message;
     [SerializeField] private GameObject popup;
 
-    private const string EmailKey = "Email";
-    private const string PasswordKey = "Password";
-    private const string DeviceKeyKey = "DeviceKey";
+    public const string EmailKey = "Email";
+    public const string PasswordKey = "Password";
+    public const string DeviceKeyKey = "DeviceKey";
 
     private void Start()
     {
@@ -85,12 +85,12 @@ public class Login_API : MonoBehaviour
         if (newRequest.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Data Retrieved");
+            string userDataJson = newRequest.downloadHandler.text;
             SceneManager.LoadScene("Main Alpha Functionality Pages");
-            Debug.Log(newRequest.downloadHandler.text);
         }
         else
         {
-            Debug.Log("Error to retrieve data");
+            Debug.Log("Error retrieving data");
             Debug.Log(newRequest.error);
         }
     }
