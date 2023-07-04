@@ -2,18 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-using static System.Net.WebRequestMethods;
 
 public class Login_API : MonoBehaviour
 {
     [SerializeField] private TMP_InputField email, password;
     [SerializeField] private TextMeshProUGUI title, message;
     [SerializeField] private GameObject popup;
+
+    private const string EmailKey = "Email";
+    private const string PasswordKey = "Password";
+    private const string DeviceKeyKey = "DeviceKey";
+
+    private void Start()
+    {
+        // Check if email, password, and device key are stored in PlayerPrefs
+        if (PlayerPrefs.HasKey(EmailKey) && PlayerPrefs.HasKey(PasswordKey) && PlayerPrefs.HasKey(DeviceKeyKey))
+        {
+            // Auto-login with the stored email, password, and device key
+            string storedEmail = PlayerPrefs.GetString(EmailKey);
+            string storedPassword = PlayerPrefs.GetString(PasswordKey);
+            string storedDeviceKey = PlayerPrefs.GetString(DeviceKeyKey);
+            email.text = storedEmail;
+            password.text = storedPassword;
+            Andriod_ID.deviceId = storedDeviceKey; // Assuming Andriod_ID.deviceId is a static property
+            AttemptLogin();
+        }
+    }
 
     IEnumerator Login()
     {
@@ -23,7 +40,6 @@ public class Login_API : MonoBehaviour
         {
             email = email.text,
             password = password.text,
-            //deviceKey = "111008"
             deviceKey = Andriod_ID.deviceId
         };
 
@@ -44,6 +60,12 @@ public class Login_API : MonoBehaviour
         {
             Debug.Log("Data Sent");
             StartCoroutine(GetLoginCreds());
+
+            // Store the email, password, and device key in PlayerPrefs for auto-login
+            PlayerPrefs.SetString(EmailKey, email.text);
+            PlayerPrefs.SetString(PasswordKey, password.text);
+            PlayerPrefs.SetString(DeviceKeyKey, Andriod_ID.deviceId);
+            PlayerPrefs.Save();
         }
         else
         {
@@ -62,13 +84,13 @@ public class Login_API : MonoBehaviour
 
         if (newRequest.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Data Retrived");
+            Debug.Log("Data Retrieved");
             SceneManager.LoadScene("Main Alpha Functionality Pages");
             Debug.Log(newRequest.downloadHandler.text);
         }
         else
         {
-            Debug.Log("Error to retrive data");
+            Debug.Log("Error to retrieve data");
             Debug.Log(newRequest.error);
         }
     }
