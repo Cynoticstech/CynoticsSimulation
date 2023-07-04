@@ -2,6 +2,7 @@ using AkshanshKanojia.Controllers.ObjectManager;
 using AkshanshKanojia.Inputs.Mobile;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class DragManager : MobileInputs
 {
@@ -13,7 +14,7 @@ public class DragManager : MobileInputs
     public Transform targetLocation;
     public Collider2D[] targetCols;
     [SerializeField] bool useTargetCol;
-    [SerializeField] float validDist = 2f, zDepth = 10f,resetMoveSpeed =2f;
+    [SerializeField] float validDist = 2f, zDepth = 10f,resetMoveSpeed =2f,origrEturntime =1.5f;
     [SerializeField] ObjectController objCont;
     [SerializeField] LayerMask raycastLayer;
 
@@ -29,13 +30,19 @@ public class DragManager : MobileInputs
         originalPos = transform.position;
         OnIncorrectPlace.AddListener(() =>
         {
-            if (resetOnWrong)
-            {
-                DisableInteract();
-                objCont.AddEvent(gameObject, tempStartPos, resetMoveSpeed, 
-                    false);
-            }
+            MoveToTempStart();
         });
+    }
+
+    private void MoveToTempStart()
+    {
+        if (resetOnWrong)
+        {
+            DisableInteract();
+            objCont.AddEvent(gameObject, tempStartPos, resetMoveSpeed,
+                false);
+            print("rEsetting pos");
+        }
     }
 
     private void UpdatePos(MobileInputManager.TouchData _data)
@@ -55,7 +62,10 @@ public class DragManager : MobileInputs
     {
         canInteract = true;
     }
-
+    public void ResetToOrignalPos()
+    {
+        transform.DOMove(originalPos, resetMoveSpeed);
+    }
     public override void OnTapEnd(MobileInputManager.TouchData _data)
     {
         if (isValid)
