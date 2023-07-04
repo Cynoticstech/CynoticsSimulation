@@ -12,6 +12,8 @@ public class Login_API : MonoBehaviour
     [SerializeField] private TextMeshProUGUI title, message;
     [SerializeField] private GameObject popup;
 
+    public static string userDataJson;
+
     public const string EmailKey = "Email";
     public const string PasswordKey = "Password";
     public const string DeviceKeyKey = "DeviceKey";
@@ -85,7 +87,7 @@ public class Login_API : MonoBehaviour
         if (newRequest.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Data Retrieved");
-            string userDataJson = newRequest.downloadHandler.text;
+            userDataJson = newRequest.downloadHandler.text;
             SceneManager.LoadScene("Main Alpha Functionality Pages");
         }
         else
