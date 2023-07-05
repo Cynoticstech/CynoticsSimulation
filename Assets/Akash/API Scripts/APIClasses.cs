@@ -36,12 +36,6 @@ public class APIClasses : MonoBehaviour
     {
         public string email, emailOTP, password;
     }
-
-    [Serializable]
-    public class UserData
-    {
-        public string image, guid, username, dob, email, phone, instituteId, physics, biology, chemistry, registrationDate, deviceKey;
-    }
 }
 
 

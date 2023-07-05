@@ -103,13 +103,6 @@ public class ForgotPassword : MonoBehaviour
         {
             Debug.Log("Verified");
             Debug.Log(newRequest.downloadHandler.text);
-
-            // Clear the stored PlayerPrefs for email, password, and device key
-            PlayerPrefs.DeleteKey(Login_API.EmailKey);
-            PlayerPrefs.DeleteKey(Login_API.PasswordKey);
-            PlayerPrefs.DeleteKey(Login_API.DeviceKeyKey);
-            PlayerPrefs.Save();
-
             _mainSignInScreen.SetActive(true);
             _resetPassScreen.SetActive(false);
         }
@@ -119,25 +112,6 @@ public class ForgotPassword : MonoBehaviour
             Debug.Log(newRequest.error);
         }
     }
-
-    /*IEnumerator VerifyOTP()
-    {
-        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/verify-otp");
-        yield return newRequest.SendWebRequest();
-
-        if (newRequest.result == UnityWebRequest.Result.Success)
-        {
-            Debug.Log("Verified");
-            Debug.Log(newRequest.downloadHandler.text);
-            _mainSignInScreen.SetActive(true);
-            _resetPassScreen.SetActive(false);
-        }
-        else
-        {
-            Debug.Log("Wrong OTP Entered");
-            Debug.Log(newRequest.error);
-        }
-    }*/
 
     public void ForgetPassAttempting()
     {
