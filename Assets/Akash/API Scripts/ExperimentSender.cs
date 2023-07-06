@@ -26,33 +26,35 @@ public class ExperimentSender : MonoBehaviour
             moduleName = "",
             user = Get_Student_Details.guid,
             questions = new List<Question>
-        {
-            new Question
             {
-                question = "Vha se htoo ,()",
-                answer = "",
-                attemptedanswer = new List<string>
+                new Question
                 {
-                    "25",
-                    "123"
+                    question = "Vha se htoo ,()",
+                    answer = "",
+                    attemptedanswer = new List<string>
+                    {
+                        "25",
+                        "123"
+                    }
                 }
-            }
-        },
+            },
             marks = "",
             comments = new List<Comment>
-        {
-            new Comment
             {
-                name = "John",
-                comments = ""
+                new Comment
+                {
+                    name = "John",
+                    comments = ""
+                }
             }
-        }
         };
 
         string jsonData = JsonUtility.ToJson(data);
 
         UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
+
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
