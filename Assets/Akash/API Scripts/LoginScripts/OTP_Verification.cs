@@ -10,6 +10,9 @@ public class OTP_Verification : MonoBehaviour
 {
     [SerializeField] private TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit, email;
 
+    [SerializeField] private TextMeshProUGUI title, message;
+    [SerializeField] private GameObject popup;
+
     IEnumerator SendUserEnteredOtp()
     {
         string _url = "https://echo-admin-backend.vercel.app/api/student/verify-otp";
@@ -41,6 +44,8 @@ public class OTP_Verification : MonoBehaviour
         else
         {
             Debug.Log("Error to send OTP");
+            popup.SetActive(true);
+            message.text = "Error occured please enter otp again";
             Debug.Log(request.error);
         }
         
@@ -66,6 +71,14 @@ public class OTP_Verification : MonoBehaviour
 
     public void AttemptVerification()
     {
+        if(firstDigit.text == string.Empty || secondDigit.text == string.Empty || thirdDigit.text == string.Empty || fourthDigit.text == string.Empty)
+        {
+            popup.SetActive(true);
+            title.text = "All fields required";
+            message.text = "Enter all fields correctly to proceed";
+            return;
+        }
+
         StartCoroutine(SendUserEnteredOtp());
         Debug.Log("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text);
     }
