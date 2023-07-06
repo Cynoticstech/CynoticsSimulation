@@ -3689,6 +3689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1909827347}
   - component: {fileID: 1909827346}
+  - component: {fileID: 1909827348}
   m_Layer: 0
   m_Name: Get Stu Data
   m_TagString: Untagged
@@ -3731,6 +3732,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1909827348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909827345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ba14d3822722341a55560bfbd8b343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1931873479
 GameObject:
   m_ObjectHideFlags: 0
@@ -52870,9 +52883,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: navbtnclk, Assembly-CSharp
-        m_MethodName: splashload
+      - m_Target: {fileID: 1909827348}
+        m_TargetAssemblyTypeName: Logout_API, Assembly-CSharp
+        m_MethodName: LogoutAttempt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
