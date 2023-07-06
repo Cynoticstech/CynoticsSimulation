@@ -2,10 +2,16 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 public class ExperimentSender : MonoBehaviour
 {
     void Start()
+    {
+        //StartCoroutine(SendExperimentsData());
+    }
+
+    public void expSend()
     {
         StartCoroutine(SendExperimentsData());
     }
@@ -14,19 +20,21 @@ public class ExperimentSender : MonoBehaviour
     {
         string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
         List<ExperimentsData> experimentsData = new List<ExperimentsData>();
+        //ExperimentsData expDatum = new ExperimentsData();
+
 
         ExperimentsData data1 = new ExperimentsData
         {
-            ExperimentName = "Experiment 1",
-            ModuleName = "Module A",
-            User = "John Doe",
-            Questions = new List<Question>
+            experimentName = "Experiment 1",
+            moduleName = "Module A",
+            user = Get_Student_Details.guid,
+            questions = new List<Question>
             {
                 new Question
                 {
-                    QuestionText = "Question 1",
-                    Answer = "Answer 1",
-                    AttemptedAnswer = new List<string>
+                    question = "Question 1",
+                    answer = "Answer 1",
+                    attemptedanswer = new List<string>
                     {
                         "Attempt 1",
                         "Attempt 2"
@@ -34,23 +42,14 @@ public class ExperimentSender : MonoBehaviour
                 },
                 new Question
                 {
-                    QuestionText = "Question 2",
-                    Answer = "Answer 2",
-                    AttemptedAnswer = new List<string>
+                    question = "Question 2",
+                    answer = "Answer 2",
+                    attemptedanswer = new List<string>
                     {
                         "Attempt 1",
                         "Attempt 2",
                         "Attempt 3"
                     }
-                }
-            },
-            Marks = "90",
-            Comments = new List<Comment>
-            {
-                new Comment
-                {
-                    Name = "John",
-                    CommentText = "Comment 1"
                 }
             }
         };
@@ -58,25 +57,25 @@ public class ExperimentSender : MonoBehaviour
 
         ExperimentsData data2 = new ExperimentsData
         {
-            ExperimentName = "Experiment 2",
-            ModuleName = "Module B",
-            User = "Jane Smith",
-            Questions = new List<Question>
+            experimentName = "Experiment 2",
+            moduleName = "Module B",
+            user = Get_Student_Details.guid,
+            questions = new List<Question>
             {
                 new Question
                 {
-                    QuestionText = "Question 3",
-                    Answer = "Answer 3",
-                    AttemptedAnswer = new List<string>
+                    question = "Question 3",
+                    answer = "Answer 3",
+                    attemptedanswer = new List<string>
                     {
                         "Attempt 1"
                     }
                 },
                 new Question
                 {
-                    QuestionText = "Question 4",
-                    Answer = "Answer 4",
-                    AttemptedAnswer = new List<string>
+                    question = "Question 4",
+                    answer = "Answer 4",
+                    attemptedanswer = new List<string>
                     {
                         "Attempt 1",
                         "Attempt 2",
@@ -85,28 +84,22 @@ public class ExperimentSender : MonoBehaviour
                     }
                 }
             },
-            Marks = "80",
-            Comments = new List<Comment>
-            {
-                new Comment
-                {
-                    Name = "Jane",
-                    CommentText = "Comment 2"
-                },
-                new Comment
-                {
-                    Name = "John",
-                    CommentText = "Comment 3"
-                }
-            }
+            
         };
         experimentsData.Add(data2);
 
         string jsonData = JsonUtility.ToJson(experimentsData.ToArray());
+        //string jsonData = JsonUtility.ToJson(experimentsData);
+        //string jsonData = JsonUtility.ToJson(data1);
+        /*byte[] rawBody = Encoding.UTF8.GetBytes(jsonData);
+        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.uploadHandler = new UploadHandlerRaw(rawBody);
+        request.downloadHandler = new DownloadHandlerBuffer();*/
         UnityWebRequest request = UnityWebRequest.Post(apiUrl, jsonData);
         request.SetRequestHeader("Content-Type", "application/json");
         yield return request.SendWebRequest();
-
+        
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
@@ -121,25 +114,25 @@ public class ExperimentSender : MonoBehaviour
 [System.Serializable]
 public class ExperimentsData
 {
-    public string ExperimentName;
-    public string ModuleName;
-    public string User;
-    public List<Question> Questions;
-    public string Marks;
-    public List<Comment> Comments;
+    public string experimentName;
+    public string moduleName;
+    public string user;
+    public List<Question> questions;
+    public string marks;
+    public List<Comment> comments;
 }
 
 [System.Serializable]
 public class Question
 {
-    public string QuestionText;
-    public string Answer;
-    public List<string> AttemptedAnswer;
+    public string question;
+    public string answer;
+    public List<string> attemptedanswer;
 }
 
 [System.Serializable]
 public class Comment
 {
-    public string Name;
-    public string CommentText;
+    public string name;
+    public string comments;
 }
