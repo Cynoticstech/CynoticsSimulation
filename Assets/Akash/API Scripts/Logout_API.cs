@@ -13,7 +13,7 @@ public class Logout_API : MonoBehaviour
 
         APIClasses.UserData logout = new APIClasses.UserData
         {
-            guid = Get_Student_Details.guid,
+            email = Get_Student_Details.email,
         };
         string jsonBody = JsonUtility.ToJson(logout);
         byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
