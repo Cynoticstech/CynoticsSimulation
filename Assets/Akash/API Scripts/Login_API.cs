@@ -11,10 +11,10 @@ public class Login_API : MonoBehaviour
     [SerializeField] private TMP_InputField email, password;
     [SerializeField] private TextMeshProUGUI title, message;
     [SerializeField] private GameObject popup;
-
-    private const string EmailKey = "Email";
-    private const string PasswordKey = "Password";
-    private const string DeviceKeyKey = "DeviceKey";
+    
+    public const string EmailKey = "Email";
+    public const string PasswordKey = "Password";
+    public const string DeviceKeyKey = "DeviceKey";
 
     private void Start()
     {
@@ -86,7 +86,7 @@ public class Login_API : MonoBehaviour
         {
             Debug.Log("Data Retrieved");
             SceneManager.LoadScene("Main Alpha Functionality Pages");
-            Debug.Log(newRequest.downloadHandler.text);
+            //Debug.Log(newRequest.downloadHandler.text);
         }
         else
         {
