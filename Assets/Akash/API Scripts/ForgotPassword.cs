@@ -86,6 +86,7 @@ public class ForgotPassword : MonoBehaviour
         {
             Debug.Log("Success In Sending The OTP");
             StartCoroutine(VerifyOTP());
+            ClearPlayerPrefs();
         }
         else
         {
@@ -129,5 +130,13 @@ public class ForgotPassword : MonoBehaviour
         }
 
         StartCoroutine(SendUserEnteredOtp());
+    }
+
+    private void ClearPlayerPrefs()
+    {
+        PlayerPrefs.DeleteKey(Login_API.EmailKey);
+        PlayerPrefs.DeleteKey(Login_API.PasswordKey);
+        PlayerPrefs.DeleteKey(Login_API.DeviceKeyKey);
+        PlayerPrefs.Save();
     }
 }
