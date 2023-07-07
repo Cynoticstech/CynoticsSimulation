@@ -85,6 +85,7 @@ public class Login_API : MonoBehaviour
         if (newRequest.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Data Retrieved");
+            Debug.Log(newRequest.downloadHandler.text);
             SceneManager.LoadScene("Main Alpha Functionality Pages");
             //Debug.Log(newRequest.downloadHandler.text);
         }
