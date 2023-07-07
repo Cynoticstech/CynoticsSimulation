@@ -11,7 +11,7 @@ public class ExperimentSender : MonoBehaviour
         //StartCoroutine(SendExperimentsData());
     }
 
-    public void expSend()
+    public void ExpSend()
     {
         StartCoroutine(SendExperimentsData());
     }
