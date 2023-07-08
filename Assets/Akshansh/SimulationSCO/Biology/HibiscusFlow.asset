@@ -26,7 +26,7 @@ MonoBehaviour:
   - Petal
   - Stigma
   - Style
-  - Ovray
+  - Ovary
   - Ovule
   - Pistil
   - Peduncle
@@ -42,12 +42,12 @@ MonoBehaviour:
   - Androecium
   - Gynoecium
   FillupsQuestions:
-  - ' from flower is male whorl, while '
-  - ' is female whorl.'
+  - 'from flower is male whorl, while '
+  - is female whorl.
   - 'from pollen grain and '
-  - ' from ovule, these two haploid cells unite to form a diploid zygote. Thus the
-    process of seed and fruit formation begins.'
-  - ' is the reproductive organ of plants.'
+  - from ovule, these two haploid cells unite to form a diploid zygote. Thus the
+    process of seed and fruit formation begins.
+  - is the reproductive organ of plants.
   AnswerSprites: []
   AnswerPrefab: {fileID: 0}
   LabledAnswers:

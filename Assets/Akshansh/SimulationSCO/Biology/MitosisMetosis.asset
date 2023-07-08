@@ -30,19 +30,19 @@ MonoBehaviour:
   - Telophase
   - Cytokinesis
   - Interphase
-  - Prophase1
-  - Metaphase1
-  - Anaphase1
-  - Telophase1
-  - Telophase2
-  - Anaphase2
-  - Metaphase2
-  - Prophase2
+  - Prophase 1
+  - Metaphase 1
+  - Anaphase 1
+  - Telophase 1
   - Interkinesis
-  - ' remains the same'
-  - parent
+  - Prophase2
+  - Metaphase 2
+  - Anaphase 2
+  - Telophase 2
+  - remains the same
+  - somatic
   - reduces by half
-  - diploid
+  - germ
   FillupsQuestions:
   - Due to mitosis, the number of chromosomes in the cell
   - therefore, this division occurs in
