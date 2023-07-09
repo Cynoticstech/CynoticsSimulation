@@ -9,7 +9,8 @@ using UnityEngine.Networking;
 public class Hibiscus : MonoBehaviour
 {
     public TMP_InputField[] answers;
-
+    [SerializeField] SimulationSetupManager simulationSetupManager;
+    SendApiExp sendApi;
     public void HibiscusExpSend()
     {
         StartCoroutine(Hibiscusc());
@@ -55,6 +56,7 @@ public class Hibiscus : MonoBehaviour
             attemptedanswer = new List<string>()
         };
         data.questions.Add(hibisQuestions);
+        answers = simulationSetupManager.activeSimulation.InputFields;
 
         foreach (TMP_InputField answerField in answers)
         {
@@ -82,10 +84,12 @@ public class Hibiscus : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

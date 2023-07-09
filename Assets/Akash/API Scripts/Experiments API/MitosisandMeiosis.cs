@@ -9,7 +9,8 @@ using UnityEngine.Networking;
 public class MitosisandMeiosis : MonoBehaviour
 {
     public TMP_InputField[] answers;
-
+    [SerializeField] SimulationSetupManager simulationSetupManager;
+    SendApiExp sendApi;
     public void MitosisMeosisExpSend()
     {
         StartCoroutine(MitosisMeosis());
@@ -44,7 +45,7 @@ public class MitosisandMeiosis : MonoBehaviour
             attemptedanswer = new List<string>()
         };
         data.questions.Add(mitosisQuestion);
-
+        answers = simulationSetupManager.activeSimulation.InputFields;
         foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
@@ -71,10 +72,12 @@ public class MitosisandMeiosis : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

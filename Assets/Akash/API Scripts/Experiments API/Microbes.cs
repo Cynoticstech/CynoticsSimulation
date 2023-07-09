@@ -1,3 +1,4 @@
+using Simulations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,8 @@ using UnityEngine.Networking;
 public class Microbes : MonoBehaviour
 {
     public TMP_InputField[] answers;
+    [SerializeField] SimulationSetupManager simulationSetupManager;
+    SendApiExp sendApi;
 
     public void MicrobeExpSend()
     {
@@ -45,6 +48,7 @@ public class Microbes : MonoBehaviour
             attemptedanswer = new List<string>()
         };
         data.questions.Add(microbeQuestion);
+        answers = simulationSetupManager.activeSimulation.InputFields;
 
         foreach (TMP_InputField answerField in answers)
         {
@@ -72,10 +76,12 @@ public class Microbes : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Simulations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,8 @@ using UnityEngine.Networking;
 public class BioFertilizer : MonoBehaviour
 {
     public TMP_InputField[] answers;
-
+    [SerializeField] SimulationSetupManager simulationSetupManager;
+    SendApiExp sendApi;
     public void BioFExpSend()
     {
         StartCoroutine(BioF());
@@ -46,6 +48,7 @@ public class BioFertilizer : MonoBehaviour
             attemptedanswer = new List<string>()
         };
         data.questions.Add(BioFQuestion);
+        answers = simulationSetupManager.activeSimulation.InputFields;
 
         foreach (TMP_InputField answerField in answers)
         {
@@ -73,10 +76,12 @@ public class BioFertilizer : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

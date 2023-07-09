@@ -10,6 +10,8 @@ public class AmoebaAndHydra : MonoBehaviour
 {
     public TMP_InputField[] answers;
     [SerializeField] SimulationSetupManager simulationSetupManager;
+    SendApiExp sendApi;
+
     public void AmoebaHydraExpSend()
     {
         StartCoroutine(AmoebaHydra());
@@ -76,10 +78,12 @@ public class AmoebaAndHydra : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

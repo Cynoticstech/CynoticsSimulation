@@ -4,10 +4,15 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class OxidationandAddition : MonoBehaviour
 {
-    public TMP_InputField[] answers;
+    //public TMP_InputField[] answers;
+    public TMP_InputField fib1, fib2, fib3;
+    public TMP_Dropdown tmp_dropDown1m, dropdown2; 
+    string selectedText, seltxt;
+    string fib1Text, fib2Text, fib3Text;
 
     public void OxiAddExpSend()
     {
@@ -47,12 +52,25 @@ public class OxidationandAddition : MonoBehaviour
             "Sunflower  oil, tincture iodine colour vanishes\r\n" +
             "Vanaspati ghee,  tincture iodine colour does not vanishes\r\n" +
             "Inference:\r\n 1. addition \r\n",
-
+            
             //attempted answers
             attemptedanswer = new List<string>()
         };
-        data.questions.Add(OxiAddQuestion);
+        selectedText = tmp_dropDown1m.options[tmp_dropDown1m.value].text;
+        fib1Text = fib1.text;
+        seltxt = dropdown2.options[dropdown2.value].text;
+        fib1Text = fib2.text;
 
+        OxiAddQuestion.attemptedanswer.Add(selectedText);
+        OxiAddQuestion.attemptedanswer.Add(fib1Text);
+
+        /*foreach (TMP_InputField answerField in answers)
+        {
+            OxiAddQuestion.attemptedanswer.Add(answerField.text);
+        }
+        data.questions.Add(OxiAddQuestion);*/
+
+        /*selectedText = dd1.options[dd1.value].text;
         foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
@@ -62,7 +80,7 @@ public class OxidationandAddition : MonoBehaviour
         for (int i = 0; i < emptyCount; i++)
         {
             data.questions[0].attemptedanswer.Add("");
-        }
+        }*/
 
         string jsonData = JsonUtility.ToJson(data);
 

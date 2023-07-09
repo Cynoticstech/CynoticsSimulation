@@ -62,7 +62,43 @@ public class APIClasses : MonoBehaviour
         public string registrationDate;
         public string deviceKey;
         public string subsplan;
-        public object[] institute;
+        public Institute[] institute;
+    }
+
+    [Serializable]
+    public class Institute
+    {
+        public string _id;
+        public string guid;
+        public double createdAt;
+        public string displayId;
+        public string name;
+        public string registrationDate;
+        public string lastTransactionDate;
+        public string paymentStatus;
+        public string numberOfKeys;
+        public string numberOfStudents;
+        public string numberOfTeachers;
+        public string pincode;
+        public string[] teachersInfo;
+        public string adminusername;
+        public string adminpancard;
+        public string adminaadharcard;
+        public string adminemail;
+        public string adminphone;
+        public object emailOtpInfo;
+        public object phoneOtpInfo;
+        public bool isEmailVerified;
+        public bool isPhoneVerified;
+        public bool isLoginActive;
+        public string type;
+        public string password;
+        public string image;
+        public string slogan;
+        public string organizationName;
+        public string address;
+        public string email;
+        public string phone;
     }
 }
 
