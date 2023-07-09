@@ -108,7 +108,7 @@ namespace Simulations.UI
                     _tempTxt.text = "Stage " + _currentStage + ": <color=red>" + finalInpShow[i] + ", is incorrect" + "</color>";
                     //add correct answer below it
                     Instantiate(listAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>().
-                        text = "Stage " + _currentStage + ": <color=green>" + _tempResults[i] + "</color>";
+                        text = "Stage " + _currentStage + ": <color=green>" + _flow.ValidAnswers[i] + "</color>";
                 }
             }
             _currentStage = 1;
@@ -137,7 +137,7 @@ namespace Simulations.UI
                     _tempTxt.text = "Stage " + _currentStage + ": <color=red>" + finalInpShow[i] + ", is incorrect " + "</color>";
                     //add correct answer below it
                     Instantiate(listAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>().
-                        text = "Stage " + _currentStage + ": <color=green>" + _tempResults[i] + "</color>";
+                        text = "Stage " + _currentStage + ": <color=green>" + _flow.ValidAnswers[i] + "</color>";
                 }
             }
             //z is used as fillup index
@@ -217,7 +217,7 @@ namespace Simulations.UI
                     _tempTxt.text = "Stage " + _currentStage + ": <color=red>" + finalInpShow[i] + ", is incorrect" + "</color>";
                     //add correct answer below it
                     Instantiate(listAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>().
-                        text = "Stage " + _currentStage + ": <color=green>" + _tempResults[i] + "</color>";
+                        text = "Stage " + _currentStage + ": <color=green>" + _flow.ValidAnswers[i] + "</color>";
                 }
             }
             //Amoeba Fillups
@@ -873,7 +873,7 @@ namespace Simulations.UI
                 _incorrect = false;
                 _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[0].transform).GetComponent<TMP_Text>();
                 _tempFillup.text = "";
-                if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
+                if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
                 {
                     _tempFillup.text += _flow.FillupsQuestions[2] + "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
                     correctAnswers++;
@@ -969,7 +969,7 @@ namespace Simulations.UI
                     }
 
                     _answerIndex++;
-                    if (_tempInputs[_answerIndex] == _flow.ValidAnswers[_answerIndex])
+                    if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
                     {
                         _tempFillup.text += _flow.FillupsQuestions[5] + "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>" + _flow.FillupsQuestions[6];
                         correctAnswers++;
