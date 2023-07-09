@@ -27,7 +27,7 @@ namespace Simulations
         public string[] CurMagAPIAnsArray, IceMeltAPIAnsArray, BoilWatAPIAnsArray, HopeAPIAnsArray, ConvexFLAPIAnsArray;
         //stores data about simulations present in scene
         [System.Serializable]
-        struct SimulationDataHolder
+        public struct SimulationDataHolder
         {
             public GameObject SimulationObj;
             public GameObject[] SimulationStepObjects;
@@ -38,7 +38,7 @@ namespace Simulations
         #endregion
 
         #region Private Fields
-        SimulationDataHolder activeSimulation;
+        public SimulationDataHolder activeSimulation;
         int curtStepIndex = 0;
         bool isSimulating = false;
         GameObject activePopup;

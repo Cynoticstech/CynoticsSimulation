@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ namespace Simulations.UI
         int correctAnswers = 0;
 
         public string[] finalInpShow;
+        //public static List<string> userInputTexts = new List<string>();
 
         private void Start()
         {
@@ -711,6 +713,7 @@ namespace Simulations.UI
                 _tempResults[i] = _tempResults[i].ToLower();//convert to lower case for comparison
                 _tempInputs[i] = _tempInputs[i].ToLower();
                 _tempInputs[i] = _tempInputs[i].Replace(" ", "");
+
             }
             //genrates output
             for (int i = 0; i < 4; i++)
@@ -767,7 +770,10 @@ namespace Simulations.UI
                     }
                 }
             }//lablled part end
-
+            /*for (int i = 0; i < _tempInputs.Length; i++)
+            {
+                userInputTexts.Add(_tempInputs[i]);
+            }*/
             //------------------------------------------------
 
 
