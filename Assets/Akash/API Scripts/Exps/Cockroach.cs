@@ -20,8 +20,8 @@ public class Cockroach : MonoBehaviour
 
         CockroachDataSend data = new CockroachDataSend
         {
-            experimentName = "Cockroach",
-            moduleName = "Cockroach",
+            experimentName = "Non-Chordate animals",
+            moduleName = "Non-Chordate animals",
             user = Get_Student_Details.guid,
             questions = new List<CockroachQuestion>()
         };
@@ -30,11 +30,17 @@ public class Cockroach : MonoBehaviour
         {
             //Questions
             question =
-            "",
+            "Cockroach: \r\n Part 1\r\n Part 2\r\n Part 3\r\n Part 4\r\n Part 5\r\n Part 6\r\n Part 7\r\n Part 8\r\n Part 9\r\n Part 10\r\n Part 11\r\n Part 12\r\n Part 13\r\n" +
+            "Observation: A. Cockroach\r\n Kingdom \r\n Sub-kingdom \r\n Phylum \r\n Class \r\n Example - Cockroach \r\n" +
+            "Earthworm: \r\n Part 1\r\n Part 2\r\n Part 3\r\n Part 4\r\n" +
+            "Observation: A. Earthworm\r\n Kingdom \r\n Sub-kingdom \r\n Phylum \r\n Example - Earthworm \r\n",
 
             //answers
             answer =
-            "",
+            "Cockroach: \r\n Metathorzx \r\n Mesothorax \r\n Prothorax\r\n Foreleg\r\n Head\r\n Antenna\r\n Compound eye\r\n Wing\r\n Segmented Abdomen\r\n Stylus\r\n Cercus\r\n Hindleg\r\n Midleg\r\n" +
+            "Observation: A. Cockroach\r\n Animalia \r\n Non-chordata \r\n Arthropoda \r\n Insecta \r\n Example - Cockroach \r\n" +
+            "Earthworm: \r\n Mouth \r\n Anus \r\n Segments \r\n Clitellum \r\n" +
+            "Observation: A. Earthworm\r\n Animalia \r\n Non-chordata \r\n Annelida \r\n Example - Earthworm \r\n",
 
             //attempted answers
             attemptedanswer = new List<string>()

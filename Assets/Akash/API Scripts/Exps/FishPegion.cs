@@ -20,8 +20,8 @@ public class FishPegion : MonoBehaviour
 
         fpDataSend data = new fpDataSend
         {
-            experimentName = "Hibiscus",
-            moduleName = "Hibiscus",
+            experimentName = "Chordate animals",
+            moduleName = "Chordate animals",
             user = Get_Student_Details.guid,
             questions = new List<fpQuestion>()
         };
@@ -30,11 +30,19 @@ public class FishPegion : MonoBehaviour
         {
             //Questions
             question =
-            "",
+            "Parts of fish: \r\n Part 1\r\n Part 2\r\n Part 3\r\n Part 4\r\n Part 5\r\n Part 6\r\n Part 7\r\n Part 8\r\n Part 9\r\n" +
+            "Observation:\r\n A. Fish\r\n Kingdom \r\n Phylum \r\n Sub-phylum \r\n Class \r\n Example - Fish \r\n" +
+            "Parts of pegion: \r\n Part 1\r\n Part 2\r\n Part 3\r\n Part 4\r\n Part 5\r\n Part 6\r\n Part 7\r\n" +
+            "Observation:\r\n A. Pegion\r\n Kingdom \r\n Phylum \r\n Sub-phylum \r\n Class \r\n Example - Pegion \r\n" +
+            "Characteristics:\r\n 1. Pigeon’s body is covered with ____. Forelimbs are modified into ____. Heart has ____ compartments.\r\n 2. Pigeon has ____ bones and air bags inside the body. This is an aerial adaptation.\r\n",
 
             //answers
             answer =
-            "",
+            "Parts of fish: \r\n Spiny dorsal fin\r\n eye\r\n mouth\r\n gills\r\n pelvic fin\r\n pectoral fin\r\n anal fin\r\n caudal fin\r\n soft dorsal fin\r\n" +
+            "Observation:\r\n A. Fish\r\n Animalia \r\n Chordata \r\n Vertebrata \r\n Pisces \r\n Example - Fish \r\n" +
+            "Parts of pegion: \r\n Beak\r\n eye\r\n neck\r\n contour feathers\r\n wing feathers\r\n calws\r\n digits\r\n" +
+            "Observation:\r\n A. Pegion\r\n Animalia \r\n Chordata \r\n Vertebrata \r\n Aves \r\n Example - Pegion \r\n" +
+            "Characteristics:\r\n 1. feathers \r\n 2. wings \r\n 3. four \r\n 4. hollow ",
 
             //attempted answers
             attemptedanswer = new List<string>()
