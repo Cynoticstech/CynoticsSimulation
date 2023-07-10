@@ -11,7 +11,7 @@ public class Cockroach : MonoBehaviour
 {
     public TMP_InputField[] answers;
     [SerializeField] SimulationSetupManager simulationSetupManager;
-    SendApiExp sendApi;
+    public SendApiExp sendApi;
     public void cockroachExpSend()
     {
         StartCoroutine(cockroachie());

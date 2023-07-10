@@ -7,7 +7,9 @@ using UnityEngine.Networking;
 
 public class ReactivityOfMetals : MonoBehaviour
 {
-    public TMP_InputField[] answers;
+    public TMP_Dropdown dropdown1, dropdown2, dropdown3, dropdown4, dropdown5, dropdown6, dropdown7, dropdown8;
+    public string d1, d2, d3, d4, d5, d6, d7, d8;
+    public SendApiExp sendApi;
 
     public void ReactivityOfMetalsExpSend()
     {
@@ -49,9 +51,24 @@ public class ReactivityOfMetals : MonoBehaviour
             //attempted answers
             attemptedanswer = new List<string>()
         };
+        d1 = dropdown1.options[dropdown1.value].text;
+        d2 = dropdown2.options[dropdown2.value].text;
+        d3 = dropdown3.options[dropdown3.value].text;
+        d4 = dropdown4.options[dropdown4.value].text;
+        d5 = dropdown5.options[dropdown5.value].text;
+        d6 = dropdown6.options[dropdown6.value].text;
+        d7 = dropdown7.options[dropdown7.value].text;
+        d8 = dropdown8.options[dropdown8.value].text;
+        ReactQuestion.attemptedanswer.Add(d1);
+        ReactQuestion.attemptedanswer.Add(d2);
+        ReactQuestion.attemptedanswer.Add(d3);
+        ReactQuestion.attemptedanswer.Add(d4);
+        ReactQuestion.attemptedanswer.Add(d5);
+        ReactQuestion.attemptedanswer.Add(d6);
+        ReactQuestion.attemptedanswer.Add(d7);
+        ReactQuestion.attemptedanswer.Add(d8);
         data.questions.Add(ReactQuestion);
-
-        foreach (TMP_InputField answerField in answers)
+        /*foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
         }
@@ -60,7 +77,7 @@ public class ReactivityOfMetals : MonoBehaviour
         for (int i = 0; i < emptyCount; i++)
         {
             data.questions[0].attemptedanswer.Add("");
-        }
+        }*/
 
         string jsonData = JsonUtility.ToJson(data);
 
@@ -77,10 +94,12 @@ public class ReactivityOfMetals : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }
