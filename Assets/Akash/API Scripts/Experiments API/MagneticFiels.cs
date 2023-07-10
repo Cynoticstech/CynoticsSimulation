@@ -8,6 +8,7 @@ using UnityEngine.Networking;
 public class MagneticFiels : MonoBehaviour
 {
     public TMP_InputField[] answers;
+    public SendApiExp sendApi;
 
     public void MagneticFields()
     {
@@ -69,10 +70,12 @@ public class MagneticFiels : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

@@ -8,6 +8,8 @@ using UnityEngine.Networking;
 public class Cooling : MonoBehaviour
 {
     public TMP_InputField[] answers;
+    public SendApiExp sendApi;
+    public string dummyData;
 
     public void cool()
     {
@@ -57,6 +59,14 @@ public class Cooling : MonoBehaviour
         };
         data.questions.Add(cooliQuestion);
 
+        dummyData =
+            "0, 70\r\n" +
+            "1, 60\r\n" +
+            "2, 48\r\n" +
+            "3, 41\r\n" +
+            "4, 36\r\n" +
+            "5, 33\r\n";
+        cooliQuestion.attemptedanswer.Add(dummyData);
         foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
@@ -83,10 +93,12 @@ public class Cooling : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

@@ -8,12 +8,8 @@ using UnityEngine.UI;
 
 public class OxidationandAddition : MonoBehaviour
 {
-    //public TMP_InputField[] answers;
-    public TMP_InputField fib1, fib2, fib3;
-    public TMP_Dropdown tmp_dropDown1m, dropdown2; 
-    string selectedText, seltxt;
-    string fib1Text, fib2Text, fib3Text;
-
+    public TMP_InputField[] answers;
+    public SendApiExp sendApi;
     public void OxiAddExpSend()
     {
         StartCoroutine(OxiAdd());
@@ -56,31 +52,29 @@ public class OxidationandAddition : MonoBehaviour
             //attempted answers
             attemptedanswer = new List<string>()
         };
-        selectedText = tmp_dropDown1m.options[tmp_dropDown1m.value].text;
+        /*selectedText = tmp_dropDown1m.options[tmp_dropDown1m.value].text;
         fib1Text = fib1.text;
         seltxt = dropdown2.options[dropdown2.value].text;
-        fib1Text = fib2.text;
+        fib1Text = fib2.text;*/
 
-        OxiAddQuestion.attemptedanswer.Add(selectedText);
-        OxiAddQuestion.attemptedanswer.Add(fib1Text);
+        /*OxiAddQuestion.attemptedanswer.Add(selectedText);
+        OxiAddQuestion.attemptedanswer.Add(fib1Text);*/
 
         /*foreach (TMP_InputField answerField in answers)
         {
             OxiAddQuestion.attemptedanswer.Add(answerField.text);
-        }
-        data.questions.Add(OxiAddQuestion);*/
+        }*/
+        data.questions.Add(OxiAddQuestion);
 
-        /*selectedText = dd1.options[dd1.value].text;
         foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
         }
-
         int emptyCount = answers.Length - answers.Length;
         for (int i = 0; i < emptyCount; i++)
         {
             data.questions[0].attemptedanswer.Add("");
-        }*/
+        }
 
         string jsonData = JsonUtility.ToJson(data);
 
@@ -97,10 +91,12 @@ public class OxidationandAddition : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

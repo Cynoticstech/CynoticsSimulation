@@ -8,6 +8,8 @@ using UnityEngine.Networking;
 public class HopesApp : MonoBehaviour
 {
     public TMP_InputField[] answers;
+    public SendApiExp sendApi;
+    public string dummyData;
 
     public void Hopes()
     {
@@ -63,6 +65,17 @@ public class HopesApp : MonoBehaviour
             attemptedanswer = new List<string>()
         };
         data.questions.Add(hque);
+        dummyData = "1, 0, 12, 12\r\n" +
+            "2, 1, 8.2, 11.8\r\n" +
+            "3, 2, 6, 11\r\n" +
+            "4, 3, 5, 10\r\n" +
+            "5, 4, 4.5, 8.2\r\n" +
+            "6, 5, 4, 5.8\r\n" +
+            "7, 6, 4, 1.4\r\n" +
+            "8, 7, 3.5, 0\r\n" +
+            "9, 8, 1.8, 0\r\n" +
+            "10, 9, 0, 0\r\n";
+        hque.attemptedanswer.Add(dummyData);
 
         foreach (TMP_InputField answerField in answers)
         {
@@ -90,10 +103,12 @@ public class HopesApp : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

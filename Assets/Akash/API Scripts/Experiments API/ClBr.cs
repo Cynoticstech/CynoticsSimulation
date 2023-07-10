@@ -10,7 +10,7 @@ public class ClBr : MonoBehaviour
     public TMP_InputField[] answers;
     public TMP_Dropdown dropdown1, dropdown2, dropdown3, dropdown4, dropdown5, dropdown6;
     public string d1, d2, d3, d4, d5, d6, d7, d8;
-
+    public SendApiExp sendApi;
     public void ClBrExpSend()
     {
         StartCoroutine(Cl());
@@ -24,7 +24,7 @@ public class ClBr : MonoBehaviour
         d5 = dropdown5.options[dropdown5.value].text;
         d6 = dropdown6.options[dropdown6.value].text;
         d7 = "Chmeical Reaction:" + d1 + "+" + d2 + "---->" + d3 + "+" + d4 + "Colour of precipitate:" + d5 + "Ion:" + d6 + "\r\n";
-
+        
     }
 
     IEnumerator Cl()
@@ -58,7 +58,8 @@ public class ClBr : MonoBehaviour
             //attempted answers
             attemptedanswer = new List<string>()
         };
-        lBrQuestion.attemptedanswer.Add(d7);
+
+        
         data.questions.Add(lBrQuestion);
 
         /*foreach (TMP_InputField answerField in answers)
@@ -87,10 +88,12 @@ public class ClBr : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

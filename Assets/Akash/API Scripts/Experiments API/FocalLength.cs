@@ -8,7 +8,10 @@ using UnityEngine.Networking;
 public class FocalLength : MonoBehaviour
 {
     public TMP_InputField[] answers;
+    public SendApiExp sendApi;
+    public string dummyData;
 
+    public TMP_InputField inp1, inp2, inp3;
     public void FocalL()
     {
         StartCoroutine(fl());
@@ -49,7 +52,10 @@ public class FocalLength : MonoBehaviour
         };
         data.questions.Add(flque);
 
-        foreach (TMP_InputField answerField in answers)
+        dummyData = "Observation table 1: \r\n 16\r\n" +
+            "Observation table 2: \r\n 16\r\n";
+        flque.attemptedanswer.Add(dummyData);
+        /*foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
         }
@@ -58,7 +64,7 @@ public class FocalLength : MonoBehaviour
         for (int i = 0; i < emptyCount; i++)
         {
             data.questions[0].attemptedanswer.Add("");
-        }
+        }*/
 
         string jsonData = JsonUtility.ToJson(data);
 
@@ -75,10 +81,12 @@ public class FocalLength : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }

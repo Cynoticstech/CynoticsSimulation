@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 public class RoleOfCO2 : MonoBehaviour
 {
     public TMP_InputField[] answers;
-
+    public SendApiExp sendApi;
     public void CO2ExpSend()
     {
         StartCoroutine(CO2());
@@ -69,10 +69,12 @@ public class RoleOfCO2 : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Experiments data sent successfully!");
+            sendApi.SuccessAPISentPopup();
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
+            sendApi.UnsuccessAPISentPopup();
         }
     }
 }
