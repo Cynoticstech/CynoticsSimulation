@@ -695,7 +695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.252014, y: -234.953}
+  m_AnchoredPosition: {x: 5.252014, y: -234.95303}
   m_SizeDelta: {x: -135.193, y: 238.065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &396503929
@@ -15679,7 +15679,7 @@ GameObject:
   - component: {fileID: 5432519897952729991}
   - component: {fileID: 5432519897952729992}
   m_Layer: 5
-  m_Name: Ascetic Acid Exp
+  m_Name: Acetic Acid Exp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20426,7 +20426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -16.848892, y: -69.288086}
+  m_AnchoredPosition: {x: -16.848877, y: -69.288086}
   m_SizeDelta: {x: -83.55298, y: 1557.425}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5432519898040056430
@@ -60813,7 +60813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.84465533, y: 0.9195212}
-  m_AnchoredPosition: {x: -96.999954, y: -0.75}
+  m_AnchoredPosition: {x: -96.99994, y: -0.75}
   m_SizeDelta: {x: -49.925003, y: -1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5432519899065257745
@@ -67703,7 +67703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '   7.  Ascetic Acid '
+  m_text: '   7.  Acetic Acid '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4af5906b8ad5fe340889f533ce120bab, type: 2}
   m_sharedMaterial: {fileID: -5756706342267481872, guid: 4af5906b8ad5fe340889f533ce120bab, type: 2}
@@ -82819,7 +82819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.84465533, y: 0.9195212}
-  m_AnchoredPosition: {x: -96.999954, y: -0.75}
+  m_AnchoredPosition: {x: -96.99994, y: -0.75}
   m_SizeDelta: {x: -49.925003, y: -1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5432519899680555716
