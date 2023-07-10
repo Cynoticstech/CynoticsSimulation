@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SendApiExp : MonoBehaviour
 {
-    public GameObject cockroach, amoebahydra, mitosisMeiosis, Hibiscus, fishPegion, BioFertilizers, Microbes, HumanReproductiveSys, SuccessPopup;
+    public GameObject aceticobj, co2obj, cockroach, amoebahydra, mitosisMeiosis, Hibiscus, fishPegion, BioFertilizers, Microbes, HumanReproductiveSys, SuccessPopup;
     public TextMeshProUGUI text;
 
     public Cockroach cockroachExp;
@@ -17,6 +17,9 @@ public class SendApiExp : MonoBehaviour
     public BioFertilizer bioFertilizer;
     public Microbes microbes;
     public MaleAndFemale humanRepro;
+    public AceticAcid aceticAcidScript;
+    public RoleOfCO2 roleCo2Script;
+    
 
     public void SendOnActive()
     {
@@ -58,6 +61,14 @@ public class SendApiExp : MonoBehaviour
         else if (HumanReproductiveSys.activeSelf == true)
         {
             humanRepro.MFExpSend();
+        }
+        else if (aceticobj.activeSelf == true)
+        {
+            aceticAcidScript.ActExpSend();
+        }
+        else if (co2obj.activeSelf == true)
+        {
+            roleCo2Script.CO2ExpSend();
         }
     }
 
