@@ -22,9 +22,9 @@ namespace Simulations
         [SerializeField] SimulationFlowSCO[] AvailableSimulations;
         [SerializeField] SimulationTypes CurtType;
         [SerializeField] bool useDebugSim = false;
-        public string[] MitMieAPIAnsArray, AmoeHydAPIAnsArray, HibiAPIAnsArray, HRSAPIAnsArray, NChorAPIAnsArray, ChorAPIAnsArray, AscAPIAnsArray, BioFAPIAnsArray, MicrAPIAnsArray, CO2APIAnsArray;
-        public string[] HaloAPIAnsArray, ReactMetalAPIAnsArray, OxiAPIAnsArray;
-        public string[] CurMagAPIAnsArray, IceMeltAPIAnsArray, BoilWatAPIAnsArray, HopeAPIAnsArray, ConvexFLAPIAnsArray;
+        string[] MitMieAPIAnsArray, AmoeHydAPIAnsArray, HibiAPIAnsArray, HRSAPIAnsArray, NChorAPIAnsArray, ChorAPIAnsArray, AscAPIAnsArray, BioFAPIAnsArray, MicrAPIAnsArray, CO2APIAnsArray;
+        string[] HaloAPIAnsArray, ReactMetalAPIAnsArray, OxiAPIAnsArray;
+        string[] CurMagAPIAnsArray, IceMeltAPIAnsArray, BoilWatAPIAnsArray, HopeAPIAnsArray, ConvexFLAPIAnsArray;
         //stores data about simulations present in scene
         [System.Serializable]
         public struct SimulationDataHolder
