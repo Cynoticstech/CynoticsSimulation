@@ -33,7 +33,7 @@ public class MobileBackBtn : MonoBehaviour
         {
             SceneCheckRef.GetComponent<navbtnclk>().alphaload();
         }
-        if ((SceneCheckRef.scene.name == "Main_Alpha_Functionality_Pages") && Input.GetKeyUp(KeyCode.Escape))
+        if (SceneCheckRef.scene.name == "Main_Alpha_Functionality_Pages" && Input.GetKeyUp(KeyCode.Escape))
         {
             if (HomePanel.activeSelf)
             {
