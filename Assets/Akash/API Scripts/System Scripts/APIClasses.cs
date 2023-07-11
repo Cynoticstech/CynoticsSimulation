@@ -43,6 +43,7 @@ public class APIClasses : MonoBehaviour
         public string status;
         public string message;
         public UserData user;
+        public InstituteData[] institute;
     }
 
     [Serializable]
@@ -62,11 +63,11 @@ public class APIClasses : MonoBehaviour
         public string registrationDate;
         public string deviceKey;
         public string subsplan;
-        public Institute[] institute;
+        public List<InstituteData> institute;
     }
 
     [Serializable]
-    public class Institute
+    public class InstituteData
     {
         public string _id;
         public string guid;
