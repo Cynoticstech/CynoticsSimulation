@@ -43,7 +43,12 @@ public class navbtnclk : MonoBehaviour
     }
     public void alphaload()
     {
-        SceneManager.LoadScene("Offline_Alpha_Pages");
+        SceneManager.LoadScene("Main Alpha Functionality Pages");
+    }
+
+    public void QuitApp()
+    {
+        Application.Quit();
     }
 
 }

@@ -20,6 +20,7 @@ MonoBehaviour:
   - "Amazing!Experiment submitted. Now here\u2019s a challenge for you, can you fill
     these tables and answer fill in the blanks?"
   ValidAnswers:
+  - Vas Deferens
   - Prostate
   - Seminal Vesicle
   - Bladder
@@ -27,14 +28,14 @@ MonoBehaviour:
   - Penis
   - Epidydimis
   - Testicle
-  - Ovray
   - Endometrium
-  - Vagina
-  - Cervix
-  - Ovary
-  - Fimbriae
-  - Uterus
+  - Ovray
   - Fallopian Tubes
+  - Uterus
+  - Fimbriae
+  - Ovary
+  - Cervix
+  - Vagina
   - Stores and transports sperm from the testes to the vas deferens
   - Transports sperm from the epididymis to the urethra.
   - Secrete fluid that nourishes and protects sperm.

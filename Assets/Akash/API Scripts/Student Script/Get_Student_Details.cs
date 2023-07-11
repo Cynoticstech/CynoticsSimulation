@@ -18,6 +18,8 @@ public class Get_Student_Details : MonoBehaviour
     public static string phoneNumber;
     public static string dob;
     public static string guid;
+    public static string displayId;
+    public static string instituteGuid;
 
     void Start()
     {
@@ -47,7 +49,9 @@ public class Get_Student_Details : MonoBehaviour
                 phoneNumber = data.user.phone;
                 dob = data.user.dob;
                 guid = data.user.guid;
-
+                displayId = data.user.institute != null && data.user.institute.Length > 0 ? data.user.institute[0].displayId : string.Empty;
+                
+                instituteGuid = data.user.institute != null && data.user.institute.Length > 0 ? data.user.institute[0].guid : string.Empty;
                 foreach (TMP_InputField inputField in inputFields)
                 {
                     string placeholderText = inputField.placeholder.GetComponent<TextMeshProUGUI>().text;
@@ -58,6 +62,9 @@ public class Get_Student_Details : MonoBehaviour
                 inputFields[2].text = dob;
                 inputFields[3].text = phoneNumber;
                 inputFields[4].text = instituteId;
+
+                Debug.Log("" + guid);
+                Debug.Log("" + displayId);
             }
             else
             {

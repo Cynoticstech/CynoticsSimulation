@@ -39,11 +39,16 @@ public class DynamicDataHolder : MonoBehaviour
     }
     private void Start()
     {
+        if (Instance == null)
+        {
+            return;
+        }
         ReactivityData = new List<ReactivityDataHolder>();
         SceneManager.sceneLoaded += (scene, mode) =>
         {
             if (scene.name != SimSceneName)
             {
+                
                 Destroy(gameObject);
             }
         };

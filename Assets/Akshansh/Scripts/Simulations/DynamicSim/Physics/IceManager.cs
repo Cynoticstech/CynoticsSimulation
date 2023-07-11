@@ -12,8 +12,7 @@ public class IceManager : MonoBehaviour
         meterScaleTime = 3f, iceMeltTime = 1f, waterRiseTime = 5f, waterScale = 1.7f,
         logTime = 1f,maskTime=10f;
     [SerializeField] TMP_Text timeTxt, tempTxt;
-    [SerializeField]
-    float[] timeValues, tempValues;
+    [SerializeField] float[] timeValues, tempValues;
     [SerializeField] Transform tempLine, waterLevel,maskObj;
     [SerializeField]
     float[] iceChangeTimes;

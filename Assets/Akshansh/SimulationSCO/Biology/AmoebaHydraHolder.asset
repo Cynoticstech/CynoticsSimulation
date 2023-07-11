@@ -34,6 +34,7 @@ MonoBehaviour:
   - oval
   - site
   - daughter
+  - Bud
   - mouth
   - Hypostome
   - Tentacle
@@ -45,7 +46,6 @@ MonoBehaviour:
   - Gastrodermis
   - Mesogleva
   - Basal Disc
-  - Bud
   - body
   - multicellular
   - bud
@@ -53,21 +53,21 @@ MonoBehaviour:
   - Asexual
   FillupsQuestions:
   - 'At the beginning, the '
-  - ' gets elongated.'
+  - cell of Amoeba gets elongated.
   - 'Nucleus gets '
-  - '  shaped.'
+  - shaped.
   - 'A notch is developed at the '
   - of division.
   - 'Two small '
-  - ' cells of Amoeba are formed.'
+  - cells of Amoeba are formed.
   - A small outgrowth is seen on the
-  - ' of Hydra.'
+  - of Hydra.
   - 'It becomes '
-  - ' due to enough growth.'
+  - due to enough growth.
   - 'This outgrowth detaches in the form of bud having '
-  - ' and '
+  - 'and '
   - 'Amoeba and Hydra reproduce by  '
-  - ' method.'
+  - method.
   AnswerSprites:
   - AnswerName: 'Amoeba:  Amoeba_0'
     AnswerSprite:

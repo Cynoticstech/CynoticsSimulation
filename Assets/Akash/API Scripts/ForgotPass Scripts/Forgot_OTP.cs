@@ -78,6 +78,14 @@ public class Forgot_OTP : MonoBehaviour
 
     public void AttemptVerification()
     {
+        if (firstDigit.text == string.Empty || secondDigit.text == string.Empty || thirdDigit.text == string.Empty || fourthDigit.text == string.Empty)
+        {
+            popup.SetActive(true);
+            title.text = "All fields required";
+            message.text = "Enter all fields correctly to proceed";
+            return;
+        }
+
         StartCoroutine(SendUserEnteredOtp());
         Debug.Log("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text);
     }

@@ -12,6 +12,12 @@ public class MobileBackBtn : MonoBehaviour
     public GameObject HomePanel;
     [SerializeReference]
     public GameObject BioPanel;
+    [SerializeReference]
+    public GameObject PhyPanel;
+    [SerializeReference]
+    public GameObject ChemPanel;
+    [SerializeReference]
+    public GameObject AppExitConfirm;
 
 
     // Start is called before the first frame update
@@ -27,16 +33,32 @@ public class MobileBackBtn : MonoBehaviour
         {
             SceneCheckRef.GetComponent<navbtnclk>().alphaload();
         }
-        if ((SceneCheckRef.scene.name == "Offline_Alpha_Pages") && Input.GetKeyUp(KeyCode.Escape))
+        if ((SceneCheckRef.scene.name == "Main_Alpha_Functionality_Pages") && Input.GetKeyUp(KeyCode.Escape))
         {
             if (HomePanel.activeSelf)
             {
+                AppExitConfirm.SetActive(true);
                 SceneCheckRef.GetComponent<navbtnclk>().splashload();
             }
             else if (BioPanel.activeSelf)
             {
                 HomePanel.SetActive(true);
                 BioPanel.SetActive(false);
+            }
+            else if (PhyPanel.activeSelf)
+            {
+                HomePanel.SetActive(true);
+                PhyPanel.SetActive(false);
+            }
+            else if (ChemPanel.activeSelf)
+            {
+                HomePanel.SetActive(true);
+                ChemPanel.SetActive(false);
+            }
+            else if(AppExitConfirm.activeSelf)
+            {
+                HomePanel.SetActive(true);
+                AppExitConfirm.SetActive(false);
             }
 
         }
