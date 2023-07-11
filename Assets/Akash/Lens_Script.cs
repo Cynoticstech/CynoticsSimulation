@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class Lens_Script : MonoBehaviour
 {
+    
     [SerializeField] float minScaleClamp, maxScaleClamp;
     [SerializeField] float min, max;
     [SerializeField] Slider slider;
     [SerializeField] Transform airScale;
     [SerializeField] Transform scale;
     [SerializeField] Vector3[] blurPos;
+    [SerializeField] SpriteRenderer blurImg;
     [SerializeField] int currentActiveLens;
     [SerializeField] TMP_Dropdown dropdown;
     [SerializeField] Material blurMat;
@@ -38,8 +40,9 @@ public class Lens_Script : MonoBehaviour
         blurVal =  Mathf.Clamp(blurVal, 0, maxBlur);
 
         correctVal = blurVal;
-
-        blurMat.SetFloat("_Size", correctVal);
+        
+        blurImg.color = new Color(blurImg.color.r, blurImg.color.g,blurImg.color.b, correctVal);
+        //blurMat.SetFloat("_Size", correctVal);
     }
 
     public void logfl()

@@ -9,7 +9,7 @@ public class navbtnclk : MonoBehaviour
     //public Btnlist btl;
     //public Button logout_btn, logsub_btn, sisub_btn, stdntlog_btn, inredirect_btn, upredirect_btn;
     //public GameObject parentobj, childobj;
-    Scene scene;
+    public Scene scene;
     // Start is called before the first frame update
     void Start()
     {

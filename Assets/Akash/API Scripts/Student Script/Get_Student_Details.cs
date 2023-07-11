@@ -8,22 +8,17 @@ using UnityEngine.Networking;
 public class Get_Student_Details : MonoBehaviour
 {
     public TMP_InputField[] inputFields;
+    public TextMeshProUGUI[] instituteText;
 
-    public TMP_InputField emailInputField;
-    public TMP_InputField usernamez;
+    public SpriteRenderer instituteImageRenderer;
 
-    // User
-    public static string email;
-    public static string instituteId;
-    public static string username;
-    public static string phoneNumber;
-    public static string dob;
-    public static string guid;
+    //User
+    public static string image, guid, username, dob, email, phone, instituteId, @class, physics, biology, chemistry, registrationDate, deviceKey, subsplan;
 
-    // Institute
-    public static string Id;
-    public static string instituteName;
-    public static string instituteGuid;
+    //Institute
+    public static string _id, instituteGuid, displayId, createdAt, InstitutedisplayId, Institutename, InstituteregistrationDate, lastTransactionDate, paymentStatus,
+        numberOfKeys, numberOfStudents, numberOfTeachers, pincode, teachersInfo, adminusername, adminpancard, adminaadharcard, adminemail, adminphone, emailOtpInfo,
+        phoneOtpInfo, isEmailVerified, isPhoneVerified, isLoginActive, type, password, Instituteimage, slogan, organizationName, address, Instituteemail, Institutephone;
 
     void Start()
     {
@@ -39,45 +34,38 @@ public class Get_Student_Details : MonoBehaviour
         {
             Debug.Log("Data Retrieved");
             string jsonData = newRequest.downloadHandler.text;
-            //Debug.Log("JSON Data: " + jsonData);
-
-            // Deserialize the JSON response
             APIClasses.ApiResponse data = JsonUtility.FromJson<APIClasses.ApiResponse>(jsonData);
-            //Debug.Log("Deserialized Data: " + data);
 
             // Access user data
             if (data != null && data.status == "success" && data.user != null)
             {
-                email = data.user.email;
-                instituteId = data.user.instituteId;
-                username = data.user.username;
-                phoneNumber = data.user.phone;
-                dob = data.user.dob;
+                image = data.user.image;
                 guid = data.user.guid;
+                username = data.user.username;
+                dob = data.user.dob;
+                email = data.user.email;
+                phone = data.user.phone;
+                instituteId = data.user.instituteId;
+                @class = data.user.@class;
+                physics = data.user.physics; biology = data.user.biology; chemistry = data.user.chemistry;
+                registrationDate = data.user.registrationDate;
+                deviceKey = data.user.deviceKey; subsplan = data.user.subsplan;
 
-                // Access institute data
-                if (data.user.institute != null && data.user.institute.Count > 0)
-                {
-                    APIClasses.InstituteData institute = data.user.institute[0];
-                    Id = institute.displayId;
-                    instituteName = institute.name;
-                    instituteGuid = institute.guid;
-                }
+                _id = data.user.institute._id; instituteGuid = data.user.institute.guid; displayId = data.user.institute.displayId;
+                createdAt = data.user.institute.createdAt; InstitutedisplayId = data.user.institute.displayId; Institutename = data.user.institute.name;
+                InstituteregistrationDate = data.user.institute.registrationDate; lastTransactionDate = data.user.institute.lastTransactionDate;
+                paymentStatus = data.user.institute.paymentStatus; numberOfKeys = data.user.institute.numberOfKeys; numberOfStudents = data.user.institute.numberOfStudents;
+                numberOfTeachers = data.user.institute.numberOfTeachers; pincode = data.user.institute.pincode; teachersInfo = data.user.institute.teachersInfo;
+                adminusername = data.user.institute.adminusername; adminpancard = data.user.institute.adminpancard; adminaadharcard = data.user.institute.adminaadharcard;
+                adminemail = data.user.institute.adminemail; adminphone = data.user.institute.adminphone; emailOtpInfo = data.user.institute.emailOtpInfo; phoneOtpInfo = data.user.institute.phoneOtpInfo;
+                isEmailVerified = data.user.institute.isEmailVerified; isPhoneVerified = data.user.institute.isPhoneVerified; isLoginActive = data.user.institute.isLoginActive;
+                type = data.user.institute.type; password = data.user.institute.password; Instituteimage = data.user.institute.image; slogan = data.user.institute.slogan;
+                organizationName = data.user.institute.organizationName; address = data.user.institute.address; Instituteemail = data.user.institute.email; Institutephone = data.user.institute.phone;
 
-                foreach (TMP_InputField inputField in inputFields)
-                {
-                    string placeholderText = inputField.placeholder.GetComponent<TextMeshProUGUI>().text;
-                }
+                inputFields[0].text = username; inputFields[1].text = email; inputFields[2].text = dob; inputFields[3].text = phone; inputFields[4].text = instituteId;
+                instituteText[0].text = Institutename; instituteText[1].text = slogan;
+                LoadInstImage();
 
-                inputFields[0].text = username;
-                inputFields[1].text = email;
-                inputFields[2].text = dob;
-                inputFields[3].text = phoneNumber;
-                inputFields[4].text = instituteId;
-
-                Debug.Log(instituteId);
-                Debug.Log(instituteName);
-                Debug.Log(instituteGuid);
             }
             else
             {
@@ -90,106 +78,26 @@ public class Get_Student_Details : MonoBehaviour
             Debug.Log(newRequest.error);
         }
     }
-}
 
-
-
-
-
-/*using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using TMPro;
-using UnityEngine;
-using UnityEngine.Networking;
-
-public class Get_Student_Details : MonoBehaviour
-{
-    public TMP_InputField[] inputFields;
-
-    public TMP_InputField emailInputField;
-    public TMP_InputField usernamez;
-
-    //User
-    public static string email;
-    public static string instituteId;
-    public static string username;
-    public static string phoneNumber;
-    public static string dob;
-    public static string guid;
-
-    //Institute
-    public static string _id, displayId, Iname;
-    public static string instituteGuid;
-
-    void Start()
+    public void LoadInstImage()
     {
-        StartCoroutine(GetProfileData());
+        StartCoroutine(LoadImageFromURL(Instituteimage));
     }
 
-    IEnumerator GetProfileData()
+    IEnumerator LoadImageFromURL(string imageUrl)
     {
-        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/");
-        yield return newRequest.SendWebRequest();
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
+        yield return request.SendWebRequest();
 
-        if (newRequest.result == UnityWebRequest.Result.Success)
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Data Retrieved");
-            string jsonData = newRequest.downloadHandler.text;
-            //Debug.Log("JSON Data: " + jsonData);
-
-            // Deserialize the JSON response
-            APIClasses.ApiResponse data = JsonUtility.FromJson<APIClasses.ApiResponse>(jsonData);
-            //Debug.Log("Deserialized Data: " + data);
-
-            // Access user data
-            if (data != null && data.status == "success" && data != null)
-            {
-                email = data.user.email;
-                instituteId = data.user.instituteId;
-                username = data.user.username;
-                phoneNumber = data.user.phone;
-                dob = data.user.dob;
-                guid = data.user.guid;
-
-                // Access institute data
-                List<APIClasses.InstituteData> institutes = data.user.institute;
-                if (institutes != null && institutes.Count > 0)
-                {
-                    APIClasses.InstituteData Institute = institutes[0];
-                    _id = Institute._id;
-                    displayId = Institute.displayId;
-                    name = Institute.name;
-                    instituteGuid = Institute.guid;
-                }
-
-                foreach (TMP_InputField inputField in inputFields)
-                {
-                    string placeholderText = inputField.placeholder.GetComponent<TextMeshProUGUI>().text;
-                }
-
-                inputFields[0].text = username;
-                inputFields[1].text = email;
-                inputFields[2].text = dob;
-                inputFields[3].text = phoneNumber;
-                inputFields[4].text = instituteId;
-
-                Debug.Log(_id);
-                Debug.Log(name);
-                Debug.Log(displayId);
-                Debug.Log(guid);
-            }
-            else
-            {
-                Debug.Log("Error: Invalid API response format");
-            }
+            Texture2D texture = DownloadHandlerTexture.GetContent(request);
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
+            instituteImageRenderer.sprite = sprite;
         }
         else
         {
-            Debug.Log("Error: Failed to retrieve data");
-            Debug.Log(newRequest.error);
+            Debug.Log("Error loading image: " + request.error);
         }
     }
 }
-
-*/

@@ -43,7 +43,6 @@ public class APIClasses : MonoBehaviour
         public string status;
         public string message;
         public UserData user;
-        public InstituteData[] institute;
     }
 
     [Serializable]
@@ -63,7 +62,7 @@ public class APIClasses : MonoBehaviour
         public string registrationDate;
         public string deviceKey;
         public string subsplan;
-        public List<InstituteData> institute;
+        public InstituteData institute;
     }
 
     [Serializable]
@@ -71,7 +70,7 @@ public class APIClasses : MonoBehaviour
     {
         public string _id;
         public string guid;
-        public double createdAt;
+        public string createdAt;
         public string displayId;
         public string name;
         public string registrationDate;
@@ -81,17 +80,17 @@ public class APIClasses : MonoBehaviour
         public string numberOfStudents;
         public string numberOfTeachers;
         public string pincode;
-        public string[] teachersInfo;
+        public string teachersInfo;
         public string adminusername;
         public string adminpancard;
         public string adminaadharcard;
         public string adminemail;
         public string adminphone;
-        public object emailOtpInfo;
-        public object phoneOtpInfo;
-        public bool isEmailVerified;
-        public bool isPhoneVerified;
-        public bool isLoginActive;
+        public string emailOtpInfo;
+        public string phoneOtpInfo;
+        public string isEmailVerified;
+        public string isPhoneVerified;
+        public string isLoginActive;
         public string type;
         public string password;
         public string image;
@@ -102,5 +101,3 @@ public class APIClasses : MonoBehaviour
         public string phone;
     }
 }
-
-
