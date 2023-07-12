@@ -65,6 +65,8 @@ public class SignUp_API : MonoBehaviour
         {
             Debug.Log("error"); //Popup for error
             Debug.Log(request.error);
+            message.text = request.error;
+            popup.SetActive(true);
         }
     }
 

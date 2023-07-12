@@ -9,7 +9,6 @@ public class Get_Student_Details : MonoBehaviour
 {
     public TMP_InputField[] inputFields;
     public TextMeshProUGUI[] instituteText;
-
     public SpriteRenderer instituteImageRenderer;
 
     //User
@@ -98,6 +97,87 @@ public class Get_Student_Details : MonoBehaviour
         else
         {
             Debug.Log("Error loading image: " + request.error);
+        }
+    }
+
+    public void Save()
+    {
+        StartCoroutine(UpdateDetails());
+    }
+
+    IEnumerator UpdateDetails()
+    {
+        string _url = "https://echo-admin-backend.vercel.app/api/student/";
+        APIClasses.UserData newData = new APIClasses.UserData()
+        {
+            image = image,
+            guid = guid,
+            username = inputFields[0].text,
+            dob = inputFields[2].text,
+            email = inputFields[1].text,
+            phone = inputFields[3].text,
+            instituteId = inputFields[4].text,
+            @class = @class,
+            physics = physics,
+            biology = biology,
+            chemistry = chemistry,
+            registrationDate = registrationDate,
+            deviceKey = deviceKey,
+            subsplan = subsplan,
+            institute = new APIClasses.InstituteData
+            {
+                _id = _id,
+                guid = instituteGuid,
+                createdAt = createdAt,
+                displayId = InstitutedisplayId,
+                name = Institutename,
+                registrationDate = InstituteregistrationDate,
+                lastTransactionDate = lastTransactionDate,
+                paymentStatus = paymentStatus,
+                numberOfKeys = numberOfKeys,
+                numberOfStudents = numberOfStudents,
+                numberOfTeachers = numberOfTeachers,
+                pincode = pincode,
+                teachersInfo = teachersInfo,
+                adminusername = adminusername,
+                adminpancard = adminpancard,
+                adminaadharcard = adminaadharcard,
+                adminemail = adminemail,
+                adminphone = adminphone,
+                emailOtpInfo = emailOtpInfo,
+                phoneOtpInfo = phoneOtpInfo,
+                isEmailVerified = isEmailVerified,
+                isPhoneVerified = isPhoneVerified,
+                isLoginActive = isLoginActive,
+                type = type,
+                password = password,
+                image = Instituteimage,
+                slogan = slogan,
+                organizationName = organizationName,
+                address = address,
+                email = Instituteemail,
+                phone = Institutephone
+            }
+        };
+
+        string jsonBody = JsonUtility.ToJson(newData);
+        byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
+
+        Debug.Log(jsonBody);
+        UnityWebRequest request = new UnityWebRequest(_url, "PATCH");
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.uploadHandler = new UploadHandlerRaw(rawBody);
+        request.downloadHandler = new DownloadHandlerBuffer();
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Success");
+        }
+        else
+        {
+            Debug.Log("error");
         }
     }
 }
