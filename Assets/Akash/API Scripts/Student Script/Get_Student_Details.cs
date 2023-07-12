@@ -4,14 +4,18 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class Get_Student_Details : MonoBehaviour
 {
     public TMP_InputField[] inputFields;
     public TextMeshProUGUI[] instituteText;
+    public TextMeshProUGUI title, message;
     public SpriteRenderer instituteImageRenderer;
 
-    public GameObject hamPremium, hamFree, BioPremium, BioFree, Physicspremium, PhysicsFree, ChemistryPremium, ChemistryFree;
+    public TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit;
+
+    public GameObject popup, verifyOTPPage, hamPremium, hamFree, BioPremium, BioFree, Physicspremium, PhysicsFree, ChemistryPremium, ChemistryFree;
 
     //User
     public static string image, guid, username, dob, email, phone, instituteId, @class, physics, biology, chemistry, registrationDate, deviceKey, subsplan, currentKey;
@@ -104,7 +108,46 @@ public class Get_Student_Details : MonoBehaviour
 
     public void Save()
     {
-        StartCoroutine(UpdateDetails());
+        if (!inputFields[1].text.Contains("@") || !inputFields[1].text.Contains("."))
+        {
+            title.text = "Invalid Email Format";
+            message.text = "Enter a valid email format";
+            popup.SetActive(true);
+            return;
+        }
+
+        if (!IsValidDateFormat(inputFields[2].text))
+        {
+            title.text = "Invalid date format";
+            message.text = "Enter the date in the format:- DD/MM/YYYY";
+            popup.SetActive(true);
+            return;
+        }
+
+        if (inputFields[3].text.Length != 10 || !System.Text.RegularExpressions.Regex.IsMatch(inputFields[3].text, @"^\d+$"))
+        {
+            title.text = "Incorrect phone number";
+            message.text = "Enter a correct 10-digit phone number";
+            popup.SetActive(true);
+            return;
+        }
+        StartCoroutine(SendingOTPToEmail());
+    }
+    public void VerifyOTP()
+    {
+        if (firstDigit.text == string.Empty || secondDigit.text == string.Empty || thirdDigit.text == string.Empty || fourthDigit.text == string.Empty)
+        {
+            popup.SetActive(true);
+            title.text = "Error";
+            message.text = "Enter correct otp";
+            return;
+        }
+
+        StartCoroutine(SendUserEnteredOtp());
+    }
+    public void Resend()
+    {
+        StartCoroutine(SendingOTPToEmail());
     }
 
     IEnumerator UpdateDetails()
@@ -177,6 +220,7 @@ public class Get_Student_Details : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Success");
+            SceneManager.LoadScene("Main Alpha Functionality Pages");
         }
         else
         {
@@ -229,6 +273,102 @@ public class Get_Student_Details : MonoBehaviour
         else if (subsplan == "free")
         {
             ChemistryFree.SetActive(true);
+        }
+    }
+
+    private bool IsValidDateFormat(string date)
+    {
+        System.DateTime parsedDate;
+        return System.DateTime.TryParseExact(date, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out parsedDate);
+    }
+
+    IEnumerator SendingOTPToEmail()
+    {
+        Debug.Log("OTP Sending Started");
+        string _url = "https://echo-admin-backend.vercel.app/api/student/send-otp";
+
+        APIClasses.SignUpDataHolder otpSend = new APIClasses.SignUpDataHolder()
+        {
+            email = inputFields[1].text
+        };
+
+        string jsonBody = JsonUtility.ToJson(otpSend);
+        byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
+
+        Debug.Log(jsonBody);
+
+        UnityWebRequest request = UnityWebRequest.Post(_url, "application/json");
+
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.uploadHandler = new UploadHandlerRaw(rawBody);
+        request.downloadHandler = new DownloadHandlerBuffer();
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Success Sending OTP");
+            Debug.Log(request.downloadHandler.data);
+            verifyOTPPage.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("error for otp");
+            Debug.Log(request.error);
+        }
+    }
+    IEnumerator SendUserEnteredOtp()
+    {
+        string _url = "https://echo-admin-backend.vercel.app/api/student/verify-otp";
+
+        APIClasses.OtpSend otpHolder = new APIClasses.OtpSend()
+        {
+            email = inputFields[1].text,
+            emailOTP = ("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text)
+        };
+
+        string jsonBody = JsonUtility.ToJson(otpHolder);
+        byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
+
+        Debug.Log(jsonBody);
+
+        UnityWebRequest request = UnityWebRequest.Post(_url, "application/json");
+
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.uploadHandler = new UploadHandlerRaw(rawBody);
+        request.downloadHandler = new DownloadHandlerBuffer();
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Success In Sending The OTP");
+            StartCoroutine(VerifyOTP1());
+        }
+        else
+        {
+            Debug.Log("Error to send OTP");
+            popup.SetActive(true);
+            message.text = "Error occured please enter otp again";
+            Debug.Log(request.error);
+        }
+
+    }
+    IEnumerator VerifyOTP1()
+    {
+        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/verify-otp");
+        yield return newRequest.SendWebRequest();
+
+        if (newRequest.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Verified");
+            StartCoroutine(UpdateDetails());
+            Debug.Log(newRequest.result);
+        }
+        else
+        {
+            Debug.Log("Wrong OTP Entered");
+            Debug.Log(newRequest.error);
         }
     }
 }
