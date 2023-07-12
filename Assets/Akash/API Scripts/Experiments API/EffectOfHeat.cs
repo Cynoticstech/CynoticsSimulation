@@ -9,6 +9,9 @@ public class EffectOfHeat : MonoBehaviour
 {
     public TMP_InputField[] answers;
     public SendApiExp sendApi;
+
+    
+
     string dummyData;
     public void EOH()
     {
@@ -64,21 +67,6 @@ public class EffectOfHeat : MonoBehaviour
 
         };
         data.questions.Add(EOHQuestion);
-
-        dummyData = "Observation:\r\n 0.1<sup>O</sup>C\r\n" +
-            "Observation table: \r\n Min time, Temp<sup>O</sup>C\r\n" +
-            "0,0\r\n" +
-            "1, 0\r\n" +
-            "2, 10\r\n" +
-            "3, 21\r\n" +
-            "4, 30\r\n" +
-            "5, 42\r\n" +
-            "6, 56\r\n" +
-            "7, 72\r\n" +
-            "8, 81\r\n" +
-            "9, 93\r\n" +
-            "Inference: \r\n 1. Heat energy is absorbed during the transformation of ice in to water and water into water vapours\r\n";
-        EOHQuestion.attemptedanswer.Add(dummyData);
 
         foreach (TMP_InputField answerField in answers)
         {

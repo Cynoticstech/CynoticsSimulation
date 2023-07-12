@@ -7,9 +7,12 @@ using UnityEngine.Networking;
 
 public class Cooling : MonoBehaviour
 {
+    public TMP_InputField firstField;
+
     public TMP_InputField[] answers;
     public SendApiExp sendApi;
-    public string dummyData;
+
+    public WaterBoilMang waterBoilScript;
 
     public void cool()
     {
@@ -45,7 +48,7 @@ public class Cooling : MonoBehaviour
             //answers
             answer =
             "Observation:\r\n 1. 27<sup>OC</sup>\r\n" +
-            "Observation table: \r\n Time(mins), Temp<sup>O</sup>C\r\n" +
+            "Observation table: \r\n Time(mi    ns), Temp<sup>O</sup>C\r\n" +
             "0, 70\r\n" +
             "1, 60\r\n" +
             "2, 48\r\n" +
@@ -59,14 +62,13 @@ public class Cooling : MonoBehaviour
         };
         data.questions.Add(cooliQuestion);
 
-        dummyData =
-            "0, 70\r\n" +
-            "1, 60\r\n" +
-            "2, 48\r\n" +
-            "3, 41\r\n" +
-            "4, 36\r\n" +
-            "5, 33\r\n";
-        cooliQuestion.attemptedanswer.Add(dummyData);
+        //cooliQuestion.attemptedanswer.Add(firstField.text);
+
+        foreach (var table in waterBoilScript.ApiAnswers)
+        {
+            cooliQuestion.attemptedanswer.Add(table.transform.GetChild(0).GetComponent<TMP_Text>().text +" "+ table.transform.GetChild(1).GetComponent<TMP_Text>().text);
+        }
+
         foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
