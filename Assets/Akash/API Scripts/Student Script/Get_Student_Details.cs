@@ -11,8 +11,10 @@ public class Get_Student_Details : MonoBehaviour
     public TextMeshProUGUI[] instituteText;
     public SpriteRenderer instituteImageRenderer;
 
+    public GameObject hamPremium, hamFree, BioPremium, BioFree, Physicspremium, PhysicsFree, ChemistryPremium, ChemistryFree;
+
     //User
-    public static string image, guid, username, dob, email, phone, instituteId, @class, physics, biology, chemistry, registrationDate, deviceKey, subsplan;
+    public static string image, guid, username, dob, email, phone, instituteId, @class, physics, biology, chemistry, registrationDate, deviceKey, subsplan, currentKey;
 
     //Institute
     public static string _id, instituteGuid, displayId, createdAt, InstitutedisplayId, Institutename, InstituteregistrationDate, lastTransactionDate, paymentStatus,
@@ -48,7 +50,7 @@ public class Get_Student_Details : MonoBehaviour
                 @class = data.user.@class;
                 physics = data.user.physics; biology = data.user.biology; chemistry = data.user.chemistry;
                 registrationDate = data.user.registrationDate;
-                deviceKey = data.user.deviceKey; subsplan = data.user.subsplan;
+                deviceKey = data.user.deviceKey; subsplan = data.user.subsplan; currentKey = data.user.currentKey;
 
                 _id = data.user.institute._id; instituteGuid = data.user.institute.guid; displayId = data.user.institute.displayId;
                 createdAt = data.user.institute.createdAt; InstitutedisplayId = data.user.institute.displayId; Institutename = data.user.institute.name;
@@ -124,6 +126,7 @@ public class Get_Student_Details : MonoBehaviour
             registrationDate = registrationDate,
             deviceKey = deviceKey,
             subsplan = subsplan,
+            currentKey = currentKey,
             institute = new APIClasses.InstituteData
             {
                 _id = _id,
@@ -178,6 +181,54 @@ public class Get_Student_Details : MonoBehaviour
         else
         {
             Debug.Log("error");
+        }
+    }
+
+    public void HamburgerPremiumFn()
+    {
+        if (subsplan == "premium")
+        {
+            hamPremium.SetActive(true);
+        }
+        else if (subsplan == "free")
+        {
+            hamFree.SetActive(true);
+        }
+    }
+
+    public void BiologyPremiumFn()
+    {
+        if (subsplan == "premium")
+        {
+            BioPremium.SetActive(true);
+        }
+        else if (subsplan == "free")
+        {
+            BioFree.SetActive(true);
+        }
+    }
+
+    public void PhysicsPremiumFn()
+    {
+        if (subsplan == "premium")
+        {
+            Physicspremium.SetActive(true);
+        }
+        else if (subsplan == "free")
+        {
+            PhysicsFree.SetActive(true);
+        }
+    }
+
+    public void ChemistryPremiumFn()
+    {
+        if (subsplan == "premium")
+        {
+            ChemistryPremium.SetActive(true);
+        }
+        else if (subsplan == "free")
+        {
+            ChemistryFree.SetActive(true);
         }
     }
 }

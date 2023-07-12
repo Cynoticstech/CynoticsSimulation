@@ -62,6 +62,7 @@ public class APIClasses : MonoBehaviour
         public string registrationDate;
         public string deviceKey;
         public string subsplan;
+        public string currentKey;
         public InstituteData institute;
     }
 

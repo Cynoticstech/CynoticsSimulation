@@ -5,10 +5,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
-using System.Runtime.Serialization;
-using System;
-using UnityEngine.Android;
 
 public class SignUp_API : MonoBehaviour
 {
