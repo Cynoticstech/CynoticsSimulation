@@ -25,7 +25,8 @@ public class Lens_Script : MonoBehaviour
     [SerializeField] GameObject tablePrefab;
     [SerializeField] Transform contentorder;
     [SerializeField] float maxBlur;
- 
+    public List<GameObject> ApiAnswers; 
+
     void Start()
     {
         slider.onValueChanged.AddListener(OnValChange);
@@ -62,6 +63,7 @@ public class Lens_Script : MonoBehaviour
 
     public void fillTables()
     {
+        ApiAnswers.Clear();
         foreach(var v in spawnedAns)
         {
             Destroy(v);
@@ -82,8 +84,7 @@ public class Lens_Script : MonoBehaviour
             row.transform.GetChild(1).GetComponent<TMP_Text>().text = "Tree";
             row.transform.GetChild(2).GetComponent<TMP_Text>().text = DynamicDataHolder.Instance.focalLengthR[i].ToString()+ " cm";
             spawnedAns.Add(row);
-
-
+            ApiAnswers.Add(row);
         }
     }
     

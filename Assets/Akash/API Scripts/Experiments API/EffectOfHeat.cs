@@ -7,12 +7,9 @@ using UnityEngine.Networking;
 
 public class EffectOfHeat : MonoBehaviour
 {
-    public TMP_InputField[] answers;
+    public TMP_InputField answers;
     public SendApiExp sendApi;
-
-    
-
-    string dummyData;
+    public IceManager ceManager;
     public void EOH()
     {
         StartCoroutine(EOHi());
@@ -67,8 +64,14 @@ public class EffectOfHeat : MonoBehaviour
 
         };
         data.questions.Add(EOHQuestion);
+        EOHQuestion.attemptedanswer.Add(answers.text);
 
-        foreach (TMP_InputField answerField in answers)
+        foreach( var table in ceManager.ApiAnswerList )
+        {
+            EOHQuestion.attemptedanswer.Add(table.transform.GetChild(0).GetComponent<TMP_Text>().text+ "," +table.transform.GetChild(1).GetComponent<TMP_Text>().text);
+        }
+
+        /*foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
         }
@@ -77,7 +80,7 @@ public class EffectOfHeat : MonoBehaviour
         for (int i = 0; i < emptyCount; i++)
         {
             data.questions[0].attemptedanswer.Add("");
-        }
+        }*/
         string jsonData = JsonUtility.ToJson(data);
 
         UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");

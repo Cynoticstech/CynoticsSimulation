@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -62,11 +63,11 @@ public class Cooling : MonoBehaviour
         };
         data.questions.Add(cooliQuestion);
 
-        //cooliQuestion.attemptedanswer.Add(firstField.text);
+        cooliQuestion.attemptedanswer.Add(firstField.text);
 
         foreach (var table in waterBoilScript.ApiAnswers)
         {
-            cooliQuestion.attemptedanswer.Add(table.transform.GetChild(0).GetComponent<TMP_Text>().text +" "+ table.transform.GetChild(1).GetComponent<TMP_Text>().text);
+            cooliQuestion.attemptedanswer.Add(table.transform.GetChild(0).GetComponent<TMP_Text>().text +","+ table.transform.GetChild(1).GetComponent<TMP_Text>().text);
         }
 
         foreach (TMP_InputField answerField in answers)
@@ -81,11 +82,8 @@ public class Cooling : MonoBehaviour
         }
 
         string jsonData = JsonUtility.ToJson(data);
-
         UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
-
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
-
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");

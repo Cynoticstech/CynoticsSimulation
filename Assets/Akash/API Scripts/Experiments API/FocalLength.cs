@@ -7,11 +7,12 @@ using UnityEngine.Networking;
 
 public class FocalLength : MonoBehaviour
 {
+    public TMP_InputField answer1;
     public TMP_InputField[] answers;
     public SendApiExp sendApi;
-    public string dummyData;
+    public Lens_Script lensScript;
 
-    public TMP_InputField inp1, inp2, inp3;
+    //public TMP_InputButton b1, b2;
     public void FocalL()
     {
         StartCoroutine(fl());
@@ -51,11 +52,15 @@ public class FocalLength : MonoBehaviour
             attemptedanswer = new List<string>()
         };
         data.questions.Add(flque);
+        
+        flque.attemptedanswer.Add(answer1.text);
 
-        dummyData = "Observation table 1: \r\n 16\r\n" +
-            "Observation table 2: \r\n 16\r\n";
-        flque.attemptedanswer.Add(dummyData);
-        /*foreach (TMP_InputField answerField in answers)
+        foreach(var table in lensScript.ApiAnswers)
+        {
+            flque.attemptedanswer.Add(table.transform.GetChild(0).GetComponent<TMP_Text>().text + "," + table.transform.GetChild(1).GetComponent<TMP_Text>().text + "," + table.transform.GetChild(2).GetComponent<TMP_Text>().text);
+            flque.attemptedanswer.Add(table.transform.GetChild(0).GetComponent<TMP_Text>().text + "," + table.transform.GetChild(1).GetComponent<TMP_Text>().text + "," + table.transform.GetChild(2).GetComponent<TMP_Text>().text);
+        }
+        foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
         }
@@ -64,6 +69,15 @@ public class FocalLength : MonoBehaviour
         for (int i = 0; i < emptyCount; i++)
         {
             data.questions[0].attemptedanswer.Add("");
+        }
+
+        /*if ()
+        {
+            flque.attemptedanswer.Add("Yes");
+        }
+        else
+        {
+            flque.attemptedanswer.Add("No");
         }*/
 
         string jsonData = JsonUtility.ToJson(data);

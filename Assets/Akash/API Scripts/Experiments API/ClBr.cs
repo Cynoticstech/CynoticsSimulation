@@ -7,24 +7,11 @@ using UnityEngine.Networking;
 
 public class ClBr : MonoBehaviour
 {
-    public TMP_InputField[] answers;
-    public TMP_Dropdown dropdown1, dropdown2, dropdown3, dropdown4, dropdown5, dropdown6;
-    public string d1, d2, d3, d4, d5, d6, d7, d8;
     public SendApiExp sendApi;
+    public HalogenUIManager halogenUIManager;
     public void ClBrExpSend()
     {
         StartCoroutine(Cl());
-    }
-    public void AddDataOfCLBR()
-    {
-        d1 = dropdown1.options[dropdown1.value].text;
-        d2 = dropdown2.options[dropdown2.value].text;
-        d3 = dropdown3.options[dropdown3.value].text;
-        d4 = dropdown4.options[dropdown4.value].text;
-        d5 = dropdown5.options[dropdown5.value].text;
-        d6 = dropdown6.options[dropdown6.value].text;
-        d7 = "Chmeical Reaction:" + d1 + "+" + d2 + "---->" + d3 + "+" + d4 + "Colour of precipitate:" + d5 + "Ion:" + d6 + "\r\n";
-        
     }
 
     IEnumerator Cl()
@@ -58,10 +45,12 @@ public class ClBr : MonoBehaviour
             //attempted answers
             attemptedanswer = new List<string>()
         };
-
-        
         data.questions.Add(lBrQuestion);
 
+        foreach(var table in halogenUIManager.ApiAnswers)
+        {
+            lBrQuestion.attemptedanswer.Add(table.transform.GetChild(0).GetComponent<TMP_Text>().text);
+        }
         /*foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);

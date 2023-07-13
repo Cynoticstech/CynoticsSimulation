@@ -84,7 +84,7 @@ public class WaterBoilMang : MonoBehaviour
     {
         ApiAnswers.Clear();
 
-        for (int i = 1; i < AnswerContent.transform.childCount - 2; i++)
+        for (int i = 1; i < AnswerContent.transform.childCount - 3; i++)
         {
             Destroy(AnswerContent.transform.GetChild(i).gameObject);
         }
@@ -97,7 +97,7 @@ public class WaterBoilMang : MonoBehaviour
 
             ApiAnswers.Add(_obj);
         }
-        AnswerContent.transform.GetChild(1).SetSiblingIndex(AnswerContent.transform.childCount - 1);
+        AnswerContent.transform.GetChild(2).SetSiblingIndex(AnswerContent.transform.childCount - 1);
         SubmitButton.transform.SetAsLastSibling();
         AnswerHolder.SetActive(true);
     }
