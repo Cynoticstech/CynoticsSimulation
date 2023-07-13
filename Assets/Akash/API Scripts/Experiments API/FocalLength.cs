@@ -79,10 +79,15 @@ public class FocalLength : MonoBehaviour
         {
             flque.attemptedanswer.Add("No");
         }*/
-
+        flComment comment = new flComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -113,7 +118,7 @@ public class flDataSend
     public string user;
     public List<flQuestion> questions;
     public string marks;
-    public List<flComment> comments;
+    public flComment comments;
 }
 
 [System.Serializable]

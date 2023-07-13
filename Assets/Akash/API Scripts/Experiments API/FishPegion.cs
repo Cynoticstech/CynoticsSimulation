@@ -62,10 +62,15 @@ public class FishPegion : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }
-
+        fpComment comment = new fpComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -96,7 +101,7 @@ public class fpDataSend
     public string user;
     public List<fpQuestion> questions;
     public string marks;
-    public List<fpComment> comments;
+    public fpComment comments;
 }
 
 [System.Serializable]

@@ -81,9 +81,16 @@ public class EffectOfHeat : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }*/
+
+        EOHComment comment = new EOHComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -114,7 +121,7 @@ public class EOHDataSend
     public string user;
     public List<EOHQuestion> questions;
     public string marks;
-    public List<EOHComment> comments;
+    public EOHComment comments;
 }
 
 [System.Serializable]

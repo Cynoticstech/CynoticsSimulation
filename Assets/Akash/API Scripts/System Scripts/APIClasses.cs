@@ -101,4 +101,32 @@ public class APIClasses : MonoBehaviour
         public string email;
         public string phone;
     }
+
+    [Serializable]
+    public class DataSend
+    {
+        public string guid;
+        public string experimentName;
+        public string moduleName;
+        public string user;
+        public List<Questions> questions;
+        public string marks;
+        public bool isPerformed;
+        public List<Comment> comments;
+    }
+
+    [Serializable]
+    public class Questions
+    {
+        public string question;
+        public string answer;
+        public List<string> attemptedanswer;
+    }
+
+    [Serializable]
+    public class Comment
+    {
+        public string name;
+        public string comments;
+    }
 }

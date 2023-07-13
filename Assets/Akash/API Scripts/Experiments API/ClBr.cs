@@ -61,10 +61,16 @@ public class ClBr : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }*/
+        ClBrComment comment = new ClBrComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
 
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -95,7 +101,7 @@ public class ClBrDataSend
     public string user;
     public List<ClBrQuestion> questions;
     public string marks;
-    public List<ClBrComment> comments;
+    public ClBrComment comments;
 }
 
 [System.Serializable]

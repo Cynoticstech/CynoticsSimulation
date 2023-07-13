@@ -89,10 +89,15 @@ public class MaleAndFemale : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }
-
+        MFComment comment = new MFComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -123,7 +128,7 @@ public class MFDataSend
     public string user;
     public List<MFQuestion> questions;
     public string marks;
-    public List<MFComment> comments;
+    public MFComment comments;
 }
 
 [System.Serializable]

@@ -60,10 +60,15 @@ public class Microbes : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }
-
+        MicrobeComment comment = new MicrobeComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -94,7 +99,7 @@ public class MicrobeDataSend
     public string user;
     public List<MicrobeQuestion> questions;
     public string marks;
-    public List<MicrobeComment> comments;
+    public MicrobeComment comments;
 }
 
 [System.Serializable]

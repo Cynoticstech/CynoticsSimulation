@@ -80,9 +80,15 @@ public class Cooling : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }
+        cooliComment comment = new cooliComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
 
         string jsonData = JsonUtility.ToJson(data);
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -111,7 +117,7 @@ public class cooliDataSend
     public string user;
     public List<cooliQuestion> questions;
     public string marks;
-    public List<cooliComment> comments;
+    public cooliComment comments;
 }
 
 [System.Serializable]

@@ -62,10 +62,16 @@ public class AmoebaAndHydra : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }
+        AmoebaComment comment = new AmoebaComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
 
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -96,7 +102,7 @@ public class AmoebaDataSend
     public string user;
     public List<AmoebaQuestion> questions;
     public string marks;
-    public List<AmoebaComment> comments;
+    public AmoebaComment comments;
 }
 
 [System.Serializable]

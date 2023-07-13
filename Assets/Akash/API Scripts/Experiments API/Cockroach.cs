@@ -61,10 +61,16 @@ public class Cockroach : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }
+        CockroachComment comment = new CockroachComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
 
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -95,7 +101,7 @@ public class CockroachDataSend
     public string user;
     public List<CockroachQuestion> questions;
     public string marks;
-    public List<CockroachComment> comments;
+    public CockroachComment comments;
 }
 
 [System.Serializable]

@@ -60,10 +60,16 @@ public class BioFertilizer : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }
+        BioFComment comment = new BioFComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
 
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -94,7 +100,7 @@ public class BioFDataSend
     public string user;
     public List<BioFQuestion> questions;
     public string marks;
-    public List<BioFComment> comments;
+    public BioFComment comments;
 }
 
 [System.Serializable]

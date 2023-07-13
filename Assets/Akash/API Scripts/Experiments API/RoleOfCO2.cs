@@ -53,10 +53,15 @@ public class RoleOfCO2 : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }
-
+        CO2Comment comment = new CO2Comment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -87,7 +92,7 @@ public class CO2DataSend
     public string user;
     public List<CO2Question> questions;
     public string marks;
-    public List<CO2Comment> comments;
+    public CO2Comment comments;
 }
 
 [System.Serializable]

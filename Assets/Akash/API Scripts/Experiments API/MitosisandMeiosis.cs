@@ -30,16 +30,15 @@ public class MitosisandMeiosis : MonoBehaviour
             moduleName = "Mitosis and meiosis",
             user = Get_Student_Details.guid,
             questions = new List<MitosisQuestion>(),
-            marks = "",
-            
+            marks = ""
         };
 
         MitosisQuestion mitosisQuestion = new MitosisQuestion
         {
             //Questions
-            question = "Stages of mitosis:\r\n Stage 1\r\n Stage 2\r\n Stage 3\r\n Stage 4\r\n Stage 5\r\n Stage 6\r\n Stage 7\r\n"+
-            "Stages of meiosis:\r\n Stage 1\r\n Stage 2\r\n Stage 3\r\n Stage 4\r\n Stage 5\r\n Stage 6\r\n Stage 7\r\n Stage 8\r\n Stage 9\r\n Stage 10\r\n"+
-            "Inference:\r\n Due to mitosis, the number of chromosomes in the cell _____ therefore, this division occurs in ____ cells.\r\n"+
+            question = "Stages of mitosis:\r\n Stage 1\r\n Stage 2\r\n Stage 3\r\n Stage 4\r\n Stage 5\r\n Stage 6\r\n Stage 7\r\n" +
+            "Stages of meiosis:\r\n Stage 1\r\n Stage 2\r\n Stage 3\r\n Stage 4\r\n Stage 5\r\n Stage 6\r\n Stage 7\r\n Stage 8\r\n Stage 9\r\n Stage 10\r\n" +
+            "Inference:\r\n Due to mitosis, the number of chromosomes in the cell _____ therefore, this division occurs in ____ cells.\r\n" +
             "Due to meiosis, the number of chromosomes in the cell ____  so this division occurs in ____ cells.\r\n",
 
             //answers
@@ -63,22 +62,21 @@ public class MitosisandMeiosis : MonoBehaviour
             data.questions[0].attemptedanswer.Add("");
         }
 
-        
+        MitosisComment comment = new MitosisComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
+
         string jsonData = JsonUtility.ToJson(data);
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, jsonData);
+
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
-
-
-        /*string jsonBody = JsonUtility.ToJson(data);
-        byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
-        UnityWebRequest request = new UnityWebRequest(_url, "PATCH");
-        request.SetRequestHeader("Content-Type", "application/json");
-        request.uploadHandler = new UploadHandlerRaw(rawBody);
-        request.downloadHandler = new DownloadHandlerBuffer();*/
-
 
         yield return request.SendWebRequest();
 
@@ -86,44 +84,12 @@ public class MitosisandMeiosis : MonoBehaviour
         {
             Debug.Log("Experiments data sent successfully!");
             sendApi.SuccessAPISentPopup();
-            StartCoroutine(get());
         }
         else
         {
             Debug.Log("Failed to send experiments data. Error: " + request.error);
             sendApi.UnsuccessAPISentPopup();
         }
-    }
-
-    IEnumerator get()
-    {
-        string userGuid = Get_Student_Details.guid;
-        string baseUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
-        string url = baseUrl + userGuid;
-
-        UnityWebRequest newRequest = UnityWebRequest.Get(url);
-        yield return newRequest.SendWebRequest();
-        Debug.Log("Started");
-        if (newRequest.result == UnityWebRequest.Result.Success)
-        {
-            Debug.Log("Started1");
-            string jsonData = newRequest.downloadHandler.text;
-            MitosisDataSend mitosisDataSend = JsonUtility.FromJson<MitosisDataSend>(jsonData);
-
-            if(mitosisDataSend.experimentName == "Mitosis and meiosis")
-            {
-                Debug.Log("Started2");
-                Debug.Log(mitosisDataSend.guid);
-                mitosisDataSend.guid = expguid;
-                Debug.Log(expguid);
-            }
-        }
-        else
-        {
-            Debug.Log("Wrong OTP Entered");
-            Debug.Log(newRequest.error);
-        }
-        
     }
 }
 
@@ -137,7 +103,7 @@ public class MitosisDataSend
     public List<MitosisQuestion> questions;
     public string marks;
     public bool isPerformed;
-    public List<MitosisComment> comments;
+    public MitosisComment comments;
 }
 
 [System.Serializable]

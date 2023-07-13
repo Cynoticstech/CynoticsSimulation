@@ -87,10 +87,15 @@ public class HopesApp : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add("");
         }
-
+        hComment comment = new hComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -121,7 +126,7 @@ public class hDataSend
     public string user;
     public List<hQuestion> questions;
     public string marks;
-    public List<hComment> comments;
+    public hComment comments;
 }
 
 [System.Serializable]

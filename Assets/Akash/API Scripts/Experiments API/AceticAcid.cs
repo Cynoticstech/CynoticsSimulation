@@ -46,16 +46,22 @@ public class AceticAcid : MonoBehaviour
         {
             data.questions[0].attemptedanswer.Add(answerField.text);
         }
-
         int emptyCount = answers.Length - answers.Length;
         for (int i = 0; i < emptyCount; i++)
         {
             data.questions[0].attemptedanswer.Add("");
         }
 
+        ActComment comment = new ActComment
+        {
+            name = "",
+            comments = ""
+        };
+        data.comments = comment;
+
         string jsonData = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
+        UnityWebRequest request = UnityWebRequest.Put(apiUrl, "application/json");
 
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
 
@@ -86,7 +92,7 @@ public class ActDataSend
     public string user;
     public List<ActQuestion> questions;
     public string marks;
-    public List<ActComment> comments;
+    public ActComment comments;
 }
 
 [System.Serializable]
