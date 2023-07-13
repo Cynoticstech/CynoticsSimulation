@@ -1,6 +1,7 @@
 using Simulations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class MitosisandMeiosis : MonoBehaviour
     public TMP_InputField[] answers;
     [SerializeField] SimulationSetupManager simulationSetupManager;
     public SendApiExp sendApi;
+    public bool performed;
+    public string expguid;
+
     public void MitosisMeosisExpSend()
     {
         StartCoroutine(MitosisMeosis());
@@ -25,7 +29,9 @@ public class MitosisandMeiosis : MonoBehaviour
             experimentName = "Mitosis and meiosis",
             moduleName = "Mitosis and meiosis",
             user = Get_Student_Details.guid,
-            questions = new List<MitosisQuestion>()
+            questions = new List<MitosisQuestion>(),
+            marks = "",
+            
         };
 
         MitosisQuestion mitosisQuestion = new MitosisQuestion
@@ -57,15 +63,22 @@ public class MitosisandMeiosis : MonoBehaviour
             data.questions[0].attemptedanswer.Add("");
         }
 
+        
         string jsonData = JsonUtility.ToJson(data);
-
         UnityWebRequest request = UnityWebRequest.Post(apiUrl, "application/json");
-
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
-
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
+
+
+        /*string jsonBody = JsonUtility.ToJson(data);
+        byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
+        UnityWebRequest request = new UnityWebRequest(_url, "PATCH");
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.uploadHandler = new UploadHandlerRaw(rawBody);
+        request.downloadHandler = new DownloadHandlerBuffer();*/
+
 
         yield return request.SendWebRequest();
 
@@ -73,6 +86,7 @@ public class MitosisandMeiosis : MonoBehaviour
         {
             Debug.Log("Experiments data sent successfully!");
             sendApi.SuccessAPISentPopup();
+            StartCoroutine(get());
         }
         else
         {
@@ -80,16 +94,49 @@ public class MitosisandMeiosis : MonoBehaviour
             sendApi.UnsuccessAPISentPopup();
         }
     }
+
+    IEnumerator get()
+    {
+        string userGuid = Get_Student_Details.guid;
+        string baseUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string url = baseUrl + userGuid;
+
+        UnityWebRequest newRequest = UnityWebRequest.Get(url);
+        yield return newRequest.SendWebRequest();
+        Debug.Log("Started");
+        if (newRequest.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Started1");
+            string jsonData = newRequest.downloadHandler.text;
+            MitosisDataSend mitosisDataSend = JsonUtility.FromJson<MitosisDataSend>(jsonData);
+
+            if(mitosisDataSend.experimentName == "Mitosis and meiosis")
+            {
+                Debug.Log("Started2");
+                Debug.Log(mitosisDataSend.guid);
+                mitosisDataSend.guid = expguid;
+                Debug.Log(expguid);
+            }
+        }
+        else
+        {
+            Debug.Log("Wrong OTP Entered");
+            Debug.Log(newRequest.error);
+        }
+        
+    }
 }
 
 [System.Serializable]
 public class MitosisDataSend
 {
+    public string guid;
     public string experimentName;
     public string moduleName;
     public string user;
     public List<MitosisQuestion> questions;
     public string marks;
+    public bool isPerformed;
     public List<MitosisComment> comments;
 }
 
