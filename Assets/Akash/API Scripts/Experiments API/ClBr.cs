@@ -47,10 +47,12 @@ public class ClBr : MonoBehaviour
         };
         data.questions.Add(lBrQuestion);
 
-        foreach(var table in halogenUIManager.ApiAnswers)
-        {
-            lBrQuestion.attemptedanswer.Add(table.transform.GetChild(0).GetComponent<TMP_Text>().text);
-        }
+        /*foreach(var table in halogenUIManager.ApiAnswers)
+        {asdas
+            lBrQuestion.attemptedanswer.Add(halogenUIManager.ApiAnswers.ToString());
+            
+        }*/
+        lBrQuestion.attemptedanswer.Add(halogenUIManager.ApiAnswers.ToString());
         /*foreach (TMP_InputField answerField in answers)
         {
             data.questions[0].attemptedanswer.Add(answerField.text);

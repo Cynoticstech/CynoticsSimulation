@@ -8,7 +8,8 @@ public class HalogenUIManager : MonoBehaviour
     [SerializeField] Transform tableContent,submitButt;
     [SerializeField] GameObject tableObj;
     [SerializeField] GameObject tableRowPref;
-    public List<GameObject> ApiAnswers;
+    public List<TMP_Text> ApiAnswers;
+    public List<string> ok;
 
     public void ShowTable()
     {
@@ -31,7 +32,18 @@ public class HalogenUIManager : MonoBehaviour
             temp.GetChild(5).GetComponent<TMP_Text>().text = v.HalogenValues[5];
             temp.GetChild(6).GetComponent<TMP_Text>().text = v.HalogenValues[4];
             
+            ApiAnswers.Add(temp.GetChild(1).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(2).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(3).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(4).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(5).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(6).GetComponent<TMP_Text>());
         }
+        foreach(var data in ApiAnswers)
+        {
+              
+        }
+        
         submitButt.SetAsLastSibling();
         tableObj.SetActive(true);
     }
