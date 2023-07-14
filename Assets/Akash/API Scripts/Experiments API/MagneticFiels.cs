@@ -21,7 +21,7 @@ public class MagneticFiels : MonoBehaviour
 
         MagDataSend data = new MagDataSend
         {
-            experimentName = "Magnetic field due to electric current\r\n",
+            experimentName = "Magnetic field due to electric current",
             moduleName = "Magnetic field due to electric current\r\n",
             user = Get_Student_Details.guid,
             questions = new List<MagQuestion>()

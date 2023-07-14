@@ -102,31 +102,42 @@ public class APIClasses : MonoBehaviour
         public string phone;
     }
 
-    [Serializable]
-    public class DataSend
+    [System.Serializable]
+    public class ExperimentData
     {
-        public string guid;
-        public string experimentName;
-        public string moduleName;
-        public string user;
-        public List<Questions> questions;
-        public string marks;
-        public bool isPerformed;
-        public List<Comment> comments;
+        [System.Serializable]
+        public class DataSend
+        {
+            public string experimentName;
+            public string guid;
+            public long createdAt;
+            public string moduleName;
+            public string user;
+            public Question[] questions;
+            public string marks;
+            public Comment comments;
+        }
+
+        [System.Serializable]
+        public class Question
+        {
+            public string question;
+            public string answer;
+            public List<string> attemptedanswer;
+        }
+
+        [System.Serializable]
+        public class Comment
+        {
+            public string name;
+            public string comments;
+        }
     }
 
-    [Serializable]
-    public class Questions
+    [System.Serializable]
+    public class ExperimentResponse
     {
-        public string question;
-        public string answer;
-        public List<string> attemptedanswer;
-    }
-
-    [Serializable]
-    public class Comment
-    {
-        public string name;
-        public string comments;
+        public string status;
+        public ExperimentData.DataSend[] data;
     }
 }

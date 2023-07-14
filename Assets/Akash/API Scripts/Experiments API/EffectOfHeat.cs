@@ -21,7 +21,7 @@ public class EffectOfHeat : MonoBehaviour
 
         EOHDataSend data = new EOHDataSend
         {
-            experimentName = "Effect of heat on ice\r\n",
+            experimentName = "Effect of heat on ice",
             moduleName = "Effect of heat on ice\r\n",
             user = Get_Student_Details.guid,
             questions = new List<EOHQuestion>()
