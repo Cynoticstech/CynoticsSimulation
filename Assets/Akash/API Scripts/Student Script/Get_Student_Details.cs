@@ -11,7 +11,7 @@ public class Get_Student_Details : MonoBehaviour
     public TMP_InputField[] inputFields;
     public TextMeshProUGUI[] instituteText;
     public TextMeshProUGUI title, message;
-    public SpriteRenderer instituteImageRenderer;
+    public SpriteRenderer instituteImageRenderer; private Transform instituteImageTransform;
 
     public TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit;
 
@@ -94,11 +94,36 @@ public class Get_Student_Details : MonoBehaviour
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl);
         yield return request.SendWebRequest();
 
+        /*if (request.result == UnityWebRequest.Result.Success)
+        {
+            Texture2D texture = DownloadHandlerTexture.GetContent(request);
+            int desiredWidth = 400;
+            int desiredHeight = 400;
+
+            Rect rect = new Rect(0, 0, Mathf.Min(desiredWidth, texture.width), Mathf.Min(desiredHeight, texture.height));
+            Vector2 pivot = new Vector2(0.5f, 0.5f);
+
+            Sprite sprite = Sprite.Create(texture, rect, pivot);
+            instituteImageRenderer.sprite = sprite;
+        }*/
+
         if (request.result == UnityWebRequest.Result.Success)
         {
             Texture2D texture = DownloadHandlerTexture.GetContent(request);
-            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
+            int desiredWidth = 400;
+            int desiredHeight = 400;
+
+            Rect rect = new Rect(0, 0, Mathf.Min(desiredWidth, texture.width), Mathf.Min(desiredHeight, texture.height));
+            Vector2 pivot = new Vector2(0.5f, 0.5f);
+
+            Sprite sprite = Sprite.Create(texture, rect, pivot);
             instituteImageRenderer.sprite = sprite;
+
+            // Scale the sprite to 80x80x80
+            if (instituteImageTransform != null)
+            {
+                instituteImageTransform.localScale = new Vector3(80f, 80f, 80f);
+            }
         }
         else
         {
