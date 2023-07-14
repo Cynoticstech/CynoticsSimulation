@@ -27,7 +27,33 @@ public class CoolingWateerSC : MonoBehaviour
 
     public void CLWaterSelfCheck()
     {
-        for (int i = 0; i < obsFibs.Length; i++)
+        if (obsFibs[0].text == texts[0])
+        {
+            obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+        }
+
+        if (obsFibs[1].text == texts[1])
+        {
+            obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+        }
+
+        if (obsFibs[2].text == texts[2])
+        {
+            obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+        }
+        /*for (int i = 0; i < obsFibs.Length; i++)
         {
             //scFibs[i].text = obsFibs[i].text;
             Debug.Log("For loop started.");
@@ -39,10 +65,10 @@ public class CoolingWateerSC : MonoBehaviour
             }
             else
             {
-                /*obsFibs[i].GetComponent<TMP_Text>().color = Color.red;*/
+                *//*obsFibs[i].GetComponent<TMP_Text>().color = Color.red;*//*
                 obsFibs[i].transform.GetChild(0).transform.GetChild(1).GetComponent<TMP_Text>().color = Color.red;
                 Debug.Log("Ans at index is " + i + " is wrong");
             }
-        }
+        }*/
     }
 }

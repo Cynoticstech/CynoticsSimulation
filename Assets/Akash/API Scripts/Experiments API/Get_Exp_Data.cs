@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -10,7 +11,9 @@ public class Get_Exp_Data : MonoBehaviour
     public APIClasses.ExperimentData.DataSend[] test;
 
     public GameObject mitosisMeiosis, aceticAcid, Amoeba, BioFerti, ClBr, Cockroach, Cooling, EffectOfHeat, FishPegion, FocalLength, Hibiscus, HopesApp,
-        magField, MaleFemale, microbes, oxiAdd, reactivityOfmetals, roleOfCO2;
+        magField, MaleFemale, microbes, oxiAdd, reactivityOfmetals, roleOfCO2, popup;
+
+    public TextMeshProUGUI Stumarks, teacherName, teachercomment;
 
     private void Start()
     {
@@ -55,14 +58,14 @@ public class Get_Exp_Data : MonoBehaviour
             {
                 Debug.Log("Found experiment data for Mitosis and meiosis");
                 mitosisMeiosis.SetActive(true);
-                
+
             }
 
             if (data.experimentName == "Focal length of convex lens")
             {
                 Debug.Log("Found experiment data for convex lens");
                 FocalLength.SetActive(true);
-                
+
             }
 
             if (data.experimentName == "To identify chloride, bromide and iodide")
@@ -162,6 +165,292 @@ public class Get_Exp_Data : MonoBehaviour
             }
         }
     }
-    
-}
 
+    public void MitosisComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Mitosis and meiosis")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void FocalComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Focal length of convex lens")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void HalogensComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "To identify chloride, bromide and iodide")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void CO2Comments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Role of Carbon Dioxide")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void ReactivityMetalsComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Reactivity of metals")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void OxiAddComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Oxidation and Addition Reaction")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void IndustrialMicrobesComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Industrial Microbes")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void MaleFemaleComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Male and Female")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void MagFieldComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Magnetic field due to electric current")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void HopesComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Hope's apparatus")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void HibiscusComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Hibiscus")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void ChordateComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Chordate animals")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void EffectOfHeatComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Effect of heat on ice")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void TempOfHotWaterComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Temperature of hot water during natural cooling")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void NonChordateComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Non-Chordate animals")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void BioFertilizerComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Bio Fertilizers Microbes")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void AmoebaHydraComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Amoeba and Hydara")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void AceticComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Acetic Acid")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+}
