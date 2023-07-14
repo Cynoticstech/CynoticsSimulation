@@ -47,22 +47,20 @@ public class ClBr : MonoBehaviour
         };
         data.questions.Add(lBrQuestion);
 
-        /*foreach(var table in halogenUIManager.ApiAnswers)
-        {asdas
-            lBrQuestion.attemptedanswer.Add(halogenUIManager.ApiAnswers.ToString());
-            
-        }*/
-        lBrQuestion.attemptedanswer.Add(halogenUIManager.ApiAnswers.ToString());
-        /*foreach (TMP_InputField answerField in answers)
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < halogenUIManager.ApiAnswers.Count; i++)
         {
-            data.questions[0].attemptedanswer.Add(answerField.text);
+            sb.Append(halogenUIManager.ApiAnswers[i].text);
+            if ((i + 1) % 6 == 0 || i == halogenUIManager.ApiAnswers.Count - 1)
+            {
+                lBrQuestion.attemptedanswer.Add(sb.ToString());
+                sb.Clear();
+            }
+            else
+            {
+                sb.Append(", ");
+            }
         }
-
-        int emptyCount = answers.Length - answers.Length;
-        for (int i = 0; i < emptyCount; i++)
-        {
-            data.questions[0].attemptedanswer.Add("");
-        }*/
         ClBrComment comment = new ClBrComment
         {
             name = "",

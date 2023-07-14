@@ -40,12 +40,20 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class HopeSC : MonoBehaviour
 {
     public string[] texts;
     public TMP_InputField[] obsFibs;
-    public TMP_InputField[] scFibs;
+    public TextMeshProUGUI button1;
+    public TextMeshProUGUI button2;
+    public TextMeshProUGUI button3;
+    public TextMeshProUGUI button4;
+
+    private TextMeshProUGUI latestPressedButton;
+    //public TMP_InputField[] scFibs;
 
     void Start()
     {
@@ -65,20 +73,67 @@ public class HopeSC : MonoBehaviour
     {
         for (int i = 0; i < obsFibs.Length; i++)
         {
-            //scFibs[i].text = obsFibs[i].text;
-            Debug.Log("For loop started.");
-            if (obsFibs[i].text == texts[i])
+            if (obsFibs[0].text == "contracts")
             {
-                //obsFibs[i].GetComponent<TMP_Text>().color = Color.green;
-                obsFibs[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
-                Debug.Log("Ans at index is " + i + " is right");
+                obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
             else
             {
-                /*obsFibs[i].GetComponent<TMP_Text>().color = Color.red;*/
-                obsFibs[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
-                Debug.Log("Ans at index is " + i + " is wrong");
+                obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
+
+            if (obsFibs[1].text == "decreases" || obsFibs[1].text == "reduces")
+            {
+                obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+            }
+            else
+            {
+                obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+            }
+
+            if (obsFibs[2].text == "same")
+            {
+                obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+            }
+            else
+            {
+                obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+            }
+
+            if (obsFibs[3].text == "4")
+            {
+                obsFibs[3].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+            }
+            else
+            {
+                obsFibs[3].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+            }
+
+            if (obsFibs[4].text == "anamolous behaviour of water")
+            {
+                obsFibs[4].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+            }
+            else
+            {
+                obsFibs[4].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+            }
+
+
+            /* //scFibs[i].text = obsFibs[i].text;
+             Debug.Log("For loop started.");
+             if (obsFibs[i].text == texts[i])
+             {
+                 //obsFibs[i].GetComponent<TMP_Text>().color = Color.green;
+                 obsFibs[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+                 Debug.Log("Ans at index is " + i + " is right");
+             }
+             else
+             {
+                 *//*obsFibs[i].GetComponent<TMP_Text>().color = Color.red;*//*
+                 obsFibs[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+                 Debug.Log("Ans at index is " + i + " is wrong");
+             }*/
+
         }
     }
 }

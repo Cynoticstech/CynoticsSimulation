@@ -9,7 +9,6 @@ public class HalogenUIManager : MonoBehaviour
     [SerializeField] GameObject tableObj;
     [SerializeField] GameObject tableRowPref;
     public List<TMP_Text> ApiAnswers;
-    public List<string> ok;
 
     public void ShowTable()
     {
@@ -38,10 +37,6 @@ public class HalogenUIManager : MonoBehaviour
             ApiAnswers.Add(temp.GetChild(4).GetComponent<TMP_Text>());
             ApiAnswers.Add(temp.GetChild(5).GetComponent<TMP_Text>());
             ApiAnswers.Add(temp.GetChild(6).GetComponent<TMP_Text>());
-        }
-        foreach(var data in ApiAnswers)
-        {
-              
         }
         
         submitButt.SetAsLastSibling();
