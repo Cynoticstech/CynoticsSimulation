@@ -110,20 +110,14 @@ public class Get_Student_Details : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Texture2D texture = DownloadHandlerTexture.GetContent(request);
-            int desiredWidth = 400;
-            int desiredHeight = 400;
-
-            Rect rect = new Rect(0, 0, Mathf.Min(desiredWidth, texture.width), Mathf.Min(desiredHeight, texture.height));
-            Vector2 pivot = new Vector2(0.5f, 0.5f);
-
-            Sprite sprite = Sprite.Create(texture, rect, pivot);
+            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
             instituteImageRenderer.sprite = sprite;
 
-            // Scale the sprite to 80x80x80
+            /*// Scale the sprite to 80x80x80
             if (instituteImageTransform != null)
             {
                 instituteImageTransform.localScale = new Vector3(80f, 80f, 80f);
-            }
+            }*/
         }
         else
         {
