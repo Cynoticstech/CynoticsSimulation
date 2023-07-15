@@ -65,7 +65,21 @@ public class FLConvexSC : MonoBehaviour
     {
         for (int i = 0; i < obsFibs.Length; i++)
         {
-            if ((obsFibs[0].text == "16" && obsFibs[1].text == "16") || (obsFibs[0].text == "14" && obsFibs[1].text == "14") || (obsFibs[0].text == "12" && obsFibs[1].text == "12"))
+            obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");
+
+        }
+        if ((obsFibs[1].text == "16" && obsFibs[2].text == "16") || (obsFibs[1].text == "14" && obsFibs[2].text == "14") || (obsFibs[1].text == "12" && obsFibs[2].text == "12"))
+            {
+                obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+                obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+            }
+            else
+            {
+                obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+                obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+            }
+
+            if (obsFibs[0].text == "1")
             {
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -73,26 +87,6 @@ public class FLConvexSC : MonoBehaviour
             {
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
-
-           
-
-
-            /* //scFibs[i].text = obsFibs[i].text;
-             Debug.Log("For loop started.");
-             if (obsFibs[i].text == texts[i])
-             {
-                 //obsFibs[i].GetComponent<TMP_Text>().color = Color.green;
-                 obsFibs[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
-                 Debug.Log("Ans at index is " + i + " is right");
-             }
-             else
-             {
-                 *//*obsFibs[i].GetComponent<TMP_Text>().color = Color.red;*//*
-                 obsFibs[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
-                 Debug.Log("Ans at index is " + i + " is wrong");
-             }*/
-
-        }
     }
 }
 
