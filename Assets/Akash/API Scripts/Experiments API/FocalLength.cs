@@ -13,6 +13,18 @@ public class FocalLength : MonoBehaviour
     public Lens_Script lensScript;
 
     //public TMP_InputButton b1, b2;
+
+    public int a = 0;
+
+    public void OPA()
+    {
+        a = 1;
+    }
+    public void OPB()
+    {
+        a = 0;
+    }
+
     public void FocalL()
     {
         StartCoroutine(fl());
@@ -79,6 +91,15 @@ public class FocalLength : MonoBehaviour
         {
             flque.attemptedanswer.Add("No");
         }*/
+
+        if (a == 1)
+        {
+            flque.attemptedanswer.Add("Student submitted yes");
+        }
+        if (a == 0)
+        {
+            flque.attemptedanswer.Add("Student submitted no");
+        }
         flComment comment = new flComment
         {
             name = "",
