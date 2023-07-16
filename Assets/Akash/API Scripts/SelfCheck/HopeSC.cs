@@ -45,7 +45,7 @@ using UnityEngine.EventSystems;
 
 public class HopeSC : MonoBehaviour
 {
-    public string[] texts;
+    
     public TMP_InputField[] obsFibs;
     public TextMeshProUGUI button1;
     public TextMeshProUGUI button2;
@@ -60,7 +60,7 @@ public class HopeSC : MonoBehaviour
         for (int i = 0; i < obsFibs.Length; i++)
         {
             obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");
-            texts[i] = texts[i].ToLower().Replace(" ", "");
+            
         }
     }
 

@@ -8,7 +8,7 @@ public class DynamicDataHolder : MonoBehaviour
     public static DynamicDataHolder Instance;
     public List<float> LoggedTime, LoggedTemp;
     public List<float> focalLengthL, focalLengthR;
-    public List<float> meltT1, meltT2;
+    public List<float> meltT1, meltT2, Htime;
 
     //chemistry data
     [System.Serializable]

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 
 public class TimerController1 : MonoBehaviour
@@ -15,6 +16,11 @@ public class TimerController1 : MonoBehaviour
     int tempindex;
     private float timer = 0f; 
     public TMP_Text timerText;
+    public List<GameObject> ApiAnswers;
+    [SerializeField] List<GameObject> spawnedAns;
+    [SerializeField] Transform Htable;
+    [SerializeField] GameObject tablePrefab;
+    [SerializeField] Transform contentorder;
     //public static bool startTimer = false;
 
     private void Start()
@@ -79,5 +85,28 @@ public class TimerController1 : MonoBehaviour
 
         _data.meltT1.Add(t1Value[tempindex]);
         _data.meltT2.Add(t2Value[tempindex]);
+        _data.Htime.Add(Mathf.FloorToInt(timer / 60f));
+    }
+
+    public void fillTables()
+    {
+        ApiAnswers.Clear();
+        foreach (var v in spawnedAns)
+        {
+            Destroy(v);
+        }
+        spawnedAns.Clear();
+        for (int i = 0, z = DynamicDataHolder.Instance.meltT1.Count; i < DynamicDataHolder.Instance.meltT1.Count; i++, z--)
+        {
+
+            GameObject row = Instantiate(tablePrefab, contentorder);
+            row.transform.SetSiblingIndex(Htable.GetSiblingIndex() + 1);
+            row.transform.GetChild(0).GetComponent<TMP_Text>().text = (z).ToString();
+            row.transform.GetChild(1).GetComponent<TMP_Text>().text = DynamicDataHolder.Instance.Htime[i].ToString(); ;
+            row.transform.GetChild(2).GetComponent<TMP_Text>().text = DynamicDataHolder.Instance.meltT1[i].ToString();
+            row.transform.GetChild(3).GetComponent<TMP_Text>().text = DynamicDataHolder.Instance.meltT2[i].ToString();
+            spawnedAns.Add(row);
+            ApiAnswers.Add(row);
+        }
     }
 }
