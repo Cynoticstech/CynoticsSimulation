@@ -47,6 +47,7 @@ public class OxiSC : MonoBehaviour
 {
    
     public TMP_InputField[] obsFibs;
+    public TMP_Dropdown[] dropdown;
 
     private TextMeshProUGUI latestPressedButton;
     //public TMP_InputField[] scFibs;
@@ -67,6 +68,42 @@ public class OxiSC : MonoBehaviour
 
     public void OxiSelfCheck()
     {
+        if (dropdown[0].options[dropdown[0].value].text == "Tincture iodine colour vanishes")
+        {
+            dropdown[0].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[0].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+        //
+        if (dropdown[1].options[dropdown[1].value].text == "Tincture iodine colour vanishes")
+        {
+            dropdown[1].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[1].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+        //
+        if (dropdown[2].options[dropdown[2].value].text == "Tincture iodine colour vanishes")
+        {
+            dropdown[2].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[2].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+        //
+        if (dropdown[3].options[dropdown[3].value].text == "Tincture iodine colour does not vanishes")
+        {
+            dropdown[3].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[3].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+
         for (int i = 0; i < obsFibs.Length; i++)
         {
             //obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");

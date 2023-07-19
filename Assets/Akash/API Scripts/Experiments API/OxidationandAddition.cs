@@ -10,6 +10,7 @@ public class OxidationandAddition : MonoBehaviour
 {
     public TMP_InputField[] answers;
     public SendApiExp sendApi;
+    public TMP_Dropdown[] dropdown;
     public void OxiAddExpSend()
     {
         StartCoroutine(OxiAdd());
@@ -52,19 +53,12 @@ public class OxidationandAddition : MonoBehaviour
             //attempted answers
             attemptedanswer = new List<string>()
         };
-        /*selectedText = tmp_dropDown1m.options[tmp_dropDown1m.value].text;
-        fib1Text = fib1.text;
-        seltxt = dropdown2.options[dropdown2.value].text;
-        fib1Text = fib2.text;*/
-
-        /*OxiAddQuestion.attemptedanswer.Add(selectedText);
-        OxiAddQuestion.attemptedanswer.Add(fib1Text);*/
-
-        /*foreach (TMP_InputField answerField in answers)
-        {
-            OxiAddQuestion.attemptedanswer.Add(answerField.text);
-        }*/
+        
         data.questions.Add(OxiAddQuestion);
+        OxiAddQuestion.attemptedanswer.Add(dropdown[0].options[dropdown[0].value].text);
+        OxiAddQuestion.attemptedanswer.Add(dropdown[1].options[dropdown[1].value].text);
+        OxiAddQuestion.attemptedanswer.Add(dropdown[2].options[dropdown[2].value].text);
+        OxiAddQuestion.attemptedanswer.Add(dropdown[3].options[dropdown[3].value].text);
 
         foreach (TMP_InputField answerField in answers)
         {
