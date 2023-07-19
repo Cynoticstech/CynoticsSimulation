@@ -11,7 +11,7 @@ public class Get_Exp_Data : MonoBehaviour
     public APIClasses.ExperimentData.DataSend[] test;
 
     public GameObject mitosisMeiosis, aceticAcid, Amoeba, BioFerti, ClBr, Cockroach, Cooling, EffectOfHeat, FishPegion, FocalLength, Hibiscus, HopesApp,
-        magField, MaleFemale, microbes, oxiAdd, reactivityOfmetals, roleOfCO2, popup;
+        magField, MaleFemale, microbes, oxiAdd, reactivityOfmetals, roleOfCO2, Refraction,GlassPrism,Identify, Observer, popup;
 
     public TextMeshProUGUI Stumarks, teacherName, teachercomment;
 
@@ -162,6 +162,27 @@ public class Get_Exp_Data : MonoBehaviour
             {
                 Debug.Log("Acetic Acid");
                 aceticAcid.SetActive(true);
+            }
+
+            if (data.experimentName == "Laws Of Refration Of Light")
+            {
+                Debug.Log("Acetic Acid");
+                Refraction.SetActive(true);
+            }
+            if (data.experimentName == "Glass Prism")
+            {
+                Debug.Log("Acetic Acid");
+                GlassPrism.SetActive(true);
+            }
+            if (data.experimentName == "Identify Type Of Reaction")
+            {
+                Debug.Log("Acetic Acid");
+                Identify.SetActive(true);
+            }
+            if (data.experimentName == "Observe the reaction and classify them")
+            {
+                Debug.Log("Acetic Acid");
+                Observer.SetActive(true);
             }
         }
     }
@@ -453,4 +474,68 @@ public class Get_Exp_Data : MonoBehaviour
             }
         }
     }
-}
+
+    public void LawsOfRefrationOfLightcComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Laws Of Refration Of Light")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void GlassPrismComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Glass Prism")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void IdentifyTypeOfRxnComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Identify Type Of Reaction")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+
+    public void ObserverTypeOfRxnComments()
+    {
+        foreach (APIClasses.ExperimentData.DataSend data in test)
+        {
+            if (data.experimentName == "Observe the reaction and classify them")
+            {
+                APIClasses.ExperimentData.DataSend marks = data;
+                APIClasses.ExperimentData.Comment comments = data.comments;
+                popup.SetActive(true);
+                Stumarks.text = marks.marks;
+                teacherName.text = comments.name;
+                teachercomment.text = comments.comments;
+            }
+        }
+    }
+} 

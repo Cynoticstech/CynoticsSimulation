@@ -13511,13 +13511,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5432519898659682347}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 5432519898659682348}
+        m_TargetAssemblyTypeName: Get_Exp_Data, Assembly-CSharp
+        m_MethodName: ObserverTypeOfRxnComments
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -32253,13 +32253,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5432519898659682347}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 5432519898659682348}
+        m_TargetAssemblyTypeName: Get_Exp_Data, Assembly-CSharp
+        m_MethodName: IdentifyTypeOfRxnComments
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -50530,13 +50530,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5432519898659682347}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 5432519898659682348}
+        m_TargetAssemblyTypeName: Get_Exp_Data, Assembly-CSharp
+        m_MethodName: GlassPrismComments
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -55390,13 +55390,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5432519898659682347}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 5432519898659682348}
+        m_TargetAssemblyTypeName: Get_Exp_Data, Assembly-CSharp
+        m_MethodName: LawsOfRefrationOfLightcComments
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -80291,7 +80291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -16.84877, y: -69.288086}
+  m_AnchoredPosition: {x: -16.848755, y: -69.288086}
   m_SizeDelta: {x: -83.55298, y: 1557.425}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5432519898040056430
@@ -97844,6 +97844,10 @@ MonoBehaviour:
   oxiAdd: {fileID: 1455336750}
   reactivityOfmetals: {fileID: 1142381914}
   roleOfCO2: {fileID: 1563125957}
+  Refraction: {fileID: 1793177217}
+  GlassPrism: {fileID: 1662543062}
+  Identify: {fileID: 1024879143}
+  Observer: {fileID: 421990149}
   popup: {fileID: 251808616}
   Stumarks: {fileID: 931818303}
   teacherName: {fileID: 1290738350}
@@ -111104,7 +111108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.84465533, y: 0.9195212}
-  m_AnchoredPosition: {x: -96.999954, y: -0.75}
+  m_AnchoredPosition: {x: -96.99997, y: -0.75}
   m_SizeDelta: {x: -49.925003, y: -1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5432519899065257745
@@ -126178,7 +126182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.84465533, y: 0.9195212}
-  m_AnchoredPosition: {x: -96.999954, y: -0.75}
+  m_AnchoredPosition: {x: -96.99997, y: -0.75}
   m_SizeDelta: {x: -49.925003, y: -1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5432519899680555716
