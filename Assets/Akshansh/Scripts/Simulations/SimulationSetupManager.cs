@@ -671,7 +671,7 @@ namespace Simulations
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
-                    
+                    Debug.Log("Reached fifth case");
                     for (int i = 0; i < 12; i++)
                     {
                         BioFAPIAnsArray[i] = activeSimulation.InputFields[i].text;

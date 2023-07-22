@@ -24,7 +24,7 @@ MonoBehaviour:
     these tables and fill in the blanks?"
   ValidAnswers:
   - Spiny dorsal fin
-  - Soft dorsaal fin
+  - Soft dorsal fin
   - Caudal fin
   - Anal fin
   - Pectoral fin
@@ -41,7 +41,7 @@ MonoBehaviour:
   - Beak
   - Eye
   - Neck
-  - Contour Feather
+  - Contour Feathers
   - Wing Feathers
   - Claws
   - Digits
