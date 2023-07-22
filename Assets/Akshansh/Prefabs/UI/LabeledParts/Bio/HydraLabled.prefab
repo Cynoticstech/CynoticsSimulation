@@ -2124,6 +2124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lables:
+  - {fileID: 6549466767803744022}
   - {fileID: 6549466769076340274}
   - {fileID: 6549466768732604039}
   - {fileID: 6549466768151411061}
@@ -2135,7 +2136,6 @@ MonoBehaviour:
   - {fileID: 6549466768895824236}
   - {fileID: 6549466768768834223}
   - {fileID: 6549466768103620371}
-  - {fileID: 6549466767803744022}
 --- !u!222 &2681956518129331401
 CanvasRenderer:
   m_ObjectHideFlags: 0

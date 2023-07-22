@@ -76,7 +76,7 @@ namespace Simulations.UI
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
             int _totalAnswers = _tempResults.Length;
-            finalInpShow = _tempInputs;
+            finalInpShow = setupMang.GetAnswers();
             for (int i = 0; i < _tempResults.Length; i++)
             {
                 _tempResults[i] = _flow.ValidAnswers[i];
@@ -183,7 +183,7 @@ namespace Simulations.UI
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
             int _totalAnswers = _tempResults.Length;
-            finalInpShow = _tempInputs;
+            finalInpShow = setupMang.GetAnswers();
             //get all inputs from user
             for (int i = 0; i < _tempResults.Length; i++)
             {
@@ -233,7 +233,7 @@ namespace Simulations.UI
                 {
                     if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
                     {
-                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + j + 1];
+                        _tempTxt.text += _flow.FillupsQuestions[z] + " <color=green>" + finalInpShow[i + j] + "</color> " + _flow.FillupsQuestions[z + j + 1];
                         correctAnswers++;
                     }
                     else
@@ -288,13 +288,13 @@ namespace Simulations.UI
                 {
                     if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
                     {
-                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + 1 + j];
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + finalInpShow[i + j] + "</color> " + _flow.FillupsQuestions[z + 1 + j];
                         correctAnswers++;
                     }
                     else
                     {
                         //if incorrect
-                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + finalInpShow[i] + ", is incorrect" + "</color>" + _flow.FillupsQuestions[z + 1 + j];
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + finalInpShow[i + j] + ", is incorrect" + "</color>" + _flow.FillupsQuestions[z + 1 + j];
                         _incorrect = true;
                     }
                 }//Second loop end
@@ -320,13 +320,13 @@ namespace Simulations.UI
                     {
                         if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
                         {
-                            _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> ";
+                            _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + finalInpShow[i + j] + "</color> ";
                             correctAnswers++;
                         }
                         else
                         {
                             //if incorrect
-                            _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + finalInpShow[i] + ", is incorrect" + "</color>";
+                            _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + finalInpShow[i + j] + ", is incorrect" + "</color>";
                             _incorrect = true;
                         }
                     }//Second loop end
@@ -352,13 +352,13 @@ namespace Simulations.UI
                 {
                     if (_tempResults[i + j] == _tempInputs[i + j])//if correct answer
                     {
-                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + _flow.ValidAnswers[i + j] + "</color> " + _flow.FillupsQuestions[z + 1 + j];
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=green>" + finalInpShow[i + j] + "</color> " + _flow.FillupsQuestions[z + 1 + j];
                         correctAnswers++;
                     }
                     else
                     {
                         //if incorrect
-                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + finalInpShow[i] + ", is incorrect" + "</color>" + _flow.FillupsQuestions[z + 1 + j];
+                        _tempTxt.text += _flow.FillupsQuestions[z + j] + " <color=red>" + finalInpShow[i + j] + ", is incorrect" + "</color>" + _flow.FillupsQuestions[z + 1 + j];
                         _incorrect = true;
                     }
                 }//Second loop end
@@ -386,7 +386,7 @@ namespace Simulations.UI
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
             int _totalAnswers = _tempResults.Length;
-            finalInpShow = _tempInputs;
+            finalInpShow = setupMang.GetAnswers();
             //get all inputs from user
             for (int i = 0; i < _tempResults.Length; i++)
             {
@@ -522,7 +522,7 @@ namespace Simulations.UI
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
             int _totalAnswers = _tempResults.Length;
-            finalInpShow = _tempInputs;
+            finalInpShow = setupMang.GetAnswers();
             //get all inputs from user
             for (int i = 0; i < _tempResults.Length; i++)
             {
@@ -704,7 +704,7 @@ namespace Simulations.UI
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
             int _totalAnswers = _tempResults.Length;
-            finalInpShow = _tempInputs;
+            finalInpShow = setupMang.GetAnswers();
             //get all inputs from user
             for (int i = 0; i < _tempResults.Length; i++)
             {
@@ -789,7 +789,7 @@ namespace Simulations.UI
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
             int _totalAnswers = _tempResults.Length;
-            finalInpShow = _tempInputs;
+            finalInpShow = setupMang.GetAnswers();
             //get all inputs from user
             for (int i = 0; i < _tempResults.Length; i++)
             {
@@ -1036,7 +1036,7 @@ namespace Simulations.UI
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
             int _totalAnswers = _tempResults.Length;
-            string[] finalInpShow = _tempInputs;
+            finalInpShow = setupMang.GetAnswers();
             //get all inputs from user
             for (int i = 0; i < _tempResults.Length; i++)
             {
@@ -1096,7 +1096,7 @@ namespace Simulations.UI
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
             int _totalAnswers = _tempResults.Length;
-            string[] finalInpShow = _tempInputs;
+            finalInpShow = setupMang.GetAnswers();
             //get all inputs from user
             for (int i = 0; i < _tempResults.Length; i++)
             {
@@ -1226,7 +1226,7 @@ namespace Simulations.UI
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();
             int _totalAnswers = _tempResults.Length;
-            string[] finalInpShow = _tempInputs;
+            finalInpShow = setupMang.GetAnswers();
             //get all inputs from user
             for (int i = 0; i < _tempResults.Length; i++)
             {

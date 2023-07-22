@@ -48,22 +48,22 @@ MonoBehaviour:
   - Basal Disc
   - body
   - multicellular
-  - bud
   - mouth
+  - tentacle
   - Asexual
   FillupsQuestions:
-  - 'At the beginning, the '
-  - cell of Amoeba gets elongated.
-  - 'Nucleus gets '
-  - shaped.
-  - 'A notch is developed at the '
-  - of division.
-  - 'Two small '
-  - cells of Amoeba are formed.
-  - A small outgrowth is seen on the
-  - of Hydra.
-  - 'It becomes '
-  - due to enough growth.
+  - 'At the beginning, the  '
+  - ' cell of Amoeba gets elongated.'
+  - 'Nucleus gets  '
+  - ' shaped.'
+  - 'A notch is developed at the  '
+  - ' of division.'
+  - 'Two small  '
+  - ' cells of Amoeba are formed.'
+  - 'A small outgrowth is seen on the '
+  - ' of Hydra.'
+  - 'It becomes  '
+  - ' due to enough growth.'
   - 'This outgrowth detaches in the form of bud having '
   - 'and '
   - 'Amoeba and Hydra reproduce by  '
