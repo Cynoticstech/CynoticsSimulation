@@ -20,22 +20,22 @@ MonoBehaviour:
   - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
     fill this table and answer fill in the blanks?"
   ValidAnswers:
-  - Flament
+  - Filament
   - Stamen
   - Anther
   - Petal
   - Stigma
   - Style
   - Ovary
-  - Ovule
   - Pistil
+  - Ovule
   - Peduncle
   - Receptacle
   - Sepal
-  - It houses young bud
+  - It houses the young bud
   - Five
   - Red in colour
-  - To attract insects
+  - To attract the insects
   - Five carpels
   - Multicarpellary and syncarpous
   - Receives the pollen from the stamen and ovules contain the egg cell for fertilisation

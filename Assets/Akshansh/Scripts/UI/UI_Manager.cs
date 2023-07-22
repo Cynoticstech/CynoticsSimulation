@@ -544,7 +544,7 @@ namespace Simulations.UI
                     if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
                     {
                         //correct answer
-                        v.text = "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
+                        v.text = "<color=green>" + finalInpShow[_answerIndex] + "</color>";
                         correctAnswers++;
                     }
                     else
@@ -563,7 +563,7 @@ namespace Simulations.UI
                     {
                         v.interactable = false;
                         v.image.enabled = false;
-                        v.text = "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
+                        v.text = "<color=green>" + finalInpShow[_answerIndex] + "</color>";
                         _answerIndex++;
                     }
                 }
@@ -572,7 +572,7 @@ namespace Simulations.UI
             //------------------------------------------------
             {
                 var _tempPart = Instantiate(_flow.LabledAnswers[1], _active.ListContentHolder[0].transform);
-                int _answerIndex = 16;
+                int _answerIndex = 8;
                 bool _incorrect = false;
                 foreach (var v in _tempPart.GetComponent<LabledInputHolder>().Lables)
                 {
@@ -581,7 +581,7 @@ namespace Simulations.UI
                     if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
                     {
                         //correct answer
-                        v.text = "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
+                        v.text = "<color=green>" + finalInpShow[_answerIndex] + "</color>";
                         correctAnswers++;
                     }
                     else
@@ -594,7 +594,7 @@ namespace Simulations.UI
                 }
                 if (_incorrect)
                 {
-                    _answerIndex = 0;// refill values from starting phase;
+                    _answerIndex = 8;// refill values from starting phase;
                     _tempPart = Instantiate(_flow.LabledAnswers[1], _active.ListContentHolder[0].transform);
                     foreach (var v in _tempPart.GetComponent<LabledInputHolder>().Lables)
                     {
@@ -634,7 +634,7 @@ namespace Simulations.UI
                 //one fillup end
 
                 //one fillup start
-                _answerIndex = 30;
+                _answerIndex = 22;
                 _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                 _tempFillup.text = "";
                 if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
@@ -649,7 +649,7 @@ namespace Simulations.UI
                 }
                 if (_incorrect)
                 {
-                    _answerIndex = 30;
+                    _answerIndex = 22;
                     _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                     _tempFillup.text = "";
                     _tempFillup.text = _flow.FillupsQuestions[1] + " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
@@ -657,7 +657,7 @@ namespace Simulations.UI
                 //one fillup end
 
                 //one fillup start
-                _answerIndex = 31;
+                _answerIndex = 29;
                 _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                 _tempFillup.text = "";
                 if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
@@ -684,7 +684,7 @@ namespace Simulations.UI
                 }
                 if (_incorrect)
                 {
-                    _answerIndex = 31;
+                    _answerIndex = 29;
                     _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                     _tempFillup.text = "";
                     _tempFillup.text = "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color> " + _flow.FillupsQuestions[2] +
