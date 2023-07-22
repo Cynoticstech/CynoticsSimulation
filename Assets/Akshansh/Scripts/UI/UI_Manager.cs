@@ -533,6 +533,7 @@ namespace Simulations.UI
                 _tempInputs[i] = _tempInputs[i].Replace(" ", "");
             }
             //genrates output
+            // label start- male system labele
             {
                 var _tempPart = Instantiate(_flow.LabledAnswers[0], _active.ListContentHolder[0].transform);
                 int _answerIndex = 0;
@@ -567,9 +568,10 @@ namespace Simulations.UI
                         _answerIndex++;
                     }
                 }
-            }//lablled part end
+            }//lablled part end - male system labele 
 
             //------------------------------------------------
+            // label start- female system labele
             {
                 var _tempPart = Instantiate(_flow.LabledAnswers[1], _active.ListContentHolder[0].transform);
                 int _answerIndex = 8;
@@ -604,10 +606,10 @@ namespace Simulations.UI
                         _answerIndex++;
                     }
                 }
-            }//lablled part end
+            }//lablled part end - female system labele 
 
             //------------------------------------------
-            //fillups
+            //fillups - male system fillups
             {
                 int _answerIndex = 16;
                 bool _incorrect = false;
@@ -616,7 +618,7 @@ namespace Simulations.UI
                 _tempFillup.text = "";
                 if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
                 {
-                    _tempFillup.text += _flow.FillupsQuestions[0] + "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color> ";
+                    _tempFillup.text += _flow.FillupsQuestions[0] + "<color=green>" + finalInpShow[_answerIndex] + "</color> ";
                     correctAnswers++;
                 }
                 else
@@ -631,15 +633,15 @@ namespace Simulations.UI
                     _tempFillup.text = "";
                     _tempFillup.text = _flow.FillupsQuestions[0] + " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
                 }
-                //one fillup end
+                //one fillup end - male system fillups 
 
-                //one fillup start
+                //one fillup start -- female system fillups
                 _answerIndex = 22;
                 _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                 _tempFillup.text = "";
                 if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
                 {
-                    _tempFillup.text += _flow.FillupsQuestions[1] + "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color> ";
+                    _tempFillup.text += _flow.FillupsQuestions[1] + "<color=green>" + finalInpShow[_answerIndex] + "</color> ";
                     correctAnswers++;
                 }
                 else
@@ -654,15 +656,15 @@ namespace Simulations.UI
                     _tempFillup.text = "";
                     _tempFillup.text = _flow.FillupsQuestions[1] + " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
                 }
-                //one fillup end
+                //one fillup end - female system fillups
 
-                //one fillup start
+                //one fillup start - common fillups
                 _answerIndex = 29;
                 _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                 _tempFillup.text = "";
                 if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
                 {
-                    _tempFillup.text += "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color> " + _flow.FillupsQuestions[2];
+                    _tempFillup.text += "<color=green>" + finalInpShow[_answerIndex] + "</color> " + _flow.FillupsQuestions[2];
                     correctAnswers++;
                 }
                 else
@@ -674,7 +676,7 @@ namespace Simulations.UI
                 _answerIndex++;
                 if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
                 {
-                    _tempFillup.text += " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color> " + _flow.FillupsQuestions[3];
+                    _tempFillup.text += " <color=green>" + finalInpShow[_answerIndex] + "</color> " + _flow.FillupsQuestions[3];
                     correctAnswers++;
                 }
                 else
@@ -690,7 +692,7 @@ namespace Simulations.UI
                     _tempFillup.text = "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color> " + _flow.FillupsQuestions[2] +
                         " <color=green>" + _flow.ValidAnswers[_answerIndex + 1] + "</color> " + _flow.FillupsQuestions[3];
                 }
-                //one fillup end
+                //one fillup end - common fillups
             }
             //result calculations
             _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
