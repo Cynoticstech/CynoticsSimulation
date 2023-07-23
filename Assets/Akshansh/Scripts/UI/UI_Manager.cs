@@ -9,6 +9,7 @@ namespace Simulations.UI
 {
     public class UI_Manager : MonoBehaviour
     {
+        public BioFerti biofertiScript;
         //holds output objects for specific simulations
         [Serializable]
         struct ResultHolder
@@ -1034,6 +1035,7 @@ namespace Simulations.UI
         }
         private void GenerateBioFertResult(SimulationSetupManager.SimulationTypes _type, SimulationFlowSCO _flow)
         {
+            biofertiScript.BioFSelfCheck();
             var _active = GetActiveResult(_type);
             var _tempResults = new string[_flow.ValidAnswers.Length];
             var _tempInputs = setupMang.GetAnswers();

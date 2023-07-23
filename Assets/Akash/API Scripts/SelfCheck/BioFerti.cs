@@ -11,6 +11,16 @@ public class BioFerti : MonoBehaviour
 
     void Start()
     {
+        
+    }
+
+    void Update()
+    {
+        
+    }
+
+    public void BioFSelfCheck()
+    {
         for (int i = 0; i < fillups.Length; i++)
         {
             fillups[i].text = fillups[i].text.ToLower().Replace(" ", "");
@@ -26,26 +36,18 @@ public class BioFerti : MonoBehaviour
             staticFillups[i].text = staticFillups[i].text.ToLower().Replace(" ", "");
 
         }
-    }
 
-    void Update()
-    {
-        
-    }
-
-    public void BioFSelfCheck()
-    {
         for (int i = 0; i < fillups.Length; i++)
         {
             showFillups[i].text = fillups[i].text;
 
             if (fillups[i].text == staticFillups[i].text)
             {
-                showFillups[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
+                showFillups[i].transform.GetChild(0).transform.GetChild(1).GetComponent<TMP_Text>().color = Color.green;
             }
             else
             {
-                showFillups[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
+                showFillups[i].transform.GetChild(0).transform.GetChild(1).GetComponent<TMP_Text>().color = Color.red;
             }
         }
 
