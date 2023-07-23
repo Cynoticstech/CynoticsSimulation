@@ -18,6 +18,17 @@ public class BioDynamicMang : MonoBehaviour
     [SerializeField] ObjectController objCont;
     [SerializeField] Transform litmusTarget2;
     [SerializeField] float MoveSpeeed = 13f;
+    [SerializeField] Vector3 dropperLevelZeroScale;
+
+    [SerializeField] Vector3 dropperLevelZeroPos;
+    [SerializeField] Vector3 dropperLevelFullScale;
+
+    [SerializeField] Vector3 dropperLevelFullPos;
+    [SerializeField] Transform dropperLiquidInsideMask;
+    [SerializeField] float animationDuration = 2f;
+    [SerializeField] float elapsedTime = 0f;
+    [SerializeField] bool isScaling = false;
+    [SerializeField] bool hasSucked = false;
 
     [SerializeField] string[] InterfaceBodies;
     int litmusIndex = 0;
@@ -79,6 +90,62 @@ public class BioDynamicMang : MonoBehaviour
         curtTarget = NaObj;
         objCont.AddEvent(curtTarget, solubilityAnimPos[1], MoveSpeeed, true);
         CurtAnimIndex = 1;
+    }
+    public void dropperLiquidSuck()
+    {
+        StartCoroutine(ScaleOverTimeInc());
+    }
+    public void dropperLiquidSquirt()
+    {
+        StartCoroutine(ScaleOverTimeDec());
+    }
+
+    public void SuckOrSquirt()
+    {
+        if(!hasSucked)
+        {
+            dropperLiquidSuck();
+        }
+        else
+        {
+            dropperLiquidSquirt();
+        }
+    }
+    public IEnumerator ScaleOverTimeInc()
+    {
+        elapsedTime = 0f;
+        isScaling = true;
+        Vector3 startScale = dropperLiquidInsideMask.localScale;
+
+        while (elapsedTime < animationDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            dropperLiquidInsideMask.localScale = Vector3.Lerp(dropperLevelZeroScale, dropperLevelFullScale, elapsedTime / animationDuration);
+           
+            dropperLiquidInsideMask.localPosition = Vector3.Lerp(dropperLevelZeroPos, dropperLevelFullPos, elapsedTime / animationDuration);
+            yield return null;
+        }
+        dropperLiquidInsideMask.localScale = dropperLevelFullScale; // Ensure reaching the exact target scale
+        dropperLiquidInsideMask.localScale = dropperLevelFullPos;
+        isScaling = false;
+        hasSucked = true;
+    }
+    public IEnumerator ScaleOverTimeDec()
+    {
+        elapsedTime = 0f;
+        isScaling = true;
+        Vector3 startScale = dropperLiquidInsideMask.localScale;
+
+        while (elapsedTime < animationDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            dropperLiquidInsideMask.localScale = Vector3.Lerp(dropperLevelFullScale, dropperLevelZeroScale, elapsedTime / animationDuration);
+            dropperLiquidInsideMask.localPosition = Vector3.Lerp(dropperLevelFullPos, dropperLevelZeroPos, elapsedTime / animationDuration);
+            yield return null;
+        }
+        dropperLiquidInsideMask.localScale = dropperLevelZeroScale; // Ensure reaching the exact target scale
+        dropperLiquidInsideMask.localScale = dropperLevelZeroPos;
+        isScaling = false;
     }
     public void CheckLitmus()
     {
