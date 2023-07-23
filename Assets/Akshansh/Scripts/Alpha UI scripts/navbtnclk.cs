@@ -43,7 +43,9 @@ public class navbtnclk : MonoBehaviour
     }
     public void alphaload()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         SceneManager.LoadScene("Main Alpha Functionality Pages");
+        
     }
 
     public void QuitApp()
