@@ -533,7 +533,7 @@ namespace Simulations.UI
                 _tempInputs[i] = _tempInputs[i].Replace(" ", "");
             }
             //genrates output
-            // label start- male system labele
+            // label start- male-female system labele
             {
                 var _tempPart = Instantiate(_flow.LabledAnswers[0], _active.ListContentHolder[0].transform);
                 int _answerIndex = 0;
@@ -564,17 +564,17 @@ namespace Simulations.UI
                     {
                         v.interactable = false;
                         v.image.enabled = false;
-                        v.text = "<color=green>" + finalInpShow[_answerIndex] + "</color>";
+                        v.text = "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
                         _answerIndex++;
                     }
                 }
-            }//lablled part end - male system labele 
+            }//lablled part end - male-female system labele 
 
             //------------------------------------------------
-            // label start- female system labele
+            // function FIB start- male-female system 
             {
                 var _tempPart = Instantiate(_flow.LabledAnswers[1], _active.ListContentHolder[0].transform);
-                int _answerIndex = 8;
+                int _answerIndex = 16;
                 bool _incorrect = false;
                 foreach (var v in _tempPart.GetComponent<LabledInputHolder>().Lables)
                 {
@@ -596,7 +596,7 @@ namespace Simulations.UI
                 }
                 if (_incorrect)
                 {
-                    _answerIndex = 8;// refill values from starting phase;
+                    _answerIndex = 16;// refill values from starting phase;
                     _tempPart = Instantiate(_flow.LabledAnswers[1], _active.ListContentHolder[0].transform);
                     foreach (var v in _tempPart.GetComponent<LabledInputHolder>().Lables)
                     {
@@ -606,12 +606,12 @@ namespace Simulations.UI
                         _answerIndex++;
                     }
                 }
-            }//lablled part end - female system labele 
+            }//Function FIB part end - 
 
             //------------------------------------------
-            //fillups - male system fillups
+            //fillups - common
             {
-                int _answerIndex = 16;
+                int _answerIndex = 29;
                 bool _incorrect = false;
                 //one fillup start
                 var _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
@@ -628,15 +628,15 @@ namespace Simulations.UI
                 }
                 if (_incorrect)
                 {
-                    _answerIndex = 16;
+                    _answerIndex = 29;
                     _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                     _tempFillup.text = "";
                     _tempFillup.text = _flow.FillupsQuestions[0] + " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
                 }
-                //one fillup end - male system fillups 
+                //one fillup end - 29 
 
-                //one fillup start -- female system fillups
-                _answerIndex = 22;
+                //one fillup start -- 30
+                _answerIndex = 30;
                 _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                 _tempFillup.text = "";
                 if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
@@ -651,15 +651,15 @@ namespace Simulations.UI
                 }
                 if (_incorrect)
                 {
-                    _answerIndex = 22;
+                    _answerIndex = 30;
                     _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                     _tempFillup.text = "";
                     _tempFillup.text = _flow.FillupsQuestions[1] + " <color=green>" + _flow.ValidAnswers[_answerIndex] + "</color>";
                 }
-                //one fillup end - female system fillups
+                //one fillup end - 30
 
-                //one fillup start - common fillups
-                _answerIndex = 29;
+                //one fillup start - 31 and 31++
+                _answerIndex = 31;
                 _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                 _tempFillup.text = "";
                 if (_tempInputs[_answerIndex] == _tempResults[_answerIndex])
@@ -686,13 +686,13 @@ namespace Simulations.UI
                 }
                 if (_incorrect)
                 {
-                    _answerIndex = 29;
+                    _answerIndex = 31;
                     _tempFillup = Instantiate(fillAnswerPref, _active.ListContentHolder[1].transform).GetComponent<TMP_Text>();
                     _tempFillup.text = "";
                     _tempFillup.text = "<color=green>" + _flow.ValidAnswers[_answerIndex] + "</color> " + _flow.FillupsQuestions[2] +
                         " <color=green>" + _flow.ValidAnswers[_answerIndex + 1] + "</color> " + _flow.FillupsQuestions[3];
                 }
-                //one fillup end - common fillups
+                //one fillup end - 31 and 31++
             }
             //result calculations
             _active.PercentageTxt.text = "You answered " + ((float)correctAnswers / _totalAnswers * 100).ToString() + "% answers correctly!";
