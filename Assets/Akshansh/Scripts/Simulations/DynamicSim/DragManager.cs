@@ -3,6 +3,7 @@ using AkshanshKanojia.Inputs.Mobile;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
+using System.Collections;
 
 public class DragManager : MobileInputs
 {
@@ -22,6 +23,7 @@ public class DragManager : MobileInputs
 
     bool isValid = false;
     Collider2D tempDropPos;
+    public Animator animator;
 
     public override void Start()
     {
@@ -135,5 +137,15 @@ public class DragManager : MobileInputs
 
     public override void OnTapStay(MobileInputManager.TouchData _data)
     {
+    }
+
+    public IEnumerator BubblesAnim()
+    {
+        yield return new WaitForSeconds(3);
+        animator.enabled = true;
+    }
+    public void Bubble()
+    {
+        StartCoroutine(BubblesAnim());
     }
 }
