@@ -19,6 +19,7 @@ public class DragManager : MobileInputs
     [SerializeField] ObjectController objCont;
     [SerializeField] LayerMask raycastLayer;
 
+
     Vector3 tempOffset, tempStartPos,originalPos;
 
     bool isValid = false;
@@ -148,4 +149,17 @@ public class DragManager : MobileInputs
     {
         StartCoroutine(BubblesAnim());
     }
+
+   /* public void CorrectPlaced()
+    {
+        if (tempDropPos.CompareTag("BlueStrip") || tempDropPos.CompareTag("LightRed") || tempDropPos.CompareTag("RedStrip"))
+        {
+            if(tempDropPos.CompareTag("BlueStrip"))
+            {
+                GetTargetCol().transform.GetChild(0).gameObject.SetActive(true);
+            }
+            
+        }
+        
+    }*/
 }
