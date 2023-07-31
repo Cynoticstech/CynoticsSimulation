@@ -30,7 +30,7 @@ public class IdentRxnSC : MonoBehaviour
 
     public void IdentRxnSelfCheck()
     {
-        /*if (dropdown[0].value == 3)
+        if (dropdown[0].value == 3)
         {
             dropdown[0].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
         }
@@ -82,7 +82,7 @@ public class IdentRxnSC : MonoBehaviour
         else
         {
             dropdown[5].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
-        }*/
+        }
 
         for (int i = 0; i < obsFibs.Length; i++)
         {
