@@ -8,14 +8,14 @@ public class RefractionManager : MonoBehaviour
     [SerializeField] private GameObject _lineRendererPrefab, _trailRendererPrefab,_dottedLinePrefab;
 
     [SerializeField] float _orignToSlabDist = 1f,_refractiveLineDist =1f;
-    [SerializeField] Vector3 _rayOriginPos, _slabTopEdgePos, _slabBottomEdgePos;
+    [SerializeField] Vector3 _rayOriginPos, _slabTopEdgePos, _slabBottomEdgePos, _refractiveLineDir;
 
     [SerializeField] Color _rayColor = Color.yellow,_normalColor = Color.blue,_incidenceAngleColor = Color.red,
         _refrectionAngleColor = Color.green;
 
     private LineRenderer _rayOfLight,_normal1,_normal2;
     private TrailRenderer _i1AngleTrail, _r1AngleTrail, _r2AngleTrail, _e1AngleTrail;
-    private Vector3 _rayStartingDir;
+   [SerializeField]  private Vector3 _rayStartingDir;
 
     const float _firstRefrectiveIndex =1.0003f , _secondRefrectiveIndex = 1.52f;
 
@@ -71,16 +71,16 @@ public class RefractionManager : MonoBehaviour
     {
         _refrectionAngle = CalculateRefraction();
         _emergenceAngle = _incidenceAngle;
-        _rayStartingDir = _slabTopEdgePos - _rayOriginPos;
-        var _refractiveLineDir = -RotateVector(_rayStartingDir.normalized, _refrectionAngle);
-        _refractiveLineDir.Normalize();
+        _rayStartingDir = (_slabTopEdgePos - _rayOriginPos).normalized;
+        _refractiveLineDir = -RotatePointAroundOrigin(_rayStartingDir, _orignToSlabDist * _rayStartingDir, _refrectionAngle);
 
         _rayOfLight.positionCount = 3;
+        _refractiveLineDir = (_refractiveLineDir - (_orignToSlabDist * _rayStartingDir)).normalized * _refractiveLineDist;
         _rayOfLight.SetPositions(new Vector3[]
         {
             _rayOriginPos,
-            _orignToSlabDist*_rayStartingDir.normalized,
-            _refractiveLineDir * _refractiveLineDist
+            _orignToSlabDist*_rayStartingDir,
+            _refractiveLineDir
         }) ;
     }
     
@@ -90,13 +90,11 @@ public class RefractionManager : MonoBehaviour
         return _tempAngle*Mathf.Rad2Deg;
     }
 
-    private Vector3 RotateVector(Vector3 _vector, float _angle)
+    private Vector3 RotatePointAroundOrigin(Vector3 point, Vector3 origin, float angle)
     {
-        var _result = _vector;
-        var _sin = Mathf.Sin(_angle);
-        var _cos = Mathf.Cos(_angle);
-        _result.x = _result.x * _cos - _result.y * _sin;
-        _result.y = _result.x*_sin + _result.y * _cos;
-        return _result;
+        Vector3 dir = point - origin;
+        Vector3 rotatedDir = Quaternion.Euler(0, 0, angle) * dir;
+        Vector3 rotatedPoint = origin + rotatedDir;
+        return rotatedPoint;
     }
 }
