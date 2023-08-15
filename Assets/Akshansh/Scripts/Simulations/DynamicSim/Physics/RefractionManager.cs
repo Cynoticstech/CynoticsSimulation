@@ -88,9 +88,9 @@ public class RefractionManager : MonoBehaviour
         Destroy(_startPos.gameObject);
 
         _refrectionAngle = CalculateRefraction();
-        refractiveTxt.text = "Refrection Angle: " + _refrectionAngle;
-        incidenceTxt.text = "Incidence Angle: " + _incidenceAngle;
-        emergenceTxt.text = "Emergence Angle: " + _incidenceAngle;
+        refractiveTxt.text = "Refraction Angle <b><i>(R1,R2)</b></i>: " + _refrectionAngle + "<sup>o</sup>";
+        incidenceTxt.text = "Incidence Angle <b><i>(In)</b></i>: " + _incidenceAngle + "<sup>o</sup>";
+        emergenceTxt.text = "Emergence Angle <b><i>(Em)</b></i>: " + _incidenceAngle + "<sup>o</sup>";
 
     }
 

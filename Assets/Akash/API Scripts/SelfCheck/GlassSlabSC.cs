@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GlassSlabSC : MonoBehaviour
 {
-    public string[] texts;
+    //public string[] texts;
     public TMP_InputField[] obsFibs;
 
     // Start is called before the first frame update
@@ -15,7 +15,7 @@ public class GlassSlabSC : MonoBehaviour
         for (int i = 0; i < obsFibs.Length; i++)
         {
             obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");
-            texts[i] = texts[i].ToLower().Replace(" ", "");
+            //texts[i] = texts[i].ToLower().Replace(" ", "");
         }
     }
 
