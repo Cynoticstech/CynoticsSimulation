@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SliderToPrism2 : MonoBehaviour
 {
     public Slider slider;
     public GameObject incidentRay;
     public GameObject EmergentPoint;
+    public TMP_Text IncDegree;
+
 
     public float minSliderValue = 0.0f;
     public float maxSliderValue = 1.0f;
@@ -33,5 +36,7 @@ public class SliderToPrism2 : MonoBehaviour
 
         Vector2 newPosition = Vector2.Lerp(startPos, endPos, normalizedSliderValue);
         incidentRay.transform.localPosition = new Vector3(newPosition.x, newPosition.y, incidentRay.transform.localPosition.z);
+
+        IncDegree.text = (30 + (slider.value * 30)).ToString() + "<sup>o</sup>";
     }
 }
