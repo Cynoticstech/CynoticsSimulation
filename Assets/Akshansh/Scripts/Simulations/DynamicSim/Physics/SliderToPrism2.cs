@@ -8,6 +8,11 @@ public class SliderToPrism2 : MonoBehaviour
     public GameObject incidentRay;
     public GameObject EmergentPoint;
     public TMP_Text IncDegree;
+    public TMP_Text DevDegree;
+    public float In_Angle;
+    public float Re_Angle;
+    float sinI, sinR;
+    float RadI, RadR;
 
 
     public float minSliderValue = 0.0f;
@@ -37,6 +42,12 @@ public class SliderToPrism2 : MonoBehaviour
         Vector2 newPosition = Vector2.Lerp(startPos, endPos, normalizedSliderValue);
         incidentRay.transform.localPosition = new Vector3(newPosition.x, newPosition.y, incidentRay.transform.localPosition.z);
 
-        IncDegree.text = (30 + (slider.value * 30)).ToString() + "<sup>o</sup>";
+        In_Angle = 30 + (slider.value * 30);
+        IncDegree.text = In_Angle.ToString() + "<sup>o</sup>";
+        sinI = Mathf.Sin(In_Angle);
+        sinR = sinI / 1.52f;
+        RadR = Mathf.Asin(sinR);
+        Re_Angle = RadR * Mathf.Rad2Deg;
+        DevDegree.text = (In_Angle + Re_Angle - 60.0f).ToString() + "<sup>o</sup>";
     }
 }
