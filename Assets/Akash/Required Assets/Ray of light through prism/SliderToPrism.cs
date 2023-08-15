@@ -5,6 +5,7 @@ public class SliderToPrism : MonoBehaviour
 {
     public Slider slider;
     public GameObject incidentRay;
+    public GameObject energentNormal;
 
     public float minSliderValue = 0.0f;
     public float maxSliderValue = 1.0f;
