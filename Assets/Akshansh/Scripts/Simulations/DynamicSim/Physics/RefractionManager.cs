@@ -1,100 +1,102 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RefractionManager : MonoBehaviour
 {
-    [SerializeField] private float _incidenceAngle = 40f, _refrectionAngle, _emergenceAngle;
-    [SerializeField] private GameObject _lineRendererPrefab, _trailRendererPrefab,_dottedLinePrefab;
+    [SerializeField]
+    private float _incidenceAngle = 40f, _refrectionAngle, _emergenceAngle, _topRayMaxPos, _bottomRayMaxPos, _topRot, _bottomRot, _maxIncidenceAngle = 90,
+        _ArcDist = 0.3f,angleFixOffset =1.2f;
+    [SerializeField] Transform _topRay, _bottomRay, _topNorm, _bottomNorm;
+    [SerializeField] private Vector3 _bottomArcOffsetFix;
+    [SerializeField] LineRenderer _rayLine;
+    [SerializeField] Slider _incidenceValue;
+    [SerializeField] TMP_Text refractiveTxt,incidenceTxt,emergenceTxt;
+    [SerializeField] LineRenderer _topTrail, _bottomTrail;
+    [SerializeField] int _pointsInArc = 6;
 
-    [SerializeField] float _orignToSlabDist = 1f,_refractiveLineDist =1f;
-    [SerializeField] Vector3 _rayOriginPos, _slabTopEdgePos, _slabBottomEdgePos, _refractiveLineDir;
+    float _originalTop, _originalBottom;
 
-    [SerializeField] Color _rayColor = Color.yellow,_normalColor = Color.blue,_incidenceAngleColor = Color.red,
-        _refrectionAngleColor = Color.green;
-
-    private LineRenderer _rayOfLight,_normal1,_normal2;
-    private TrailRenderer _i1AngleTrail, _r1AngleTrail, _r2AngleTrail, _e1AngleTrail;
-   [SerializeField]  private Vector3 _rayStartingDir;
-
-    const float _firstRefrectiveIndex =1.0003f , _secondRefrectiveIndex = 1.52f;
+    const float _firstRefrectiveIndex = 1.0003f, _secondRefrectiveIndex = 1.52f;
 
     private void Start()
     {
-        InitializeRays();
-    }
-
-    private void InitializeRays()
-    {
-        //generate all rays
-        _rayOfLight = Instantiate(_lineRendererPrefab).GetComponent<LineRenderer>();
-        _normal1 = Instantiate(_lineRendererPrefab).GetComponent<LineRenderer>();
-        _normal2 = Instantiate(_lineRendererPrefab).GetComponent<LineRenderer>();
-
-        _i1AngleTrail = Instantiate(_trailRendererPrefab).GetComponent<TrailRenderer>();
-        _r1AngleTrail = Instantiate(_trailRendererPrefab).GetComponent<TrailRenderer>();
-        _r2AngleTrail = Instantiate(_trailRendererPrefab).GetComponent<TrailRenderer>();
-        _e1AngleTrail = Instantiate(_trailRendererPrefab).GetComponent<TrailRenderer>();
-
-        //initialize trails
-        _rayOfLight.positionCount = 2;
-        _normal2.positionCount = 2;
-        _normal1.positionCount = 2;
-        _rayOfLight.startColor = _rayColor;
-        _rayOfLight.endColor = _rayColor;
-        _normal1.startColor = _normalColor;
-        _normal1.endColor = _normalColor;
-        _normal2.startColor = _normalColor;
-        _normal2.endColor = _normalColor;
-
-        _i1AngleTrail.Clear();
-        _r1AngleTrail.Clear();
-        _r2AngleTrail.Clear();
-        _e1AngleTrail.Clear();
-        _i1AngleTrail.startColor = _incidenceAngleColor;
-        _i1AngleTrail.endColor = _incidenceAngleColor;
-        _e1AngleTrail.startColor = _incidenceAngleColor;
-        _e1AngleTrail.endColor = _incidenceAngleColor;
-        _r1AngleTrail.startColor = _refrectionAngleColor;
-        _r1AngleTrail.endColor = _refrectionAngleColor;
-        _r1AngleTrail.startColor = _refrectionAngleColor;
-        _r1AngleTrail.endColor = _refrectionAngleColor;
-
+        _rayLine.positionCount = 2;
+        _originalTop = _topRay.position.x;
+        _originalBottom = _bottomRay.position.x;
+        UpdateRay();
     }
 
     private void Update()
     {
-        DrawRay();
-    }
-
-    private void DrawRay()
-    {
-        _refrectionAngle = CalculateRefraction();
-        _emergenceAngle = _incidenceAngle;
-        _rayStartingDir = (_slabTopEdgePos - _rayOriginPos).normalized;
-        _refractiveLineDir = -RotatePointAroundOrigin(_rayStartingDir, _orignToSlabDist * _rayStartingDir, _refrectionAngle);
-
-        _rayOfLight.positionCount = 3;
-        _refractiveLineDir = (_refractiveLineDir - (_orignToSlabDist * _rayStartingDir)).normalized * _refractiveLineDist;
-        _rayOfLight.SetPositions(new Vector3[]
+        _rayLine.SetPositions(new Vector3[]
         {
-            _rayOriginPos,
-            _orignToSlabDist*_rayStartingDir,
-            _refractiveLineDir
-        }) ;
+            _topRay.position,
+            _bottomRay.position,
+        });
     }
-    
+    public void UpdateRay()
+    {
+        float _val = _incidenceValue.value;
+        _incidenceAngle = _maxIncidenceAngle * _val;
+
+        var _pos = _topRay.position;
+        _pos.x = _topRayMaxPos * _val + _originalTop;
+        _topRay.position = _pos;
+        var _Rot = _topRay.eulerAngles;
+        _Rot.z = _val * _topRot;
+        _topRay.eulerAngles = _Rot;
+        _topNorm.position = _pos;
+
+        //draw arc
+        _topTrail.positionCount = _pointsInArc;
+        var _startPos = new GameObject("_tempRot").transform;
+        _startPos.position = _pos;
+        var _roteAngle = _Rot  / _pointsInArc;
+        _roteAngle /= angleFixOffset;
+        List<Vector3> _tempArcPos = new List<Vector3>();
+        for (int i = 0; i < _pointsInArc; i++)
+        {
+            _tempArcPos.Add(-_startPos.up.normalized * _ArcDist+_startPos.position);
+            var _angle = _startPos.transform.eulerAngles;
+            _angle += _roteAngle;
+            _startPos.eulerAngles = _angle;
+        }
+        _topTrail.SetPositions(_tempArcPos.ToArray());
+
+        _pos = _bottomRay.position;
+        _pos.x = _bottomRayMaxPos * _val + _originalBottom;
+        _bottomRay.position = _pos;
+        _Rot = _bottomRay.eulerAngles;
+        _Rot.z = _val * _bottomRot;
+        _bottomRay.eulerAngles = _Rot;
+        _bottomNorm.position = _pos;
+
+        //draw arc
+        _bottomTrail.positionCount = _pointsInArc;
+        _startPos.position = _pos;
+        _tempArcPos = new List<Vector3>();
+        for (int i = 0; i < _pointsInArc; i++)
+        {
+            _tempArcPos.Add(_startPos.up * _ArcDist+ _startPos.position+_bottomArcOffsetFix);
+            var _angle = _startPos.transform.eulerAngles;
+            _angle -= _roteAngle;
+            _startPos.eulerAngles = _angle;
+        }
+        _bottomTrail.SetPositions(_tempArcPos.ToArray());
+        Destroy(_startPos.gameObject);
+
+        _refrectionAngle = CalculateRefraction();
+        refractiveTxt.text = "Refrection Angle: " + _refrectionAngle;
+        incidenceTxt.text = "Incidence Angle: " + _incidenceAngle;
+        emergenceTxt.text = "Emergence Angle: " + _incidenceAngle;
+
+    }
+
     private float CalculateRefraction()
     {
-        var _tempAngle = Mathf.Asin(_firstRefrectiveIndex/_secondRefrectiveIndex)*Mathf.Sin(Mathf.Deg2Rad*_incidenceAngle);
-        return _tempAngle*Mathf.Rad2Deg;
-    }
-
-    private Vector3 RotatePointAroundOrigin(Vector3 point, Vector3 origin, float angle)
-    {
-        Vector3 dir = point - origin;
-        Vector3 rotatedDir = Quaternion.Euler(0, 0, angle) * dir;
-        Vector3 rotatedPoint = origin + rotatedDir;
-        return rotatedPoint;
+        var _tempAngle = Mathf.Asin(_firstRefrectiveIndex / _secondRefrectiveIndex) * Mathf.Sin(Mathf.Deg2Rad * _incidenceAngle);
+        return _tempAngle * Mathf.Rad2Deg;
     }
 }
