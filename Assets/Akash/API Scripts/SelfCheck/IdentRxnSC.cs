@@ -30,60 +30,6 @@ public class IdentRxnSC : MonoBehaviour
 
     public void IdentRxnSelfCheck()
     {
-        if (dropdown[0].value == 3)
-        {
-            dropdown[0].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
-        }
-        else
-        {
-            dropdown[0].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
-        }
-        //
-        if (dropdown[1].value == 1)
-        {
-            dropdown[1].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
-        }
-        else
-        {
-            dropdown[1].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
-        }
-        //
-        if (dropdown[2].value == 2)
-        {
-            dropdown[2].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
-        }
-        else
-        {
-            dropdown[2].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
-        }
-        //
-        if (dropdown[3].value == 3)
-        {
-            dropdown[3].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
-        }
-        else
-        {
-            dropdown[3].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
-        }
-        //
-        if (dropdown[4].value == 4)
-        {
-            dropdown[4].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
-        }
-        else
-        {
-            dropdown[4].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
-        }
-        //
-        if (dropdown[5].value == 2)
-        {
-            dropdown[5].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
-        }
-        else
-        {
-            dropdown[5].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
-        }
-
         for (int i = 0; i < obsFibs.Length; i++)
         {
             //obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");
@@ -143,5 +89,61 @@ public class IdentRxnSC : MonoBehaviour
             }
             // 6 done
         }
+
+        if (dropdown[0].value == 3)
+        {
+            dropdown[0].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[0].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+        //
+        if (dropdown[1].value == 1)
+        {
+            dropdown[1].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[1].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+        //
+        if (dropdown[2].value == 1)
+        {
+            dropdown[2].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[2].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+        //
+        if (dropdown[3].value == 3)
+        {
+            dropdown[3].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[3].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+        //
+        if (dropdown[4].value == 4)
+        {
+            dropdown[4].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[4].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+        //
+        if (dropdown[5].value == 2)
+        {
+            dropdown[5].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
+        }
+        else
+        {
+            dropdown[5].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
+        }
+
+        
     }
 }

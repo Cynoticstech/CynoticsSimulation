@@ -70,7 +70,7 @@ public class CurMagSC : MonoBehaviour
     {
         for (int i = 0; i < obsFibs.Length; i++)
         {
-            if (obsFibs[0].text == "magnetic fields")
+            if (obsFibs[0].text == "magnetic field" || obsFibs[0].text == "magnetic fields")
             {
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -88,7 +88,7 @@ public class CurMagSC : MonoBehaviour
                 obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
 
-            if (obsFibs[2].text == "magnetic fields")
+            if (obsFibs[2].text == "magnetic field" || obsFibs[0].text == "magnetic fields")
             {
                 obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -97,7 +97,7 @@ public class CurMagSC : MonoBehaviour
                 obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
 
-            if (obsFibs[3].text == "number of magnetic fieldl inespassing through a unit area")
+            if (obsFibs[3].text == "number of magnetic field lines passing through a unit area")
             {
                 obsFibs[3].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }

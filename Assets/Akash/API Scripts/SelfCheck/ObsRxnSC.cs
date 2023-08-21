@@ -181,7 +181,7 @@ public class ObsRxnSC : MonoBehaviour
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 1 done
-            if (obsFibs[1].text == "slaked")
+            if (obsFibs[1].text == "slaked lime")
             {
                 obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
