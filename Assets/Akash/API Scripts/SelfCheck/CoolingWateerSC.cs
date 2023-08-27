@@ -27,7 +27,7 @@ public class CoolingWateerSC : MonoBehaviour
 
     public void CLWaterSelfCheck()
     {
-        if (obsFibs[0].text == texts[0])
+        if (obsFibs[0].text.ToLower().Replace(" ", "") == texts[0].ToLower().Replace(" ", ""))
         {
             obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
         }
@@ -36,7 +36,7 @@ public class CoolingWateerSC : MonoBehaviour
             obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
         }
 
-        if (obsFibs[1].text == texts[1])
+        if (obsFibs[1].text.ToLower().Replace(" ", "") == texts[1].ToLower().Replace(" ", ""))
         {
             obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
         }
@@ -45,7 +45,7 @@ public class CoolingWateerSC : MonoBehaviour
             obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
         }
 
-        if (obsFibs[2].text == texts[2])
+        if (obsFibs[2].text.ToLower().Replace(" ", "") == texts[2].ToLower().Replace(" ", ""))
         {
             obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
         }

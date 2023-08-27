@@ -67,7 +67,7 @@ public class MeltingIceSC : MonoBehaviour
         {
             //scFibs[i].text = obsFibs[i].text;
             Debug.Log("For loop started.");
-            if (obsFibs[i].text == texts[i])
+            if (obsFibs[i].text.ToLower().Replace(" ", "") == texts[i].ToLower().Replace(" ", ""))
             {
                 //obsFibs[i].GetComponent<TMP_Text>().color = Color.green;
                 obsFibs[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;

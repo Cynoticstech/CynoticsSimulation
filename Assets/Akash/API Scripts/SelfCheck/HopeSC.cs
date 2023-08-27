@@ -73,7 +73,7 @@ public class HopeSC : MonoBehaviour
     {
         for (int i = 0; i < obsFibs.Length; i++)
         {
-            if (obsFibs[0].text == "contracts")
+            if (obsFibs[0].text.ToLower().Replace(" ", "") == "contracts")
             {
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -82,7 +82,7 @@ public class HopeSC : MonoBehaviour
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
 
-            if (obsFibs[1].text == "decreases" || obsFibs[1].text == "reduces")
+            if (obsFibs[1].text.ToLower().Replace(" ", "") == "decreases" || obsFibs[1].text.ToLower().Replace(" ", "") == "reduces")
             {
                 obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -91,7 +91,7 @@ public class HopeSC : MonoBehaviour
                 obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
 
-            if (obsFibs[2].text == "same")
+            if (obsFibs[2].text.ToLower().Replace(" ", "") == "same")
             {
                 obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -109,7 +109,7 @@ public class HopeSC : MonoBehaviour
                 obsFibs[3].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
 
-            if (obsFibs[4].text == "anamolous behaviour of water")
+            if (obsFibs[4].text.ToLower().Replace(" ", "") == "anamolous behaviour of water")
             {
                 obsFibs[4].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }

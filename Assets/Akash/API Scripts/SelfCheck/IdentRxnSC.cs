@@ -34,7 +34,7 @@ public class IdentRxnSC : MonoBehaviour
         {
             //obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");
 
-            if (obsFibs[0].text == "2")
+            if (obsFibs[0].text.ToLower().Replace(" ", "") == "2")
             {
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -43,7 +43,7 @@ public class IdentRxnSC : MonoBehaviour
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 1 done
-            if (obsFibs[1].text == "1")
+            if (obsFibs[1].text.ToLower().Replace(" ", "") == "1")
             {
                 obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -52,7 +52,7 @@ public class IdentRxnSC : MonoBehaviour
                 obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 2 done
-            if (obsFibs[2].text == "2")
+            if (obsFibs[2].text.ToLower().Replace(" ", "") == "2")
             {
                 obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }

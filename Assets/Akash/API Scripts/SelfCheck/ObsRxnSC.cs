@@ -172,7 +172,7 @@ public class ObsRxnSC : MonoBehaviour
         {
             //obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");
 
-            if (obsFibs[0].text == "combination")
+            if (obsFibs[0].text.ToLower().Replace(" ", "") == "combination")
             {
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -181,7 +181,7 @@ public class ObsRxnSC : MonoBehaviour
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 1 done
-            if (obsFibs[1].text == "slaked lime")
+            if (obsFibs[1].text.ToLower().Replace(" ", "") == "slaked lime")
             {
                 obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -190,7 +190,7 @@ public class ObsRxnSC : MonoBehaviour
                 obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 2 done
-            if (obsFibs[2].text == "sulphur dioxide")
+            if (obsFibs[2].text.ToLower().Replace(" ", "") == "sulphur dioxide")
             {
                 obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -199,7 +199,7 @@ public class ObsRxnSC : MonoBehaviour
                 obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 3 done
-            if (obsFibs[3].text == "sulphur trioxide")
+            if (obsFibs[3].text.ToLower().Replace(" ", "") == "sulphur trioxide")
             {
                 obsFibs[3].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -208,7 +208,7 @@ public class ObsRxnSC : MonoBehaviour
                 obsFibs[3].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 4 done
-            if (obsFibs[4].text == "reddish brown")
+            if (obsFibs[4].text.ToLower().Replace(" ", "") == "reddish brown")
             {
                 obsFibs[4].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -217,7 +217,7 @@ public class ObsRxnSC : MonoBehaviour
                 obsFibs[4].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 5 done
-            if (obsFibs[5].text == "copper")
+            if (obsFibs[5].text.ToLower().Replace(" ", "") == "copper")
             {
                 obsFibs[5].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -226,7 +226,7 @@ public class ObsRxnSC : MonoBehaviour
                 obsFibs[5].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 6 done
-            if (obsFibs[6].text == "reddish brown")
+            if (obsFibs[6].text.ToLower().Replace(" ", "") == "reddish brown")
             {
                 obsFibs[6].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -235,7 +235,7 @@ public class ObsRxnSC : MonoBehaviour
                 obsFibs[6].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 7 done
-            if (obsFibs[7].text == "single displacement" || obsFibs[7].text == "displacement")
+            if (obsFibs[7].text.ToLower().Replace(" ", "") == "single displacement" || obsFibs[7].text.ToLower().Replace(" ", "") == "displacement")
             {
                 obsFibs[7].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
@@ -244,7 +244,7 @@ public class ObsRxnSC : MonoBehaviour
                 obsFibs[7].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
             // 8 done
-            if (obsFibs[8].text == "precipitate" || obsFibs[8].text == "ppt")
+            if (obsFibs[8].text.ToLower().Replace(" ", "") == "precipitate" || obsFibs[8].text.ToLower().Replace(" ", "") == "ppt")
             {
                 obsFibs[8].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }

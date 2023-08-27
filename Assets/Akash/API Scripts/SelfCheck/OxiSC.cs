@@ -68,7 +68,7 @@ public class OxiSC : MonoBehaviour
 
     public void OxiSelfCheck()
     {
-        if (dropdown[0].options[dropdown[0].value].text == "Tincture iodine colour vanishes")
+        if (dropdown[0].value == 1)
         {
             dropdown[0].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
         }
@@ -77,7 +77,7 @@ public class OxiSC : MonoBehaviour
             dropdown[0].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
         }
         //
-        if (dropdown[1].options[dropdown[1].value].text == "Tincture iodine colour vanishes")
+        if (dropdown[1].value == 1)
         {
             dropdown[1].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
         }
@@ -86,7 +86,7 @@ public class OxiSC : MonoBehaviour
             dropdown[1].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
         }
         //
-        if (dropdown[2].options[dropdown[2].value].text == "Tincture iodine colour vanishes")
+        if (dropdown[2].value == 1)
         {
             dropdown[2].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
         }
@@ -95,7 +95,7 @@ public class OxiSC : MonoBehaviour
             dropdown[2].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
         }
         //
-        if (dropdown[3].options[dropdown[3].value].text == "Tincture iodine colour does not vanishes")
+        if (dropdown[3].value == 2)
         {
             dropdown[3].transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
         }
@@ -106,9 +106,9 @@ public class OxiSC : MonoBehaviour
 
         for (int i = 0; i < obsFibs.Length; i++)
         {
-            //obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");
+            obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");
 
-            if (obsFibs[0].text == "ethanoic acid")
+            if (obsFibs[0].text == "ethanoicacid")
             {
                 obsFibs[0].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
