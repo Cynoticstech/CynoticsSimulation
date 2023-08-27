@@ -21,14 +21,7 @@ public class Login_API : MonoBehaviour
         // Check if email, password, and device key are stored in PlayerPrefs
         if (PlayerPrefs.HasKey(EmailKey) && PlayerPrefs.HasKey(PasswordKey) && PlayerPrefs.HasKey(DeviceKeyKey))
         {
-            // Auto-login with the stored email, password, and device key
-            string storedEmail = PlayerPrefs.GetString(EmailKey);
-            string storedPassword = PlayerPrefs.GetString(PasswordKey);
-            string storedDeviceKey = PlayerPrefs.GetString(DeviceKeyKey);
-            email.text = storedEmail;
-            password.text = storedPassword;
-            Andriod_ID.deviceId = storedDeviceKey; // Assuming Andriod_ID.deviceId is a static property
-            AttemptLogin();
+            StartCoroutine(AutoLogin());
         }
     }
 
@@ -93,6 +86,19 @@ public class Login_API : MonoBehaviour
             Debug.Log("Error to retrieve data");
             Debug.Log(newRequest.error);
         }
+    }
+
+    public IEnumerator AutoLogin()
+    {
+        yield return new WaitForSeconds(2);
+        // Auto-login with the stored email, password, and device key
+        string storedEmail = PlayerPrefs.GetString(EmailKey);
+        string storedPassword = PlayerPrefs.GetString(PasswordKey);
+        string storedDeviceKey = PlayerPrefs.GetString(DeviceKeyKey);
+        email.text = storedEmail;
+        password.text = storedPassword;
+        Andriod_ID.deviceId = storedDeviceKey; // Assuming Andriod_ID.deviceId is a static property
+        AttemptLogin();
     }
 
     public void AttemptLogin()
