@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
+
 
 public class DynamicDataHolder : MonoBehaviour
 {
@@ -25,6 +28,14 @@ public class DynamicDataHolder : MonoBehaviour
         public string[] HalogenValues;
     }
     public List<HalogenDataHolder> HalogeData;
+    [System.Serializable]
+    public struct IdentRxnData
+    {
+        public TMP_InputField[] IdentRxnObsFibs;
+        public TMP_Dropdown[] IdentRxndropdown;
+
+    }
+    public List<IdentRxnData> IdentData;
 
     private void Awake()
     {
