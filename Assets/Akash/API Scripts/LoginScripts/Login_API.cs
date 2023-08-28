@@ -90,7 +90,7 @@ public class Login_API : MonoBehaviour
 
     public IEnumerator AutoLogin()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         // Auto-login with the stored email, password, and device key
         string storedEmail = PlayerPrefs.GetString(EmailKey);
         string storedPassword = PlayerPrefs.GetString(PasswordKey);
