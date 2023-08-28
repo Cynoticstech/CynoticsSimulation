@@ -12,6 +12,10 @@ public class DynamicDataHolder : MonoBehaviour
     public List<float> LoggedTime, LoggedTemp;
     public List<float> focalLengthL, focalLengthR;
     public List<float> meltT1, meltT2, Htime;
+    public List<string> OxiAddObsFibs;
+    public List<int> OxiAddropdown;
+
+    
 
     //chemistry data
     [System.Serializable]
@@ -29,13 +33,11 @@ public class DynamicDataHolder : MonoBehaviour
     }
     public List<HalogenDataHolder> HalogeData;
     [System.Serializable]
-    public struct IdentRxnData
+    public struct OxiAddData
     {
-        public TMP_InputField[] IdentRxnObsFibs;
-        public TMP_Dropdown[] IdentRxndropdown;
-
+       
     }
-    public List<IdentRxnData> IdentData;
+    public List<OxiAddData> OxiData;
 
     private void Awake()
     {

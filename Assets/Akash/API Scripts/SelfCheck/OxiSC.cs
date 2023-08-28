@@ -48,24 +48,41 @@ public class OxiSC : MonoBehaviour
    
     public TMP_InputField[] obsFibs;
     public TMP_Dropdown[] dropdown;
-
+   
     private TextMeshProUGUI latestPressedButton;
     //public TMP_InputField[] scFibs;
 
     void Start()
     {
-        for (int i = 0; i < obsFibs.Length; i++)
-        {
-            obsFibs[i].text = obsFibs[i].text.ToLower().Replace(" ", "");
-            
-        }
+        
     }
 
     void Update()
     {
 
     }
-
+    public void OxiSaveAns()
+    {
+        for (int i = 0; i < obsFibs.Length; i++)
+        {
+            DynamicDataHolder.Instance.OxiAddObsFibs.Add(obsFibs[i].text);
+        }
+        for (int i = 0; i < dropdown.Length; i++)
+        {
+            DynamicDataHolder.Instance.OxiAddropdown.Add(dropdown[i].value);
+        }
+    }
+    public void OxiReloadAns()
+    {
+        for (int i = 0; i < obsFibs.Length; i++)
+        {
+            obsFibs[i].text = DynamicDataHolder.Instance.OxiAddObsFibs[i];
+        }
+        for (int i = 0; i < dropdown.Length; i++)
+        {
+            dropdown[i].value = DynamicDataHolder.Instance.OxiAddropdown[i];
+        }
+    }
     public void OxiSelfCheck()
     {
         if (dropdown[0].value == 1)
@@ -134,25 +151,6 @@ public class OxiSC : MonoBehaviour
             {
                 obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
-
-
-
-
-            /* //scFibs[i].text = obsFibs[i].text;
-             Debug.Log("For loop started.");
-             if (obsFibs[i].text == texts[i])
-             {
-                 //obsFibs[i].GetComponent<TMP_Text>().color = Color.green;
-                 obsFibs[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
-                 Debug.Log("Ans at index is " + i + " is right");
-             }
-             else
-             {
-                 *//*obsFibs[i].GetComponent<TMP_Text>().color = Color.red;*//*
-                 obsFibs[i].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
-                 Debug.Log("Ans at index is " + i + " is wrong");
-             }*/
-
         }
     }
 }
