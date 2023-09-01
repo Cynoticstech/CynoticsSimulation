@@ -114,7 +114,8 @@ public class IceManager : MonoBehaviour
             _obj.transform.GetChild(1).GetComponent<TMP_Text>().text = _temp.LoggedTemp[i].ToString();
             ApiAnswerList.Add(_obj);
         }
-        //AnswerContent.transform.GetChild(2).SetSiblingIndex(AnswerContent.transform.childCount - 1);
+        AnswerContent.transform.GetChild(2).SetSiblingIndex(AnswerContent.transform.childCount - 1);
+        
         SubmitButton.transform.SetAsLastSibling();
         AnswerHolder.SetActive(true);
     }
