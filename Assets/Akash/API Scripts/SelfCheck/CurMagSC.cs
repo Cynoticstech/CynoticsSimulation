@@ -88,7 +88,7 @@ public class CurMagSC : MonoBehaviour
                 obsFibs[1].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.red;
             }
 
-            if (obsFibs[2].text.ToLower().Replace(" ", "") == "magneticfield" || obsFibs[0].text.ToLower().Replace(" ", "") == "magneticfields")
+            if (obsFibs[2].text.ToLower().Replace(" ", "") == "magneticfield" || obsFibs[2].text.ToLower().Replace(" ", "") == "magneticfields")
             {
                 obsFibs[2].transform.GetChild(0).transform.GetChild(2).GetComponent<TMP_Text>().color = Color.green;
             }
