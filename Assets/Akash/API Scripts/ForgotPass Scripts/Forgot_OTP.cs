@@ -18,7 +18,7 @@ public class Forgot_OTP : MonoBehaviour
 
     IEnumerator SendUserEnteredOtp()
     {
-        string _url = "https://echo.backend.cynotics.in/api/student/verify-otp";
+        /*string _url = "https://echo.backend.cynotics.in/api/student/verify-otp";
 
         APIClasses.OtpSend otpHolder = new APIClasses.OtpSend()
         {
@@ -51,12 +51,45 @@ public class Forgot_OTP : MonoBehaviour
             popup.SetActive(true);
             message.text = "Error occured please enter otp again";
         }
+*/
+        string _url = "https://echo.backend.cynotics.in/api/student/verify-otp";
 
+        APIClasses.OtpSend otpHolder = new APIClasses.OtpSend()
+        {
+            email = email.text,
+            emailOTP = ("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text)
+        };
+
+        string jsonBody = JsonUtility.ToJson(otpHolder);
+        byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
+
+        Debug.Log(jsonBody);
+
+        UnityWebRequest request = UnityWebRequest.Post(_url, "application/json");
+
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.uploadHandler = new UploadHandlerRaw(rawBody);
+        request.downloadHandler = new DownloadHandlerBuffer();
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Success In Sending The OTP");
+            StartCoroutine(VerifyOTP());
+        }
+        else
+        {
+            Debug.Log("Error to send OTP");
+            popup.SetActive(true);
+            message.text = "Error occured please enter otp again";
+            Debug.Log(request.error);
+        }
     }
 
     IEnumerator VerifyOTP()
     {
-        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo.backend.cynotics.in/api/student/verify-otp");
+        /*UnityWebRequest newRequest = UnityWebRequest.Get("https://echo.backend.cynotics.in/api/student/verify-otp");
         yield return newRequest.SendWebRequest();
 
         if (newRequest.result == UnityWebRequest.Result.Success)
@@ -68,11 +101,27 @@ public class Forgot_OTP : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong OTP Entered");
+
+            Debug.Log("Wrong OT");
             Debug.Log(newRequest.error);
             popup.SetActive(true);
             title.text = "Wrong OTP";
             message.text = "Please enter correct OTP again";
+        }*/
+
+        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo.backend.cynotics.in/api/student/verify-otp");
+        yield return newRequest.SendWebRequest();
+
+        if (newRequest.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Verified");
+            SceneManager.LoadScene("Student Login");
+            Debug.Log(newRequest.result);
+        }
+        else
+        {
+            Debug.Log("Wrong OTP Entered");
+            Debug.Log(newRequest.error);
         }
     }
 

@@ -21,7 +21,7 @@ public class OTP_Verification : MonoBehaviour
         {
             email = email.text,
             emailOTP = ("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text)
-    };
+        };
 
         string jsonBody = JsonUtility.ToJson(otpHolder);
         byte[] rawBody = Encoding.UTF8.GetBytes(jsonBody);
