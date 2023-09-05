@@ -27,7 +27,7 @@ public class Login_API : MonoBehaviour
 
     IEnumerator Login()
     {
-        string _url = "https://echo-admin-backend.vercel.app/api/student/login";
+        string _url = "https://echo.backend.cynotics.in/api/student/login";
 
         APIClasses.LoginDataHolder loginData = new APIClasses.LoginDataHolder()
         {
@@ -72,7 +72,7 @@ public class Login_API : MonoBehaviour
 
     IEnumerator GetLoginCreds()
     {
-        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/");
+        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo.backend.cynotics.in/api/student/");
         yield return newRequest.SendWebRequest();
 
         if (newRequest.result == UnityWebRequest.Result.Success)

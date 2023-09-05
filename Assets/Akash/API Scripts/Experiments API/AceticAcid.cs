@@ -17,7 +17,7 @@ public class AceticAcid : MonoBehaviour
 
     IEnumerator Act()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         ActDataSend data = new ActDataSend
         {

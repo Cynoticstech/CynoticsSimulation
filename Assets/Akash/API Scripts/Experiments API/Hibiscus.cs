@@ -18,7 +18,7 @@ public class Hibiscus : MonoBehaviour
 
     IEnumerator Hibiscusc()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         HibiscusDataSend data = new HibiscusDataSend
         {

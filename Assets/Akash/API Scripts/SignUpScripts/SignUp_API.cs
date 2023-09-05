@@ -23,7 +23,7 @@ public class SignUp_API : MonoBehaviour
     public IEnumerator Signup()
     {
         Debug.Log("Signup Started");
-        string _url = "https://echo-admin-backend.vercel.app/api/student/signup";
+        string _url = "https://echo.backend.cynotics.in/api/student/signup";
 
         APIClasses.SignUpDataHolder signUpData = new APIClasses.SignUpDataHolder()
         {
@@ -69,7 +69,7 @@ public class SignUp_API : MonoBehaviour
     IEnumerator SendingOTPToEmail()
     {
         Debug.Log("OTP Sending Started");
-        string _url = "https://echo-admin-backend.vercel.app/api/student/send-otp";
+        string _url = "https://echo.backend.cynotics.in/api/student/send-otp";
 
         APIClasses.SignUpDataHolder otpSend = new APIClasses.SignUpDataHolder()
         {

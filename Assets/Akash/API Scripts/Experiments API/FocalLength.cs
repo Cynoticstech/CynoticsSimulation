@@ -32,7 +32,7 @@ public class FocalLength : MonoBehaviour
 
     IEnumerator fl()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         flDataSend data = new flDataSend
         {

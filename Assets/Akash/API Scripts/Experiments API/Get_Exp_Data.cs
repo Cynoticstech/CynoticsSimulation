@@ -22,7 +22,7 @@ public class Get_Exp_Data : MonoBehaviour
     IEnumerator GetUserExperiment()
     {
         string userGuid = Get_Student_Details.guid;
-        string baseUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string baseUrl = "https://echo.backend.cynotics.in/api/experiments/";
         string url = baseUrl + userGuid;
 
         UnityWebRequest newRequest = UnityWebRequest.Get(url);

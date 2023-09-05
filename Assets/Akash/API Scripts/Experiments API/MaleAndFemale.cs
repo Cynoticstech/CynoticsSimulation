@@ -19,7 +19,7 @@ public class MaleAndFemale : MonoBehaviour
 
     IEnumerator MF()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         MFDataSend data = new MFDataSend
         {

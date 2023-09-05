@@ -18,7 +18,7 @@ public class FishPegion : MonoBehaviour
 
     IEnumerator fp()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         fpDataSend data = new fpDataSend
         {

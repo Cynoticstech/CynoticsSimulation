@@ -17,7 +17,7 @@ public class Identify : MonoBehaviour
     }
     IEnumerator GlassPrismm()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         IdentifyDataSend data = new IdentifyDataSend
         {

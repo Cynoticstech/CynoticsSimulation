@@ -16,7 +16,7 @@ public class RoleOfCO2 : MonoBehaviour
 
     IEnumerator CO2()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         CO2DataSend data = new CO2DataSend
         {

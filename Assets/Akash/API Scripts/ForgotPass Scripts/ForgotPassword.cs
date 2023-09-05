@@ -21,7 +21,7 @@ public class ForgotPassword : MonoBehaviour
     IEnumerator SendEmail()
     {
         Debug.Log("Email Sending Started");
-        string _url = "https://echo-admin-backend.vercel.app/api/student/forget-password";
+        string _url = "https://echo.backend.cynotics.in/api/student/forget-password";
 
         APIClasses.ForgotPassword forgotEmailHolder = new APIClasses.ForgotPassword()
         {
@@ -60,7 +60,7 @@ public class ForgotPassword : MonoBehaviour
 
     IEnumerator SendUserEnteredOtp()
     {
-        string _url = "https://echo-admin-backend.vercel.app/api/student/reset-password";
+        string _url = "https://echo.backend.cynotics.in/api/student/reset-password";
 
         APIClasses.ResetPassword otpHolder = new APIClasses.ResetPassword()
         {
@@ -97,7 +97,7 @@ public class ForgotPassword : MonoBehaviour
 
     IEnumerator VerifyOTP()
     {
-        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/verify-otp");
+        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo.backend.cynotics.in/api/student/verify-otp");
         yield return newRequest.SendWebRequest();
 
         if (newRequest.result == UnityWebRequest.Result.Success)

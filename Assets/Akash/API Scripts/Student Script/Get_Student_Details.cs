@@ -32,7 +32,7 @@ public class Get_Student_Details : MonoBehaviour
 
     IEnumerator GetProfileData()
     {
-        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/");
+        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo.backend.cynotics.in/api/student/");
         yield return newRequest.SendWebRequest();
 
         if (newRequest.result == UnityWebRequest.Result.Success)
@@ -171,7 +171,7 @@ public class Get_Student_Details : MonoBehaviour
 
     IEnumerator UpdateDetails()
     {
-        string _url = "https://echo-admin-backend.vercel.app/api/student/";
+        string _url = "https://echo.backend.cynotics.in/api/student/";
         APIClasses.UserData newData = new APIClasses.UserData()
         {
             image = image,
@@ -304,7 +304,7 @@ public class Get_Student_Details : MonoBehaviour
     IEnumerator SendingOTPToEmail()
     {
         Debug.Log("OTP Sending Started");
-        string _url = "https://echo-admin-backend.vercel.app/api/student/send-otp";
+        string _url = "https://echo.backend.cynotics.in/api/student/send-otp";
 
         APIClasses.SignUpDataHolder otpSend = new APIClasses.SignUpDataHolder()
         {
@@ -338,7 +338,7 @@ public class Get_Student_Details : MonoBehaviour
     }
     IEnumerator SendUserEnteredOtp()
     {
-        string _url = "https://echo-admin-backend.vercel.app/api/student/verify-otp";
+        string _url = "https://echo.backend.cynotics.in/api/student/verify-otp";
 
         APIClasses.OtpSend otpHolder = new APIClasses.OtpSend()
         {
@@ -375,7 +375,7 @@ public class Get_Student_Details : MonoBehaviour
     }
     IEnumerator VerifyOTP1()
     {
-        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/verify-otp");
+        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo.backend.cynotics.in/api/student/verify-otp");
         yield return newRequest.SendWebRequest();
 
         if (newRequest.result == UnityWebRequest.Result.Success)

@@ -9,7 +9,7 @@ public class Logout_API : MonoBehaviour
 {
     IEnumerator LogOut()
     {
-        string _url = "https://echo-admin-backend.vercel.app/api/student/logout";
+        string _url = "https://echo.backend.cynotics.in/api/student/logout";
 
         APIClasses.UserData logout = new APIClasses.UserData
         {

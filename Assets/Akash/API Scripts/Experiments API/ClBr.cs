@@ -16,7 +16,7 @@ public class ClBr : MonoBehaviour
 
     IEnumerator Cl()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         ClBrDataSend data = new ClBrDataSend
         {

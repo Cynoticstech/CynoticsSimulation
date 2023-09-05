@@ -19,7 +19,7 @@ public class Observe : MonoBehaviour
 
     IEnumerator ObsAdd()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         ObsDataSend data = new ObsDataSend
         {

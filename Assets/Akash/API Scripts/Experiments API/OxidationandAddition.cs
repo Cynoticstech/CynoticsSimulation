@@ -18,7 +18,7 @@ public class OxidationandAddition : MonoBehaviour
 
     IEnumerator OxiAdd()
     {
-        string apiUrl = "https://echo-admin-backend.vercel.app/api/experiments/";
+        string apiUrl = "https://echo.backend.cynotics.in/api/experiments/";
 
         OxiAddDataSend data = new OxiAddDataSend
         {

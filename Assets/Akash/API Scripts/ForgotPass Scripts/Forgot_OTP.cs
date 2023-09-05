@@ -18,7 +18,7 @@ public class Forgot_OTP : MonoBehaviour
 
     IEnumerator SendUserEnteredOtp()
     {
-        string _url = "https://echo-admin-backend.vercel.app/api/student/verify-otp";
+        string _url = "https://echo.backend.cynotics.in/api/student/verify-otp";
 
         APIClasses.OtpSend otpHolder = new APIClasses.OtpSend()
         {
@@ -56,7 +56,7 @@ public class Forgot_OTP : MonoBehaviour
 
     IEnumerator VerifyOTP()
     {
-        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo-admin-backend.vercel.app/api/student/verify-otp");
+        UnityWebRequest newRequest = UnityWebRequest.Get("https://echo.backend.cynotics.in/api/student/verify-otp");
         yield return newRequest.SendWebRequest();
 
         if (newRequest.result == UnityWebRequest.Result.Success)
