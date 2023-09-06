@@ -65,7 +65,7 @@ public class ForgotPassword : MonoBehaviour
         APIClasses.ResetPassword otpHolder = new APIClasses.ResetPassword()
         {
             email = _email.text,
-            emailOTP = $"{firstDigit}{secondDigit}{thirdDigit}{fourthDigit}",
+            emailOTP = ("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text),
             password = _password.text,
         };
 
@@ -85,7 +85,9 @@ public class ForgotPassword : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Success In Sending The OTP");
-            StartCoroutine(VerifyOTP());
+            //StartCoroutine(VerifyOTP());
+            _mainSignInScreen.SetActive(true);
+            _resetPassScreen.SetActive(false);
             ClearPlayerPrefs();
         }
         else

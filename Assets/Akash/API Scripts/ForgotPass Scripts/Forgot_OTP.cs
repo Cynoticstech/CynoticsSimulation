@@ -76,7 +76,9 @@ public class Forgot_OTP : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("Success In Sending The OTP");
-            StartCoroutine(VerifyOTP());
+            //StartCoroutine(VerifyOTP());
+            emailScreen.SetActive(false);
+            newpassScreen.SetActive(true);
         }
         else
         {
