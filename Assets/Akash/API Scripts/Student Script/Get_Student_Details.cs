@@ -12,7 +12,7 @@ public class Get_Student_Details : MonoBehaviour
     public TextMeshProUGUI[] instituteText;
     public TextMeshProUGUI title, message;
     public SpriteRenderer instituteImageRenderer; private Transform instituteImageTransform;
-
+    public TMP_Text fillerEmail;
     public TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit;
 
     public GameObject popup, verifyOTPPage, hamPremium, hamFree, BioPremium, BioFree, Physicspremium, PhysicsFree, ChemistryPremium, ChemistryFree;
@@ -151,6 +151,8 @@ public class Get_Student_Details : MonoBehaviour
             return;
         }
         StartCoroutine(SendingOTPToEmail());
+        fillerEmail.text = inputFields[1].text;
+        Debug.Log(fillerEmail.text);
     }
     public void VerifyOTP()
     {
@@ -240,6 +242,7 @@ public class Get_Student_Details : MonoBehaviour
         {
             Debug.Log("Success");
             SceneManager.LoadScene("Main Alpha Functionality Pages");
+            
         }
         else
         {
