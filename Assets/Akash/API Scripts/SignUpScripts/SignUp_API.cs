@@ -18,7 +18,7 @@ public class SignUp_API : MonoBehaviour
     //Popup
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI message, emailShown;
-
+    public GameObject OTPInpH;
 
     public IEnumerator Signup()
     {
@@ -56,6 +56,7 @@ public class SignUp_API : MonoBehaviour
             signUpPannel.SetActive(false);
             emailOtp.SetActive(true);
             StartCoroutine(SendingOTPToEmail());
+            OTPInpH.SetActive(true);
         }
         else
         {

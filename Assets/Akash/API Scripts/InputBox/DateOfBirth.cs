@@ -1,48 +1,47 @@
 using UnityEngine;
 using TMPro;
+using System.Text.RegularExpressions;
 
 public class DateOfBirth : MonoBehaviour
 {
-    public TMP_InputField dayInputField;
-    public TMP_InputField monthInputField;
-    public TMP_InputField yearInputField;
+    public TMP_InputField tmpInputField;
 
-    private TMP_InputField currentInputField; // Store the currently edited input field
+    private string previousText = "";
 
-    private void Start()
+    private void Awake()
     {
-        // Attach listeners to the input fields' value changed events
-        dayInputField.onValueChanged.AddListener(OnDateValueChanged);
-        monthInputField.onValueChanged.AddListener(OnDateValueChanged);
-        yearInputField.onValueChanged.AddListener(OnDateValueChanged);
-
-        // Initialize the current input field as null
-        currentInputField = null;
+        tmpInputField.onValueChanged.AddListener(delegate { OnValueChanged(); });
     }
 
-    private void OnDateValueChanged(string newValue)
+    public void OnValueChanged()
     {
-        if (currentInputField != null)
+        string input = tmpInputField.text;
+
+        // Remove any non-digit and non-slash characters
+        input = Regex.Replace(input, @"[^\d/]", "");
+
+        // Insert slashes at appropriate positions for date format
+        if (input.Length > 2 && input[2] != '/')
         {
-            // Ensure that the input is within a valid range (e.g., 1-31 for day)
-            int.TryParse(newValue, out int value);
-            if (value < 1)
-            {
-                value = 1;
-            }
-            else if (value > 31)
-            {
-                value = 31;
-            }
-
-            // Update the currently edited input field with the sanitized value
-            currentInputField.text = value.ToString();
+            input = input.Insert(2, "/");
         }
+        if (input.Length > 5 && input[5] != '/')
+        {
+            input = input.Insert(5, "/");
+        }
+
+        // Use a Coroutine to update text and cursor position after a slight delay
+        StartCoroutine(UpdateInputField(input));
     }
 
-    public void SetCurrentInputField(TMP_InputField inputField)
+    private System.Collections.IEnumerator UpdateInputField(string input)
     {
-        // Set the currently edited input field
-        currentInputField = inputField;
+        // Delay for one frame
+        yield return null;
+
+        // Update the text field and reset the cursor position
+        tmpInputField.SetTextWithoutNotify(input);
+        tmpInputField.caretPosition = input.Length;
+        previousText = input;
     }
 }

@@ -16,7 +16,7 @@ public class ForgotPassword : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI title, message, emailShown;
     [SerializeField] private GameObject popup;
-
+    public GameObject InpHandler;
 
     IEnumerator SendEmail()
     {
@@ -47,6 +47,7 @@ public class ForgotPassword : MonoBehaviour
             _forgotPassScreen.SetActive(false);
             _otpVerificationScreen.SetActive(true);
             emailShown.text = _email.text;
+            InpHandler.SetActive(true);
         }
         else
         {
