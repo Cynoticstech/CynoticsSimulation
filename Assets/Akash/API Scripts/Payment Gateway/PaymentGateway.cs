@@ -68,6 +68,7 @@ public class PaymentGateway : MonoBehaviour
             if (!string.IsNullOrEmpty(paymentUrl))
             {
                 Application.OpenURL(paymentUrl);
+                Application.Quit();
             }
             else
             {
