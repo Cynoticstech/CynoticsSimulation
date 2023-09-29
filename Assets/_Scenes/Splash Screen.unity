@@ -2314,7 +2314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Student
+  m_text: Let's start!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98db7b0973ca07d4ba522aaa4d7489bc, type: 2}
   m_sharedMaterial: {fileID: 8666875645609397904, guid: 98db7b0973ca07d4ba522aaa4d7489bc, type: 2}
