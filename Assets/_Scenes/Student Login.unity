@@ -4601,6 +4601,7 @@ MonoBehaviour:
   title: {fileID: 352274835}
   message: {fileID: 1516093143}
   popup: {fileID: 1654082777}
+  otpBox: {fileID: 0}
 --- !u!1 &831203306
 GameObject:
   m_ObjectHideFlags: 0
