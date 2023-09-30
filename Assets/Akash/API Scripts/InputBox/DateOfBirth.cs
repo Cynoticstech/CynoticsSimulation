@@ -84,10 +84,16 @@ public class DateOfBirth : MonoBehaviour
                 input = input.Insert(5, "/");
             }
         }
+        else if (input.EndsWith("/"))
+        {
+            // Handle backspacing after a slash by removing it
+            input = input.Substring(0, input.Length - 1);
+        }
 
         // Use a Coroutine to update text and cursor position after a slight delay
         StartCoroutine(UpdateInputField(input));
     }
+
 
     private System.Collections.IEnumerator UpdateInputField(string input)
     {
@@ -100,4 +106,10 @@ public class DateOfBirth : MonoBehaviour
         previousText = input;
     }
 }
+
+
+
+
+
+
 
