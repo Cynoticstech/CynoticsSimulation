@@ -14,7 +14,7 @@ public class Get_Student_Details : MonoBehaviour
     public SpriteRenderer instituteImageRenderer; private Transform instituteImageTransform;
     public TMP_Text fillerEmail;
     public TMP_InputField firstDigit, secondDigit, thirdDigit, fourthDigit;
-
+    public TMP_InputField otpBox;
     public GameObject popup, verifyOTPPage, hamPremium, hamFree, BioPremium, BioFree, Physicspremium, PhysicsFree, ChemistryPremium, ChemistryFree;
 
     //User
@@ -156,7 +156,14 @@ public class Get_Student_Details : MonoBehaviour
     }
     public void VerifyOTP()
     {
-        if (firstDigit.text == string.Empty || secondDigit.text == string.Empty || thirdDigit.text == string.Empty || fourthDigit.text == string.Empty)
+        /*if (firstDigit.text == string.Empty || secondDigit.text == string.Empty || thirdDigit.text == string.Empty || fourthDigit.text == string.Empty)
+        {
+            popup.SetActive(true);
+            title.text = "Error";
+            message.text = "Enter correct otp";
+            return;
+        }*/
+        if (otpBox.text == string.Empty)
         {
             popup.SetActive(true);
             title.text = "Error";
@@ -346,7 +353,7 @@ public class Get_Student_Details : MonoBehaviour
         APIClasses.OtpSend otpHolder = new APIClasses.OtpSend()
         {
             email = inputFields[1].text,
-            emailOTP = ("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text)
+            emailOTP = otpBox.text /*("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text)*/
         };
 
         string jsonBody = JsonUtility.ToJson(otpHolder);
