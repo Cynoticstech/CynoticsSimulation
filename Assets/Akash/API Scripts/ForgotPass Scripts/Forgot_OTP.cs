@@ -16,6 +16,8 @@ public class Forgot_OTP : MonoBehaviour
     [SerializeField] private TextMeshProUGUI title, message;
     [SerializeField] private GameObject popup;
 
+    public TMP_InputField otpBox;
+
     IEnumerator SendUserEnteredOtp()
     {
         /*string _url = "https://echo.backend.cynotics.in/api/student/verify-otp";
@@ -57,7 +59,8 @@ public class Forgot_OTP : MonoBehaviour
         APIClasses.OtpSend otpHolder = new APIClasses.OtpSend()
         {
             email = email.text,
-            emailOTP = ("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text)
+            emailOTP = otpBox.text
+            /*("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text)*/
         };
 
         string jsonBody = JsonUtility.ToJson(otpHolder);
@@ -129,7 +132,15 @@ public class Forgot_OTP : MonoBehaviour
 
     public void AttemptVerification()
     {
-        if (firstDigit.text == string.Empty || secondDigit.text == string.Empty || thirdDigit.text == string.Empty || fourthDigit.text == string.Empty)
+        /*if (firstDigit.text == string.Empty || secondDigit.text == string.Empty || thirdDigit.text == string.Empty || fourthDigit.text == string.Empty)
+        {
+            popup.SetActive(true);
+            title.text = "All fields required";
+            message.text = "Enter all fields correctly to proceed";
+            return;
+        }*/
+
+        if (otpBox.text == string.Empty)
         {
             popup.SetActive(true);
             title.text = "All fields required";
@@ -138,6 +149,7 @@ public class Forgot_OTP : MonoBehaviour
         }
 
         StartCoroutine(SendUserEnteredOtp());
-        Debug.Log("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text);
+        //Debug.Log("" + firstDigit.text + secondDigit.text + thirdDigit.text + fourthDigit.text);
+        Debug.Log(otpBox);
     }
 }

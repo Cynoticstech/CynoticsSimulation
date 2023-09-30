@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167970386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 181f22afb55738943aa99fb9faf5ae43, type: 3}
   m_Name: 
@@ -4580,6 +4580,7 @@ MonoBehaviour:
   title: {fileID: 352274835}
   message: {fileID: 1516093143}
   popup: {fileID: 1654082777}
+  otpBox: {fileID: 365948893}
 --- !u!114 &822337126
 MonoBehaviour:
   m_ObjectHideFlags: 0
