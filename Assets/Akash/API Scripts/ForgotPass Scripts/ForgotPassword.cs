@@ -5,6 +5,7 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class ForgotPassword : MonoBehaviour
 {
@@ -87,8 +88,9 @@ public class ForgotPassword : MonoBehaviour
         {
             Debug.Log("Success In Sending The OTP");
             //StartCoroutine(VerifyOTP());
-            _mainSignInScreen.SetActive(true);
-            _resetPassScreen.SetActive(false);
+            /*_mainSignInScreen.SetActive(true);
+            _resetPassScreen.SetActive(false);*/
+            SceneManager.LoadScene("Student Login");
             ClearPlayerPrefs();
         }
         else
