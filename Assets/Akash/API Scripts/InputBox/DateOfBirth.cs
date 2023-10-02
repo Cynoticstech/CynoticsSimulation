@@ -94,7 +94,6 @@ public class DateOfBirth : MonoBehaviour
         StartCoroutine(UpdateInputField(input));
     }
 
-
     private System.Collections.IEnumerator UpdateInputField(string input)
     {
         // Delay for one frame
@@ -106,6 +105,10 @@ public class DateOfBirth : MonoBehaviour
         previousText = input;
     }
 }
+
+
+
+
 
 
 
