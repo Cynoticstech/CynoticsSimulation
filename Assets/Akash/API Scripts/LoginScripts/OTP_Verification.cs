@@ -15,6 +15,8 @@ public class OTP_Verification : MonoBehaviour
 
     [SerializeField] private TMP_InputField otpBox;
 
+    public SignUpFB SignUpFB;
+
     IEnumerator SendUserEnteredOtp()
     {
         string _url = "https://echo.backend.cynotics.in/api/student/verify-otp";
@@ -42,6 +44,7 @@ public class OTP_Verification : MonoBehaviour
         {
             Debug.Log("Success In Sending The OTP");
             StartCoroutine(VerifyOTP());
+            SignUpFB.SignUpLogFB();
         }
         else
         {

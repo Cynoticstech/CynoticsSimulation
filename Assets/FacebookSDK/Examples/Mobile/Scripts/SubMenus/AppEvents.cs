@@ -21,6 +21,7 @@
 namespace Facebook.Unity.Example
 {
     using System.Collections.Generic;
+    using UnityEngine;
 
     internal class AppEvents : MenuBase
     {
@@ -28,8 +29,9 @@ namespace Facebook.Unity.Example
         {
             if (this.Button("Log FB App Event"))
             {
+                Debug.Log("1st");
                 this.Status = "Logged FB.AppEvent";
-                FB.LogAppEvent(
+                FB.LogAppEvent( 
                     AppEventName.UnlockedAchievement,
                     null,
                     new Dictionary<string, object>()
