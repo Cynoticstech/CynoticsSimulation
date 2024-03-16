@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Alpha_Sub_Sel_Menu
+  - BlueStrip
+  - LightRed
+  - RedStrip
   layers:
   - Default
   - TransparentFX

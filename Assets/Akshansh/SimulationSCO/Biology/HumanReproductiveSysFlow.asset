@@ -14,28 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 3
   PopupSequences:
-  - Welcome to the fourth experiment. We are going to study the human reproductive
-    system.
+  - Welcome to the Experiment. We are going to study the human reproductive system.
   - "First let\u2019s do a small activity. Can you label all the parts of the human
     reproductive system?"
   - "Amazing!Experiment submitted. Now here\u2019s a challenge for you, can you fill
     these tables and answer fill in the blanks?"
   ValidAnswers:
+  - Vas Deferens
   - Prostate
   - Seminal Vesicle
   - Bladder
-  - Urethera
+  - Urethra
   - Penis
   - Epidydimis
   - Testicle
-  - Ovray
   - Endometrium
-  - Vagina
-  - Cervix
   - Ovary
-  - Fimbriae
-  - Uterus
   - Fallopian Tubes
+  - Uterus
+  - Fimbriae
+  - Ovary
+  - Cervix
+  - Vagina
   - Stores and transports sperm from the testes to the vas deferens
   - Transports sperm from the epididymis to the urethra.
   - Secrete fluid that nourishes and protects sperm.

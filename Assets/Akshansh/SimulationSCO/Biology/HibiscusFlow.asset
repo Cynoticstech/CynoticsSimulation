@@ -14,40 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 2
   PopupSequences:
-  - Welcome to the third experiment. We are going to study reproductive system in
-    Hibiscus flower
+  - Welcome to the Experiment. We are going to study reproductive system in Hibiscus
+    flower
   - "First let\u2019s do a small activity. Can you label all the parts of hibiscus?"
   - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
     fill this table and answer fill in the blanks?"
   ValidAnswers:
-  - Flament
+  - Filament
   - Stamen
   - Anther
   - Petal
   - Stigma
   - Style
-  - Ovray
-  - Ovule
+  - Ovary
   - Pistil
+  - Ovule
   - Peduncle
   - Receptacle
   - Sepal
-  - It houses young bud
+  - It houses the young bud
   - Five
   - Red in colour
-  - To attract insects
+  - To attract the insects
   - Five carpels
   - Multicarpellary and syncarpous
   - Receives the pollen from the stamen and ovules contain the egg cell for fertilisation
   - Androecium
   - Gynoecium
   FillupsQuestions:
-  - ' from flower is male whorl, while '
-  - ' is female whorl.'
+  - 'from flower is male whorl, while '
+  - is female whorl.
   - 'from pollen grain and '
-  - ' from ovule, these two haploid cells unite to form a diploid zygote. Thus the
-    process of seed and fruit formation begins.'
-  - ' is the reproductive organ of plants.'
+  - from ovule, these two haploid cells unite to form a diploid zygote. Thus the
+    process of seed and fruit formation begins.
+  - is the reproductive organ of plants.
   AnswerSprites: []
   AnswerPrefab: {fileID: 0}
   LabledAnswers:

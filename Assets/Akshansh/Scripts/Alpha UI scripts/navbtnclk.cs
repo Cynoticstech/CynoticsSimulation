@@ -9,7 +9,7 @@ public class navbtnclk : MonoBehaviour
     //public Btnlist btl;
     //public Button logout_btn, logsub_btn, sisub_btn, stdntlog_btn, inredirect_btn, upredirect_btn;
     //public GameObject parentobj, childobj;
-    Scene scene;
+    public Scene scene;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,6 @@ public class navbtnclk : MonoBehaviour
     void Update()
     {
         scene = SceneManager.GetActiveScene();
-        Debug.Log("Currently Active Scene is " + scene.name);
     }
    
     public void splashload()
@@ -35,6 +34,7 @@ public class navbtnclk : MonoBehaviour
     }
     public void studentloginload()
     {
+        //SceneManager.LoadScene("Student Login");
         SceneManager.LoadScene("Student Login");
     }
     public void studentSignUpload()
@@ -43,7 +43,14 @@ public class navbtnclk : MonoBehaviour
     }
     public void alphaload()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         SceneManager.LoadScene("Main Alpha Functionality Pages");
+        
+    }
+
+    public void QuitApp()
+    {
+        Application.Quit();
     }
 
 }

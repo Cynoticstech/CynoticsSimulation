@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 4
   PopupSequences:
-  - Welcome to the sixth experiment. We are going to study about cockroach and Earthworm.
+  - Welcome to the Experiment. We are going to study about cockroach and Earthworm.
   - "First let\u2019s do a small activity. Can you label all the body parts of cockroach?"
   - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
     fill these tables?"
@@ -28,14 +28,14 @@ MonoBehaviour:
   - Hindleg
   - Cercus
   - Stylus
-  - Segment Abdomen
+  - Segmented Abdomen
   - Wing
   - Compound Eye
   - Antenna
   - Head
   - Foreleg
-  - Mesothorax
   - Prothorax
+  - Mesothorax
   - Animalia
   - Non-chordata
   - Arthropoda

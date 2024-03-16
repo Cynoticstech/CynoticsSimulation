@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 6
   PopupSequences:
-  - Welcome to the first experiment. We are going to study industrial application
-    of microbes.
+  - Welcome to the Experiment. We are going to study industrial application of microbes.
   - This experiment can only be checked by the teacher.
   - Select the microbe from the drop down menu and fill its information in the table.
   ValidAnswers: []

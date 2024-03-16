@@ -2,38 +2,50 @@ using AkshanshKanojia.Controllers.ObjectManager;
 using AkshanshKanojia.Inputs.Mobile;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
+using System.Collections;
 
 public class DragManager : MobileInputs
 {
     public UnityEvent OnCorrectPlaced;
     public UnityEvent OnIncorrectPlace;
+    [HideInInspector] public Vector3 OriginPos{ get => originalPos; }
 
     [SerializeField] bool canInteract = true, useTapOffset = true, resetOnWrong = true;
     public Transform targetLocation;
     public Collider2D[] targetCols;
     [SerializeField] bool useTargetCol;
-    [SerializeField] float validDist = 2f, zDepth = 10f,resetMoveSpeed =2f;
+    [SerializeField] float validDist = 2f, zDepth = 10f,resetMoveSpeed =2f,origrEturntime =1.5f;
     [SerializeField] ObjectController objCont;
     [SerializeField] LayerMask raycastLayer;
 
-    Vector3 tempOffset, tempStartPos;
+
+    Vector3 tempOffset, tempStartPos,originalPos;
 
     bool isValid = false;
     Collider2D tempDropPos;
+    public Animator animator;
 
     public override void Start()
     {
         base.Start();
         objCont.OnMovementEnd += (obj) => { if (obj == gameObject) { EnableInteract(); } };
+        originalPos = transform.position;
         OnIncorrectPlace.AddListener(() =>
         {
-            if (resetOnWrong)
-            {
-                DisableInteract();
-                objCont.AddEvent(gameObject, tempStartPos, resetMoveSpeed, 
-                    false);
-            }
+            MoveToTempStart();
         });
+    }
+
+    private void MoveToTempStart()
+    {
+        if (resetOnWrong)
+        {
+            DisableInteract();
+            objCont.AddEvent(gameObject, tempStartPos, resetMoveSpeed,
+                false);
+            print("rEsetting pos");
+        }
     }
 
     private void UpdatePos(MobileInputManager.TouchData _data)
@@ -53,7 +65,10 @@ public class DragManager : MobileInputs
     {
         canInteract = true;
     }
-
+    public void ResetToOrignalPos()
+    {
+        transform.DOMove(originalPos, resetMoveSpeed);
+    }
     public override void OnTapEnd(MobileInputManager.TouchData _data)
     {
         if (isValid)
@@ -124,4 +139,27 @@ public class DragManager : MobileInputs
     public override void OnTapStay(MobileInputManager.TouchData _data)
     {
     }
+
+    public IEnumerator BubblesAnim()
+    {
+        yield return new WaitForSeconds(3);
+        animator.enabled = true;
+    }
+    public void Bubble()
+    {
+        StartCoroutine(BubblesAnim());
+    }
+
+   /* public void CorrectPlaced()
+    {
+        if (tempDropPos.CompareTag("BlueStrip") || tempDropPos.CompareTag("LightRed") || tempDropPos.CompareTag("RedStrip"))
+        {
+            if(tempDropPos.CompareTag("BlueStrip"))
+            {
+                GetTargetCol().transform.GetChild(0).gameObject.SetActive(true);
+            }
+            
+        }
+        
+    }*/
 }

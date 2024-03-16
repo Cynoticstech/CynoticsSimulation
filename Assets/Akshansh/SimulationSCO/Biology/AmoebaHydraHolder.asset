@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 1
   PopupSequences:
-  - Welcome to the Second experiment. We are going to study binary fission in Amoeba
-    and budding in Hydra.
+  - Welcome to the Experiment. We are going to study binary fission in Amoeba and
+    budding in Hydra.
   - "First let\u2019s do a small activity. Can you name all the phases involved in
     fission of Amoeba?"
   - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
@@ -34,6 +34,7 @@ MonoBehaviour:
   - oval
   - site
   - daughter
+  - Bud
   - mouth
   - Hypostome
   - Tentacle
@@ -45,29 +46,28 @@ MonoBehaviour:
   - Gastrodermis
   - Mesogleva
   - Basal Disc
-  - Bud
   - body
   - multicellular
-  - bud
   - mouth
+  - tentacle
   - Asexual
   FillupsQuestions:
-  - 'At the beginning, the '
-  - ' gets elongated.'
-  - 'Nucleus gets '
-  - '  shaped.'
-  - 'A notch is developed at the '
-  - of division.
-  - 'Two small '
+  - 'At the beginning, the  '
+  - ' cell of Amoeba gets elongated.'
+  - 'Nucleus gets  '
+  - ' shaped.'
+  - 'A notch is developed at the  '
+  - ' of division.'
+  - 'Two small  '
   - ' cells of Amoeba are formed.'
-  - A small outgrowth is seen on the
+  - 'A small outgrowth is seen on the '
   - ' of Hydra.'
-  - 'It becomes '
+  - 'It becomes  '
   - ' due to enough growth.'
   - 'This outgrowth detaches in the form of bud having '
-  - ' and '
+  - 'and '
   - 'Amoeba and Hydra reproduce by  '
-  - ' method.'
+  - method.
   AnswerSprites:
   - AnswerName: 'Amoeba:  Amoeba_0'
     AnswerSprite:

@@ -22,9 +22,12 @@ namespace Simulations
         [SerializeField] SimulationFlowSCO[] AvailableSimulations;
         [SerializeField] SimulationTypes CurtType;
         [SerializeField] bool useDebugSim = false;
+        string[] MitMieAPIAnsArray, AmoeHydAPIAnsArray, HibiAPIAnsArray, HRSAPIAnsArray, NChorAPIAnsArray, ChorAPIAnsArray, AscAPIAnsArray, BioFAPIAnsArray, MicrAPIAnsArray, CO2APIAnsArray;
+        string[] HaloAPIAnsArray, ReactMetalAPIAnsArray, OxiAPIAnsArray;
+        string[] CurMagAPIAnsArray, IceMeltAPIAnsArray, BoilWatAPIAnsArray, HopeAPIAnsArray, ConvexFLAPIAnsArray;
         //stores data about simulations present in scene
         [System.Serializable]
-        struct SimulationDataHolder
+        public struct SimulationDataHolder
         {
             public GameObject SimulationObj;
             public GameObject[] SimulationStepObjects;
@@ -35,7 +38,7 @@ namespace Simulations
         #endregion
 
         #region Private Fields
-        SimulationDataHolder activeSimulation;
+        public SimulationDataHolder activeSimulation;
         int curtStepIndex = 0;
         bool isSimulating = false;
         GameObject activePopup;
@@ -148,7 +151,7 @@ namespace Simulations
                             break;
                     }
                     break;//bio fert
-                case SimulationTypes.AceticAcid:
+                /*case SimulationTypes.AceticAcid:
                     switch (curtStepIndex)//steps in which tap needs to be detected
                     {
                         case 1:
@@ -157,8 +160,8 @@ namespace Simulations
                         default:
                             break;
                     }
-                    break;
-                case SimulationTypes.Respiration:
+                    break;*/
+                /*case SimulationTypes.Respiration:
                     switch (curtStepIndex)//steps in which tap needs to be detected
                     {
                         case 1:
@@ -167,7 +170,7 @@ namespace Simulations
                         default:
                             break;
                     }
-                    break;
+                    break;*/
 
                 default:
                     break;
@@ -176,8 +179,20 @@ namespace Simulations
 
         //manages step by step progression for different simulations
         #region Simulation steps 
+
+        void DynamicSimInpHandler()
+        {
+            /*switch (activeSimulation.SimulationType)
+            {
+                case SimulationTypes.CL_BR :
+                    break;
+               
+                    
+            }*/
+        }
         void MitosisManager()
         {
+            MitMieAPIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -204,6 +219,7 @@ namespace Simulations
                     //collect all data of first stage
                     for (int i = 0; i < 7; i++)//7 steps in first stage
                     {
+                        MitMieAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -217,6 +233,7 @@ namespace Simulations
                     //get data for 2nd stage (meiosis)
                     for (int i = 7; i < 17; i++)//10 steps in first stage
                     {
+                        MitMieAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -233,6 +250,7 @@ namespace Simulations
                     //get fillup data
                     for (int i = 17; i < 21; i++)//7 steps in first stage
                     {
+                        MitMieAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -245,6 +263,7 @@ namespace Simulations
 
         void AmoebaManager()
         {
+            AmoeHydAPIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -269,8 +288,10 @@ namespace Simulations
                     DisableSteps();
                     activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
                     //collect all data of stage
+                    
                     for (int i = 0; i < 5; i++)//5 steps in stage
                     {
+                        AmoeHydAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -282,8 +303,10 @@ namespace Simulations
                     DisableSteps();
                     activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[3], true);
                     //get data for 2nd stage amoeba fillups
+
                     for (int i = 5; i < 9; i++)//4 steps in fillup
                     {
+                        AmoeHydAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -295,9 +318,10 @@ namespace Simulations
                 case 8:
                     DisableSteps();
                     activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[4], true);
-
+                    
                     for (int i = 9; i < 21; i++)//12 steps in stage
                     {
+                        AmoeHydAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -311,10 +335,12 @@ namespace Simulations
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
                     //get fillup data
+                    
                     for (int i = 21; i < 26; i++)//4 steps in stage
                     {
                         try
                         {
+                            AmoeHydAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                             answerHolder.Add(activeSimulation.InputFields[i].text);
                         }
                         catch
@@ -331,6 +357,7 @@ namespace Simulations
         }
         void HibiscusMang()
         {
+            HibiAPIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -355,8 +382,10 @@ namespace Simulations
                     DisableSteps();
                     activePopup = popupMang.ShowPopup(activeFlow.PopupSequences[2], true);
                     //collect all data of stage
+                    
                     for (int i = 0; i < 12; i++)//12 steps in stage
                     {
+                        HibiAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -373,9 +402,10 @@ namespace Simulations
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
-
+                    
                     for (int i = 12; i < 21; i++)//7+2 steps in stage
                     {
+                        HibiAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -387,6 +417,7 @@ namespace Simulations
         }
         void ReproductiveSystem()
         {
+            HRSAPIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -423,10 +454,11 @@ namespace Simulations
                 case 7:
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
-                    activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
-
-                    for (int i = 0; i < 32; i++)//Get All Data
+                    activePopup = popupMang.ShowPopup("Select a submission option.", true);
+                    
+                    for (int i = 0; i < 33; i++)//Get All Data
                     {
+                        HRSAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -438,6 +470,7 @@ namespace Simulations
         }
         void CockroachMang()
         {
+            NChorAPIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -486,9 +519,10 @@ namespace Simulations
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
-
+                    
                     for (int i = 0; i < 24; i++)
                     {
+                        NChorAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -500,6 +534,7 @@ namespace Simulations
         }
         void FishMang()
         {
+            ChorAPIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -548,8 +583,10 @@ namespace Simulations
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    ChorAPIAnsArray = new string[activeSimulation.InputFields.Length];
                     for (int i = 0; i < 30; i++)
                     {
+                        ChorAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -561,6 +598,7 @@ namespace Simulations
         }
         void MicrobeMang()
         {
+            MicrAPIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -589,8 +627,10 @@ namespace Simulations
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    
                     for (int i = 0; i < 15; i++)//send it to database
                     {
+                        MicrAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -602,6 +642,7 @@ namespace Simulations
         }
         void BioFertilizerMang()
         {
+            BioFAPIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -630,11 +671,15 @@ namespace Simulations
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    Debug.Log("Reached fifth case");
                     for (int i = 0; i < 12; i++)
                     {
+                        BioFAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
+                case 6:
+
                 default:
                     print("Reached end of simulation");
                     return;
@@ -643,6 +688,7 @@ namespace Simulations
         }
         void AsceticAcidMang()
         {
+            AscAPIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -662,8 +708,10 @@ namespace Simulations
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    
                     for (int i = 0; i < 4; i++)
                     {
+                        AscAPIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -675,6 +723,7 @@ namespace Simulations
         }
         void RespirationMang()
         {
+            CO2APIAnsArray = new string[activeSimulation.InputFields.Length];
             switch (curtStepIndex)
             {
                 case 0:
@@ -694,8 +743,10 @@ namespace Simulations
                     DisableSteps();
                     popupMang.SetActivePopup(PopupManager.PopupTypes.SubmitPopup);
                     activePopup = popupMang.ShowPopup("Select a subbmission option.", true);
+                    
                     for (int i = 0; i < 2; i++)
                     {
+                        CO2APIAnsArray[i] = activeSimulation.InputFields[i].text;
                         answerHolder.Add(activeSimulation.InputFields[i].text);
                     }
                     break;
@@ -847,7 +898,7 @@ namespace Simulations
                     switch (curtStepIndex)
                     {
                         case 4:
-                            for (int i = 0; i <= 14; i++)//7 steps in first stage
+                            for (int i = 0; i < 16; i++)//16 steps in first stage
                             {
                                 if (activeSimulation.InputFields[i].text == "")
                                 {
@@ -856,7 +907,7 @@ namespace Simulations
                             }
                             break;
                         case 6:
-                            for (int i = 14; i <= 27; i++)//7 steps in first stage
+                            for (int i = 16; i < 28; i++)//13 steps in 2bd stage
                             {
                                 if (activeSimulation.InputFields[i].text == "")
                                 {
@@ -865,7 +916,7 @@ namespace Simulations
                             }
                             break;
                         case 7:
-                            for (int i = 28; i <= 31; i++)//7 steps in first stage
+                            for (int i = 28; i < 32; i++)//4 steps in 3rd stage
                             {
                                 if (activeSimulation.InputFields[i].text == "")
                                 {

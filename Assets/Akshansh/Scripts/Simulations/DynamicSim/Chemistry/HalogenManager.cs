@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HalogenManager : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class HalogenManager : MonoBehaviour
     BeakerHolder solutionBeaker;
     Vector3 origDropperPos;
     Collider2D dropperCol;
+
+    public UnityEvent OnExpComplete;
+    public int completionIndex = 0;
 
     private void Start()
     {
@@ -142,6 +146,12 @@ public class HalogenManager : MonoBehaviour
                     {
                         _drop.GetComponent<SpriteRenderer>().DOColor(_tempBeaker.HalogenColor, halogenColSpeed).SetDelay(halogenFormDelay);//enable particles here
                         _tempBeaker.TargetSolution.DOColor(_tempBeaker.WaterColor, waterChangeSpeed).SetDelay(halogenFormDelay);
+                        completionIndex++;
+                        if (completionIndex > 2)
+                        {
+                            OnExpComplete?.Invoke();
+
+                        }
                     };
                     return;
                 }

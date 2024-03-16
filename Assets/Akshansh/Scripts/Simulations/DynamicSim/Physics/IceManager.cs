@@ -12,8 +12,7 @@ public class IceManager : MonoBehaviour
         meterScaleTime = 3f, iceMeltTime = 1f, waterRiseTime = 5f, waterScale = 1.7f,
         logTime = 1f,maskTime=10f;
     [SerializeField] TMP_Text timeTxt, tempTxt;
-    [SerializeField]
-    float[] timeValues, tempValues;
+    [SerializeField] float[] timeValues, tempValues;
     [SerializeField] Transform tempLine, waterLevel,maskObj;
     [SerializeField]
     float[] iceChangeTimes;
@@ -23,7 +22,7 @@ public class IceManager : MonoBehaviour
     [SerializeField] GameObject flameObj, SubmitButton;
     [SerializeField] GameObject AnswerContent, AnswerPrefab, AnswerHolder;
     public UnityEvent OnAnimComplete;
-
+    public List<GameObject> ApiAnswerList;
     bool isAnimating = false, canAnimate = true,canLog = true;
 
     private void Update()
@@ -84,6 +83,7 @@ public class IceManager : MonoBehaviour
         if (!canAnimate||isAnimating)
             return;
         isAnimating = true;
+        
         DynamicDataHolder.Instance.LoggedTemp = new List<float>();
         DynamicDataHolder.Instance.LoggedTime = new List<float>();
         tempLine.DOScaleX(meterScale, meterScaleTime);
@@ -97,12 +97,13 @@ public class IceManager : MonoBehaviour
     }
     public void ShowAnswer()
     {
-        for (int i = 0; i < AnswerContent.transform.childCount; i++)
+        ApiAnswerList.Clear();
+        for (int i = 1; i < AnswerContent.transform.childCount - 2; i++)
         {
-            if (i == AnswerContent.transform.childCount - 1 || i == 0)
+            /*if (i == AnswerContent.transform.childCount - 2 || i == 0)
             {
                 continue;
-            }
+            }*/
             Destroy(AnswerContent.transform.GetChild(i).gameObject);
         }
         var _temp = DynamicDataHolder.Instance;
@@ -111,7 +112,10 @@ public class IceManager : MonoBehaviour
             var _obj = Instantiate(AnswerPrefab, AnswerContent.transform);
             _obj.transform.GetChild(0).GetComponent<TMP_Text>().text = _temp.LoggedTime[i].ToString();
             _obj.transform.GetChild(1).GetComponent<TMP_Text>().text = _temp.LoggedTemp[i].ToString();
+            ApiAnswerList.Add(_obj);
         }
+        AnswerContent.transform.GetChild(2).SetSiblingIndex(AnswerContent.transform.childCount - 1);
+        
         SubmitButton.transform.SetAsLastSibling();
         AnswerHolder.SetActive(true);
     }

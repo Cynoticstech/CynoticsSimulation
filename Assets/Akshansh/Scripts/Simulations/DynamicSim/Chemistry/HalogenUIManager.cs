@@ -8,9 +8,11 @@ public class HalogenUIManager : MonoBehaviour
     [SerializeField] Transform tableContent,submitButt;
     [SerializeField] GameObject tableObj;
     [SerializeField] GameObject tableRowPref;
+    public List<TMP_Text> ApiAnswers;
 
     public void ShowTable()
     {
+        ApiAnswers.Clear();
         for(int i=0;i<tableContent.childCount-1;i++)
         {
             //exclude first and last obj
@@ -28,7 +30,15 @@ public class HalogenUIManager : MonoBehaviour
             temp.GetChild(4).GetComponent<TMP_Text>().text = v.HalogenValues[3];
             temp.GetChild(5).GetComponent<TMP_Text>().text = v.HalogenValues[5];
             temp.GetChild(6).GetComponent<TMP_Text>().text = v.HalogenValues[4];
+            
+            ApiAnswers.Add(temp.GetChild(1).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(2).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(3).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(4).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(5).GetComponent<TMP_Text>());
+            ApiAnswers.Add(temp.GetChild(6).GetComponent<TMP_Text>());
         }
+        
         submitButt.SetAsLastSibling();
         tableObj.SetActive(true);
     }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectName: 5
   PopupSequences:
-  - Welcome to the fourth experiment. We are going to study about fish and pigeon.
+  - Welcome to the Experiment.  We are going to study about fish and pigeon.
   - "First let\u2019s do a small activity. Can you label all the body parts of fish?"
   - "Amazing! Experiment submitted. Now here\u2019s a challenge for you, can you
     fill these tables and fill in the blanks?"
@@ -23,8 +23,8 @@ MonoBehaviour:
   - "Amazing!Experiment submitted. Now here\u2019s a challenge for you, can you fill
     these tables and fill in the blanks?"
   ValidAnswers:
-  - Spiny drosal fin
-  - Soft drosal fin
+  - Spiny dorsal fin
+  - Soft dorsal fin
   - Caudal fin
   - Anal fin
   - Pectoral fin
@@ -41,7 +41,7 @@ MonoBehaviour:
   - Beak
   - Eye
   - Neck
-  - Contour Feather
+  - Contour Feathers
   - Wing Feathers
   - Claws
   - Digits
