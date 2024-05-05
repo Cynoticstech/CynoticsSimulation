@@ -139,7 +139,9 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 1.5.2
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 4028622860152930934, guid: 2296f390840b70b48bbf96580937d0ef, type: 2}
+  - {fileID: 11400000, guid: b3191c3126ad989419e03df5c9b6dd6d, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -960,11 +962,11 @@ PlayerSettings:
   apiCompatibilityLevel: 3
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: bc03dc01-2849-4a6d-877c-b369c33b5f0c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: CynoticsSimulation
+  organizationId: moinuddin-ibrahim-shaikh
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
