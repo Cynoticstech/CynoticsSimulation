@@ -6,14 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Splash Screen.unity
-    guid: 921095295ef370c4eb9e9f20b1ff99be
-  - enabled: 1
-    path: Assets/_Scenes/Student Login.unity
-    guid: 4f9f88266cb48d241b7b977504b75ca6
-  - enabled: 1
-    path: Assets/_Scenes/Student Sign up 1.unity
-    guid: 7b52bbfb2ab1c6d42960a2ddca7112d9
+    path: Assets/_Scenes/OTP Login.unity
+    guid: cde8b55b59ddf134c9381e04cfcf8638
   - enabled: 1
     path: Assets/_Scenes/Main Alpha Functionality Pages.unity
     guid: 0a65a97e8cf624745a89d2f12293449c
