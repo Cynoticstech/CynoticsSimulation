@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "439711351975",
+    "project_id": "fir-testing-e552e",
+    "storage_bucket": "fir-testing-e552e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439711351975:android:5fd68d330871b451170782",
+        "android_client_info": {
+          "package_name": "com.BetinalPrivateLimited.Cynotics"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDkZeM8TLembgYvK6uRab_mzd4dH0YhiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
