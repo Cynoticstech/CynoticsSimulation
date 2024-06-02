@@ -113,7 +113,18 @@ public class PhoneAuth : MonoBehaviour
     public void CreateUser(){
         User newUser = new User(long.Parse(phoneInp.text));
         string json = JsonUtility.ToJson(newUser);
-        reference.Child("users").Child(UserId).SetRawJsonValueAsync(json);
+        reference.Child("users").Child(UserId).SetRawJsonValueAsync(json).ContinueWith(task => {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error: " + task.Exception);
+            }
+            else if (task.IsCompleted)
+            {
+                Debug.Log("User created successfully");
+                PlayerPrefs.SetString("UserId", UserId);
+                PlayerPrefs.Save();
+            }
+        });  
     }
 
     private void ShowToast(string message)
