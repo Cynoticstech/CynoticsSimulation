@@ -8,6 +8,7 @@ using Firebase.Database;
 public class User
 {
     public long PhoneNumber;
+    public bool IsPaidUser;
 
     public User(long phoneNumber)
     {
@@ -29,6 +30,18 @@ public class PhoneAuth : MonoBehaviour
     {
         auth = FirebaseAuth.DefaultInstance;
         provider = PhoneAuthProvider.GetInstance(auth);
+
+         // Check if a user is already signed in
+        if (FirebaseAuth.DefaultInstance.CurrentUser != null) {
+            // A user is already signed in
+            Debug.Log("User is already signed in");
+            SceneManager.LoadScene("Main Alpha Functionality Pages");
+        } else {
+            // No user is signed in
+            Debug.Log("No user is signed in");
+            // Show the sign-in UI
+        }
+        
         UserId = SystemInfo.deviceUniqueIdentifier;
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }

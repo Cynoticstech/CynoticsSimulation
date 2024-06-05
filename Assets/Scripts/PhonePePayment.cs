@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 
 public class PhonePePayment : MonoBehaviour
 {
-    private string serverUrl = "http://phonepeupdated-env.eba-x3bqhsde.ap-south-1.elasticbeanstalk.com";
+    private string serverUrl = "http://localhost:3000";
     public bool PaymentSuccess { get; private set; }
 
     public IEnumerator InitiatePayment(float amount, string phoneNumber)
