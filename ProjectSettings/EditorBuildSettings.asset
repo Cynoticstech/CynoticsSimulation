@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/OTP Login.unity
     guid: cde8b55b59ddf134c9381e04cfcf8638
   - enabled: 1

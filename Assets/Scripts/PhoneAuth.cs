@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using Firebase.Auth;
-using Firebase.Extensions;
 using UnityEngine.SceneManagement;
 using Firebase.Database;
 
@@ -13,6 +12,7 @@ public class User
     public User(long phoneNumber)
     {
         PhoneNumber = phoneNumber;
+        IsPaidUser = false; // Assuming default value
     }
 }
 
@@ -28,22 +28,8 @@ public class PhoneAuth : MonoBehaviour
 
     private void Start()
     {
-        auth = FirebaseAuth.DefaultInstance;
-        provider = PhoneAuthProvider.GetInstance(auth);
-
-         // Check if a user is already signed in
-        if (FirebaseAuth.DefaultInstance.CurrentUser != null) {
-            // A user is already signed in
-            Debug.Log("User is already signed in");
-            SceneManager.LoadScene("Main Alpha Functionality Pages");
-        } else {
-            // No user is signed in
-            Debug.Log("No user is signed in");
-            // Show the sign-in UI
-        }
-        
-        UserId = SystemInfo.deviceUniqueIdentifier;
         reference = FirebaseDatabase.DefaultInstance.RootReference;
+        UserId = SystemInfo.deviceUniqueIdentifier;
     }
 
     public void sendSMS()
@@ -102,7 +88,7 @@ public class PhoneAuth : MonoBehaviour
 
         PhoneAuthCredential credential = provider.GetCredential(verificationId, verificationCode);
 
-        auth.SignInAndRetrieveDataWithCredentialAsync(credential).ContinueWithOnMainThread(task =>
+        auth.SignInAndRetrieveDataWithCredentialAsync(credential).ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
