@@ -20,6 +20,8 @@ public class IAPManager : MonoBehaviour, IStoreListener
     public GameObject physicsPremiumGameObject;
     public GameObject chemistryPremiumGameObject;
     public GameObject biologyPremiumGameObject;
+    public GameObject premiumPage;
+    public GameObject freePage;
 
     private bool isPaidUser;
 
@@ -202,4 +204,21 @@ public class IAPManager : MonoBehaviour, IStoreListener
     {
         Debug.LogError($"Unity IAP Initialization Failed: {error}, {message}");
     }
+
+    public void checkUserStatus()
+    {
+        isPaidUser = PlayerPrefs.GetInt("SubscriptionActive", 0) == 1;
+        Debug.Log("checkUserStatus called. isPaidUser: " + isPaidUser);
+        if (isPaidUser)
+        {
+            premiumPage.SetActive(true);
+            freePage.SetActive(false);
+        }
+        else
+        {
+            premiumPage.SetActive(false);
+            freePage.SetActive(true);
+        }
+    }
+
 }
