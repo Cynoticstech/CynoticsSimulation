@@ -55,6 +55,12 @@ public class CollisionCalculator : MonoBehaviour
     void Awake()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+        // Check if the back button was pressed
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Load the "Main Alpha Functionality Pages" scene
+            SceneManager.LoadScene("Main Alpha Functionality Pages");
+        }
     }
 
     void UpdateValues()
