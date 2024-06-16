@@ -11,7 +11,7 @@ public class OpenPDF : MonoBehaviour
     public Button yourButton;
 
     // Name of the PDF file in the StreamingAssets folder
-    public string pdfFileName = "collision Mathematical calculations.pdf";
+    public string pdfFileName = "The Photoelectric Effect.pdf";
 
     void Start()
     {
