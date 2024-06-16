@@ -248,7 +248,6 @@ GameObject:
   - component: {fileID: 173633495}
   - component: {fileID: 173633494}
   - component: {fileID: 173633493}
-  - component: {fileID: 173633492}
   m_Layer: 5
   m_Name: info
   m_TagString: Untagged
@@ -276,20 +275,6 @@ RectTransform:
   m_AnchoredPosition: {x: 337, y: 138}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &173633492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173633490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5d7549650a89b449eb6d7f3ec0df42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yourButton: {fileID: 173633493}
-  pdfFileName: The Photoelectric Effect.pdf
 --- !u!114 &173633493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +318,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 173633494}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 880194032}
+        m_TargetAssemblyTypeName: Redirect_Url, Assembly-CSharp
+        m_MethodName: Redirect
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: https://drive.google.com/file/d/1vUVg1tO8LNmJsCrZEQ8yivc1iOMjz34n/view?usp=sharing
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &173633494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,7 +799,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.24293971, b: 1, a: 1}
   m_FlipX: 0
@@ -2547,6 +2544,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868118460}
   m_CullTransparentMesh: 1
+--- !u!1 &880194030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 880194031}
+  - component: {fileID: 880194032}
+  m_Layer: 0
+  m_Name: RedirectURL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &880194031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880194030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &880194032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880194030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119cd97fc8ae36e4f820933e5935b23f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &880420647
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,7 +3081,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 321, y: -107}
+  m_AnchoredPosition: {x: 334.7, y: -107}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138734991
@@ -3126,7 +3167,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 110.208755, w: 35.115562}
+  m_margin: {x: 0, y: 0, z: 119.084724, w: 35.115562}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3386,7 +3427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369.30008, y: -154.2}
+  m_AnchoredPosition: {x: 353.6, y: -154.2}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1225574178
@@ -3472,7 +3513,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -19.988857, z: 150.72672, w: 57.805614}
+  m_margin: {x: 20.146889, y: -36.706493, z: 125.00729, w: 74.09458}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9957,7 +9998,7 @@ Transform:
   m_GameObject: {fileID: 1869467990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.916, y: -1.51, z: 0}
-  m_LocalScale: {x: 1.9953612, y: 0.4872254, z: 1.0972}
+  m_LocalScale: {x: 1.621231, y: 0.4872254, z: 1.0972}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1647602014}

@@ -177,7 +177,7 @@ public class PhotoelectricEffect : MonoBehaviour
                 Debug.Log($"Current: {current} nA");
             }
         }
-        currentText.text = $"Current: {current:F2} nA";
+        currentText.text = $"{current:F2} nA";
     }
 
     void UpdateElectronEmission()
