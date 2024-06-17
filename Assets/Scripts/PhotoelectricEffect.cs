@@ -200,7 +200,7 @@ public class PhotoelectricEffect : MonoBehaviour
             if (!toastShown) // Check if the toast has not been shown yet
             {
                 Debug.Log("Trying to show toast notification");
-                ShowToast("Wavelength exceeds threshold value so no particles will be emmited");
+                ShowToast("Wavelength exceeds threshold value so no particles will be emitted");
                 toastShown = true; // Set the flag to true after showing the toast
             }
             emission.rateOverTime = 0;
