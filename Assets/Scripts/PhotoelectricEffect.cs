@@ -29,6 +29,7 @@ public class PhotoelectricEffect : MonoBehaviour
     public TMP_Dropdown metalDropdown;
     public TMP_Text workFunctionText; // Declare the TMP public variable
     private Color currentColor;
+    private bool toastShown = false; // Add this line to declare a flag for toast notification
     private struct MetalProperties
     {
         public float workFunction; // in eV
@@ -196,6 +197,12 @@ public class PhotoelectricEffect : MonoBehaviour
         // Check if the wavelength exceeds the threshold wavelength and stop emission if true
         if (wavelength > metals[metalDropdown.options[metalDropdown.value].text].thresholdWavelength)
         {
+            if (!toastShown) // Check if the toast has not been shown yet
+            {
+                Debug.Log("Trying to show toast notification");
+                ShowToast("Wavelength exceeds threshold value so no particles will be emmited");
+                toastShown = true; // Set the flag to true after showing the toast
+            }
             emission.rateOverTime = 0;
             return;
         }
@@ -268,5 +275,24 @@ public class PhotoelectricEffect : MonoBehaviour
         B = Mathf.Clamp(B, 0, 1);
 
         return new Color(R, G, B, lightSprite.color.a);
+    }
+    private void ShowToast(string message)
+    {
+        #if UNITY_ANDROID && !UNITY_EDITOR
+        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+            activity.Call("runOnUiThread", new AndroidJavaRunnable(() =>
+            {
+                AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
+                AndroidJavaClass toastClass = new AndroidJavaClass("android.widget.Toast");
+                AndroidJavaObject toastObject = toastClass.CallStatic<AndroidJavaObject>("makeText", context, message, toastClass.GetStatic<int>("LENGTH_SHORT"));
+                toastObject.Call("show");
+                Debug.Log("Toast shown: " + message);
+            }));
+        }
+        #else
+        Debug.Log("Toast: " + message);
+        #endif
     }
 }
