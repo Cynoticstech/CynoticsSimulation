@@ -94,7 +94,7 @@ public class ExampleUsage : MonoBehaviour
             {
                 MyUser user = JsonUtility.FromJson<MyUser>(snapshot.GetRawJsonValue());
                 long phoneNumber = user.PhoneNumber; // Retrieve the phone number from the user data
-                float amount = 199.0f; // Example amount
+                float amount = 99.0f; // Example amount
                 await InitiatePaymentAndUnlock(amount, phoneNumber, UserID);
             }
         }
