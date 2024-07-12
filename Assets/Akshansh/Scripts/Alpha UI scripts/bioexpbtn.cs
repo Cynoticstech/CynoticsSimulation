@@ -11,3 +11,4 @@ public class bioexpbtn : MonoBehaviour
     
     
 }
+// Path: Assets/Akshansh/Scripts/Alpha%20UI%20scripts/bioexpbtn.cs

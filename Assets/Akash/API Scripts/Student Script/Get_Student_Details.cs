@@ -271,38 +271,38 @@ public class Get_Student_Details : MonoBehaviour
 
     public void BiologyPremiumFn()
     {
-        if (subsplan == "premium")
-        {
+        /*if (subsplan == "premium")
+        {*/
             BioPremium.SetActive(true);
-        }
+        /*}
         else if (subsplan == "free")
         {
             BioFree.SetActive(true);
-        }
+        }*/
     }
 
     public void PhysicsPremiumFn()
     {
-        if (subsplan == "premium")
-        {
+        /*if (subsplan == "premium")
+        {*/
             Physicspremium.SetActive(true);
-        }
+        /*}
         else if (subsplan == "free")
         {
-            PhysicsFree.SetActive(true);
-        }
+            BioFree.SetActive(true);
+        }*/
     }
 
     public void ChemistryPremiumFn()
     {
-        if (subsplan == "premium")
-        {
+        /*if (subsplan == "premium")
+        {*/
             ChemistryPremium.SetActive(true);
-        }
+        /*}
         else if (subsplan == "free")
         {
-            ChemistryFree.SetActive(true);
-        }
+            BioFree.SetActive(true);
+        }*/
     }
 
     private bool IsValidDateFormat(string date)
@@ -326,7 +326,7 @@ public class Get_Student_Details : MonoBehaviour
 
         Debug.Log(jsonBody);
 
-        UnityWebRequest request = UnityWebRequest.Post(_url, "application/json");
+        UnityWebRequest request = UnityWebRequest.PostWwwForm(_url, "application/json");
 
         request.SetRequestHeader("Content-Type", "application/json");
         request.uploadHandler = new UploadHandlerRaw(rawBody);
@@ -361,7 +361,7 @@ public class Get_Student_Details : MonoBehaviour
 
         Debug.Log(jsonBody);
 
-        UnityWebRequest request = UnityWebRequest.Post(_url, "application/json");
+        UnityWebRequest request = UnityWebRequest.PostWwwForm(_url, "application/json");
 
         request.SetRequestHeader("Content-Type", "application/json");
         request.uploadHandler = new UploadHandlerRaw(rawBody);
